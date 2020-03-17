@@ -1,0 +1,147 @@
+{% extends "/layout/profile.html" %}
+
+{% from "/macros/rating.html" import rating %}
+{% from "/macros/profile/profile-questions.html" import confirmationModal, addQuestionModal, editQuestion %}
+{% from "/macros/profile-image.html" import userImageMedium %}
+
+{% set i18n = application.questions.i18n %}
+{% set questions = application.questions.items %}
+{% set user = config.user %}
+
+{% block contentSection %}
+    <div class="js-profile-questions">
+    <div class="feature-actions">
+        <div class="feature-actions-text">
+            <h3>
+                {% if questions.length == 0 %}
+                    {{ i18n.headers.noQuestion }}
+                {% else %}
+                    {{ i18n.headers.whatWouldYou }}
+                {% endif %}
+            </h3>
+        </div>
+        <div class="feature-actions-button right">
+            {% if user.isLoggedIn == false %}
+                <button type="button" onclick="window.location= '/login?redirectUrl='+window.location.href " class="button button__primary toolbar--item" aria-label="signUp">
+                    {{ i18n.labels.signUp }}
+                </button>
+            {% else %}
+                <button type="button" class="button button__primary toolbar--item js-profile-ask-question" aria-label="askQuestion">
+                    {{ i18n.labels.askQuestion }}
+                </button>
+            {% endif %}
+         </div>
+    </div>
+    <div class="js-notification"></div>
+
+    {% if questions.length >= 1 %}
+        <div class="" id="customer-questions-container">
+            <h2 class="js-nbQuestions">{{ i18n.headers.nbQuestions }}</h2>
+
+            <ul class="slat-container js-question-container" >
+                <div class="filters grid-header" data-filters="">
+                    <menu class="filters--header filters-header">
+                        <div class="filters--header_item search-container container_header--item__last">
+                            <div class="search_field input_row input_row__search">
+                                <div class="input_row--item input_row--primary">
+                                    <input aria-label="{{ i18n.labels.search }}" class="input_row--item_content search_field--input text__small js-input-search-question" placeholder="{{ i18n.labels.search }}" type="search">
+                                </div>
+                                <div class="input_row--item js-search-button-container">
+                                    <button aria-label="Submit" class="input_row--item_content search_field--button button button__neutral button__small js-submit-question" type="button">
+                                        <i class="icon__search"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </menu>
+                </div>
+                <ul class="list">
+                {% for question in questions %}
+                    <div class="slat js-slat" data-question-id="{{ question.id }}" data-endpoint="{{ question.actionEndpoint }}">
+                        <div class="slat--image slat--column">
+                            {{ userImageMedium(question.author.profilePicUrl) }}
+                        </div>
+                        <div class="slat--content slat--column">
+                            <h3 class="question-title">{{ question.title }}</h3>
+                            <p class="question-comment">{{ question.comment }}</p>
+                            <p class="subtitle">{{ question.byDate }}</p>
+                            <p class="caption">
+                                {% if question.answerCount %}
+                                    <a class="js-comment-hide is-hidden caption-element">{{ question.i18n.hideAnswer }}</a>
+                                    <a class="js-comment-show caption-element">{{ question.i18n.showAnswer }}</a>
+                                {% endif %}
+                                {% if user.isLoggedIn %}
+                                    <a class="js-menu-reply caption-element">{{ i18n.labels.answer }}</a>
+                                {% endif %}
+                                {% if question.isCurrentUserQuestion %}
+                                    <a class="js-menu-edit caption-element">{{ i18n.labels.edit }}</a>
+                                {% endif %}
+                                {% if question.isCurrentUserQuestion and not question.answerCount %}
+                                    <a class="js-menu-delete caption-element">{{ i18n.labels.delete }}</a>
+                                {% endif %}
+                            </p>
+                            {{ editQuestion(i18n, question.title, question.comment) }}
+                            <div class="comments js-comments is-hidden">
+                            {% for comment in question.answers %}
+                                <div data-component="threaded-comment" class="slat slat__indented" data-comment-id="{{ comment.id }}" data-endpoint="{{ comment.actionEndpoint }}">
+                                    <div class="slat--column">
+                                        <div class="slat--image">
+                                            {{ userImageMedium(comment.author.profilePicUrl) }}
+                                        </div>
+                                    </div>
+                                    <div class="slat--content slat--column">
+                                        <h3>
+                                            {% if comment.official %}
+                                            <div class="badges">
+                                                <span class="badge badge--emphasis">
+                                                    {{ i18n.labels.developerAnswer }}
+                                                </span>
+                                            </div>
+                                            {% endif %}
+                                        </h3>
+                                        <p>{{ comment.comment }}</p>
+                                        <p class="subtitle">{{ comment.i18n.byDate }}</p>
+                                        <p class="caption js-menu-container">
+                                            {% if comment.isCurrentUserAnswer %}
+                                                <a class="js-menu-delete-comment">Delete</a>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </ul>
+                <div class="container_footer">
+                    <div class="container_footer--item count-container">
+                        <span class="subtitle js-nbResults">{{ i18n.labels.resultsStr }}</span>
+                    </div>
+                    {% if questions.length >= 7 %}
+                        <div class="container_footer--item__last pager-container js-pager">
+                            <nav class="pagination"></nav>
+                        </div>
+                    {% endif %}
+                </div>
+            </ul>
+
+        </div>
+    {% endif %}
+</div>
+    {{ confirmationModal("delete-question-confirmation", i18n.labels.confirm, i18n.messages.confirm.deleteQuestion, i18n) }}
+    {{ confirmationModal("delete-answer-confirmation", i18n.labels.confirm, i18n.messages.confirm.deleteAnswer, i18n) }}
+    {{ addQuestionModal(i18n) }}
+
+    <script src="{{ r('/assets/js/profile-questions.js') }}"></script>
+    <script>
+
+        $(".js-profile-questions")
+            .profileQuestions({
+                    endpoint: "{{ application.questions.actionEndpoint }}",
+                    i18n: '{{ i18n | dump | safe }}'
+                }
+            );
+    </script>
+{% endblock %}

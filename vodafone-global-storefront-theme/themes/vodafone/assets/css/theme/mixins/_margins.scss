@@ -1,0 +1,26 @@
+@mixin _adb-margin ($margin:margin(medium), $bottom-margin:true) {
+    @if $bottom-margin == false {
+        margin-top: $margin;
+    } @else {
+        margin: $margin 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin _adb-layout-margin ($top-margin:false) {
+    margin-bottom: margin(xxlarge);
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @if $top-margin == true {
+        margin-top: margin(xxlarge);
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

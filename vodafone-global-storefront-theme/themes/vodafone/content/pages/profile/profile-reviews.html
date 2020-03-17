@@ -1,0 +1,152 @@
+{% extends "/layout/profile.html" %}
+
+{% from "/macros/rating.html" import rating %}
+{% from "/macros/profile/profile-reviews.html" import writeReviewModal %}
+{% from "/macros/profile-image.html" import productImageMedium, userImageMedium %}
+
+{% set i18n = application.reviews.i18n %}
+{% set reviews = application.reviews %}
+{% set currentUserReview = application.reviews.currentUserReview %}
+{% set user = config.user %}
+
+{% block contentSection %}
+<div class="js-profile-reviews">
+    <div class="feature-actions row no-gutters">
+        <div class="col-8">
+            {% if reviews.items.length == 0 %}
+                <h3>{{ i18n.noReviews }}</h3>
+            {% else %}
+            <div class="row no-gutter">
+                <div class="col-8">
+                    <h3>{{ i18n.averageReview }}</h3>
+                    {{ rating(reviews.rating) }}
+                    <div class="caption">
+                        {{ i18n.ratioOutOfNumReviewTotal }}
+                    </div>
+                </div>
+                {% if user.isLoggedIn %}
+                    <div class="col-8">
+                        <h3>{{ i18n.myReview }}</h3>
+                        {{ rating(currentUserReview.rating) }}
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-8 right">
+            {% if user.isLoggedIn == false %}
+                <button type="button" onclick="window.location= '/login?redirectUrl='+window.location.href " class="button button__primary toolbar--item" aria-label="signUp">
+                    {{ i18n.signup }}
+                </button>
+            {% else %}
+                <button type="button" class="button button__primary toolbar--item js-profile-write-review" aria-label="writeReview">
+                    {{ i18n.writeReview }}
+                </button>
+            {% endif %}
+         </div>
+    </div>
+    <div class="js-notification"></div>
+
+    {% if reviews.featured.length >= 1 %}
+        <div class="featuredReviews">
+            <h2>{{ i18n.featuredReviews }}</h2>
+            <section class="slat-container">
+                {% for review in reviews.featured %}
+                <div class="slat">
+                    <div class="slat--image slat--column">
+                        {{ productImageMedium(review.source.logoUrl) }}
+                    </div>
+                    <div class="slat--content slat--column">
+                        <h3>{{ review.source.name }}</h3>
+                        <p>{{ review.linkDescription }} <a href="{{ review.link }}">{{ i18n.readMore }}</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+    {% endif %}
+
+    {% if reviews.items.length >= 1 %}
+        <div class="featuredReviews" id="customer-reviews-container">
+            <h2>{{reviews.items.length}} {{ i18n.reviews }}</h2>
+            <ul class="slat-container js-review-container" >
+                <div class="list">
+                {% for review in reviews.items %}
+                    <div class="slat js-slat">
+                        <div class="slat--image slat--column">
+                            {{ userImageMedium(review.author.profilePicUrl) }}
+                            {% if review.isCurrentUserReview %}
+                                <h6 class="slat--image_caption">{{ i18n.myReview }}</h6>
+                            {% endif %}
+                        </div>
+                        <div class="slat--content slat--column">
+                                <h3 class="review-title">{{ review.title }}</h3>
+                                {{ rating(review.rating) }}
+                                <p>{{ review.comment }}</p>
+                                <p class="subtitle">{{ review.byDate }}</p>
+                                <p class="caption">
+                                    {% if review.commentCount >=1 %}
+                                        <a class="js-comment-show caption-element">{{ review.i18n.showCommentCount }}</a>
+                                        <a class="js-comment-hide is-hidden caption-element">{{ review.i18n.hideCommentCount }}</a>
+                                    {% endif %}
+                                    {% if user.isLoggedIn %}
+                                        <a class="js-menu-reply caption-element">{{ i18n.comment }}</a>
+                                    {% endif %}
+                                    {% if review.isCurrentUserReview %}
+                                        <a class="js-menu-edit caption-element">{{ i18n.edit }}</a>
+                                    {% endif %}
+                                </p>
+                                <div class="comments js-comments is-hidden">
+                                {% for comment in review.comments %}
+                                    <div data-component="threaded-comment" class="slat slat__indented">
+                                        <div class="slat--column">
+                                            <div class="slat--image">
+                                                {{ userImageMedium(commit.author.profilePicUrl) }}
+                                            </div>
+                                            {% if comment.isCurrentUserComment %}
+                                                <h6 class="slat--image_caption">{{ i18n.myReview }}</h6>
+                                            {% endif %}
+                                        </div>
+                                        <div class="slat--content slat--column">
+                                            <h3></h3>
+                                            <p>{{ comment.comment }}</p>
+                                            <p class="subtitle">{{ comment.i18n.byDate }}</p>
+                                            <p class="caption js-menu-container">
+                                                {% if comment.isCurrentUserComment %}
+                                                    <a class="js-menu-delete">Delete</a>
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="container_footer">
+                    <div class="container_footer--item count-container">
+                        <span class="subtitle">{{ i18n.custReviewsResults }}</span>
+                    </div>
+                    {% if reviews.items.length >= 7 %}
+                        <div class="container_footer--item__last pager-container">
+                            <nav class="pagination"></nav>
+                        </div>
+                    {% endif %}
+                </div>
+            </ul>
+        </div>
+    {% endif %}
+</div>
+    {{ writeReviewModal(i18n) }}
+
+    <script src="{{ r('/assets/js/profile-reviews.js') }}"></script>
+    <script>
+        $(".js-profile-reviews")
+            .profileReviews({
+                    endpoint: "{{ application.reviews.actionEndpoint }}",
+                    i18n: '{{ i18n | dump | safe }}'
+                }
+            );
+    </script>
+{% endblock %}

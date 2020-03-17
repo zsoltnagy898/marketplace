@@ -1,0 +1,13 @@
+{% macro compareListCells(list, key) %}
+    {% for idx in [0,1,2,3] %}
+        {% if list[idx] %}
+            <td class="compare__cell">
+                <ul class="compare__list">
+                    {% for entry in list[idx][key] %}
+                        <li>{{ entry }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

@@ -1,0 +1,32 @@
+.ad-uniheader__logo-container {
+	height: $nav-height;        
+	list-style: none;
+
+	&--link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		text-decoration: none;
+		height: 100%;
+		padding: 0 $nav-item-padding-horizontal - 6px;
+		
+		&:hover {
+			background-color: $headerNavItemBgHover;
+			color: $headerNavFontHoverColor;
+			text-decoration: none;
+		}
+	}
+
+	&--image {
+		background-image: url($logoImage);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		display: block;
+		height: $nav-logo-height;
+		min-width: 31px;
+		max-width: 200px;
+		width: $logoWidth;
+	}
+}

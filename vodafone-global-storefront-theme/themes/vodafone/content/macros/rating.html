@@ -1,0 +1,20 @@
+{% macro rating(rating) %}
+    {% if(rating) %}
+    <div class="rating">
+        <i class="rating__icon rating__icon--{% if(rating == 0) %}unrated{% else %}positive{% endif %}"></i><!--
+        --><i class="rating__icon rating__icon--{% if(rating <= 1) %}unrated{% else %}positive{% endif %}"></i><!--
+        --><i class="rating__icon rating__icon--{% if(rating <= 2) %}unrated{% else %}positive{% endif %}"></i><!--
+        --><i class="rating__icon rating__icon--{% if(rating <= 3) %}unrated{% else %}positive{% endif %}"></i><!--
+        --><i class="rating__icon rating__icon--{% if(rating <= 4) %}unrated{% else %}positive{% endif %}"></i>
+    </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro ratingInput(outOf = 5, formName = "rating") %}
+    <div class="rating-input">
+        {% for i in range(0, outOf) -%}
+            <input class="rating-input--element" type="radio" name="{{ formName }}" value="{{ outOf - i }}" id="rating--input-{{ outOf - i }}"/>
+            <label class="js-rating-icon rating__icon rating-input--label" for="rating--input-{{ outOf - i }}" data-rating="{{ outOf - i }}"></label>
+        {%- endfor %}
+    </div>
+{% endmacro %}

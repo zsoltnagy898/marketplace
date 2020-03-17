@@ -1,0 +1,27 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/listing/listing-navigator.html" import listingNavigator %}
+{% from "/macros/listing/listing-items.html" import listingItems %}
+
+{% block content %}
+<div class="row listing listing-page row--spaced" data-sort='{{ listing.query.order }}'>
+    <script>
+        var view = sessionStorage.getItem("listingView");
+        if(view === "grid") {
+            document.querySelector(".listing-page").classList.add("listing-grid-list");
+        } else {
+            document.querySelector(".listing-page").classList.add("listing-show-list");
+        }
+    </script>
+
+    {{ listingNavigator(listingFilters, listingProducts.query) }}
+    <div class="col-xs-8 col-fix-inv-sm-4 listing-items">
+        <div class="content">
+            {{ listingItems(listingProducts, listingFilters.selectedFilters) }}
+        </div>
+        <div class="listing-overlay is-hidden"></div>
+    </div>
+</div>
+<script>
+    $(".listing-page").listing({});
+</script>
+{% endblock %}

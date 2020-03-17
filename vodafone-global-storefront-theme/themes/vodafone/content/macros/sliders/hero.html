@@ -1,0 +1,31 @@
+{% macro hero(products=[], i18n={}) %}
+<div class="hero">
+    <div class="hero--container">
+        <ul class="hero-carousel-nav">
+            <li class="prev js-slider-prev"><a></a></li>
+            <li class="next js-slider-next"><a></a></li>
+        </ul>
+        <div class="hero--carousel hero-carousel-container">
+            <div class="slider--items">
+                {% for product in products %}
+                <div class="hero--item">
+                    <div class="hero--item_card">
+                        <div class="hero--item_image">
+                            <span class="helper"></span>
+                            <div class="id">
+                                <img aria-label="{{product.name}}" class="id--heroimg" alt="" src="{{ product.overviewImageUrl }}">
+                            </div>
+                        </div>
+                        <div class="hero--item_content">
+                            <a class="title__xxlarge" href="{{product.url}}">{{product.name}}</a>
+                            <p data-truncate="paragraph" title="Cognitive Enterprise Mobility Management">{{product.blurb}}</p>
+                            <a href="{{product.url}}" class="button button__emphasis button__large" type="button">{{i18n.learnMore}}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

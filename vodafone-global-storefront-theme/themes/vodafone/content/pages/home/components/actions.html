@@ -1,0 +1,142 @@
+{% macro actions() %}
+<!--<div id="dialog" class="js-dialog dialog js-dialog-display dialog&#45;&#45;display dialog&#45;&#45;scrollable">-->
+    <!--<div class="spring dialog__close-spring">-->
+        <!--<a href="#" class="js-dialog-close dialog__close " style="display: inline-block;">-->
+            <!--<svg focusable="false" aria-hidden="true" class="icon  icon&#45;&#45;small  dialog__icon">-->
+                <!--<use xlink:href="#icon-close"></use>-->
+            <!--</svg>-->
+
+            <!--<span class="visually-hidden">Close dialog</span>-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="js-dialog-content dialog__content" style="display: block;"><div id="ajax" class="ajax">-->
+        <!--<h2 class="heading heading&#45;&#45;1 heading&#45;&#45;light heading&#45;&#45;center">Search</h2>-->
+        <!--<div class="search-snack">-->
+            <!--<div class="js-component-component component__component" data-component="form">-->
+                <!--&lt;!&ndash; START: "group/pages/search-snack/content/form" Array-->
+<!--(-->
+<!--[journey] => anonymous-->
+<!--)-->
+<!--&ndash;&gt;-->
+                <!--<form action="http://localhost:8002/search" data-proxy="http://localhost:8002/sayt/proxy" data-js="_sayt, _validation" class="align-center space&#45;&#45;bottom sayt validation form js-dynamic-content-listener" novalidate="novalidate">-->
+                    <!--<input type="hidden" name="lob" value="personal">-->
+                    <!--<input type="hidden" name="x1" value="search_category">-->
+                    <!--<div class="spring">-->
+                        <!--<div class="search-snack__input">-->
+                            <!--<div class="input-group">-->
+                                <!--<label for="search-snack-input"><span class="visually-hidden">Search on the website</span></label>-->
+                                <!--<input id="search-snack-input" class="input-group__input form__input form__text js-sayt-input" placeholder="Hello, how can we help you?" name="q" type="text" required="" autocomplete="off">-->
+                                <!--<button class="input-group__clear" type="reset">-->
+                                    <!--<span class="visually-hidden">Clear search query</span>-->
+                                    <!--<svg focusable="false" aria-hidden="true" class="icon  icon&#45;&#45;small  input-group__clear-icon">-->
+                                        <!--<use xlink:href="#icon-close"></use>-->
+                                    <!--</svg>-->
+                                <!--</button>-->
+                                <!--&lt;!&ndash; START: "group/directives/button/adaptations/$adaptation" Array-->
+                <!--(-->
+                    <!--[adaptation] => primary-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+                                <!--<button type="submit" name="" class="button button&#45;&#45;primary  button&#45;&#45;primary&#45;&#45;dark  input-group__submit button&#45;&#45;disabled" disabled="disabled">-->
+                                    <!--<span class="visually-hidden">Search</span>-->
+                                    <!--<svg focusable="false" aria-hidden="true" class="icon  chevron__icon input-group__submit-icon">-->
+                                        <!--<use xlink:href="#icon-search"></use>-->
+                                    <!--</svg>-->
+
+                                <!--</button>-->
+                                <!--&lt;!&ndash; END: "group/directives/button/adaptations/$adaptation" &ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="js-sayt-results"></div>-->
+                        <!--<div class="js-sayt-no-results">-->
+                            <!--<div class="section section&#45;&#45;gutter">-->
+                                <!--&lt;!&ndash; START: "group/pages/search-snack/content/popular-tags" Array-->
+                <!--(-->
+                    <!--[journey] => anonymous-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+                                <!--<div class="search-snack__popular">-->
+                                    <!--<h3 class="heading heading&#45;&#45;3 heading&#45;&#45;center heading&#45;&#45;leading space&#45;&#45;bottom search-snack__heading">Popular searches</h3>-->
+                                    <!--<nav class="search-snack__popular-tags">-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Roaming">Roaming</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Cherry%20points">Cherry points</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Device">Device</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Manufacturer">Manufacturer</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Device%20features">Device features</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Top%20up">Top up</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Subscription">Subscription</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=New">New</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Webtext">Webtext</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Free%20texts">Free texts</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Red">Red</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Phones">Phones</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Upgrade">Upgrade</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Broadband">Broadband</a>-->
+                                        <!--<a class="search-snack__popular-tag js-sayt-popular-tag" href="http://localhost:8002/search?x1=search_category&amp;q=Netflix">Netflix</a>-->
+                                    <!--</nav>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; END: "group/pages/search-snack/content/popular-tags" &ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--&lt;!&ndash; START: "group/pages/search-snack/templates/accessory" Array-->
+                <!--(-->
+                    <!--[journey] => anonymous-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+                    <!--&lt;!&ndash; END: "group/pages/search-snack/templates/accessory" &ndash;&gt;-->
+                    <!--&lt;!&ndash; START: "group/pages/search-snack/templates/category" Array-->
+                <!--(-->
+                    <!--[journey] => anonymous-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+
+                    <!--&lt;!&ndash; END: "group/pages/search-snack/templates/category" &ndash;&gt;-->
+                    <!--&lt;!&ndash; START: "group/pages/search-snack/templates/empty" Array-->
+                <!--(-->
+                    <!--[journey] => anonymous-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+                   <!--=-->
+                    <!--&lt;!&ndash; END: "group/pages/search-snack/templates/empty" &ndash;&gt;-->
+                    <!--&lt;!&ndash; START: "group/pages/search-snack/templates/help" Array-->
+                <!--(-->
+                    <!--[journey] => anonymous-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+
+                    <!--&lt;!&ndash; END: "group/pages/search-snack/templates/help" &ndash;&gt;-->
+                    <!--&lt;!&ndash; START: "group/pages/search-snack/templates/product" Array-->
+                <!--(-->
+                    <!--[journey] => anonymous-->
+                <!--)-->
+                 <!--&ndash;&gt;-->
+                    <!--&lt;!&ndash; END: "group/pages/search-snack/templates/product" &ndash;&gt;-->
+                <!--</form>-->
+                <!--&lt;!&ndash; END: "group/pages/search-snack/content/form" &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div></div>-->
+<!--</div>-->
+    <div class="spring">
+        <div class="grid">
+            <div class="grid__item grid__item--1/2 text-center align--center">
+                <h4 class="heading heading--4 heading--center heading--leading">
+                    You already know what you want?
+                </h4>
+                <a target="_blank" href="#" class="button button--secondary  no-gutter--all align--center">
+                    Search apps
+                </a>
+            </div>
+            <div class="grid__item grid__item--1/2 text-center align--center">
+                <h4 class="heading heading--4 heading--center heading--leading">
+                    Not sure what you want?
+                </h4>
+                <a target="_blank" href="#" class="button button--secondary  no-gutter--all align--center">
+                    Select a category
+                </a>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

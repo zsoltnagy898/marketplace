@@ -1,0 +1,9 @@
+/// spacing
+
+@function margin ($size:medium) {
+    @each $value in $margin {
+        @if nth($value, 1) == $size {
+            @return nth($value, 2);
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{% macro addons(addons) %}
+<section class="section no-gutter--all section--wild-sand" id="Addons-content">
+<div class="spring">
+    <h3 class="heading heading--3 heading--center heading--leading">Vodafone Add-ons</h3>
+    <ul class="grid grid--gutter" data-js="_equalRows" data-items=".chevron" data-sample-height=".chevron__text">
+        {% for addon in addons.items %}
+        <li class="grid__item grid__item--gutter grid__item--sm-1/1 grid__item--md-1/1 grid__item--1/1 flush--sm-bottom">
+            <!-- START: "group/directives/linktile/adaptations/$adaptation" Array
+    (
+        [adaptation] => default
+    )
+     -->
+            <a href="#" class="link link--tile  link--tile--dark ">
+	<span class="chevron">
+		<span class="chevron__text">
+            <span class="media media--gutter media--middle">
+                                    <span class="link__icon media__image hide--sm">
+                        <svg focusable="false" aria-hidden="true" class="icon  icon--large  icon--empty">
+    <use xlink:href="#icon-voice-of-vodafone-alerts-mid"/>
+</svg>
+
+                    </span>
+                                <span class="media__body">
+                    <span class="link__heading heading heading--4 no-gutter--all ">
+                        {{ addon.name }}
+                    </span>
+                                    <span class="description">
+                                        {{ addon.description }}
+                                    </span>
+                                            <!--<span class="link__heading heading heading&#45;&#45;regular heading&#45;&#45;6 no-gutter&#45;&#45;all ">-->
+                            <!--Manage communication methods with Vodafone-->
+                        <!--</span>-->
+                                    </span>
+            </span>
+		</span>
+		<span class="chevron__container">
+			<svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+    <use xlink:href="#icon-chevron-right"/>
+</svg>
+		</span>
+	</span>
+            </a>
+            <!-- END: "group/directives/linktile/adaptations/$adaptation" -->
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</section>
+{% endmacro %}

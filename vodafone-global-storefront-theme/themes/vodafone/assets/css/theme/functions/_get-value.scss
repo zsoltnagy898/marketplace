@@ -1,0 +1,24 @@
+/// Maps
+
+/// Given a list of key-value pairs, get the value based on the key.
+/// @parameter {List} $list-map  a list of 2-item lists i.e. key-value pairs, e.g. foo 2, bar 3
+/// @parameter {String} $key  value corresponding to the 1st item in a pair
+/// @parameter {String} $attribute  value corresponding to the 1st item in a nested key-value pair
+/// @return {String} value corresponding to the 2nd item in the pair with matching key, or null if key not found.
+
+@function get-value($list, $key, $attribute:null) {
+    @each $pair in $list {
+        @if nth($pair, 1) == $key {
+            @if $attribute != null {
+                @each $item in nth($pair, 2) {
+                    @if nth($item, 1) == $attribute {
+                        @return nth($item, 2);
+                    }
+                }
+            } @else {
+                @return nth($pair, 2);
+            }
+        }
+    }
+    @return null;
+}

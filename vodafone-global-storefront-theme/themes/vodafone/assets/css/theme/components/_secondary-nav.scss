@@ -1,0 +1,100 @@
+$text-color: #737373;
+$text-color-selected: #575757;
+$type-family-title: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$bg-color: #eaeaea;
+$bg-color-selected: #575757;
+
+.secondary_nav {
+    border-bottom: 1px solid #cbcbcb;
+    background-color: $bg-color;
+}
+
+.secondary_nav--items {
+    font-size: 0;
+    margin: {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.secondary_nav--item {
+    margin-right: 22px;
+    list-style: none;
+    display: inline-block;
+}
+
+.secondary_nav--item__right {
+    float: right;
+    margin-right: 0;
+}
+
+.secondary_nav--link {
+    display: block;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: none;
+    padding: 10px 0;
+    color: $text-color;
+    background-color: transparent;
+    position: relative;
+    transition-property: color, background;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+
+    &:focus,
+    &:hover {
+        color:  $text-color-selected;
+        text-decoration: none;
+    }
+
+    &.is-selected {
+        font-weight: 700;
+        color: $text-color-selected;
+
+        &:before {
+            background-color: $bg-color-selected;
+            bottom: -1px;
+            content: '';
+            height: 2px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+}
+
+.secondary_nav--item__breadcrumb {
+    .secondary_nav--content {
+        color: mix($bg-color, $text-color, 40%);
+        font: bold 12px/28px $type-family-title;
+        text-transform: uppercase;
+
+        &:focus,
+        &:hover {
+            color:  $text-color-selected;
+            text-decoration: none;
+        }
+    }
+
+    @include adb-breakpoint(root) {
+        padding-left: 24px;
+    }
+
+    .secondary_nav--link {
+        @extend .secondary_nav--content;
+
+        // State for when we're on the same page as the link
+        &.is-selected {
+            position: relative;
+            &:before {
+              background-color: $bg-color-selected;
+              bottom: -1 * $border-width;
+              content: '';
+              height: 2px;
+              left: 0;
+              position: absolute;
+              width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+///// Mixins, Functions, Helpers
+//@import 'functions/_manifest';
+//@import 'mixins/_manifest';
+//
+///// Setings
+//@import 'settings/_manifest';
+//
+//// Reset
+//@import 'layout/reset';
+//// Boostrap Layout
+//
+//// UIF Layout
+//@import 'layout/_manifest';
+//
+///// Components
+//@import 'components/_manifest';
+//
+///// pages
+//@import 'pages/profile';
+//@import 'pages/listing';
+
+//@import "../custom/custom.scss";
+
+@import "./vodafone/product-summary";
+//@import "./vodafone/side-toggle";
+//@import "./vodafone/simgple-tabs";
+//@import "./vodafone/grid-features";
+
+//@import "../custom/_main.scss";
+//@import "../custom/main.nomobile.scss";
+
+@import "../custom/_custom.scss";

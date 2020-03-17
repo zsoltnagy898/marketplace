@@ -1,0 +1,21 @@
+{% macro homeFaq(faq, strings) %}
+    <div class="header">
+        <h2 class="header--item">{{ faq.name }}</h2>
+        <menu class="header--item">
+            <button class="button button__neutral button__small" type="button">{{ strings.readMore }}</button>
+        </menu>
+    </div>
+    <div id="homeFaqs" class="row">
+        {% for item in faq.faqs %}
+            <div class="col-sm-10 col-md-6">
+                <div class="box">
+                    <h3>{{ item.question }}</h3>
+                    <p>
+                        {{ item.answer | truncate(218) }}
+                        <a class="js-read-more" href="/help">{{ strings.readMore }}</a>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

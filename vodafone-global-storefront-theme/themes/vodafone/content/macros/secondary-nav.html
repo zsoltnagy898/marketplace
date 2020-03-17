@@ -1,0 +1,49 @@
+{% macro secondaryNav(items) %}
+<nav class="secondary_nav">
+    <div class="container">
+        <div class="row">
+            <ul class="secondary_nav--items col-16 d-none d-sm-block">
+                {% for item in items %}
+                <li class="secondary_nav--item">
+                    <a class="secondary_nav--link {% if item.selected %}is-selected{% endif %}" href="{{ item.href }}">{{ item.label }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <ul class="adb-secondary_nav--items layout-column__first  col-16 d-sm-none">
+                <li class="secondary_nav--item secondary_nav--item__breadcrumb">
+                    <a class="secondary_nav--link" href="/">Marketplace</a>
+                </li>
+                
+                <li class="secondary_nav--item secondary_nav--mobile_menu secondary_nav--item__right ">
+                    <menu class="secondary_nav--content context_menu is-active" data-placement="bottom right">
+                        <button class="button__small dropdown dropdown__small js-dropdown" type="button">
+                            <span class="secondary_nav--placeholder">
+                                {% for item in items %}
+                                    {% if item.selected %}{{ item.label }}{% endif %} 
+                                {% endfor %}
+                            </span>
+                        </button>
+                        
+                        <div class="container context_menu--menu is-hidden" role="menu">
+                            <ul class="stack">
+                                {% for item in items %}
+                                <li class="stack--item">
+                                    <a class="link__option stack--item_content is-selected" href="{{ item.href }}">
+                                        {% if item.selected %}{% else %}←{% endif %} &nbsp; {{ item.label }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </menu>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(".js-dropdown").dropDown();
+</script>
+
+{% endmacro %}

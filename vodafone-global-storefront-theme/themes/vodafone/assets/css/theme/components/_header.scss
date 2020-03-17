@@ -1,0 +1,26 @@
+#header-universal {
+    min-height: 53px;
+    background-color: #2d2a27;
+}
+
+.header {
+    text-align: justify;
+    font-size: 0;
+    padding-bottom:4px;
+    line-height: 0;
+    position:relative;
+    text-justify: distribute-all-lines;
+}
+
+.header--item {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    margin-top: 3px;
+    &~.header--item {
+        margin-bottom: 14px;
+        position: absolute;
+        margin-top: 0;
+        right: 0;
+    }
+}

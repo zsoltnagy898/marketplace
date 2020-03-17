@@ -1,0 +1,72 @@
+{% extends "/layout/profile.html" %}
+
+{% block contentSection %}
+
+
+{% from "/pages/profile/components/product-summary.html" import productSummary %}
+{% from "/pages/profile/components/simple-tabs.html" import productTabs %}
+{% from "/pages/profile/components/grid-features.html" import productFeatures %}
+
+<div id="profile-page" class="profile-page">
+    <div style="background-color: #4b4d4e">
+        <div class="container align-items-lg-end text-right">
+
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 75%;color:#ffffff;">
+                    <img src="../../../assets/images/internet-white.png" style="width:14px" /> English (United Kingdom)
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">English (United Kingdom)</a>
+                    <a class="dropdown-item" href="#">German</a>
+                    <a class="dropdown-item" href="#">Italian</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation" id="navigation">
+        <div class="container">
+            <nav class="navbar navbar-expand-md">
+                <a class="navbar-brand" href="#"><img src="../../../../assets/images/vodafone_logo.png" style="width:50px; height: auto;"/></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><img src="../../../assets/images/menu.png" style="width:30px;"/></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">My apps</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                                Marketplace
+                            </a>
+                            <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                            <!--<a class="dropdown-item" href="#">Featured Applications</a>-->
+                            <!--<a class="dropdown-item" href="#">All applications</a>-->
+                            <!--<a class="dropdown-item" href="#">Collaboration</a>-->
+                            <!--</div>-->
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="../../../assets/images/settings.png" style="width:30px;"/></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="../../../assets/images/my-vodafone-app.png" style="width:30px;"/></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#search"><img src="../../../assets/images/search.png" style="width:30px;"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {{ productSummary() }}
+    {{ productTabs() }}
+    {{ productFeatures() }}
+
+</div>
+
+{% endblock %}

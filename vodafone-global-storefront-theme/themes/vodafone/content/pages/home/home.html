@@ -1,0 +1,80 @@
+{% extends "/layout/base.html" %}
+
+{% from "/macros/analytics.html" import utagDataScript %}
+
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/bundle.html" import bundleSlider %}
+{% from "/macros/sliders/hero.html" import hero %}
+{% from "/macros/navigator.html" import navigator %}
+{% from "/macros/home-faq.html" import homeFaq %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+{% from "/macros/profile/profile-product-heading.html" import productHeadCard %}
+{% from "/macros/profile/profile-product-pricing.html" import productSidebarPricing %}
+{% from "/macros/profile/profile-product-tags.html" import productSidebarTags %}
+{% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
+{% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
+{% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+{% from "/macros/notification.html" import notificationModel %}
+
+
+
+{% from "/pages/home/components/carousel-list.html" import carouselList %}
+{% from "/pages/home/components/why-vodafone.html" import whyVodafone %}
+{% from "/pages/home/components/actions.html" import actions %}
+
+
+{% block dataPage %}profile{% endblock %}
+{% block mainRegionClass %}profile-region{% endblock %}
+
+{% block headContent %}
+{{ productHeadCard(application.summary, application.categories, application.navigation) }}
+{% endblock %}
+
+{% block data %}
+<data type="navigator" />
+<data type="faq" />
+<data name="core" type="list" attributes="4320" />
+<data name="mobile" type="list" attributes="4334" />
+<data name="hero" type="list" products="222633,216359,195808,167032,140680" />
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="home">
+    <section class="section section--white hero-section">
+        {% include "/includes/home/hero.html" %}
+    </section>
+    <section class="section section--gallery">
+        {{ carouselList(productLists.featuredapps, productLists.featuredapps.name) }}
+    </section>
+    <br>
+    <section class="section gutter--all">
+        {{ carouselList(productLists.popularapps, productLists.popularapps.name) }}
+    </section>
+    <br>
+
+    {{ whyVodafone() }}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var appDescription = document.getElementsByClassName('card-text');
+    console.log(appDescription);
+    $('.carousel-inner .carousel-item:first').addClass('active');
+
+
+
+</script>
+{% endblock %}
+
+{{ sliderScript() }}
+
+
+{% block analytics_data %}
+    {{ utagDataScript({ page_name: 'uk:business:app direct' }) }}
+{% endblock %}

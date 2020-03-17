@@ -1,0 +1,42 @@
+{% macro productFeatures(title, description, image, reviews, callToActions, summary, screenshots) %}
+<div class="stage" data-js="_gallery, _products">
+	<div class="spring">
+        <div class="grid grid--gutter">
+            <div class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2 align--center flush--sm-bottom stage__header">
+                <div class="hide--lg stage__container stage__heading">
+                    <h2 class="heading heading--3">
+                        {{ title }}
+                    </h2>
+                    <p>{{ description }}</p>
+                    {% if 'demo' in callToActions %}
+                    <a target="_blank" href="{{ callToActions.demo.href }}" class="button button--primary  button--primary--dark  no-gutter--all">
+                        {{ callToActions.demo.label }}
+                    </a>
+                    {% endif %}
+                </div>
+                <img src="{{ image }}" alt="iPhone 6s" class="js-products-image stage__image">
+            </div>
+            <div class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2 stage__information stage__information--light">
+                <div class="hide--md hide--sm">
+                    <h2 class="heading heading--3">
+                        {{ title }}
+                    </h2>
+                    <p>{{ description }}</p>
+                    <div class="grid grid--gutter">
+                        <div class="grid__item grid__item--gutter grid__item--1/1 align--left">
+                            {% if 'demo' in callToActions %}
+                            <a target="_blank" href="{{ callToActions.demo.href }}" class="button button--secondary  button--secondary--dark  no-gutter--all">
+                                {{ callToActions.demo.label }}
+                            </a>
+                            {% endif %}
+                            <a target="_blank" href="{{ callToActions.demo.href }}" class="button button--primary no-gutter--all">
+                                Buy Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+{% endmacro %}

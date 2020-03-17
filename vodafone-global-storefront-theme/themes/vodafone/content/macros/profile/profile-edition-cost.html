@@ -1,0 +1,11 @@
+{% macro profileEditionCost(cost) %}
+    <li class="profile-checklist__item profile-edition__price">
+        <span class="amount">{{ cost.formattedPrice }}</span>
+        {% if cost.unit and cost.unit.label %}
+            <span class="unit">/ {{ cost.unit.label }}</span>
+        {% endif %}
+        {% if cost.frequency and cost.frequency.label %}
+            <span class="frequency">/ {{ cost.frequency.label }}</span>
+        {% endif %}
+    </li>
+{% endmacro %}

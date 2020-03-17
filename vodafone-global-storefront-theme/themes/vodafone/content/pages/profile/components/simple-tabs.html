@@ -1,0 +1,40 @@
+{% macro productTabs(application) %}
+<section id="tabs" class="container">
+    <div class="tabs">
+        <div class="tabs__navigation-wrapper">
+            <nav class="js-tabs-navigation tabs__navigation tabs__navigation--fixed" role="tablist">
+                <a href="#Overview" class="js-tabs-tab tabs__tab tabs__tab--active" aria-controls="#devices-features" role="tab" aria-selected="false">
+                    {{ application.overview.title }}
+                </a>
+                {% if application.features.items.length > 0 %}
+                <a href="#Features" class="js-tabs-tab tabs__tab" aria-controls="#devices-specifications" role="tab" aria-selected="false">Features</a>
+                {% endif %}
+                {% if application.editions.items.length > 0 %}
+                <a href="#Editions" class="js-tabs-tab tabs__tab  js-products-reviews" aria-controls="#devices-reviews" role="tab" aria-selected="false">Editions and Pricing</a>
+                {% endif %}
+                <!--{% if application.reviews.items.length > 0 %}-->
+                <!--<a href="#Reviews" class="js-tabs-tab tabs__tab" aria-controls="#devices-forum" role="tab" aria-selected="false">Reviews</a>-->
+                <!--{% endif %}-->
+
+                {% if application.resources %}
+                <a href="#Resources" class="js-tabs-tab tabs__tab" aria-controls="#devices-collection-delivery" role="tab" aria-selected="false">Resources</a>
+                {% endif %}
+
+                <a href="#Policies" class="js-tabs-tab tabs__tab" aria-controls="#devices-returns-cancellations" role="tab" aria-selected="false">Policies and Support</a>
+
+
+<!--                {% if application.addons.items.length > 0 %}-->
+<!--                <a href="#Addons-content" class="js-tabs-tab tabs__tab" aria-controls="#devices-collection-delivery" role="tab" aria-selected="false">Add-ons</a>-->
+<!--                {% endif %}-->
+                <!--{% if application.relatedContent.related.length > 0 %}-->
+                <!--<a href="#Products" class="js-tabs-tab tabs__tab" aria-controls="#devices-collection-delivery" role="tab" aria-selected="false">Products for you</a>-->
+                <!--{% endif %}-->
+            </nav>
+        </div>
+    </div>
+</section>
+
+<script>
+
+</script>
+{% endmacro %}

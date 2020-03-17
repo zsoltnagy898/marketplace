@@ -1,0 +1,47 @@
+{% extends "/layout/profile.html" %}
+{% from "/macros/profile/features-and-benefits.html" import featuresAndBenefits %}
+{% from "/macros/profile/featured-customers.html" import featuredCustomers %}
+
+{% block contentSection %}
+    {% set actions = application.overview.callToActions %}
+<div class="row">
+    {{ application.customAttributes[0].value }}
+</div>
+    <div class="row">
+        <div class="col-xs-8 col-sm-5">
+            <h2 class="title__xxxxxlarge">{{ application.overview.title | safe }}</h2>
+            <p>{{ application.overview.description | safe }}</p>
+            <div class="toolbar">
+                {% if actions.tour %}
+                    <a href="{{ actions.tour.href }}" class="button button__large toolbar--item button__{{ actions.tour.color }}">{{ actions.tour.label }}</a>
+                {% endif %}
+                {% if actions.demo %}
+                    <a href="{{ actions.demo.href }}" class="button button__large toolbar--item button__{{ actions.demo.color }}">{{ actions.demo.label }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-8 col-sm-5">
+            {% if application.overview.image %}
+                <figure>
+                    <img role="presentation" src="{{ application.overview.image }}">
+                </figure>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if application.overview.benefits.length %}
+        <div class="layout-content--section">
+            {{ featuresAndBenefits(application.overview.benefits, application.overview.i18n.featuresAndBenefits) }}
+        </div>
+    {% endif %}
+    {% if application.overview.customers.length %}
+        <div class="layout-content--section">
+            {{ featuredCustomers(application.overview.customers, application.overview.i18n.customers) }}
+        </div>
+    {% endif %}
+    {% if actions.tour %}
+        <div class="feature-actions center">
+            <a href="{{ actions.tour.href }}" class="button button__large toolbar--item button__{{ actions.tour.color }}">{{ actions.tour.label }}</a>
+        </div>
+    {% endif %}
+{% endblock %}

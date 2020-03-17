@@ -1,0 +1,7 @@
+# Compiled files
+*.css
+!themes/vodafone/assets/css/custom/*.css
+
+# Build output
+theme-zips/*
+!theme-zips/.gitkeep

@@ -1,0 +1,7 @@
+{% macro compareTextCells(list, key) %}
+    {% for idx in [0,1,2,3] %}
+        {% if list[idx] %}
+            <td class="compare__cell">{{ list[idx][key] }}</td>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

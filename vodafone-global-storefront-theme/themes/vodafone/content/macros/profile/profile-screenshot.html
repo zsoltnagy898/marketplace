@@ -1,0 +1,37 @@
+{% macro productScreenshotModal(screenshots) %}
+    <div id="profile-screenshots" class="modal modal-dialog modal__default" role="menu" >
+        <h3 class="modal--header" data-truncate="">
+            {{ screenshots.i18n.title }}
+            <a class="close modal-dismiss" rel="modal:close"></a>
+        </h3>
+        <div class="modal--content modal-content">
+            <div class="slider ">
+                <div class="slider--items js-screenshot-slider">
+                    {% for shot in screenshots.items %}
+                        <div class="slider--image" aria-hidden="true">
+                            <img src="{{ shot.imageUrl }}" alt="">
+                            <p>{{ shot.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <menu class="modal--footer toolbar toolbar__polar modal-footer">
+            <menu class="toolbar--item modal-footer-left">
+                <menu class="toolbar--item">
+                    <button type="button" class="button toolbar--item js-slider-prev" aria-label="left">
+                        <span><i class="icon__arrow_left"></i> </span>
+                    </button>
+                </menu>
+            </menu>
+            <menu class="toolbar--item modal-footer-right">
+                <menu class="toolbar--item fright">
+                    <button type="button" class="button toolbar--item js-slider-next" aria-label="right">
+                        <span><i class="icon__arrow_right"></i></span>
+                    </button>
+                </menu>
+            </menu>
+        </menu>
+
+    </div>
+{% endmacro %}

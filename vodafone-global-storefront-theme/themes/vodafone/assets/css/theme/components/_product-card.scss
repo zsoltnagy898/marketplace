@@ -1,0 +1,83 @@
+.profile_header {
+    margin-top: -1px;
+    margin-bottom: 24px;
+    &.is-fixed {
+        position: fixed;
+        z-index: 1010;
+        width: 100%;
+        top: 0;
+        .profile_header--content {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            box-shadow: none;
+            background-image: none;
+        }
+        .id__sq_large {
+            width: 48px;
+            height: 48px;
+            font-size: 48px;
+            transition: all .1s linear;
+        }
+        .ribbon {
+            top: 7px;
+            right: -65px;
+            font-size: 4px;
+            line-height: 1.8em;
+        }
+        .profile_header--title {
+            font-size: 16px;
+        }
+        .profile_header--navigation {
+            background-color: #fff;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, .25);
+            border-bottom: 1px solid #cbcbcb;
+        }
+        .tertiary_nav--items {
+            border-bottom: none;
+        }
+        .badges {
+            display: none
+        }
+    }
+}
+
+.profile_header--content {
+    background-color: #575757;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .25), transparent);
+    box-shadow: inset 0 5px 10px 0 rgba(0, 0, 0, .1);
+    border-top: 1px solid #9c9c9c;
+    border-bottom: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile_header--title {
+    margin-bottom: 0;
+}
+
+.profile_header--title,
+.summary--caption {
+    color: #fff;
+}
+
+.profile-feature {
+    &--image {
+        margin-bottom: 24px;
+        text-align: center;
+        & img {
+            max-width: 100%; /* making sure images don't go all over the place on mobile */
+        }
+    }
+    &--characteristics {
+        & ul {
+            margin-bottom: 14px;
+        }
+    }
+    &--buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+}

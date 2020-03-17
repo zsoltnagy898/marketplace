@@ -1,0 +1,17 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/bundle/profile-bundle-heading.html" import bundleHeadCard %}
+
+{% block dataPage %}profile{% endblock %}
+{% block mainRegionClass %}profile-region{% endblock %}
+
+{% block headContent %}
+    {{ bundleHeadCard(bundle.summary, bundle.badges, bundle.navigation) }}
+{% endblock %}
+
+{% block content %}
+    {% block profileContent %}{% endblock %}
+
+    <script>
+        $(".profile_header").fixedHeader({ container: ".profile-region" });
+    </script>
+{% endblock %}

@@ -1,0 +1,87 @@
+.ad-component_dropdown {
+	display: block;	
+	position: relative;
+
+	// Styling of list items in lists / dropdowns
+	.ad-component_list {
+		background-color: $headerNavDropdownBg;
+		border: 1px solid $headerNavDropdownBorderColor;
+		border-radius: $dropdown-container-border-radius;
+		box-shadow: $dropdown-container-box-shadow;
+		background-clip: padding-box;
+		display: none;		
+		list-style: none;	
+		margin-top: $dropdown-container-margin-top;
+		margin-right: $headerNavDropdownMarginRight;
+		min-width: $dropdown-container-min-width;	
+		padding: 0;
+		position: absolute;
+		text-align: left;	
+		top: 100%;
+		right: 0;
+		z-index: 1090;
+		
+		.ad-component_list-item {
+			border-top: 1px solid $headerNavDropdownBorderColor;		
+			margin: 0;
+			padding: 0;
+			text-align: left;
+
+			&:first-child {
+				border-top: none;
+				.ad-component--link {
+					border-top: none;
+					border-top-left-radius: $dropdown-container-border-radius;
+					border-top-right-radius: $dropdown-container-border-radius;
+				}
+			}
+
+			&:last-child .ad-component--link {
+				border-bottom-left-radius: $dropdown-container-border-radius;
+				border-bottom-right-radius: $dropdown-container-border-radius;
+			}
+		}
+		
+		// Styling the links within the dropdown containers
+		.ad-component--link {
+			color: $headerNavDropdownFontColor;
+			padding-top: $dropdown-container-item-padding-top;
+			padding-right: $dropdown-container-item-padding-right;
+			padding-bottom: $dropdown-container-item-padding-bottom;
+			padding-left: $dropdown-container-item-padding-left;
+			display: block;
+			text-transform: $dropdown-container-item-text-transform;
+			text-decoration: none;
+			font-size: $dropdown-container-item-font-size;
+			line-height: $dropdown-container-item-font-size;
+			text-align: left;
+
+			&:hover {
+				box-shadow: 0 0 0 1px $headerNavDropdownBorderColorHover;
+				position: relative;
+				background-color: $headerNavDropdownBgHover;
+				color: $headerNavDropdownFontColorHover;
+			}
+		}
+	}
+}
+
+// See '_font-icons.scss' for rest of styling
+.ad-component_dropdown .ad-component_dropdown--trigger:after {
+	content: "\e905";
+	position: static;
+	right: 0px;
+}
+
+// Open dropdown Styling
+.ad-component_dropdown.js-dropdown-active {
+	
+	> .ad-component_dropdown--trigger {
+		background: $headerNavItemBgSelected;
+		color: $headerNavFontHoverColor;
+	}
+	
+	.ad-component_list {
+		display: block;
+	}
+}

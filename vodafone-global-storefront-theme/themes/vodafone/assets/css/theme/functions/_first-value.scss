@@ -1,0 +1,7 @@
+/// Maps
+/// Given a list of key-value pairs, gets the first key-value pair.
+/// @parameter {List} $list-map  a list of 2-item lists i.e. key-value pairs, e.g. foo 2, bar 3
+/// @return {object} first key-value pair in list.
+@function first-value($list) {
+    @return nth($list, 1);
+}

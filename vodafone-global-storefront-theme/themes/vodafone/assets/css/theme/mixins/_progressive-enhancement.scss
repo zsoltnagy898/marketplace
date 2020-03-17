@@ -1,0 +1,37 @@
+//// 
+/// Core Mixins: Progressive Enhancement
+////
+
+/// Enhances with detected feature
+/// @param {String} $feature - feature name for e.g: 'touchevents'
+/// If event listener is touchevents this event will only be applied to
+/// mobile via the mobile-detect npm package extending Modernizr
+@mixin enhance-with($feature) {
+    @if $feature == 'touchevents' {
+        $feature: "#{$feature}.mobile";
+    }
+    
+    .#{$feature} & {
+        @content;
+    }
+}
+
+/// Degrades from detected feature
+/// @param {String} $feature - feature name for e.g: 'no-mediaqueries'
+@mixin degrade-from($feature, $no-js: true) {
+    @if $feature == 'touchevents' {
+        $feature: "#{$feature}.no-mobile";
+    }
+
+    @if $feature == 'js' or not $no-js {
+        .no-#{$feature} & {
+            @content;
+        }
+    }
+    @else {
+        .no-#{$feature} &,
+        .no-js & {
+            @content;
+        }
+    }
+}

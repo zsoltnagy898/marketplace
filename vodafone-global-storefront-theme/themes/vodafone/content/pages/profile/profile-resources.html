@@ -1,0 +1,68 @@
+{% extends "/layout/profile.html" %}
+
+{% from "/macros/profile/profile-resources-components.html" import resourcesCategoryList, resourceContentTemplate %}
+
+{% set i18n = application.resources.i18n %}
+{% set publicVideosList = application.resources.public.videos.items %}
+{% set publicDocumentsList = application.resources.public.documents.items %}
+
+{% set resellerVideosList = application.resources.reseller.videos.items %}
+{% set resellerDocumentsList = application.resources.reseller.documents.items %}
+
+
+
+{% block profileContent %}
+    <div class="row js-resources">
+        <div class="col-xs-8 col-fix-sm-4 d-none d-sm-block">
+            <div class="container-box container-box-section">
+                <div class="list-multiple-navigation">
+                    <div class="list-container_header">
+                        <h5 class="list-container_header--title list-container_header--item">{{ i18n.Resources }}</h5>
+                    </div>
+                    {{ resourcesCategoryList(i18n.Videos, publicVideosList, 'public') }}
+                    {{ resourcesCategoryList(i18n.Documents, publicDocumentsList, 'public') }}
+                </div>
+            </div>
+            {% if resellerVideosList.length or resellerDocumentsList.length %}
+                <div class="container-box container-box-section">
+                    <div class="list-multiple-navigation">
+                        <div class="list-container_header">
+                            <h5 class="list-container_header--title list-container_header--item">&#128274; {{ i18n.ResellerResources }}</h5>
+                        </div>
+                        {{ resourcesCategoryList(i18n.Videos, resellerVideosList, 'reseller') }}
+                        {{ resourcesCategoryList(i18n.Documents, resellerDocumentsList, 'presellerublic') }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-xs-8 col-fix-inv-sm-4">
+            <h2>{{ i18n.Resources }}</h2>
+            {% if publicVideosList.length %}
+                {% for video in publicVideosList %}
+                    {{ resourceContentTemplate(video, 'public', i18n) }}
+                {% endfor %}
+            {% endif %}
+            {% if publicDocumentsList.length %}
+                {% for document in publicDocumentsList %}
+                    {{ resourceContentTemplate(document, 'public', i18n) }}
+                {% endfor %}
+            {% endif %}
+            {% if resellerVideosList.length %}
+                {% for video in resellerVideosList %}
+                    {{ resourceContentTemplate(video, 'reseller', i18n) }}
+                {% endfor %}
+            {% endif %}
+            {% if resellerDocumentsList.length %}
+                {% for document in resellerDocumentsList %}
+                    {{ resourceContentTemplate(document, 'reseller', i18n) }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ r('/assets/js/profile-resources.js') }}"></script>
+    <script>
+        $('.js-resources').resources();
+    </script>
+
+{% endblock %}

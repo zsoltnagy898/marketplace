@@ -1,0 +1,50 @@
+.product-summary {
+  background-color: #333;
+  color: #FFF;
+  left: 0;
+  padding: 20px;
+  right: 0;
+  text-align: center;
+  transition: bottom 1s,visibility 1s;
+  &__image {
+    img {
+      max-height: 100px;
+    }
+  }
+  &__texts {
+    .title {
+      font-size: 28px;
+      line-height: 34px;
+    }
+    .categories {
+      margin: 10px 0;
+      .category {
+        display: inline-block;
+        margin: 0 10px;
+        text-decoration: underline;
+        cursor: pointer;
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  &__price-buy {
+    .price {
+      margin: 0 15px;
+      display: inline-block;
+      font-size: 28px;
+      line-height: 34px;
+      font-family: vodafone_bd, Arial, Helvetica, sans-serif !important;
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+    .buy {
+      display: inline-block;
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+  }
+}

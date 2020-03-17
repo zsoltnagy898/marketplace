@@ -1,0 +1,58 @@
+{% extends "/layout/bundle.html" %}
+
+{% from "/macros/analytics.html" import utagDataScript %}
+
+{% from "/macros/bundle/profile-bundle-products.html" import bundleProductToggleNav, bundleProductToggleContent %}
+{% from "/macros/bundle/profile-bundle-pricing.html" import bundleSidebarPricing %}
+
+{% from "/pages/bundle/components/product-summary.html" import productSummary %}
+{% from "/pages/bundle/components/grid-features.html" import productFeatures %}
+{% from "/pages/bundle/components/carousel-single.html" import carouselSingle %}
+
+{% block profileContent %}
+
+{{ productSummary(bundle.overview.title, bundle.overview.description, bundle.overview.image, bundle.summary) }}
+<section id="Overview" class="section--gutter">
+    {{ productFeatures(bundle.overview.title, bundle.overview.description, bundle.overview.image, application.summary) }}
+</section>
+<section id="Features" class="no-gutter--all section section--gallery">
+    {{ carouselSingle(bundle) }}
+</section>
+
+<script>
+    $(".js-tabs-navigation a").on("click", function(){
+        $(".js-tabs-navigation a").removeClass('tabs__tab--active');
+        $(this).addClass('tabs__tab--active');
+    });
+
+    function dropDown(id){
+        let bundleContent = $('#' + id);
+        $('.bundle-content').slideUp();
+        bundleContent.toggleClass('open-slide').slideToggle();
+
+        if ($('.bundle-content').classList.contains('open-slide')) {
+            $('.bundle-content').removeClass('open-slide');
+            $('.bundle-content').slideUp();
+        }
+
+    }
+</script>
+
+{% endblock %}
+
+{% block analytics_data %}
+    {{ utagDataScript({
+        journey_name: 'AppDirect Purchase',
+        journey_type: 'acquisition',
+        page_name: 'uk:business:app direct:product:Your Office applications',
+        page_title: 'Microsoft Office 365',
+        site_section_lvl_3: 'bundle',
+        product_brand: 'Microsoft',
+        product_category: 'Business Software',
+        product_event: 'view',
+        product_id: '',
+        product_name: 'Office 365',
+        product_sku: '',
+        product_target_segment: 'small business'
+    }) }}
+{% endblock %}

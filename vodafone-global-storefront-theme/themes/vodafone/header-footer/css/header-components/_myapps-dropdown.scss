@@ -1,0 +1,111 @@
+.ad-component__myapps {
+
+	.ad-component_list {
+	    background: $headerNavDropdownBg;
+		background-clip: padding-box;
+		border-radius: 4px;
+		box-sizing: content-box;
+		left: 0;
+		margin: 4px 0 0 -50px;
+		margin-right: $headerNavDropdownMarginRight;
+		padding: 15px 15px 55px 15px;
+		position: absolute;
+		width: 250px;
+		
+		&--top-hover-shim {
+			height: 10px;
+			left: 0;
+			margin-top: -7px;
+			position: absolute;
+			top: 0; 
+			width: 100%;
+		}
+	}
+}
+
+.ad-stack-apps {
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+	flex-wrap: wrap;
+	
+	&--item {
+		float: left;
+		width: $myapps-dropdown-app-tile-width;
+		height: $myapps-dropdown-app-tile-height;
+		box-sizing: border-box;
+		padding: $myapps-dropdown-app-padding;
+		margin-bottom: $myapps-dropdown-app-margin-bottom;
+		text-align: center;
+		text-decoration:none;
+		color:#333;
+
+		&:hover {
+			border: $myapps-dropdown-app-hover-border;
+			padding: $myapps-dropdown-app-hover-padding;
+			border-radius: $myapps-dropdown-app-radius;
+			text-decoration:none;
+		}
+
+		&-text {
+			text-align: center;
+			overflow: hidden;
+			white-space: nowrap;
+			font-size: $myapps-dropdown-app-font-size;
+			text-overflow: ellipsis;
+		}
+		
+		&-button {
+			position: absolute;
+			bottom: 0; 
+			left: 0;
+			width: 100%;
+
+			a {
+				background: $myapps-dropdown-app-see-all-cta-bg;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				color:$myapps-dropdown-app-see-all-cta-color;
+				display: block;
+				font-size: $myapps-dropdown-app-see-all-cta-font-size;
+				height: $myapps-dropdown-app-see-all-cta-container-height;
+				line-height: $myapps-dropdown-app-see-all-cta-container-height;
+				text-align: center;
+				text-decoration: none;
+
+				&:hover {
+					background: $myapps-dropdown-app-see-all-cta-hover-bg;
+					color: $myapps-dropdown-app-see-all-cta-hover-color;
+				}
+			}
+		}
+
+		&-img {
+			display: block;
+			width: auto;
+			margin: auto;
+			max-width: $myapps-dropdown-app-img-max-width;
+			max-height: $myapps-dropdown-app-img-max-height;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			&-container {
+				position: relative;
+				height: $myapps-dropdown-app-img-container-height;
+				margin-bottom: 6px;
+			}
+		}
+
+		.ad-icon-star {
+			font-size: $myapps-dropdown-app-img-placeholder-font-size;
+		    color: $myapps-dropdown-app-img-placeholder-color;
+		    position: absolute;
+		    top: 8px;
+		    left: 20px;
+		}
+	}
+}

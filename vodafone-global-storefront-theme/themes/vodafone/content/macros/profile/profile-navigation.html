@@ -1,0 +1,11 @@
+{% macro profileNavigation(navigationItems) %}
+    <nav class="tertiary_nav">
+        <ul class="tertiary_nav--items adb-profile_header--navigation_content adb-layout-default">
+            {% for nav in navigationItems %}
+                <li class="tertiary_nav--item {% if nav.selected %}is-selected{% endif %}">
+                    <a class="tertiary_nav--link" href="{{ nav.href }}">{{ nav.label }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endmacro %}

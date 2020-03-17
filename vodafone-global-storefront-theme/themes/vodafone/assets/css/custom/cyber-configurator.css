@@ -1,0 +1,269 @@
+.form-fields-section {
+    margin: 20px 0 !important;
+}
+
+.button__row {
+    display: flex;
+    justify-content: space-between
+}
+
+.button__row .button:only-child {
+    margin-left: auto;
+}
+
+input[type="range"] {
+    margin: auto;
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
+    height: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0; /* iOS */
+}
+
+::-webkit-slider-runnable-track {
+    background: #ddd;
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ */
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px; /* 1 */
+    height: 10px;
+    background: #fff;
+    box-shadow: -100vw 0 0 100vw #e60000;
+    border: 1px solid #ddd; /* 1 */
+}
+
+::-moz-range-track {
+    height: 10px;
+    background: #ddd;
+}
+
+::-moz-range-thumb {
+    background: #fff;
+    height: 10px;
+    width: 10px;
+    border: 1px solid #999;
+    border-radius: 0 !important;
+    box-shadow: -100vw 0 0 100vw #e60000;
+    box-sizing: border-box;
+}
+
+::-ms-fill-lower {
+    background: #e60000;
+}
+
+::-ms-thumb {
+    background: #fff;
+    border: 1px solid #999;
+    height: 10px;
+    width: 10px;
+    box-sizing: border-box;
+}
+
+::-ms-ticks-after {
+    display: none;
+}
+
+::-ms-ticks-before {
+    display: none;
+}
+
+::-ms-track {
+    background: #ddd;
+    color: transparent;
+    height: 10px;
+    border: none;
+}
+
+::-ms-tooltip {
+    display: none;
+}
+
+.fade-enter-active {
+    transition: opacity .5s;
+    transition-delay: .5s;
+}
+
+.fade-leave-active {
+    transition: opacity .5s, max-height .5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+    max-height: 0;
+}
+
+.steps-indicator .grid__item svg {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    stroke: #333333;
+    transition: stroke .5s;
+}
+
+.steps-indicator .grid__item p {
+    color: #333333;
+    transition: color .5s;
+}
+
+.steps-indicator .grid__item.active svg {
+    stroke: #E60000;
+}
+
+.steps-indicator .grid__item.active p {
+    color: #E60000;
+}
+
+.steps-indicator .grid__item {
+    position: relative;
+}
+
+.steps-indicator .grid__item::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background-color: #333333;
+    top: calc(50% - 2px);
+    left: -25%;
+    transition: background-color .5s;
+}
+
+.steps-indicator .grid__item.active::after {
+    background-color: #E60000;
+}
+
+.steps-indicator .grid__item:first-of-type::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background-color: #333333;
+    top: calc(50% - 2px);
+    left: 75%;
+    display: none;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: .875rem;
+    word-wrap: break-word;
+    opacity: 0;
+    transform: translateY(-120px);
+}
+
+.tooltip.show {
+    opacity: .9;
+    transform: translateY(-120px);
+}
+
+.tooltip .arrow {
+    position: absolute;
+    display: block;
+    width: .8rem;
+    height: .4rem
+}
+
+.tooltip .arrow::before {
+    position: absolute;
+    content: "";
+    border-color: transparent;
+    border-style: solid
+}
+
+.bs-tooltip-auto[x-placement^=top],.bs-tooltip-top {
+    padding: .4rem 0
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow,.bs-tooltip-top .arrow {
+    bottom: 0
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before,.bs-tooltip-top .arrow::before {
+    top: 0;
+    border-width: .4rem .4rem 0;
+    border-top-color: #000
+}
+
+.bs-tooltip-auto[x-placement^=right],.bs-tooltip-right {
+    padding: 0 .4rem
+}
+
+.bs-tooltip-auto[x-placement^=right] .arrow,.bs-tooltip-right .arrow {
+    left: 0;
+    width: .4rem;
+    height: .8rem
+}
+
+.bs-tooltip-auto[x-placement^=right] .arrow::before,.bs-tooltip-right .arrow::before {
+    right: 0;
+    border-width: .4rem .4rem .4rem 0;
+    border-right-color: #000
+}
+
+.bs-tooltip-auto[x-placement^=bottom],.bs-tooltip-bottom {
+    padding: .4rem 0
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow,.bs-tooltip-bottom .arrow {
+    top: 0
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,.bs-tooltip-bottom .arrow::before {
+    bottom: 0;
+    border-width: 0 .4rem .4rem;
+    border-bottom-color: #000
+}
+
+.bs-tooltip-auto[x-placement^=left],.bs-tooltip-left {
+    padding: 0 .4rem
+}
+
+.bs-tooltip-auto[x-placement^=left] .arrow,.bs-tooltip-left .arrow {
+    right: 0;
+    width: .4rem;
+    height: .8rem
+}
+
+.bs-tooltip-auto[x-placement^=left] .arrow::before,.bs-tooltip-left .arrow::before {
+    left: 0;
+    border-width: .4rem 0 .4rem .4rem;
+    border-left-color: #000
+}
+
+.tooltip-inner {
+    max-width: 200px;
+    padding: .25rem .5rem;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: .25rem;
+    transform: translateY(-50px);
+}
+
+[data-toggle="tooltip"] {
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1px dashed black;
+}

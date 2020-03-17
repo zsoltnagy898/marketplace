@@ -1,0 +1,336 @@
+.tabs
+{
+  $color-scorpion: #5B5B5B;
+  margin: 30px 0;
+
+  & > &__navigation-wrapper
+  {
+    max-height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &--arrow-overflow
+    {
+      // This is a workaround for specific edge cases where we would want
+      // `overflow-x: auto; overflow--y: visible` but can't because of the
+      // CSS specification.
+      margin-bottom: -7px;
+
+      & > .tabs__navigation
+      {
+        margin-bottom: 7px;
+      }
+    }
+  }
+
+  &--gallery > &__navigation-wrapper,
+  &--gallery > &__content
+  {
+    background: $color-gallery;
+  }
+
+  &--white > &__navigation-wrapper,
+  &--white > &__content
+  {
+    background: $color-white;
+  }
+
+  &--narrow
+  {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  & > &__navigation-wrapper > &__navigation
+  {
+    background: $color-white;
+    border-bottom: 1px solid $color-silver;
+    color: $color-mine-shaft;
+    display: inline-block;
+    letter-spacing: -.215em;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+    min-width: 100%;
+
+    &--fixed
+    {
+      margin-bottom: 10px;
+    }
+
+    &--plain
+    {
+      background: none;
+    }
+
+    &--gutter
+    {
+      margin-bottom: 25px;
+    }
+  }
+
+  & > &__navigation-wrapper &__tab
+  {
+    display: inline-block;
+    letter-spacing: normal;
+  }
+
+  &:not(&--fieldset) > &__navigation-wrapper &__tab,
+  &--fieldset > &__navigation-wrapper &__tab-label
+  {
+    display: inline-block;
+    color: $color-dove-gray;
+    cursor: pointer;
+    font-family: $font-family-vodafone-regular;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+
+    &:hover
+    {
+      color: $color-red;
+    }
+  }
+
+  &:not(&--fieldset) > &__navigation-wrapper &__tab--active,
+  &__tab-input:checked + &__tab-label
+  {
+    color: $color-red;
+    position: relative;
+
+    &::before
+    {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: $color-red;
+      z-index: 1;
+    }
+
+    &::after
+    {
+      border: 8px solid transparent;
+      border-top-color: $color-red;
+      display: block;
+      height: 0;
+      width: 0;
+
+      color: $color-red;
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -8px;
+      z-index: 1;
+    }
+  }
+
+  &__tab-input:focus + &__tab-label
+  {
+    outline: 2px solid $color-cerulean;
+
+    .mouse-active &
+    {
+      outline: none;
+    }
+  }
+
+  &--dark > &__navigation-wrapper > &__navigation
+  {
+    background: $color-tundora;
+    color: $color-white;
+    border-color: $color-dove-gray;
+  }
+
+  &--dark > &__navigation-wrapper > &__navigation > &__tab
+  {
+    color: $color-silver-chalice;
+
+    &::before
+    {
+      background-color: $color-white;
+    }
+
+    &--active,
+    &:hover
+    {
+      color: $color-white;
+
+      &::after
+      {
+        color: $color-white;
+      }
+    }
+  }
+
+  &--card > &__navigation-wrapper
+  {
+    margin-bottom: -10px;
+  }
+
+  &--card > &__content
+  {
+    background-color: transparent;
+  }
+
+  &--secondary > &__navigation-wrapper > &__navigation
+  {
+    border: none;
+    background: none;
+  }
+
+  &--secondary > &__navigation-wrapper > &__navigation > &__tab
+  {
+    border: 1px solid $color-silver;
+    margin-left: -1px;
+    margin-bottom: 0;
+    background: $color-wild-sand;
+    color: $color-mine-shaft;
+
+    &:hover
+    {
+      color: $color-mine-shaft;
+      background: $color-mercury-dark;
+    }
+
+    &--active,
+    &--active:hover
+    {
+      border-color: $color-mine-shaft;
+      background: $color-mine-shaft;
+      z-index: 1;
+      color: $color-white;
+
+      &::after,
+      &::before
+      {
+        display: none;
+      }
+    }
+  }
+
+  &--secondary--dark > &__navigation-wrapper > &__navigation
+  {
+    border: none;
+    background: none;
+    color: $color-white;
+  }
+
+  &--secondary--dark > &__navigation-wrapper > &__navigation > &__tab
+  {
+    border-color: $color-dove-gray;
+    background: $color-tundora;
+    color: $color-silver;
+
+    &:hover
+    {
+      background: $color-dove-gray;
+    }
+
+    &--active,
+    &--active:hover
+    {
+      border-color: $color-silver;
+      background: $color-white;
+      color: $color-mine-shaft;
+
+      &::after,
+      &::before
+      {
+        display: none;
+      }
+    }
+  }
+
+  & > &__content
+  {
+    @include clearfix;
+  }
+
+  &--collapsed > &__content
+  {
+    padding-top: 0;
+    margin-top: -15px;
+  }
+
+  &__loading
+  {
+    text-align: center;
+  }
+
+  &__icon
+  {
+    width: 25px;
+    height: 25px;
+  }
+
+  &__narrow-tab
+  {
+    min-width: 135px;
+  }
+}
+
+@media only screen and (max-width: 1199px)
+{
+  .tabs
+  {
+    &--stretch > &__navigation-wrapper
+    {
+      margin: 0 -20px;
+    }
+
+    &--narrow
+    {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px)
+{
+  .tabs
+  {
+    &--full > &__navigation-wrapper > &__navigation
+    {
+      display: table;
+      table-layout: fixed;
+    }
+
+    &--full > &__navigation-wrapper > &__navigation > &__tab
+    {
+      display: table-cell;
+    }
+
+    & > &__navigation-wrapper > &__navigation > &__tab
+    {
+      font-size: 18px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &--sm-half
+      {
+        width: 50%;
+      }
+    }
+
+    &--collapsed > &__content
+    {
+      padding-top: 0;
+    }
+
+    &--stretch > &__navigation-wrapper
+    {
+      margin: 0 -15px;
+    }
+
+    &__narrow-tab
+    {
+      min-width: 110px;
+    }
+  }
+}
+

@@ -1,0 +1,553 @@
+{% extends "/layout/base.html" %}
+
+{% from "/macros/analytics.html" import utagDataScript %}
+
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/bundle.html" import bundleSlider %}
+{% from "/macros/sliders/hero.html" import hero %}
+{% from "/macros/navigator.html" import navigator %}
+{% from "/macros/home-faq.html" import homeFaq %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+{% from "/macros/profile/profile-product-heading.html" import productHeadCard %}
+{% from "/macros/profile/profile-product-pricing.html" import productSidebarPricing %}
+{% from "/macros/profile/profile-product-tags.html" import productSidebarTags %}
+{% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
+{% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
+{% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+{% from "/macros/notification.html" import notificationModel %}
+
+
+
+{% from "/pages/home/components/carousel-list.html" import carouselList %}
+{% from "/pages/home/components/why-vodafone.html" import whyVodafone %}
+{% from "/pages/home/components/actions.html" import actions %}
+
+
+{% block dataPage %}basket{% endblock %}
+{% block mainRegionClass %}profile-region{% endblock %}
+
+{% block headContent %}
+{{ productHeadCard(application.summary, application.categories, application.navigation) }}
+{% endblock %}
+
+{% block data %}
+<data type="navigator" />
+<data type="faq" />
+<data name="core" type="list" attributes="4320" />
+<data name="mobile" type="list" attributes="4334" />
+<data name="hero" type="list" products="222633,216359,195808,167032,140680" />
+{% endblock %}
+
+
+
+{% block content %}
+<div id="app" data-vue-page="checkout">
+
+    <div id="confirmation-dialog" class="confirmation-dialog js-dialog dialog dialog--interstitial js-dialog-display dialog--scrollable">
+        <div class="spring dialog__close-spring">
+            <a v-on:click="closeDialog" id="close-dialog" href="#" class="js-dialog-close dialog__close " style="display: inline-block;">
+                <svg focusable="false" aria-hidden="true" class="icon  icon--small  dialog__icon">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+
+                <span class="visually-hidden">Close dialog</span>
+            </a>
+        </div>
+        <div class="js-dialog-content dialog__content" style="display: block;"><div id="ajax" class="ajax">
+            <div class="spring spring--md">
+                <div class="section section--ruled flush--top align--center">
+                    <p class="heading heading--2 heading--light heading--leading">Are you sure?</p>
+
+                    <p class="no-gutter--bottom">
+                        Are you sure you want to remove this item from your basket?
+                    </p>
+                </div>
+                <span class="grid grid--gutter gutter--top">
+                            <span class="grid__item grid__item--gutter grid__item--align-left grid__item--sm-1/1 grid__item--1/2 flush--sm-bottom">
+                                <a v-on:click="closeDialog" id="cancel-dialog" href="#" class="button button--secondary  button--secondary--dark  js-dialog-close">
+        Cancel
+    </a>
+                            </span>
+                            <span class="grid__item grid__item--gutter grid__item--align-right grid__item--sm-1/1 grid__item--1/2 flush--sm-bottom">
+                                <button id="remove-item" class="button button--primary  button--primary--dark  " v-on:click="removeItemFromCart">
+        Remove
+    </button>
+                            </span>
+                        </span>
+
+            </div>
+        </div></div>
+    </div>
+
+
+    <div class="js-component-component component__component" data-component="basket-full">
+        <h1 class="visually-hidden">Your basket</h1>
+        <div class="hero hero--white ">
+            <div class="hero__band">
+                <div class="hero__message">
+                    <h1 class="heading heading--1 heading--light heading--leading hero__heading" id="page-title">
+                        <div>
+                            Your Basket
+                        </div>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="section section--gallery" id="checkout-step-1" v-show="stepVisible === 1">
+            <div class="spring">
+
+
+                <!--<div class="header">-->
+                    <!--<h3 class="heading&#45;&#45;3 text-center align&#45;&#45;center">-->
+                        <!--Your order-->
+                    <!--</h3>-->
+                <!--</div>-->
+                <!-- custom basket component -->
+                <iframe class="hidden" name="hiddenframe" id="hiddenframe" frameborder="0" style="display:none;"
+                        height="0" width="0">
+                </iframe>
+                <form action="https://s1525.t.eloqua.com/e/f2" name="AppDirect" method="POST" class="js-suggest-form suggest__form form " id="form-client-values" target="hiddenframe">
+                    <input value="AppDirect" type="hidden" name="elqFormName"/>
+                    <input value="1525" type="hidden" name="elqSiteId"/>
+                <div id="all-products-wrapper">
+                    {% verbatim %}
+                    <div v-for="item in basket" class="products-in-basket" :product-id="item.id">
+                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('licencesSelect')">
+                            <div class="caption">
+                                <div class="caption__media caption__media--top alert__media">
+                                    <svg focusable="false" aria-hidden="true" class="icon icon--small alert__icon"> <use xlink:href="#icon-block"></use> </svg>
+                                </div>
+                                <div class="caption__text caption__text--top alert__text">
+                                    <span>Please select the number of licences!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row product-row grid">
+                            <div class="grid__item grid__item--gutter grid__item--align-left grid__item--2/11 grid__item--sm-1/1">
+                                <img class="img-fluid" :src="item.image" :alt="item.title">
+                            </div>
+                            <div class="grid__item grid__item--gutter grid__item--align-left grid__item--6/11 grid__item--sm-1/1">
+                                <h4 class="heading--4">
+                                    {{ item.title }} {{ item.editionName }}
+                                </h4>
+                                <p>
+                                    {{ item.description }}
+                                </p>
+                            </div>
+                            <div class="grid__item grid__item--gutter grid__item--align-left grid__item--3/11 grid__item--sm-1/1">
+                                <div class="grid">
+                                    <div class="grid__item grid__item--gutter grid__item--align-right grid__item--2/3  grid__item--sm-1/1 align--center">
+                                        <span class="form__label form__label--required">
+                                            Number of licences
+                                        </span>
+                                    </div>
+                                    <div class="grid__item grid__item--gutter grid__item--1/3  grid__item--sm-1/1 align--center">
+                                        <select v-validate="'required'" v-on:change="setLicenceNumber($event, item)" name="licencesSelect" :id="'licences-number-select-' + item.id" class="number-of-licences" :data-id="item.id" :data-edition="item.editionName">
+                                            <option value="Please select" disabled></option>
+                                            <option v-for="option in licenceOptions" :value="option">
+                                                {{ option }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row product-edition-row">
+                            <div class="grid">
+                                <div class="grid__item grid__item--gutter grid__item--1/2">
+                                    <div class="edition-title">
+
+                                    </div>
+                                </div>
+                                <div class="grid__item grid__item--gutter grid__item--1/1 grid__item--align-right">
+                                    <div class="prices">
+                                        <div class="row">
+                                            {{ item.editionPrice }}
+                                        </div>
+                                        <div class="row">
+
+                                        </div>
+                                        <div class="row price-total">
+                                            Total: {{ item.editionPrice }}
+                                        </div>
+                                        <div class="row price-info">
+                                            Price will be confirmed by Vodafone when they contact you.
+                                        </div>
+                                        <div class="row">
+                                            <div class="remove-button" v-on:click="openDialog(item.id, item.editionName)" :id="'product-in-cart-remove-' + item.id">
+                                                Remove
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% endverbatim %}
+                </div>
+
+                <!-- FIELD INFORMATION -->
+
+                <div class="header">
+                    <h3 class="heading--3 text-center align--center">
+                        Company information
+                    </h3>
+                </div>
+
+
+                <div class="section section--gutter no-gutter--top section--white form-fields-section">
+                    <div data-js="_suggest" data-api="http://master.vodafone-ws2.dddev.io/api/roaming/countries" data-cache-enabled="1" data-no-results-message="Sorry, no results found." class="suggest js-toggle-switch-form">
+
+                            <div class="grid">
+
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--1">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('firstName')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid first name, at least 2 characters long.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label form__label--required">First name</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-model="firstName" v-validate="'required'" tabindex="1" id="firstName" type="text" name="firstName" value="" placeholder="First name"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+                                            </span>
+
+                                    </label>
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--5">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('lastName')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid last name, at least 2 characters long.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label form__label--required">Last name</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-model="lastName" v-validate="'required'" tabindex="2" id="lastName" type="text" name="lastName" value="" placeholder="Last name"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+                                            </span>
+                                    </label>
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--2">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('emailAddress')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid email address.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label form__label--required">Email address</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-model="emailAddress" v-validate="'required|email'" tabindex="3" id="emailAddress" type="text" name="emailAddress" value="" placeholder="Email address"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+
+                                            </span>
+                                    </label>
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--6">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('mobilePhone')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid mobile number.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label form__label--required">Mobile phone</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-model="mobilePhone" v-validate="'required'" tabindex="4" id="mobilePhone" type="text" name="mobilePhone" value="" placeholder="Mobile phone"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+                                            </span>
+                                    </label>
+
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--3">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('company')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid company name, at least 2 characters long.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label form__label--required">Company</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-on:keyup="generateTenantName" v-model="company" v-validate="'required'" tabindex="5" id="company" type="text" name="company" value="" placeholder="Company"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+
+                                            </span>
+                                    </label>
+
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--7">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('registeredCompanyNumber')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid registered company number.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label form__label--required">Registered company number</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-model="registeredCompanyNumber" v-validate="'required|numeric'" tabindex="6" id="registeredCompanyNumber" type="text" name="registeredCompanyNumber" value="" placeholder="Registered company number"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+
+                                            </span>
+                                    </label>
+
+                                    <label class="grid__item grid__item--1/2 grid__item--sm-1/1 form-input-single" id="field--4">
+                                        <div class="alert alert--light alert--warning alert--arrow validation__warning" v-show="errors.first('billingAccountNumber')">
+                                            <div class="caption">
+                                                <div class="caption__media caption__media--top alert__media">
+                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  alert__icon">
+                                                        <use xlink:href="#icon-block"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="caption__text caption__text--top alert__text">
+                                                    <span>Please enter a valid account number.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="form__label">Billing account number</span>
+                                        <span class="input-group  input-group--clear ">
+                        <input v-model="billingAccountNumber" tabindex="7" id="billingAccountNumber" type="text" name="billingAccountNumber" value="" placeholder="Billing account number"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+
+
+                                            </span>
+                                    </label>
+
+
+
+                            </div>
+                            <br>
+                            <br>
+
+                            <div class="row">
+                                <hr>
+                                <br>
+                                <div class="grid">
+                                    <div class="grid__item grid__item--1/2 grid__item--sm-1/1">
+                                        <p>
+                                            Do you already have Microsoft Tenant Name?
+                                        </p>
+                                        <span class="d-inline">
+                                            <input v-on:click="generateTenantName" v-model="haveTenantName" type="radio" id="tenant-no" name="tenant" value="no">
+                                            <label for="tenant-no">No</label>
+                                        </span>
+                                        <span class="d-inline">
+                                            <input v-model="haveTenantName" type="radio" id="tenant-yes" name="tenant" value="yes">
+                                            <label for="tenant-yes">Yes</label>
+                                        </span>
+                                    </div>
+                                    <div class="grid__item grid__item--1/2 grid__item--sm-1/1">
+                                        <div id="tenant-original" class="tenant-original" v-if="haveTenantName === 'yes'">
+                                            <input v-model="tenantOriginal" v-validate="'required'" tabindex="2" id="tenantName" type="text" name="tenantName" value="" placeholder="Microsoft Tenant Name"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+                                        </div>
+                                        <div id="tenant-generated" class="tenant-generated" v-if="haveTenantName === 'no'">
+                                            <input disabled v-model="tenantGenerated" tabindex="2" id="tenantGenerated" type="text" name="tenantGenerated" value="" placeholder="Microsoft Tenant Name Generated"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+                                            <br>
+                                            <input disabled v-model="tenantGeneratedSecondary" tabindex="2" id="tenantGeneratedSecondary" type="text" name="tenantGeneratedSecondary" value="" placeholder="Secondary Microsoft Tenant Name Generated"  minlength="2" class="js-suggest-input form__input suggest__input input-group__input checkout-form-field">
+                                        </div>
+                                        <br>
+                                        <div class="row" v-show="haveTenantName === 'no' && isOffice365 === true">
+                                            <div class="col-12">
+                                                If neither of these names are available, Vodafone will and have all rights to choose a relevant name for you.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div>
+                                    <p>
+                                        This information is only being used to process your order and not for marketing purposes. If you would like to update your marketing preferences you can do so via your MyVodafone account.
+                                    </p>
+                                </div>
+
+
+                                <input name="dateSubmitted" id="dateSubmitted" type="hidden" value="">
+                                <input name="basket" id="basket" type="hidden" value="">
+                            </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="align--center">
+                    <div v-on:click="continueShopping" class="button button--white align--center w100-mobile" id="continueshopping">
+                        Continue shopping
+                    </div>
+                    <div v-on:click="reviewOrder" v-bind:disabled="{'button--disabled': formErrors || haveEmptyFields}" v-bind:class="{'button--disabled': !isButtonDisabled}" class="button button--primary  button--primary--dark align--center w100-mobile" id="submitbtnSave">
+                        Order & review
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </transition>
+    </div>
+
+    <transition name="fade">
+        <section class="section section--gallery"  id="checkout-step-2" v-show="stepVisible === 2">
+
+    <div class="spring">
+        <div class="grid grid--gutter">
+            <div class="grid__item grid__item--sm-1/1 grid__item--1/2 grid__item--gutter">
+                <article class="section section--gutter section--white form-fields-section">
+                    <h2 class="heading heading--4 heading--regular no-gutter--top align--center">Order</h2>
+
+                    <div class="gutter--left gutter--right">
+                        <div id="product-on-confirm">
+                            {% verbatim %}
+                            <div v-for="item in basket" class="media media--gutter gutter--bottom" style="width: auto;">
+                                <div class="media__image hide--sm">
+                                    <img class="img-fluid" :src="item.image" :alt="item.title">
+                                </div>
+                                <div class="media__body">
+                                    <h3 class="heading heading--5 heading--bold no-gutter--all">
+                                        {{ item.title }} {{ item.editionName }}
+                                    </h3>
+                                    <p class="no-gutter--all review-text">
+                                        {{ item.description }}
+                                    </p>
+                                </div>
+                            </div>
+                            {% endverbatim %}
+                        </div>
+
+                        <hr>
+
+                        <p class="align--right"><small>Final price may include additional taxes.</small></p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="grid__item grid__item--sm-1/1 grid__item--1/2 grid__item--gutter">
+                <article class="section section--gutter section--white form-fields-section">
+                    <h2 class="heading heading--4 heading--regular no-gutter--top align--center">Company information</h2>
+
+                    <div class="gutter--left gutter--right">
+
+                        <dl class="grid grid--gutter gutter--bottom">
+                            <div id="address-on-confirm">
+                                {% verbatim %}
+                                <dt class="grid__item grid__item--1/3 grid__item--gutter">Name:</dt>
+                                <dd class="grid__item grid__item--2/3 grid__item--gutter" id="firstNameConfirm">{{ firstName }} {{ lastName }}</dd>
+                                <dt class="grid__item grid__item--1/3 grid__item--gutter">Email:</dt>
+                                <dd class="grid__item grid__item--2/3 grid__item--gutter" id="emailAddressConfirm">{{ emailAddress }}</dd>
+                                <dt class="grid__item grid__item--1/3 grid__item--gutter">Company:</dt>
+                                <dd class="grid__item grid__item--2/3 grid__item--gutter" id="companyConfirm">{{ company }}</dd>
+                                <dt class="grid__item grid__item--1/3 grid__item--gutter">Phone:</dt>
+                                <dd class="grid__item grid__item--2/3 grid__item--gutter" id="mobilePhoneConfirm">{{ mobilePhone }}</dd>
+                                {% endverbatim %}
+                            </div>
+                        </dl>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="align--center">
+            <button v-on:click="editOrder" class="button button--secondary w100-mobile" id="edit-order">Edit order</button>
+            <button v-on:click="submitOrder" class="button button--primary w100-mobile" id="confirm-order">Confirm order</button>
+        </div>
+    </div>
+    </form>
+</section>
+    </transition>
+
+    <transition name="fade">
+        <section class="section section--gallery"  id="checkout-step-3" v-show="stepVisible === 3">
+
+    <div class="spring">
+        <div class="grid grid--gutter">
+            <div class="grid__item grid__item--sm-1/1 grid__item--1/1 grid__item--gutter">
+                <article class="section section--gutter section--white form-fields-section">
+                    <h2 class="heading heading--4 heading--regular no-gutter--top align--center">Thank you for your order!</h2>
+
+                    <div class="gutter--left gutter--right align--center">
+                        Thank you for purchasing with Vodafone. Please check your inbox for an order confirmation and set-up details.
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+    </transition>
+
+<section class="section section--gallery"  id="empty-cart" v-show="stepVisible === 4">
+
+    <div class="spring">
+        <div class="grid grid--gutter">
+            <div class="grid__item grid__item--sm-1/1 grid__item--1/1 grid__item--gutter">
+                <article class="section section--gutter section--white form-fields-section">
+
+                    <div class="gutter--left gutter--right align--center">
+                        You haven't put any items in your basket, yet. Browse our <a href="/">products</a> and select the items you like.
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+</div>
+
+</div>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/2.1.6/vee-validate.min.js"></script>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ r('/assets/js/dist/pages/checkout.js') }}"></script>
+{% endblock %}
+
+{% block analytics_data %}
+    {{ utagDataScript({
+        page_name: 'uk:business:app direct:checkout',
+        site_section_lvl_3: 'checkout'
+    }) }}
+{% endblock %}

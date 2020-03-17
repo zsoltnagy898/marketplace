@@ -1,0 +1,348 @@
+{% macro productFeatures(title, description, image, summary) %}
+<div class="stage" data-js="_gallery, _products">
+    <div class="spring">
+        <div class="grid grid--gutter">
+            <div class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2 align--center flush--sm-bottom stage__header">
+                <div class="hide--lg stage__container stage__heading">
+                    <!-- START: "group/pages/products-apple/content/heading" Array
+(
+    [journey] => anonymous
+)
+ -->
+                    <h2 class="heading heading--3">
+                        {{ summary.details }}
+                        <br>
+                        <span class="heading--4">{{ description }}</span>
+                        <span class="visually-hidden">package details</span>
+                    </h2>
+                    <div class="grid grid--gutter">
+
+                    </div>
+                    <!-- END: "group/pages/products-apple/content/heading" -->
+                </div>
+                <img src="{{ image }}" alt="iPhone 6s" class="js-products-image stage__image">
+                <!--<a href="#" class="stage__gallery js-gallery-link">-->
+                    <!--<svg focusable="false" aria-hidden="true" class="icon  icon&#45;&#45;small  stage__gallery-icon">-->
+                        <!--<use xlink:href="#icon-photos"></use>-->
+                    <!--</svg>-->
+                    <!--Gallery-->
+                <!--</a>-->
+                <div class="hide--lg">
+                    <!-- START: "group/pages/products-apple/content/gallery" Array
+(
+    [journey] => anonymous
+)
+ -->
+                    <div class="js-gallery gallery">
+                        <div class="spring gallery__spring">
+                            <a href="#" class="js-gallery-close gallery__close">
+                                <span class="visually-hidden">Close the gallery</span>
+                                <svg focusable="false" aria-hidden="true" class="icon  icon--small  ">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- START: "group/directives/carousel/adaptations/$adaptation" Array
+                    (
+                        [adaptation] => gallery
+                    )
+                     -->
+                        <div class="carousel carousel--gallery carousel--stretch  js-dynamic-content-listener" data-js="_carousel" data-classes="activePage=carousel-gallery-pages__page--active" data-adjust-height="false" data-generate-pagination="false" data-breakpoints="mobile=1&amp;tablet=1&amp;desktop=1">
+                            <div class="carousel__wrapper">
+                                <ul class="js-carousel-slider carousel__slider carousel__slider--1" style="width: 100%; margin-left: 0%;">
+
+
+                                    <li class="js-carousel-slide carousel__slide carousel__slide--active" data-slide="0" style="width: 100%;">
+                                        <img src="{{ r('/assets/images/gallery-iphone-1.png') }}" alt="iPhone 6s" class="gallery__image">
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="js-carousel-controls carousel__controls carousel__controls--visible">
+                                <button class="js-carousel-control carousel__control carousel__control--left" type="button" data-direction="-1">
+                                    <span class="visually-hidden">Previous page</span>
+                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel__control-icon">
+                                        <use xlink:href="#icon-chevron-left"></use>
+                                    </svg>
+                                </button>
+                                <button class="js-carousel-control carousel__control carousel__control--right" type="button" data-direction="1">
+                                    <span class="visually-hidden">Next page</span>
+                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel__control-icon">
+                                        <use xlink:href="#icon-chevron-right"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="js-carousel-pagination carousel__pagination carousel__pagination--visible">
+                                <ol class="carousel-gallery-pages ">
+                                    <li class="carousel-gallery-pages__page-item">
+                                        <button data-page="0" class="js-carousel-page carousel-gallery-pages__page button button--reset carousel-gallery-pages__page--active" aria-current="page">
+                                            <span class="visually-hidden">go to the item 0</span>
+                                            <img src="{{ r('/assets/images/gallery-thumbnail-1.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                                        </button>
+                                    </li>
+                                    <li class="carousel-gallery-pages__page-item">
+                                        <button data-page="1" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                            <span class="visually-hidden">go to the item 1</span>
+                                            <img src="{{ r('/assets/images/gallery-thumbnail-2.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                                        </button>
+                                    </li>
+                                    <li class="carousel-gallery-pages__page-item">
+                                        <button data-page="2" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                            <span class="visually-hidden">go to the item 2</span>
+                                            <img src="{{ r('/assets/images/gallery-thumbnail-3.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                                        </button>
+                                    </li>
+                                    <li class="carousel-gallery-pages__page-item">
+                                        <button data-page="3" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                            <span class="visually-hidden">go to the item 3</span>
+                                            <img src="{{ r('/assets/images/gallery-thumbnail-4.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                                        </button>
+                                    </li>
+                                    <li class="carousel-gallery-pages__page-item">
+                                        <button data-page="4" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                            <span class="visually-hidden">go to the item 4</span>
+                                            <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel-gallery-pages__page-icon carousel-gallery-pages__page-icon--horizontal">
+                                                <use xlink:href="#icon-360-degrees"></use>
+                                            </svg>
+
+                                        </button>
+                                    </li>
+                                    <li class="carousel-gallery-pages__page-item">
+                                        <button data-page="5" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                            <span class="visually-hidden">go to the item 5</span>
+                                            <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel-gallery-pages__page-icon">
+                                                <use xlink:href="#icon-play"></use>
+                                            </svg>
+
+                                        </button>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <!-- START: "group/directives/carousel/templates/slide" Array
+                        (
+                            [adaptation] => gallery
+                        )
+                         -->
+                            <script class="js-carousel-slide-template" type="text/x-handlebars-template">
+                                <li class="js-carousel-slide carousel__slide" data-slide="1">
+                                    img1
+                                </li>
+                            </script>
+                            <!-- END: "group/directives/carousel/templates/slide" -->
+                        </div>
+
+                        <!-- END: "group/directives/carousel/adaptations/$adaptation" -->
+                    </div>
+                    <!-- END: "group/pages/products-apple/content/gallery" -->
+                </div>
+            </div>
+            <div class="grid__item grid__item--gutter grid__item--1/1 flush--sm-bottom hide hide--lg">
+                <div class="products__breadcrumbs">
+                    <!-- START: "group/pages/products-apple/content/breadcrumbs" Array
+(
+    [journey] => anonymous
+)
+ -->
+                    <!-- START: "group/directives/breadcrumbs/adaptations/$adaptation" Array
+                    (
+                        [adaptation] => default
+                    )
+                     -->
+                    <nav class="breadcrumbs breadcrumbs--extrude">
+                        <div class="spring">
+                            <h2 class="visually-hidden">Breadcrumbs for the current page</h2>
+                            <ol class="breadcrumbs__list hide--sm hide--md">
+                                <li class="breadcrumbs__item">
+                                    <a href="http://localhost:8002/welcome" class="breadcrumbs__crumb  breadcrumbs__crumb--first ">Home</a>
+                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  breadcrumbs__chevron">
+                                        <use xlink:href="#icon-chevron-right"></use>
+                                    </svg>
+                                </li>
+                                <li class="breadcrumbs__item">
+                                    <a href="http://localhost:8002/shop" class="breadcrumbs__crumb ">Shop</a>
+                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  breadcrumbs__chevron">
+                                        <use xlink:href="#icon-chevron-right"></use>
+                                    </svg>
+                                </li>
+                                <li class="breadcrumbs__item">
+                                    <a href="http://localhost:8002/shop/devices" class="breadcrumbs__crumb ">Devices</a>
+                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  breadcrumbs__chevron">
+                                        <use xlink:href="#icon-chevron-right"></use>
+                                    </svg>
+                                </li>
+                                <li class="breadcrumbs__item">
+                                    <span class="breadcrumbs__crumb breadcrumbs__crumb--current">iPhone 6s</span>
+                                </li>
+                            </ol>
+
+                        </div>
+                    </nav>
+                    <!-- END: "group/directives/breadcrumbs/adaptations/$adaptation" -->
+                    <!-- END: "group/pages/products-apple/content/breadcrumbs" -->
+                </div>
+            </div>
+            <div class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2 stage__information stage__information--light">
+                <div class="hide--md hide--sm">
+                    <!-- START: "group/pages/products-apple/content/heading" Array
+(
+    [journey] => anonymous
+)
+ -->
+                    <h2 class="heading heading--3">
+                        {{ summary.details }}
+                        <br>
+                        <span class="heading--4">{{ description }}</span>
+                        <span class="visually-hidden">package details</span>
+                    </h2>
+                    <div class="grid grid--gutter">
+                        <!--<div class="grid__item grid__item&#45;&#45;gutter grid__item&#45;&#45;1/2 align&#45;&#45;left">-->
+                            <!--<a href="#">#loveiphone6s</a>-->
+                        <!--</div>-->
+                        <div class="grid__item grid__item--gutter grid__item--1/1 align--left">
+                            <!--<a href="#" data-js="_target" data-trigger-events="click" data-trigger-target=".js-products-reviews" data-trigger-on="click">-->
+                                <!--<div class="stage__rating">-->
+                                    <!--<div class="rating ">-->
+                                        <!--<svg focusable="false" aria-hidden="true" class="icon  rating__icon rating__icon&#45;&#45;no-rating">-->
+                                            <!--<use xlink:href="#icon-rating-0"></use>-->
+                                        <!--</svg>-->
+                                        <!--<svg focusable="false" aria-hidden="true" class="icon  rating__icon rating__icon&#45;&#45;rating rating__icon&#45;&#45;rating&#45;&#45;4">-->
+                                            <!--<use xlink:href="#icon-rating-5"></use>-->
+                                        <!--</svg>-->
+                                        <!--<span class="visually-hidden">Rating 4 of 5</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<span class="stage__reviews">{{ reviews.items.length }} reviews</span>-->
+                            <!--</a>-->
+
+                        </div>
+                    </div>
+                    <!-- END: "group/pages/products-apple/content/heading" -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="hide--md hide--sm">
+        <!-- START: "group/pages/products-apple/content/gallery" Array
+(
+    [journey] => anonymous
+)
+ -->
+        <div class="js-gallery gallery">
+            <div class="spring gallery__spring">
+                <a href="#" class="js-gallery-close gallery__close">
+                    <span class="visually-hidden">Close the gallery</span>
+                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  ">
+                        <use xlink:href="#icon-close"></use>
+                    </svg>
+                </a>
+            </div>
+            <!-- START: "group/directives/carousel/adaptations/$adaptation" Array
+        (
+            [adaptation] => gallery
+        )
+         -->
+            <div class="carousel carousel--gallery carousel--stretch  js-dynamic-content-listener" data-js="_carousel" data-classes="activePage=carousel-gallery-pages__page--active" data-adjust-height="false" data-generate-pagination="false" data-breakpoints="mobile=1&amp;tablet=1&amp;desktop=1">
+                <div class="carousel__wrapper">
+                    <ul class="js-carousel-slider carousel__slider carousel__slider--1" style="width: 100%; margin-left: 0%;">
+
+
+                        <li class="js-carousel-slide carousel__slide carousel__slide--active" data-slide="0" style="width: 100%;">
+                            <img src="{{ r('/assets/images/gallery-iphone-1.png') }}" alt="iPhone 6s" class="gallery__image">
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="js-carousel-controls carousel__controls carousel__controls--visible">
+                    <button class="js-carousel-control carousel__control carousel__control--left" type="button" data-direction="-1">
+                        <span class="visually-hidden">Previous page</span>
+                        <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel__control-icon">
+                            <use xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                    </button>
+                    <button class="js-carousel-control carousel__control carousel__control--right" type="button" data-direction="1">
+                        <span class="visually-hidden">Next page</span>
+                        <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel__control-icon">
+                            <use xlink:href="#icon-chevron-right"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="js-carousel-pagination carousel__pagination carousel__pagination--visible">
+                    <ol class="carousel-gallery-pages ">
+                        <li class="carousel-gallery-pages__page-item">
+                            <button data-page="0" class="js-carousel-page carousel-gallery-pages__page button button--reset carousel-gallery-pages__page--active" aria-current="page">
+                                <span class="visually-hidden">go to the item 0</span>
+                                <img src="{{ r('/assets/images/gallery-thumbnail-1.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                            </button>
+                        </li>
+                        <li class="carousel-gallery-pages__page-item">
+                            <button data-page="1" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                <span class="visually-hidden">go to the item 1</span>
+                                <img src="{{ r('/assets/images/gallery-thumbnail-2.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                            </button>
+                        </li>
+                        <li class="carousel-gallery-pages__page-item">
+                            <button data-page="2" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                <span class="visually-hidden">go to the item 2</span>
+                                <img src="{{ r('/assets/images/gallery-thumbnail-3.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                            </button>
+                        </li>
+                        <li class="carousel-gallery-pages__page-item">
+                            <button data-page="3" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                <span class="visually-hidden">go to the item 3</span>
+                                <img src="{{ r('/assets/images/gallery-thumbnail-4.jpg') }}" alt="iPhone 6s" class="carousel-gallery-pages__page-image">
+
+                            </button>
+                        </li>
+                        <li class="carousel-gallery-pages__page-item">
+                            <button data-page="4" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                <span class="visually-hidden">go to the item 4</span>
+                                <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel-gallery-pages__page-icon carousel-gallery-pages__page-icon--horizontal">
+                                    <use xlink:href="#icon-360-degrees"></use>
+                                </svg>
+
+                            </button>
+                        </li>
+                        <li class="carousel-gallery-pages__page-item">
+                            <button data-page="5" class="js-carousel-page carousel-gallery-pages__page button button--reset">
+                                <span class="visually-hidden">go to the item 5</span>
+                                <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel-gallery-pages__page-icon">
+                                    <use xlink:href="#icon-play"></use>
+                                </svg>
+
+                            </button>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- START: "group/directives/carousel/templates/slide" Array
+            (
+                [adaptation] => gallery
+            )
+             -->
+                <script class="js-carousel-slide-template" type="text/x-handlebars-template">
+                    <li class="js-carousel-slide carousel__slide" data-slide="2">
+                        img2
+                    </li>
+                </script>
+                <!-- END: "group/directives/carousel/templates/slide" -->
+            </div>
+
+            <!-- END: "group/directives/carousel/adaptations/$adaptation" -->
+        </div>
+        <!-- END: "group/pages/products-apple/content/gallery" -->
+    </div>
+</div>
+{% endmacro %}

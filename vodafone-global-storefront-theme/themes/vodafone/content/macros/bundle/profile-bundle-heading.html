@@ -1,0 +1,28 @@
+{% from "/macros/profile-image.html" import productImageMedium %}
+
+{% macro bundleHeadCard(card, badges, navigation) %}
+<div class="profile_header">
+    <div class="profile_header--content">
+        <div class="layout-default">
+            <div class="container">
+                <div class="card__image">
+                    {% for image in card.images %}
+                        {{ productImageMedium(image, null, null, 'card__image-item') }}
+                    {% endfor %}
+                </div>
+                <div class="card__content">
+                    <h1 class="profile_header--title">{{ card.title }}</h1>
+                    <div class="summary--caption">{{ card.description }}</div>
+                    <div class="badges">
+                        {% if badges and badges.list and badges.list.length %}
+                            {% for badge in badges.list %}
+                                <span class="badge badge__outline"><a href="{{ badge.href }}">{{ badge.label }}</a></span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

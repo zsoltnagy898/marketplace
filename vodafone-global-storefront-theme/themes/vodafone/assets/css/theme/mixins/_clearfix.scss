@@ -1,0 +1,19 @@
+////
+/// Core Mixin: Clearfix
+////
+
+/// Adds clearfix to fix float layouts.
+/// @example scss
+///     .container {
+///         @include _adb-clearfix;
+///     }
+@mixin _adb-clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        display: table;
+        content: " ";
+    }
+    &:after {
+        clear: both;
+    }
+}

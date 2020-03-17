@@ -1,0 +1,114 @@
+$modal-header-bg: linear-gradient(rgba(45, 45, 45, 0), rgba(45, 45, 45, .05)), #f5f5f5;
+$modal-header-box-shadow: 0 2px 2px -1px rgba(45, 45, 45, .1), inset 0 1px 0 0 rgba(255, 255, 255, .95);
+$modal-header-border-bottom: 1px solid #cbcbcb;
+$modal-header-border-top: 1px solid #cbcbcb;
+$modal-footer-bg: linear-gradient(rgba(45, 45, 45, 0), rgba(45, 45, 45, .05)), #f5f5f5;
+$modal-footer-box-shadow: 0 2px 2px -1px rgba(45, 45, 45, .1), inset 0 1px 0 0 rgba(255, 255, 255, .95);
+$modal-footer-border-top: 1px solid #cbcbcb;
+$blocker-bg: rgba(0, 0, 0, .4);
+
+.modal {
+    display: none;
+    border-radius: 4px;
+    z-index: 10001;
+    padding: 0;
+    box-shadow: none;
+    .slick-dots {
+        margin-top: 15px;
+        text-align: center;
+        display: block;
+        width: auto;
+    }
+    .close {
+        transition: opacity .1s linear;
+        opacity: .5;
+        color: inherit;
+        display: block;
+        position: absolute;
+        top: 6px;
+        font-size: 21px;
+        right: 16px;
+        &:hover {
+            text-decoration: none;
+            opacity: 1;
+        }
+    }
+}
+
+.modal--header {
+    padding: 8px 16px;
+    padding-right: 36px;
+    margin: 0;
+    min-height: 40px;
+    border-bottom: $modal-header-border-bottom;
+    background: $modal-header-bg;
+    box-shadow: $modal-header-box-shadow;
+    border-top: $modal-header-border-top;
+    box-sizing: border-box;
+    &:first-child {
+        border-top-style: hidden;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+}
+
+.modal--content {
+    padding: 14px;
+    overflow: auto;
+    min-height: 134.4px;
+    max-height: 60vh;
+}
+
+.modal--footer {
+    background: $modal-footer-bg;
+    box-shadow: $modal-footer-box-shadow;
+    border-top: $modal-footer-border-top;
+    padding: 10px;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+    box-sizing: border-box;
+    min-height: 58px;
+}
+
+.modal-footer-right {
+    float: right;
+}
+.modal-footer-left {
+    float: left;
+}
+
+.slider--image {
+    height: 100%;
+    min-height: 1px;
+    width: 524px;
+    float: left;
+    text-align: center;
+    img {
+        max-width: 100%;
+        max-height: 500px;
+    }
+}
+
+.toolbar__polar {
+    position: relative;
+    text-align: justify;
+    font-size: 0;
+    line-height: 0;
+    text-justify: distribute-all-lines;
+}
+
+.toolbar--item {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.blocker {
+    z-index: 10000;
+    transition: opacity .1s linear;
+    background: $blocker-bg;
+}
+
+.close-modal {
+    display: none !important;
+}

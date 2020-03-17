@@ -1,0 +1,66 @@
+{% from "/macros/rating.html" import ratingInput %}
+
+{% macro reviewForm(i18n, title = "", description = "") %}
+    <form class="form" role="form" id="js-profile-review-form">
+        <div data-fieldsets="" class="form--fieldset">
+            <fieldset data-fields="">
+                <div class="form--field" data-field-type="rating" data-field-required="true">
+                    <label>
+                        {{ i18n.myRating }}
+                        <span class="label--error js-error-message" data-message-required="{{ i18n.mustBeBetween }}"></span>
+                    </label>
+                    <div class="js-rating-input">
+                        {{ ratingInput() }}
+                        <div class="rating-details js-rating-details is-hidden">
+                            <span class="js-rating-number"></span>
+                            <span class="js-rating-label-multi-stars is-hidden">{{ i18n.multiStars }}</span>
+                            <span class="js-rating-label-single-star is-hidden">{{ i18n.singleStar }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form--field" data-field-type="input" data-field-required="true">
+                    <label class="" for="review-title">
+                        {{ i18n.title }}
+                        <span class="label--error js-error-message" data-message-required="{{ i18n.fieldRequired }}"></span>
+                    </label>
+                    <input id="review-title" name="title" type="text" val="{{title}}">
+                </div>
+                <div class="form--field" data-field-type="textarea" data-field-required="true">
+                    <label>
+                        {{ i18n.description }}
+                        <span class="label--error js-error-message" data-message-required="{{ i18n.fieldRequired }}" data-message-maxlength="{{ i18n.textareaMaxLength }}"></span>
+                    </label>
+                    <div class="js-maxlength js-maxlength-textarea">
+                        <textarea name="comment" data-maxlength="2048">{{description}}</textarea>
+                        <div class="js-maxlength-count">2048</div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="layout-section"></div>
+        <button type="submit" class="button__primary is-hidden">false</button>
+    </form>
+{% endmacro %}
+{% macro writeReviewModal(i18n) %}
+    <div id="ask-review-form-modal" class="modal modal-dialog modal__default" role="menu" >
+        <h3 class="modal--header">
+            {{ i18n.writeReview }}
+            <a class="close modal-dismiss" rel="modal:close"></a>
+        </h3>
+        <div class="modal--content modal-content">
+            {{ reviewForm(i18n) }}
+        </div>
+        <menu class="modal--footer toolbar toolbar__polar modal-footer">
+            <menu class="toolbar--item modal-footer-left">
+                <menu class="toolbar--item">
+                    <button type="button" class="button toolbar--item button__primary" aria-label="submit" rel="modal:submit">
+                    <span>{{ i18n.submit }}</span>
+                    </button>
+                    <button type="button" class="button toolbar--item button__secret" aria-label="cancel" rel="modal:close">
+                    <span>{{ i18n.cancel }}</span>
+                    </button>
+                </menu>
+            </menu>
+        </menu>
+    </div>
+{% endmacro %}

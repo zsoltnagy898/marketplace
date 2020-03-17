@@ -1,0 +1,22 @@
+ .ad-home-notification, .ad-team-notification {
+	background: $notifications-bg;
+	border-radius: $notifications-border-radius;
+	color: $notifications-font-color;
+	display: none;
+	font-family: $notifications-font-family;
+	font-size: $notifications-font-size;
+	font-weight: $notifications-font-weight;
+	height: $notifications-height;
+	line-height: 13px;
+	min-width: $notifications-min-width;
+	padding: $notifications-padding-vertical $notifications-padding-horizontal;
+	text-align: center;
+	position: absolute;
+	right: 9px;
+	top: 30px;
+	box-sizing: content-box;
+
+	&.ad-is-active {
+		display: block;
+	}
+}

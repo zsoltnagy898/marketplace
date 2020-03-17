@@ -1,0 +1,45 @@
+{% macro resourcesCategoryList(header, resourcesList, uniquePreffix) %}
+    {% if resourcesList.length %}
+    <ul class="list-stack">
+        <li class="list-stack--item  list-stack--item__nesting">
+            <a class="list-link__nav list-stack--item_content list-stack--item_content__nesting" data-toggle="collapse">
+                <span class="list-stack--affix list-count">{{ resourcesList.length }}</span>{{ header }}
+            </a>
+            <ul class="list-stack">
+                {% for resource in resourcesList %}
+                <li class="list-stack--item">
+                    <a 
+                        class="list-link__nav list-stack--item_content js-resource-toggle"
+                        data-id="{{ uniquePreffix }}-{{ resource.resourceType }}-{{ resource.id }}"
+                    >
+                        <span class="list-stack--affix"></span>{{ resource.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+    {% endif %}
+{% endmacro %}
+
+{% macro resourceContentTemplate(resource, uniquePreffix, i18n) %}
+    <div
+        class="profile-resource--content-toggled-item js-resource-content is-hidden"
+        data-id="{{ uniquePreffix }}-{{ resource.resourceType }}-{{ resource.id }}"
+    >
+        {% if resource.resourceType === "PDF_LINK" %}
+            <p><a href="{{ resource.link }}" target="_blank">{{ i18n.Download }}</a></p>
+        {% endif %}
+        <iframe 
+            width="100%" height="480px" frameborder="0" allowfullscreen="" 
+            src="about:blank"
+            data-link="{{ resource.iFrameFriendlyURL }}"
+            onerror="javascript:alert('error');return false;"
+        ></iframe>
+        {% if resource.resourceType === "PDF_UPLOAD" %}
+            <p><a href="{{ resource.link }}" target="_blank">{{ i18n.Download }}</a></p>
+        {% endif %}
+        {{ resource.description }}
+    </div>
+{% endmacro %}
+

@@ -1,0 +1,27 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/navigator.html" import navigator %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+
+{% block data %}
+<data type="navigator" />
+{% endblock %}
+
+{% block content %}
+<div class="layout-default">
+    <div class="layout-row">
+        <div id="sectionNavigation" class="layout-sidebar show-medium-up">
+            {{ navigator(nav.primary) }}
+        </div>
+        <div class="layout-content">
+            <div class="layout-content--section">
+                {{ slider("Featured Apps", productLists.featuredapps, i18n) }}
+            </div>
+            <div class="layout-content--section">
+                CUSTOM PAGE
+            </div>
+        </div>
+    </div>
+</div>
+{{ sliderScript() }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+  "namespaces": [
+    {
+      "themeName": "vodafone",
+      "marketplacePath": "https://testvfgroup.appdirect.com/home",
+      "pageObjectsPath": "https://marketplace.appdirect.com/api/internal/storefront/v1"
+    }
+  ],
+  "defaultValues": {
+    "themeName": "vodafone",
+    "marketplacePath": "https://testvfgroup.appdirect.com/home",
+    "pageObjectsPath": "https://marketplace.appdirect.com/api/internal/storefront/v1"
+  },
+  "projectName": "vodafoneGlobal",
+  "current": "vodafone",
+  "created": "2018-12-12T12:55:46.505Z",
+  "modified": "2018-12-12T12:55:46.505Z"
+}

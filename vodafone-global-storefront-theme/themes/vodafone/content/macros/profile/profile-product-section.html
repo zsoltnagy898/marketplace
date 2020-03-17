@@ -1,0 +1,44 @@
+{% from "/macros/profile-image.html" import productImageSmall %}
+
+{% macro productSidebarSection(items, title) %}
+    {% if items.length %}
+    <div class="container-box container-box-section">
+        <div class="container_header">
+            <h5 class="container_header--title container_header--item">{{ title }}</h5>
+        </div>
+        <div class="container_content">
+            <div class="container-slider show">
+            {% for item in items %}
+            {% set hasContainer = loop.index % 5 %}
+
+                <div class="card">
+                    <div class="card__image js-logo">
+                        {{ productImageSmall(item.iconUrl, item.url, item.productRibbon) }}
+                    </div>
+                    <div class="card__content summary">
+                        <h4 class="title__large summary--title">
+                            <a data-truncate="line" href="{{ item.url }}">{{ item.name}}</a>
+                        </h4>
+                    </div>
+                </div>
+            {% if hasContainer == 0 %}
+                </div>
+                <div class="container-slider">
+            {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        <div class="container_footer">
+            <menu class="header--item toolbar__small">
+                <menu class="toggle_buttons toolbar--item">
+                    <button aria-label="prev" class="toggle_buttons--button button__square_small js-section-prev" disabled="disabled" type="button">
+                        <i class="icon__arrow_left"></i>
+                    </button><button aria-label="next" class="toggle_buttons--button button__square_small js-section-next" disabled="disabled" type="button">
+                        <i class="icon__arrow_right"></i>
+                    </button>
+                </menu>
+            </menu>
+        </div>
+    </div>
+    {% endif %}
+{% endmacro %}

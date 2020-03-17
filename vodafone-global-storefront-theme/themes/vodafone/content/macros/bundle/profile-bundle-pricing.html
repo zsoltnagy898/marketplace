@@ -1,0 +1,18 @@
+{% macro bundleSidebarPricing(editions, title) %}
+    <div class="container-box container-box--spaced">
+        <div class="container_header">
+            <h5 class="container_header--title container_header--item">{{ title }}</h5>
+        </div>
+        <div class="container_content">
+            {% for edition in editions %}
+                <div class="stats">
+                    <dt>{{ edition.name }}</dt>
+                    <dd class="price">
+                        <span class="price--value">{{ edition.value }}</span>
+                        <span class="price--unit">{{ edition.frequency }}</span>
+                    </dd>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,51 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/profile/profile-product-heading.html" import productHeadCard %}
+{% from "/macros/profile/profile-product-pricing.html" import productSidebarPricing %}
+{% from "/macros/profile/profile-product-tags.html" import productSidebarTags %}
+{% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
+{% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
+{% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+{% from "/macros/notification.html" import notificationModel %}
+
+{% block dataPage %}profile{% endblock %}
+{% block mainRegionClass %}profile-region{% endblock %}
+
+{% block headContent %}
+    {{ productHeadCard(application.summary, application.categories, application.navigation) }}
+{% endblock %}
+
+{% block content %}
+    {% block profileContent %}
+        <div class="row layout-content--section">
+            <div class="col-xs-8 col-fix-inv-sm-4">
+                {% block contentSection %}{% endblock %}
+            </div>
+            <div class="col-xs-8 col-fix-sm-4">
+                {{ productSidebarTopSection(application.screenshots, application.overview, i18n) }}
+                <div class="container-box">
+                    {{ productSidebarTags(application.relatedContent.details, application.reviews, i18n) }}
+                    {{ productSidebarPricing(application.editions, i18n) }}
+                </div>
+                {{ productSidebarSection(application.relatedContent.related, "Related Products", i18n) }}
+                {{ productSidebarSection(application.relatedContent.resellers, "Authorized Resellers", i18n) }}
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="layout-content--lined">
+        {{ slider("Similar Apps", application.recommendations.items, i18n, false) }}
+    </div>
+
+    <script>
+        $(".featuresDesc span").shave(40);
+        $(".profile_header").fixedHeader({ container: ".profile-region" });
+        $(".container-box-section").simpleSlider();
+    </script>
+
+    {{ sliderScript() }}
+    {{ productScreenshotModal(application.screenshots) }}
+    {{ notificationModel() }}
+
+{% endblock %}

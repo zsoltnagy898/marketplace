@@ -1,0 +1,52 @@
+{% macro related(related) %}
+<section id="Products" class="section section--gutter">
+<div class="spring">
+    <h3 class="heading heading--3 heading--center heading--leading">Products you might also like</h3>
+    <div class="grid grid--gutter">
+        {% for related in related.related %}
+        <div class="grid__item--gutter grid__item--gutter-vertical grid__item grid__item--md-1/1 grid__item--1/2">
+            <div class="aspect-height aspect-height--md-auto aspect-height--1/3">
+                <a href="{{ related.url }}" class="section--card aspect-height__content flush--all">
+                    <div class="grid">
+                        <div class="grid__item grid__item--sm-1/1 grid__item--md-1/2 grid__item--1/2">
+                            <div class="aspect-height aspect-height--sm-1/2 aspect-height--md-1/1 aspect-height--1/1">
+                                <div class="background   aspect-height__content">
+                                    <div class="background__image lazyloaded" data-bgset="
+            /images/family-outdoors.jpg" style="background-image: url({{ related.overviewImageUrl }});">
+                                        <picture style="display: none;"><source data-srcset=" {{ related.overviewImageUrl }}" sizes="787px" srcset=" {{ related.overviewImageUrl }}"><img alt="" class="lazyautosizes lazyloaded" data-sizes="auto" data-parent-fit="cover" sizes="787px"></picture></div>
+                                    <noscript>
+                                        <div class="background__image" style="background-image: url({{ related.overviewImageUrl }})"></div>
+                                    </noscript>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__item grid__item--sm-1/1 grid__item--md-1/2 grid__item--1/2">
+                            <div class="aspect-height aspect-height--sm-auto aspect-height--md-1/1 aspect-height--1/2">
+                                <div class="aspect-height__content broadband-tiles__content broadband-tiles__content--dark broadband-tiles__tile-content">
+                                    <h3 class="heading heading--leading heading--4">
+                                        <span class="chevron  chevron--inline ">
+    <span class="chevron__text ">
+        {{ related.name }}
+    </span>
+    <span class="chevron__container">
+			<svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+    <use xlink:href="#icon-chevron-right"/>
+</svg>
+		</span>
+</span>
+                                    </h3>
+                                    <p class="no-gutter--bottom hide--md">
+                                        {{ related.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</section>
+{% endmacro %}

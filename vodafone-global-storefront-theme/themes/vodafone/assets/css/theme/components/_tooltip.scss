@@ -1,0 +1,65 @@
+.tooltip {
+    position: relative;
+
+    &__text {
+        font-size: 12px;
+        visibility: hidden;
+        background-color: #2d2d2d;
+        color: #fff;
+        text-align: center;
+        padding: 4px 8px;
+        border-radius: 3px;
+        white-space: nowrap;
+        line-height: 1.6em;
+        opacity: 0;
+        transition: opacity .15s;
+        text-shadow: none;
+    
+        position: absolute;
+        z-index: 4;
+        left: 50%;
+    
+        &--bottom {
+            top: 150%;
+        }
+    
+        &--top {
+            bottom: 150%;
+        }
+
+        &--bottom::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #2d2d2d transparent;
+        }
+    
+        &--top::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #2d2d2d transparent transparent transparent;
+        }
+    }
+}
+
+.tooltip:hover .tooltip__text {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip .tooltip__text:hover {
+    visibility: hidden;
+}
+
+.profile-checklist__item .tooltip{
+    display: inline-block;
+}

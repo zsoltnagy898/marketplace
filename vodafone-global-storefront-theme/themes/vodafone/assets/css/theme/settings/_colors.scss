@@ -1,0 +1,5 @@
+/// system base colors
+$black: rgb(45,45,45) !default;             //#2d2d2d
+$white: rgb(255,255,255) !default;          //#ffffff
+$blue: rgb(0,154,191) !default;             //#009abf
+$gray4: mix($white, $black, 90%) !default;  //#EAEAEA

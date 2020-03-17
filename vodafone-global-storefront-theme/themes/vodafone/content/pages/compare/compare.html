@@ -1,0 +1,57 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/compare/compare-imageCells.html" import compareImageCells %}
+{% from "/macros/compare/compare-listCells.html" import compareListCells %}
+{% from "/macros/compare/compare-nameCells.html" import compareNameCells %}
+{% from "/macros/compare/compare-priceCells.html" import comparePriceCells %}
+{% from "/macros/compare/compare-ratingCells.html" import compareRatingCells %}
+{% from "/macros/compare/compare-textCells.html" import compareTextCells %}
+{% set products = comparableProducts.items %}
+{% set i18n = comparableProducts.i18n %}
+
+{% block content %}
+    <h3 class="compare__title">{{ i18n.compareApplications }}</h3>
+    <table class="compare__block">
+        <tr class="compare__row">
+            <th class="compare__heading"></th>
+            {{ compareImageCells(products, i18n.viewProfile) }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.name }}</th>
+            {{ compareNameCells(products) }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.description }}</th>
+            {{ compareTextCells(products, 'description') }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.features }}</th>
+            {{ compareListCells(products, 'features') }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.startingPrice }}</th>
+            {{ comparePriceCells(products) }}
+        </tr>
+        <tr class="compare__row compare__row--category">
+            <th class="compare__heading">{{ i18n.category }}</th>
+            {{ compareListCells(products, 'tags') }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.developer }}</th>
+            {{ compareTextCells(products, 'developer') }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.rating }}</th>
+            {{ compareRatingCells(
+                products,
+                'rating',
+                'numberOfReview',
+                i18n.numReview,
+                i18n.numReviews
+            ) }}
+        </tr>
+        <tr class="compare__row">
+            <th class="compare__heading">{{ i18n.editions }}</th>
+            {{ compareListCells(products, 'editionNames') }}
+        </tr>
+    </table>
+{% endblock %}

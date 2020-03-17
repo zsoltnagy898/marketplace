@@ -1,0 +1,25 @@
+{% from "/macros/rating.html" import rating %}
+
+{% macro complexTooltip(position, app={}, i18n={}) %}
+    <span class="tooltip--complex__content{% if position %} tooltip--complex__content--{{position}}{% endif %} js-complex-tooltip">
+        <h3>{{ app.name }}</h3>
+        <p class="tooltip--complex__overview">
+            {% if app.overview %}
+                {{ app.overview }}
+            {% else %}
+                {{ app.blurb }}
+            {% endif %}
+        </p>
+        {{ rating(app.rating) }}
+        <p class="slider--item_content subtitle">
+            {% if(app.startingPrice.formattedFullPrice == "Free") %}
+                {{ app.startingPrice.formattedFullPrice }}
+            {% elseif(app.startingPrice.formattedFullPrice) %}
+                <span>{{ app.startingPrice.priceCaption }}</span>
+                <span title="{{ app.startingPrice.formattedFullPrice }}">
+                    {{app.startingPrice.formattedFullPrice}}
+                </span>
+            {% endif %}
+        </p>
+    </span>
+{% endmacro %}

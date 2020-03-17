@@ -1,0 +1,29 @@
+{% extends "/layout/base.html" %}
+
+{% block content %}
+<div id="app" data-office-premium-url="/en-US/apps/122611/#Editions" data-office-essentials-url="/en-US/apps/122611/#Editions">
+    <div class="hero">
+        <div class="hero__band">
+            <div class="hero__message">
+                <h1 class="heading heading--1 heading--light heading--leading hero__heading">
+                    Choose product
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section--wild-sand">
+        <div class="spring">
+            <vf-product-configurator
+                v-bind="{ questions, getSelectedProduct }"
+                @questionSubmit="handleQuestionSubmit"
+                @cancel="handleCancel"
+            ></vf-product-configurator>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    <script src="{{ r('/assets/js/dist/pages/configure-product.js') }}"></script>
+{% endblock %}

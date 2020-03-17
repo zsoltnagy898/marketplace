@@ -1,0 +1,98 @@
+.tooltip--complex {
+    position: relative;
+    width: 120px;
+    height: 120px;
+
+    &__content {
+        font-size: 12px;
+        visibility: hidden;
+        background-color: #fff;
+        text-align: left;
+        padding: 8px 16px;
+        line-height: 1.6em;
+        opacity: 0;
+        transition: opacity 0.25s;
+        text-shadow: none;
+        border-radius: 3px;
+        border: solid 1px #cbcbcb;
+        width: 264px;
+        box-shadow: 0 3px 10px 0 rgba(45, 45, 45, .125),
+            inset 0 1px 0 0 rgba(255, 255, 255, .95);
+        position: absolute;
+        z-index: 4;
+        left: 50%;
+        word-wrap: break-word;
+    
+        &--bottom, &--top {
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                margin-left: -8px;
+                border-width: 8px;
+                border-style: solid;
+            }
+        }
+
+        &--bottom {
+            top: 115%;
+            &:before {
+                bottom: 100%;
+                border-color: transparent transparent #cbcbcb transparent;
+            }
+            &:after {
+                top: -15px;
+                border-color: transparent transparent #fff transparent;
+            }
+        }
+
+        &--top {
+            bottom: 110%;
+            &:before {
+                top: 100%;
+                border-color: #cbcbcb transparent transparent transparent;
+            }
+            &:after {
+                bottom: -15px;
+                border-color: #fff transparent transparent transparent;                
+            }
+        }
+
+        .tooltip--complex__overview {
+            font: normal normal normal 14px/1.6em Arial,"Helvetica Neue",Helvetica,sans-serif;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 110px;
+        }
+    }
+}
+
+@keyframes top {
+    0% {
+        transform: translateY(-20px);
+    }
+    90% {
+        transform: translateY(2px);
+    }
+}
+
+@keyframes bottom {
+    0% {
+        transform: translateY(20px);
+    }
+    90% {
+        transform: translateY(-2px);
+    }
+}
+
+.tooltip--complex.is-active .tooltip--complex__content {
+    opacity: 1;
+    visibility: visible;
+
+    &.tooltip--complex__content--top {
+        animation: top .25s;
+    }
+    &.tooltip--complex__content--bottom {
+        animation: bottom .25s;
+    }
+}

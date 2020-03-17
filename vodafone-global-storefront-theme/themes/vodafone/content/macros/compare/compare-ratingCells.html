@@ -1,0 +1,16 @@
+{% from "/macros/rating.html" import rating %}
+
+{% macro compareRatingCells(list, ratingKey, numReviewsKey, numReview, numReviews) %}
+    {% for idx in [0,1,2,3] %}
+        {% if list[idx] %}
+            <td class="compare__cell">
+                {{ rating(list[idx][ratingKey]) }}
+                {% if list[idx][numReviewsKey] === 1 %}
+                    <span>{{ numReview | replace('{0}', list[idx][numReviewsKey]) }}</span>
+                {% else %}
+                    <span>{{ numReviews | replace('{0}', list[idx][numReviewsKey]) }}</span>
+                {% endif %}
+            </td>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

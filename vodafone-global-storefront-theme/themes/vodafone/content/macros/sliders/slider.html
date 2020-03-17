@@ -1,0 +1,59 @@
+{% from "/macros/rating.html" import rating %}
+{% from "/macros/profile-image.html" import productImageLarge %}
+{% from "/macros/complex-tooltip.html" import complexTooltip %}
+
+{% macro slider(name, list=[], i18n={}, viewAllUrl = "") %}
+<div class="feature-content slider-list">
+    <div class="header">
+        <h2 class="header--item">{{ name }}</h2>
+        <menu class="header--item toolbar__small">
+            {% if viewAllUrl %}
+                <a class="button button__neutral button__small toolbar--item" href="{{ viewAllUrl }}">{{ i18n.viewall }}</a>
+            {% endif %}
+            <menu class="toggle_buttons toolbar--item">
+                <button aria-label="prev" class="toggle_buttons--button button__square_small js-slider-prev" type="button" disabled="disabled">
+                    <i class="icon__arrow_left"></i>
+                </button><button aria-label="next" class="toggle_buttons--button button__square_small js-slider-next" type="button">
+                    <i class="icon__arrow_right"></i>
+                </button>
+            </menu>
+        </menu>
+    </div>
+    <div class="slider slider--prerender">
+        <div class="slider--items">
+            {% for app in list %}
+                <div class="slider--item">
+                    <div class="logo-container tooltip--complex">
+                        {{ productImageLarge(app.profileLogoUrl, app.url, app.productRibbon) }}
+                        {{ complexTooltip("bottom", app, i18n) }}
+                    </div>
+                    <h3>
+                        <a data-truncate="line" href="{{ app.url }}">{{ app.name }}</a>
+                    </h3>
+                    <p class="slider--item_content slider--item_content--headline">{{ app.blurb }}</p>
+                    <p class="slider--item_content subtitle">
+                        {% if(app.startingPrice.formattedFullPrice == "Free") %}
+                            {{ app.startingPrice.formattedFullPrice }}
+                        {% elseif(app.startingPrice.formattedFullPrice) %}
+                            <span>{{ app.startingPrice.priceCaption }}</span>
+                            <span title="{{ app.startingPrice.formattedFullPrice }}">
+                                {{ app.startingPrice.formattedFullPrice }}
+                            </span>
+                        {% endif %}
+                    </p>
+                    {{ rating(app.rating) }}
+                    {% if(app.merchandisingBadges | length) %}
+                        <div class="merchandising-badges">
+                            {% for badge in app.merchandisingBadges %}
+                                <div class="merchandising-badges-item">
+                                    <img src="{{ badge.image }}" alt="{{ badge.name }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endmacro %}

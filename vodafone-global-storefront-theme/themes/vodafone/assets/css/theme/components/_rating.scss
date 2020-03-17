@@ -1,0 +1,76 @@
+.rating {
+    margin: 0;
+    color: #cbcbcb;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &:first-child {
+        margin-top: 0;
+    }
+    &__icon {
+        &:before {
+            font-size: 18.28px;
+            font-style:normal;
+            font-family: AppDirectIcons;
+            line-height: 1em;
+            content: "\e00c";
+        }
+        &--positive {
+            color: #008bac;
+        }
+        &--unrated {
+            color: #eaeaea;
+        }
+    }
+}
+
+.rating-input {
+    $rate-color: #008bac;
+    $hover-color: #16a1c4;
+    display: inline-block;
+    &--element {
+        display: none;
+
+        &:checked {
+            + label {
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+            ~ label {
+                color: $rate-color;
+                &:hover {
+                    color: $hover-color;
+                    ~ label {
+                        color: $hover-color;
+                    }
+                }
+            }
+        }
+    }
+    &--label {
+        color: #eaeaea;
+        float: right;
+        cursor: pointer;
+
+        &:hover ~ input.rating-input--element:checked ~ label{
+            color: $hover-color; /* current selection */
+        }
+    }
+    &:not(:checked) {
+         label {
+            &:hover {
+                color: $rate-color; /* current icon */
+                ~ label {
+                    color: $rate-color; /* previous icons */
+                }
+            }
+        }
+    }
+}
+
+.rating-details {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 24px;
+}

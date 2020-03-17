@@ -1,0 +1,35 @@
+{% from "/macros/profile/profile-navigation.html" import profileNavigation %}
+{% from "/macros/profile-image.html" import productImageLarge %}
+
+{% macro productHeadCard(summary, categories, navigation) %}
+<div class="profile_header">
+    <div class="profile_header--content">
+        <div class="layout-default">
+            <div class="container">
+                <div class="card__image">
+                    {{ productImageLarge(summary.logoSrc, null, summary.productRibbon) }}
+                </div>
+                <div class="card__content">
+                    <h1 class="profile_header--title">{{ summary.title }}</h1>
+                    <div class="summary--caption">{{ summary.details }}</div>
+                    <div class="badges">
+                        {% if categories and categories.items and categories.items.length %}
+                            {% for category in categories.items %}
+                                <span class="badge badge__outline"><a href="{{ category.href }}">{{ category.label }}</a></span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile_header--navigation">
+        <div class="layout-default">
+            <div class="container">
+                {{ profileNavigation(navigation.items) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endmacro %}

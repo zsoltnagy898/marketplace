@@ -1,0 +1,41 @@
+{% macro sliderScript() %}
+<script>
+    $(".slider--item_content--headline").dotdotdot({truncate:"node"});
+    $(".slider-list").each(function( index ) {
+        var $container = $(this);
+        var $slider = $container.find('.slider--items');
+        new Slider($slider, $container);
+        $container.find(".slider--prerender").removeClass("slider--prerender")
+    });
+    $(".bundle-slider--item_content--headline").dotdotdot({truncate:"node"});
+    $(".bundle-slider-list").each(function( index ) {
+        var $container = $(this);
+        var $slider = $container.find('.bundle-slider--items');
+        new Slider($slider, $container, undefined, {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            isBundle: true,
+            responsive: [
+                {
+                    breakpoint: 1440,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                }
+            ]
+        });
+    });
+    new Slider($(".hero--container .slider--items"), $(".hero--container"), $(), {
+        rows:0,
+        arrows: false,
+        variableWidth: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+    });
+</script>
+{% endmacro %}
+

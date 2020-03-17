@@ -1,0 +1,9 @@
+{% macro compareNameCells(list) %}
+    {% for idx in [0,1,2,3] %}
+        {% if list[idx] %}
+            <td class="compare__cell compare__name">
+                <strong>{{ list[idx].name }}</strong>
+            </td>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

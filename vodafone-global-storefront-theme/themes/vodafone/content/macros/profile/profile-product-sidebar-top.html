@@ -1,0 +1,45 @@
+{% macro productSidebarTopSection(screenshots, overview, i18n) %}
+    {% set screenshotsCount = screenshots.items.length %}
+    {% if screenshotsCount or overview.documentationUrl %}
+        <ul class="stack">
+            {% if screenshotsCount %}
+           <li class="stack--item">
+                <a class="link__nav stack--item_content js-screenshots-link" href="#" >
+                    <span class="link__nav--icon icon__screenshot"></span>
+                    <span>View Screenshots</span>
+                    <span class="stack-count stack--affix link__nav--affix">{{ screenshotsCount }}</span>
+                </a>
+            </li>
+            {% endif %}
+           {% if overview.documentationUrl %}
+           <li class="stack--item">
+                <a class="link__nav stack--item_content" target="_blank" href="{{ overview.documentationUrl }}">
+                    <span class="link__nav--icon icon__file"></span>
+                    <span>Read Documentation</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+    <script>
+        $(".js-screenshots-link").on("click", function() {
+            var $slider = $(".js-screenshot-slider");
+            var $container = $("#profile-screenshots");
+            var $arrowContainer = $container.find(".modal--footer");
+            $container .modal();
+            Slider($slider, $container, $arrowContainer, {
+                dots: true,
+                width: 524,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                variableWidth: false,
+                draggable: false,
+                infinite: true,
+                rows: 0,
+                speed: 600,
+                arrows: false,
+                appendDots: $arrowContainer
+            })
+        })
+    </script>
+{% endmacro %}

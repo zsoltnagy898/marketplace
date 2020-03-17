@@ -1,0 +1,68 @@
+{% macro navigator(data) %}
+<div data-component="multiple-header-vertical-navigation" class="list-container">
+    {% if data.categories %}
+    <div class="list-multiple-navigation">
+        <div class="list-container_header">
+            <h5 class="list-container_header--title list-container_header--item">Categories</h5>
+        </div>
+        <ul class="list-stack">
+            {% for category in data.categories %}
+            <li class="list-stack--item list-stack--item__nesting" data-auto="{{ category.id }}">
+                <a class="list-link__nav list-stack--item_content list-stack--item_content__nesting {% if category.selected == true and category.childSelected == false %}selected{% endif %}" href="{{ category.href }}">
+                    <span class="list-stack--affix list-count">{{ category.numTaggedProducts }}</span>{{ category.name }}
+                </a>
+
+                <ul class="list-stack list-stack--nested" style="{% if category.selected != true %}display:none{% endif %}">
+                    {% if category.subCategories %}
+                    {% for subCategory in category.subCategories %}
+                    <li class="list-stack--item">
+                        <a class="list-link__nav list-stack--item_content {% if subCategory.selected == true %}selected{% endif %}" href="{{ subCategory.href }}">
+                            <span class="list-stack--affix list-count">{{ subCategory.numTaggedProducts }}</span>{{ subCategory.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if data.platforms.length %}
+    <div class="list-multiple-navigation">
+        <div class="list-container_header">
+            <h5 class="list-container_header--title list-container_header--item">Platforms</h5>
+        </div>
+        <ul class="list-stack">
+            {% for platform in data.platforms %}
+            <li class="list-stack--item  list-stack--item__nesting" data-auto="{{ platform.id }}">
+                <a class="list-link__nav list-stack--item_content list-stack--item_content__nesting {% if platform.selected == true %}selected{% endif %}" href="{{ platform.href }}">
+                    <span class="list-stack--affix list-count">{{ platform.numTaggedProducts }}</span>{{ platform.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% for group in data.attributeGroups %}
+    {% if group.showOnNavigation == true and group.attributes.length %}
+    <div class="list-multiple-navigation">
+        <div class="list-container_header">
+            <h5 class="list-container_header--title list-container_header--item">{{ group.name }}</h5>
+        </div>
+        <ul class="list-stack">
+            {% for subgroup in group.attributes %}
+            <li class="list-stack--item  list-stack--item__nesting" data-auto="{{ subgroup.id }}">
+                <a class="list-link__nav list-stack--item_content list-stack--item_content__nesting {% if subgroup.selected == true %}selected{% endif %}" href="{{ subgroup.href }}">
+                    <span class="list-stack--affix list-count">{{ subgroup.numTaggedProducts }}</span>{{ subgroup.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endmacro %}

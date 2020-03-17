@@ -1,0 +1,20 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/navigator.html" import navigator %}
+{% from "/macros/listing/listing-items.html" import listingItems %}
+
+{% block content %}
+<div class="row listing listing-page row--spaced" data-sort='{{ listing.query.order }}'>
+    <div id="sectionNavigation" class="col col-fix-4 d-none d-sm-block">
+        {{ navigator(nav.primary) }}
+    </div>
+    <div class="col-xs-8 col-fix-inv-sm-4 listing-items listing-grid-list">
+        <div class="content">
+            {{ listingItems(listingProducts, nav.primary.selectedFilters, false) }}
+        </div>
+        <div class="listing-overlay is-hidden"></div>
+    </div>
+</div>
+<script>
+    $(".listing-page").listing({refresh: true});
+</script>
+{% endblock %}

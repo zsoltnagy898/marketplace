@@ -1,0 +1,72 @@
+{% from "/macros/rating.html" import rating %}
+{% from "/macros/profile-image.html" import productImageSmall %}
+{% from "/macros/simple-tooltip.html" import simpleTooltip %}
+
+{% macro listingItemsGrid(listing, showUtils = true) %}
+    <div class="listing-items-grid">
+    {% for app in listing.items %}<div data-component="ListingGridTile" class="tile tile-listing js-tile" data-url="{{ app.url }}">
+        <div class="card">
+            <div aria-hidden="true" role="presentation" class="card__image js-logo-container">
+                {{ productImageSmall(app.profileLogoUrl, app.url) }}
+            </div>
+            <div class="card__content summary">
+                <h4 class="summary--title">
+                    <a class="js-ui-profile-link" data-truncate="line" href="{{ app.url }}">{{ app.name }}</a>
+                </h4>
+                {{ rating(app.rating) }}
+            </div>
+        </div>
+        <div class="js-tile-basic">
+            <div class="tile__content">
+                <p class="tile__content--description">{{ app.overview }}</p>
+                <div class="badges">
+                    {% for badge in app.badges %}
+                        <span class="badge badge--{{ badge.type }}">{{ badge.label }}</span>
+                    {% endfor %}
+                </div>
+                <div class="merchandising-badges">
+                {% for badge in app.merchandisingBadges %}
+                    <div class="merchandising-badges-item">
+                        <img src="{{ badge.image }}" alt="{{ badge.name }}" />
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="tile--details listing-grid-price">
+            <div class="tile--details_item listing-grid-price-container js-tile-pricing-container">
+                <p class="subtitle">
+                    <span>{{ app.startingPrice.priceCaption }}</span>
+                    <span class="listing-grid-price-text js-listing-item-price" title="{{ app.startingPrice.formattedPrice }}">
+                        {{ app.startingPrice.formattedPrice }}
+                        {% if app.startingPrice.frequency.shortLabel %}
+                            <span class="price--unit"> /{{ app.startingPrice.frequency.shortLabel | lower }}</span>
+                        {% endif %}
+                    </span>
+                </p>
+            </div>
+            {% if showUtils == true %}
+                <div class="tile--details_item listing-grid-price-compare tooltip">
+                    <label class="selector selector__inline selector__small js-compare-label">
+                        {{ simpleTooltip(listing.i18n.selectToCompare, "bottom") }}
+                        <span class="selector--input">
+                            <input type="checkbox" class="js-compare-checkbox" data-app-id="{{ app.id }}">
+                        </span>
+                        <span class="selector--value">{{ listing.i18n.compare }}</span>
+                    </label>
+                </div>
+            {% endif %}
+        </div>
+        {% if app.productRibbon %}
+            <div class="ribbon-wrapper">
+                <span class="ribbon" style="background-color: '{{ app.productRibbon.ribbonColor }}'; color: '{{ app.productRibbon.textColor }}';">{{ app.productRibbon.text }}</span>
+            </div>
+        {% endif %}
+    </div>{% endfor %}<!--
+    {% set remainingTiles = 3 - (listing.pagination.totalCount % 3)  %}
+    {% if remainingTiles != 3 and listing.pagination.currentPage == listing.pagination.nbPages %}
+        -->{% for i in range(0, remainingTiles) -%}<div class="tile tile-listing tile--empty"></div>{%- endfor %}
+    {% endif %}
+    <!-- -->
+    </div>
+{% endmacro %}

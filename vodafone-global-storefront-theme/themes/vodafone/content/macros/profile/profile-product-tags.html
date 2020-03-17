@@ -1,0 +1,45 @@
+{% from "/macros/rating.html" import rating %}
+
+{% macro productSidebarTags(details, i18n) %}
+<div class="container_header">
+    <h5 class="container_header--title container_header--item">Details</h5>
+</div>
+<div class="container_content">
+    {% if details.reviews.rating %}
+        <div class="stats">
+            <dt>Rating</dt>
+            {{ rating(details.reviews.rating) }}
+
+            <div class="caption">
+                {{ details.reviews.caption }}
+            </div>
+        </div>
+    {% endif %}
+    {% for tags in details.tags %}
+        {% if tags.items.length %}
+        <div class="stats">
+            <dt>{{ tags.title }}</dt>
+            <dd>
+            {% for tag in tags.items %}
+                <div>
+                    <a href="{{ tag.href }}">{{ tag.label }}</a>
+                </div>
+            {% endfor %}
+            </dd>
+        </div>
+        {% endif %}
+    {% endfor %}
+    {% if details.vendor %}
+    <div class="stats">
+        <dt>{{ details.vendor.title }}</dt>
+        <dd>
+        {% for vendor in details.vendor.items %}
+            <div>
+                <a href="{{ vendor.href }}">{{ vendor.label }}</a>
+            </div>
+        {% endfor %}
+        </dd>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}

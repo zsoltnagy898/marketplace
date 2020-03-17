@@ -1,0 +1,88 @@
+.stack {
+    border: 1px solid #cbcbcb;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+.stack:first-child,
+.stack:first-child .stack--item:first-child,
+.stack:first-child .stack--item:first-child .stack--item_content:first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.stack--item~.stack--item {
+    border-top: 1px solid #eaeaea;
+}
+
+.stack--item_content {
+    position: relative;
+    padding: 10px 30px 10px 10px;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.link__nav {
+    overflow: hidden;
+    color: #575757;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    line-height: 1em;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: #f5f5f5;
+        color: inherit;
+    }
+
+    &.selected {
+        color: #fff;
+        box-shadow: 0 0 0 1px #006080;
+        border-top-color: #338099;
+        background-color: #338099;
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: #338099;
+        }
+    }
+}
+
+.stack--item:first-child .stack--item_content {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.stack--item:last-child .stack--item_content {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.link__nav--icon {
+    font-size: 16px;
+    margin-top: -1px;
+    display: inline-block;
+    font-style: normal;
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+    font-family: AppDirectIcons;
+    margin-right: 6px;
+    vertical-align: top;
+    min-width: 16px; /* preventing the text from moving while the image loads */
+}
+
+.stack--affix {
+    position: absolute;
+    right: 10px;
+}
+
+.stack-count {
+    color: #707070;
+    font-size: 12px;
+}

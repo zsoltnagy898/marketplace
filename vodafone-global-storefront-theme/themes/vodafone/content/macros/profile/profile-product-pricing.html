@@ -1,0 +1,26 @@
+{% macro productSidebarPricing(editions, i18n) %}
+    <div class="container_header">
+        <h5 class="container_header--title container_header--item">{{ i18n.pricing }}</h5>
+    </div>
+    <div class="container_content">
+        {% for edition in editions.items %}
+            {% if not edition.leadGen %}
+                <div class="stats">
+                    <dt>{{ edition.name }}</dt>
+                    {% set cost = edition.plans[0].costs %}
+                    {% if cost.flatPrice %}
+                        {% set price = cost.flatPrice %}
+                    {% else %}
+                        {% set price = cost.unitPrice[0].usageRange[0] %}
+                    {% endif %}
+                    <dd class="price">
+                        <span class="price--value">
+                            <a href="">{{ price.formattedPrice }}</a>
+                        </span>
+                        <span class="price--unit">{{ t(i18n.custom[t('product.per', price.frequency.id)]) }}</span>
+                    </dd>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}

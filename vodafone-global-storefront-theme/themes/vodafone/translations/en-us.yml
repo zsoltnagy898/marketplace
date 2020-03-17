@@ -1,0 +1,6 @@
+home.welcome: Welcome
+home.startingat: Starting At {price}
+product.per.MONTHLY: per month
+product.per.YEARLY: per year
+product.per.ONE_TIME: one time
+product.rating: "{rating}/5 Based on {nbrating} reviews"

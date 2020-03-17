@@ -1,0 +1,14 @@
+{% macro compareImageCells(list, viewProfileTxt) %}
+    {% for idx in [0,1,2,3] %}
+        {% if list[idx] %}
+            <td class="compare__cell compare__image">
+                <a href="{{ list[idx].url }}" class="compare__image-link">
+                    <img src="{{ list[idx].profileLogoUrl }}" />
+                </a>
+                <a href="{{ list[idx].url }}" class="button button__emphasis button__full_width">
+                    {{ viewProfileTxt }}
+                </a>
+            </td>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

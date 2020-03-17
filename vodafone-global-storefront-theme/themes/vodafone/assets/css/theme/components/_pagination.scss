@@ -1,0 +1,88 @@
+.pagination {
+    font-size: 0;
+    li,
+    .pagination--button {
+        font-weight: 400;
+        display: inline;
+        background: 0 0;
+        color: #5f5f5f;
+        border: 1px solid #c4c4c4;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 0 #fff, 0 1px 0 0 #fff;
+        margin-left: -1px;
+        user-select: none;
+        text-align: center;
+        cursor: pointer;
+        font-size: 12px;
+        line-height: 1.6em;
+        padding: 4px 8px;
+        border-radius: 0;
+        white-space: normal;
+        a {
+            color: #5f5f5f;
+            text-shadow: 0 1px 0 #fefefe;
+            text-decoration: none;
+        }
+        &:hover {
+            background-color: #fdfdfd;
+            box-shadow: inset 0 1px 0 0 #fff, 0 1px 3px -1px rgba(147,147,147,.4);
+            border-color: #a7a7a7;
+            a {
+                color: #313131;
+            }
+        }
+        &.is-disabled {
+            opacity: .5;
+            box-shadow: none;
+        }
+        &.active {
+            font-weight: 400;
+            box-shadow: inset 0 1px 3px 0 rgba(143,143,143,.4), 0 1px 0 0 #fff;
+            text-shadow: 0 1px 0 #f5f5f5;
+            color: #0a0a0a;
+            background: rgba(143,143,143,.2);
+            border: 1px solid #cbcbcb;
+            margin-left: -1px;
+        }
+    }
+    .pagination--button__prev {
+        border-radius: 3px 0 0 3px;
+        &:before {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 13px;
+        }
+    }
+    .pagination--button__next {
+        border-radius: 0 3px 3px 0;
+        &:before{
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 13px;
+        }
+    }
+    .pagination-links {
+        font-size:0;
+    }
+    .pagination--ellipsis {
+        color: #646464;
+        cursor: default;
+        user-select: none;
+        text-align: center;
+        white-space: nowrap;
+        width: auto;
+        font-size: 12px;
+        line-height: 12px;
+        padding: 4px 8px;
+        display: inline-block;
+        vertical-align: top;
+
+        &:before {
+            font-size: 12px;
+            font-family: AppDirectIcons;
+            content: "\e001";
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{% macro support(support) %}
+{% if (support.termsUrl) or (support.privacyUrl) %}
+<section id="Policies" class="section no-gutter--all section--gutter section--wild-sand">
+<div class="spring">
+    <h3 class="heading heading--3 heading--center heading--leading">Policies & Support</h3>
+    <ul class="grid grid--gutter">
+        {% if support.termsUrl %}
+        <li class="grid__item grid__item--gutter grid__item--sm-1/1 grid__item--1/2 flush--sm-bottom">
+            <!-- START: "group/directives/linktile/adaptations/$adaptation" Array
+    (
+        [adaptation] => default
+    )
+     -->
+            <a href="{{ support.termsUrl }}" class="link link--tile ">
+	<span class="chevron">
+		<span class="chevron__text">
+            <span class="media media--gutter media--middle">
+                                <span class="media__body">
+                    <span class="link__heading heading heading--4 no-gutter--all ">
+                        Terms &amp; conditions
+                    </span>
+                                    <!--<span class="link__heading heading heading&#45;&#45;regular heading&#45;&#45;6 no-gutter&#45;&#45;all ">-->
+                                    <!--Manage communication methods with Vodafone-->
+                                    <!--</span>-->
+                                    </span>
+            </span>
+		</span>
+		<span class="chevron__container">
+			<svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+    <use xlink:href="#icon-chevron-right"/>
+</svg>
+		</span>
+	</span>
+            </a>
+            <!-- END: "group/directives/linktile/adaptations/$adaptation" -->
+        </li>
+        {% endif %}
+
+        {% if support.privacyUrl %}
+        <li class="grid__item grid__item--gutter grid__item--sm-1/1 grid__item--1/2 flush--sm-bottom">
+            <!-- START: "group/directives/linktile/adaptations/$adaptation" Array
+    (
+        [adaptation] => default
+    )
+     -->
+            <a href="{{ support.privacyUrl }}" class="link link--tile ">
+	<span class="chevron">
+		<span class="chevron__text">
+            <span class="media media--gutter media--middle">
+                                <span class="media__body">
+                    <span class="link__heading heading heading--4 no-gutter--all ">
+                        Privacy Policy
+                    </span>
+                                    <!--<span class="link__heading heading heading&#45;&#45;regular heading&#45;&#45;6 no-gutter&#45;&#45;all ">-->
+                                    <!--Manage communication methods with Vodafone-->
+                                    <!--</span>-->
+                                    </span>
+            </span>
+		</span>
+		<span class="chevron__container">
+			<svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+    <use xlink:href="#icon-chevron-right"/>
+</svg>
+		</span>
+	</span>
+            </a>
+            <!-- END: "group/directives/linktile/adaptations/$adaptation" -->
+        </li>
+        {% endif %}
+    </ul>
+</div>
+</section>
+{% endif %}
+{% endmacro %}

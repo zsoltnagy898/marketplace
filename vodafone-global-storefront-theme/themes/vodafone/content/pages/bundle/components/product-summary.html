@@ -1,0 +1,61 @@
+{% extends "/layout/profile.html" %}
+{% from "/macros/profile/features-and-benefits.html" import featuresAndBenefits %}
+{% from "/macros/profile/featured-customers.html" import featuredCustomers %}
+
+{% set actions = application.overview.callToActions %}
+
+{% macro productSummary(title, description, image, summary) %}
+
+<!-- START: "group/components/basket-toaster/index" Array
+(
+[journey] => anonymous
+)
+-->
+<div class="toaster toaster--min-padding toaster--sinking basket-toaster toaster--show" style="position: relative" >
+    <div class="spring">
+        <div class="grid grid--gutter">
+            <div class="grid__item grid__item--gutter grid__item--middle grid__item--md-2/7 grid__item--1/2 hide--sm align--left">
+                <!-- START: "group/components/basket-toaster/adaptations/$adaptation" Array
+    (
+        [journey] => anonymous
+        [adaptation] => vodafone-smart-7-platinum
+    )
+     -->
+                {% for image in summary.images.slice(0, 1) %}
+                <img src="{{ image }}" alt="Vodafone Smart platinum 7" class="basket-toaster__phone-image grid__item--1/3">
+                {% endfor %}
+                <div class="basket-toaster__phone-info grid__item--2/3">
+                    <span class="heading heading--4 no-gutter--all">{{ title }}</span>
+                </div>
+                <!-- END: "group/components/basket-toaster/adaptations/$adaptation" -->
+            </div>
+            <div class="grid__item grid__item--gutter grid__item--middle grid__item--sm-1/1 grid__item--md-2/7 grid__item--1/2 align--right">
+                <!-- START: "group/directives/button/adaptations/$adaptation" Array
+    (
+        [adaptation] => primary
+    )
+     --><div class="grid">
+
+                <div class="grid__item grid__item--middle grid__item--1/2 grid__item--sm-3/7">
+                    <p class="basket-toaster__price">
+                    <span class="heading heading--4 heading--bold no-gutter--all display--inline">
+
+                    </span>
+                        <!--<abbr title="per">/</abbr>month-->
+                    </p>
+                </div>
+                <div class="grid__item grid__item--gutter grid__item--middle grid__item--sm-1/1 grid__item--md-2/7 grid__item--1/2 align--right">
+                    <a href="#" class="button button--primary  button--primary--dark  no-gutter--all">
+                        Add to basket
+                    </a>
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: "group/components/basket-toaster/index" -->
+
+{% endmacro %}

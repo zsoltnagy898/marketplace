@@ -1,0 +1,37 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/profile/profile-product-heading.html" import productHeadCard %}
+{% from "/macros/profile/profile-product-pricing.html" import productSidebarPricing %}
+{% from "/macros/profile/profile-product-tags.html" import productSidebarTags %}
+{% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
+{% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
+{% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
+{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/script.html" import sliderScript %}
+{% from "/macros/notification.html" import notificationModel %}
+
+{% block dataPage %}profile{% endblock %}
+{% block mainRegionClass %}profile-region{% endblock %}
+
+{% block headContent %}
+
+{% endblock %}
+
+{% block content %}
+    {% block profileContent %}
+    {% block contentSection %}
+    {% endblock %}
+{% endblock %}
+
+
+
+<script>
+    $(".featuresDesc span").shave(40);
+    $(".profile_header").fixedHeader({ container: ".profile-region" });
+    $(".container-box-section").simpleSlider();
+</script>
+
+{{ sliderScript() }}
+{{ productScreenshotModal(application.screenshots) }}
+{{ notificationModel() }}
+
+{% endblock %}

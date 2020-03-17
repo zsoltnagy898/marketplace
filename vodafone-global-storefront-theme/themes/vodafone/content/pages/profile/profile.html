@@ -1,0 +1,88 @@
+{% extends "/layout/profile.html" %}
+
+{% from "/pages/profile/components/carousel-single.html" import carouselSingle %}
+
+{% from "/macros/analytics.html" import utagDataScript %}
+
+
+{% block contentSection %}
+
+
+
+{% from "/pages/profile/components/product-summary.html" import productSummary %}
+{% from "/pages/profile/components/simple-tabs.html" import productTabs %}
+{% from "/pages/profile/components/grid-features.html" import productFeatures %}
+{% from "/pages/profile/components/bundles.html" import productBundles %}
+{% from "/pages/profile/components/reviews.html" import reviews %}
+{% from "/pages/profile/components/resources.html" import resources %}
+{% from "/pages/profile/components/resources.html" import resources %}
+{% from "/pages/profile/components/policies-support.html" import support %}
+{% from "/pages/profile/components/addons.html" import addons %}
+
+
+
+{% block content %}
+<div id="apptop" data-vue-page="profile">
+<div id="profile-page" class="profile-page">
+    <modal :application="{{ application|dump }}"></modal>
+    <product-summary :application="{{ application|dump }}"></product-summary>
+    <section id="tabs" class="container">
+        <simple-tabs :application="{{ application|dump }}"></simple-tabs>
+    </section>
+    <section id="Overview" class="section--gutter">
+        <overview :application="{{ application|dump }}"></overview>
+    </section>
+</div>
+</div>
+    {% if application.features.items.length > 0 %}
+        <section id="Features" class="section--gutter section--wild-sand">
+            {{ carouselSingle(application.features) }}
+        </section>
+    {% endif %}
+<div id="appbottom" data-vue-page="profile2">
+    <section id="Editions" class="section section--gutter">
+        <editions :application="{{ application|dump }}"></editions>
+    </section>
+    <section id="Resources" class="section section--gutter section--wild-sand">
+        <resources :application="{{ application|dump }}"></resources>
+    </section>
+    <section id="Policies" class="section section--gutter section--gutter">
+        <support :application="{{ application|dump }}"></support>
+    </section>
+<!--    <section class="section no-gutter&#45;&#45;all section&#45;&#45;wild-sand" id="Addons-content">-->
+<!--        <addons :application="{{ application|dump }}"></addons>-->
+<!--    </section>-->
+    <Toaster :application="{{ application|dump }}"></Toaster>
+
+</div>
+    {% endblock %}
+
+    {% block page_scripts %}
+    <script src="{{ r('/assets/js/dist/pages/profile.js') }}"></script>
+    <script src="{{ r('/assets/js/dist/pages/profile2.js') }}"></script>
+    {% endblock %}
+
+   {% endblock %}
+
+{% block analytics_data %}
+    {{ utagDataScript({
+        journey_name: 'AppDirect Purchase',
+        journey_type: 'acquisition',
+        page_name: 'uk:business:app direct:product:Microsoft Office 365',
+        page_title: 'Microsoft Office 365',
+        site_section_lvl_3: 'product',
+        product_brand: 'Microsoft',
+        product_category: 'Business Software',
+        product_event: 'view',
+        product_id: '',
+        product_name: 'Office 365',
+        product_sku: '',
+        product_target_segment: 'small business'
+    }) }}
+{% endblock %}
+<script>
+    import FeaturesCarousel from "../../../assets/js/src/components/profile/featuresCarousel";
+    export default {
+        components: {FeaturesCarousel}
+    }
+</script>

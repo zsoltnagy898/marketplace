@@ -1,0 +1,57 @@
+{% macro carouselSingle(features) %}
+
+
+<div  class="js-tabs tabs   js-dynamic-content-listener">
+    <div id="devices-features" class="js-tabs-content tabs__content " style="display: block;">
+        <div class="spring ">
+            <h3 class="heading heading--3 heading--center heading--leading">Features</h3>
+            <div class="features">
+                <h3 class="visually-hidden">Features</h3>
+                <div id="image-carousel" class="carousel  js-dynamic-content-listener" data-js="_carousel" data-adjust-height="1" data-center="" data-breakpoints="mobile=1&tablet=1&desktop=1" >
+                    <div class="carousel__wrapper">
+                        <ul class="js-carousel-slider carousel__slider
+
+                                    " style="width: 100%; height: auto; margin-left: 0%;">
+                            {% for feature in features.items %}
+
+                            <li class="js-carousel-slide carousel__slide carousel__slide--active" data-slide="0" style="width: 100%;">
+                                <h4 class="heading heading--4 heading--center heading--leading">
+                                    {{ feature.label }}
+                                </h4>
+                                <div class="text-center center align--center">
+                                    <img src="{{ feature.imageUrl }}" alt="">
+                                </div>
+                                <br>
+                                <div class="text-center center align--center">
+                                    {{ feature.description | safe }}
+                                </div>
+                            </li>
+
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="js-carousel-controls carousel__controls carousel__controls--visible">
+                        <button class="js-carousel-control carousel__control carousel__control--left" type="button" data-direction="-1">
+                            <span class="visually-hidden">Previous page</span>
+                            <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel__control-icon">
+                                <use xlink:href="#icon-chevron-left"></use>
+                            </svg>
+                        </button>
+                        <button class="js-carousel-control carousel__control carousel__control--right" type="button" data-direction="1">
+                            <span class="visually-hidden">Next page</span>
+                            <svg focusable="false" aria-hidden="true" class="icon  icon--small  carousel__control-icon">
+                                <use xlink:href="#icon-chevron-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endmacro %}

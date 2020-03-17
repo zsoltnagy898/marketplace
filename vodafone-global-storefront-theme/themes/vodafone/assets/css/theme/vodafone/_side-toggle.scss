@@ -1,0 +1,183 @@
+.side-toggle
+{
+    position: fixed;
+    right: 0;
+    bottom: 40%;
+    transform: translateX(100%);
+    transition: transform .3s;
+    z-index: 3;
+    display: table;
+    min-height: 300px;
+
+
+    &--show
+    {
+        transform: translateX(0);
+    }
+
+    &--show &__chevron
+    {
+        transform: rotate(90deg) scaleX(-1);
+    }
+
+    &__content
+    {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 50px 70px;
+        text-align: center;
+        //box-shadow: -1px 1px 3px 0 black;
+        max-width: 500px;
+        background-color: red;
+        border-top: 1px solid red;
+        border-bottom: 1px solid grey;
+        border-right: 1px solid red;
+        color: red;
+        visibility: hidden;
+        transition: visibility .3s;
+    }
+
+    &--show &__content
+    {
+        visibility: visible;
+    }
+
+    &__button
+    {
+        position: absolute;
+        padding: 0;
+        margin-right: -1px;
+        right: 100%;
+        top: 0;
+        bottom: 0;
+        //box-shadow: -1px 1px 3px 0 hex-to-rgba(black, .5);
+        border: none;
+        overflow: hidden;
+        background-color: purple;
+        color: white;
+        width: 68px;
+    }
+
+    &__chevron
+    {
+        display: inline-block;
+        margin-left: 10px;
+        transform: rotate(90deg);
+    }
+
+    &__tab-text
+    {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        white-space: nowrap;
+        display: inline-block;
+        width: auto;
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    &__icon-circle
+    {
+        position: relative;
+        display: inline-block;
+        border: 1px solid currentColor;
+        border-radius: 100%;
+        width: 64px;
+        height: 64px;
+        margin: 0 20px;
+    }
+
+    &__link:hover &__icon-circle
+    {
+        border-color: red;
+        background-color: white;
+        color: red;
+    }
+
+    &__link:hover &__detail
+    {
+        color: red;
+    }
+
+    &__icon
+    {
+        //@include position;
+    }
+
+    &__detail
+    {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1200px)
+{
+    .side-toggle
+    {
+        min-height: 250px;
+
+        &__button
+        {
+            width: 60px;
+        }
+
+        &__content
+        {
+            padding: 30px 40px;
+            max-width: 440px;
+        }
+
+        &__icon-circle
+        {
+            width: 62px;
+            height: 62px;
+        }
+    }
+}
+
+// NOTE: The following should also specify (min-width: $breakpoint-tablet)
+// but strip-media-queries doesn't support it. We achieve the same result
+// via careful ordering of the media queries and by overriding `top`
+// for (max-width: $breakpoint-tablet) below.
+@media only screen and (max-height: 776px)
+{
+    .side-toggle
+    {
+        &--viewport-height-fix
+        {
+            bottom: initial;
+            top: 155px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+    .side-toggle
+    {
+        width: calc(100% - 50px);
+        bottom: 20%;
+        min-height: 200px;
+
+        &--viewport-height-fix
+        {
+            top: initial;
+        }
+
+        &__button
+        {
+            width: 51px;
+        }
+
+        &__content
+        {
+            padding: 30px 10px;
+            max-width: 100%;
+        }
+
+        &__icon-circle
+        {
+            margin: 0;
+        }
+    }
+}

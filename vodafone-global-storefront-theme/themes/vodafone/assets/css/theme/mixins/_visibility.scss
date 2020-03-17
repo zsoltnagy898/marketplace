@@ -1,0 +1,39 @@
+//// 
+/// Core Placeholders: Visibility
+//// 
+
+@import '../settings/prefix';
+
+.#{$adb-prefix}is-hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.#{$adb-prefix}is-visually_hidden {
+    @extend %adb-hide-visually;
+}
+
+.#{$adb-prefix}is-invisible {
+    visibility: hidden;
+}
+
+%adb-hide-visually {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+
+    &.focusable:active,
+    &.focusable:focus {
+        position: static;
+        overflow: visible;
+        clip: auto;
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
+}

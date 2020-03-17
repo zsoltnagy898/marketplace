@@ -1,0 +1,68 @@
+.context_menu {
+    &.is-active {
+        .context_menu--menu {
+            display: block;
+        }
+    }
+
+    &[data-placement~="right"] {
+        right: 0;
+        left: auto;
+    }
+
+    padding: {
+        top: 8px;
+        bottom: 6px;
+    }
+
+    @include adb-breakpoint(root) {
+        padding-right: 24px;
+    }
+}
+
+.context_menu--menu {
+    background-clip: padding-box;
+    box-shadow: 0 3px 10px 0 rgba(45, 45, 45, 0.125);
+    position: absolute;
+    display: none;
+    margin-top: 6px;
+    min-width: 192px;
+    max-width: 264px;
+    text-align: left;
+    z-index: 1090;
+
+    .stack {
+        margin: 0;
+    }
+
+    .link__option {
+        border-top: {
+            left-radius: 3px;
+            right-radius: 3px;
+        }
+        box-sizing: border-box;
+        color: rgb(71, 71, 71);
+        cursor: pointer;
+        display: block;
+        font-size: 14px;
+        height: 34px;
+        line-height: 14px;
+        padding: {
+            top: 10px;
+            right: 30px;
+            bottom: 10px;
+            left: 10px;
+        }
+        text: {
+           align: left;
+           overflow: ellipsis;
+        }
+        white-space: nowrap;
+
+        &.stack--item_content {
+            padding: {
+                left: 10px;
+            }
+        }
+    }
+}

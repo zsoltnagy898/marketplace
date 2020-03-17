@@ -1,0 +1,135 @@
+.profile-checklist {
+	padding-left: 24px;
+	&--flush {
+		padding-left: 0;
+	}
+	&__item {
+		position: relative;
+		margin-bottom: 6px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&:before {
+			font-family: AppDirectIcons;
+			text-align: center;
+			display: inline-block;
+			width: 24px;
+			content: " ";
+			position: absolute;
+			left: -24px;
+		}
+		&--checked:before {
+			color: #6aaa1f;
+			content: "\e003"
+		}
+	}
+}
+.profile-edition {
+	border: 1px solid #cbcbcb;
+	background-color: #fff;
+	border-radius: 3px;
+	&--primary {
+		box-shadow: 0 0 0 4px #cfe8b2;
+		border-color: #9fd164;
+	}
+	&__header {
+		background-color: #f5f5f5;
+		padding: 10px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-bottom: 1px solid #cbcbcb;
+		& h3 {
+			text-align: center;
+			margin-bottom: 0;
+		}
+		&--primary {
+			border-bottom: 1px solid #9fd164;
+			background-color: #f8fcf4;
+			color: #5e971b;
+		}
+	}
+	&__content {
+		padding: 14px;
+	}
+	&__prices {
+		margin-top: 14px;
+		margin-bottom: 14px;
+		&-separator {
+			position: relative;
+			text-align: center;
+			text-transform: uppercase;
+			z-index: 1;
+			& span {
+				font-size: 10px;
+				display: inline-block;
+				padding: 0 8px;
+				background-color: #fff;
+			}
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				z-index: -1;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: #eaeaea;
+			}
+		}
+	}
+	&__price {
+		& .amount {
+			font-weight: bold;
+			font-size: 18px;
+		}
+		&:first-child .amount {
+			font-size: 32px;
+		}
+		& .frequency,
+		& .unit {
+			text-transform: lowercase;
+		}
+	}
+	&__action {
+		text-align: center;
+		margin-bottom: 14px;
+	}
+	&__details {
+		border-bottom: 1px solid #eaeaea;
+		padding-bottom: 14px;
+		margin-bottom: 14px;
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+	}
+	&__bullets {
+		li:nth-child(n+8) {
+			display: none;
+		}
+		.toggle-show,
+		.toggle-hide {
+			display: inline-block;
+		}
+		.toggle-hide {
+			display: none;
+			margin-top: 6px;
+		}
+		&.toggled {
+			li:nth-child(n+8) {
+				display: list-item;
+			}
+			.toggle-show {
+				display: none;
+			}
+			.toggle-hide {
+				display: inline-block;
+			}
+		}
+	}
+}
+.profile-box {
+	display: grid;
+	margin-bottom: 24px;
+}

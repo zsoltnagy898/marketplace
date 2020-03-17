@@ -1,0 +1,79 @@
+{% from "/macros/profile/features-and-benefits.html" import featuresAndBenefits %}
+{% from "/macros/profile/featured-customers.html" import featuredCustomers %}
+{% from "/macros/profile-image.html" import productImageMedium, productImageLarge %}
+
+{% macro bundleProductToggleNav(products, toggleKey) %}
+    <ul class="container_content__nav-wrapper">
+        {% for product in products %}
+            <li
+                class="container_content container_content__nav container_content--box {% if product.focused %} selected{% endif %} js-{{ toggleKey }}-toggle"
+                data-id="{{ product.id }}"
+            >
+                <div class="card__image">
+                    {{ productImageMedium(product.image) }}
+                </div>
+                <div class="card__content">
+                    <h4>{{ product.name }}</h4>
+                    <span>{{ product.edition.name }}</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro bundleProductToggleContent(products, toggleKey, viewProductTxt) %}
+    <div>
+        {% for product in products %}
+            <div
+                class="container_content--toggled{% if product.focused %} selected{% endif %} js-{{ toggleKey }}-content"
+                data-id="{{ product.id }}"
+            >
+                <div class="slat-container slat">
+                    <div class="slat--column slat--column-full container_content--box">
+                        <div class="card__image">
+                            {{ productImageLarge(product.card.logoSrc) }}
+                        </div>
+                        <div class="card__content">
+                            <h2>{{ product.card.title }}</h2>
+                            <div>{{ product.card.details }}</div>
+                        </div>
+                    </div>
+                    <div class="slat--column">
+                        <a class="button" href="{{ product.url }}">{{ viewProductTxt }}</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="layout-content--section row">
+                        <div class="col-xs col-sm-5">
+                            <h2 class="title__xxlarge">{{ product.overview.title }}</h2>
+                            <p>{{ product.overview.description }}</p>
+                        </div>
+                        <div class="col-xs col-sm-5">
+                            <figure>
+                                <img role="presentation" src="{{ product.overview.image }}">
+                            </figure>
+                        </div>
+                    </div>
+                    {% if product.overview.benefits and product.overview.benefits.length %}
+                        <div class="layout-content--section">
+                            {{ featuresAndBenefits(product.overview.benefits, product.overview.i18n.featuresAndBenefits) }}
+                        </div>
+                    {% endif %}
+                    {% if product.overview.customers and product.overview.customers.length %}
+                        <div class="layout-content--section">
+                            {{ featuredCustomers(product.overview.customers, product.overview.i18n.customers, 'js-toggle-more') }}
+                        </div>
+                    {% endif %}
+                    <div class="feature-actions center">
+                        <a
+                            href="{{ product.url }}"
+                            class="button button__large toolbar--item button__primary"
+                        >
+                            {{ viewProductTxt }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

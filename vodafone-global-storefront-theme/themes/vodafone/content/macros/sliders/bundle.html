@@ -1,0 +1,47 @@
+{% from "/macros/complex-tooltip.html" import complexTooltip %}
+
+{% macro bundleSlider(name, list=[], i18n={}, viewAllUrl = "") %}
+<div class="bundle-content bundle-slider-list">
+    <div class="header">
+        <h2 class="header--item">{{ name }}</h2>
+        <menu class="header--item toolbar__small">
+            {% if viewAllUrl %}
+                <a class="button button__neutral button__small toolbar--item" href="{{ viewAllUrl }}">{{ i18n.viewall }}</a>
+            {% endif %}
+            <menu class="toggle_buttons toolbar--item">
+                <button aria-label="prev" class="toggle_buttons--button button__square_small js-slider-prev" type="button" disabled="disabled">
+                    <i class="icon__arrow_left"></i>
+                </button><button aria-label="next" class="toggle_buttons--button button__square_small js-slider-next" type="button">
+                    <i class="icon__arrow_right"></i>
+                </button>
+            </menu>
+        </menu>
+    </div>
+    <div class="bundle-slider">
+        <div class="bundle-slider--items">
+            {% for bundle in list %}
+                <div class="bundle-slider--item">
+                    <div class="bundle-container tooltip--complex" aria-hidden="true" role="presentation">                 
+                        <a class="group-bundle {% if (bundle.bundledProducts.length > 3) %} group-bundle--overlapping {% endif %}" href="{{ bundle.url }}">
+                            {% for bp in bundle.bundledProducts %}
+                                {% if loop.index <= 4 %}
+                                    <span class="group-bundle-item id id__logo id_logo__sq_medium">
+                                        {% if bp.iconUrl != null %}
+                                            <img src="{{ bp.iconUrl }}" alt class="bundle-id--img">
+                                        {% endif %}
+                                    </span>
+                                {% endif %}
+                            {% endfor %}
+                        </a>
+                        {{ complexTooltip("bottom", bundle, i18n) }}
+                    </div>
+                    <h3 data-truncate="line">
+                        <a href="{{ bundle.url }}">{{ bundle.name }}</a>
+                    </h3>
+                    <p class="bundle-slider--item-content" title="{{ bundle.blurb }}">{{ bundle.blurb }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endmacro %}

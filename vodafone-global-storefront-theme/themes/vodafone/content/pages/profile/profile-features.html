@@ -1,0 +1,57 @@
+{% extends "/layout/profile.html" %}
+{% from "/macros/profile/profile-feature-characteristics.html" import profileFeatureCharacteristics %}
+
+{% block profileContent %}
+    <div class="row layout-content--section js-features">
+        <div class="col-xs-8 col-fix-sm-4 d-none d-sm-block">
+            <ul class="stack">
+                {% for feature in application.features.items %}
+                    <li class="stack--item">
+                        <a
+                            class="link__nav stack--item_content js-feature-toggle{% if loop.index === 1 %} selected{% endif %}"
+                            data-id="{{ feature.id }}"
+                        >
+                            <span>{{ feature.label }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-xs-8 col-fix-inv-sm-4">
+            {% for feature in application.features.items %}
+                <div
+                    class="container_content--toggled js-feature-content{% if loop.index === 1 %} selected{% endif %}"
+                    data-id="{{ feature.id }}"
+                >
+                    <h2>{{ feature.label }}</h2>
+                    <p>{{ feature.description }}</p>
+                    {% if feature.aboveCharacteristics.length %}
+                        <div class="profile-feature--characteristics">
+                            {{ profileFeatureCharacteristics(feature.aboveCharacteristics) }}
+                        </div>
+                    {% endif %}
+                    {% if feature.imageUrl %}
+                        <div class="profile-feature--image">
+                            <img src={{ feature.imageUrl }} />
+                        </div>
+                    {% endif %}
+                    {% if feature.belowCharacteristics.length %}
+                        <div class="profile-feature--characteristics">
+                            {{ profileFeatureCharacteristics(feature.belowCharacteristics) }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% if application.features.items.length > 1 %}
+                <div class="profile-feature--buttons">
+                    <button class="button__arrow_left js-feature-prev" aria-label="previous-feature">{{ application.features.i18n.prev }}</button>
+                    <button class="button__arrow_right js-feature-next" aria-label="next-feature">{{ application.features.i18n.next }}</button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        $(".js-features").togglable("feature");
+    </script>
+{% endblock %}

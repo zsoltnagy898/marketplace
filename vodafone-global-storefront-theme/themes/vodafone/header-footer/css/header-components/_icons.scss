@@ -1,0 +1,39 @@
+.ad-icon-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $headerNavFontColor;
+	font-size: $nav-icon-font-size;
+	height: 100%;
+	text-decoration: none;
+	width: 100%;
+	&:hover{
+		text-decoration: none;
+	}
+}	
+
+.ad-universalnav-icons {
+	position:relative;
+	height: 100%;
+	width: $nav-icon-width;
+	margin-left: -1px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+	border-left: 1px solid $headerNavBorderColor;
+	border-right: 1px solid $headerNavBorderColor;
+
+	&:hover {
+		background-color: $headerNavItemBgHover;
+		
+		.ad-icon-link {
+			color: $headerNavFontHoverColor;
+		}
+	}
+
+	.js-link-active,
+	.js-link-active:hover {
+		background-color: $headerNavItemBgSelected;
+		color: $headerNavFontSelectedColor;
+	}
+}

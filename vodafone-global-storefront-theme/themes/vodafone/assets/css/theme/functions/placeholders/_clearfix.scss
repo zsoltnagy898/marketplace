@@ -1,0 +1,23 @@
+//// 
+/// Core Placeholders: Clearfix
+//// 
+
+@import '../../mixins/clearfix';
+
+/// Tracks placeholders use. 
+/// Note: Users should not set this!
+$adb-clearfix-placeholders-included: false !default;
+
+/// Encapsulate placeholders so users can @import multiple times without worrying about 
+/// duplicate styles
+@if not($adb-clearfix-placeholders-included) {
+
+	$adb-clearfix-placeholders-included: true;
+    // Placeholders
+
+    // Equivalent to _adb-clearfix() but DRY
+    // @see _adb-clearfix
+	%adb-clearfix {
+	    @include _adb-clearfix;
+	}
+}

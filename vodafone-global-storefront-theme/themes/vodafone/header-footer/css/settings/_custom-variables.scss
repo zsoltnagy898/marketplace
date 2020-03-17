@@ -1,0 +1,65 @@
+// Custom variables for theming of the Universal Header
+$nav-height: 52px;
+$nav-font-family: 'Helvetica Neue', Arial, sans-serif;
+$nav-item-font-size: 15px;
+$nav-item-padding-horizontal: 20px;
+
+$nav-logo-height: 31px;
+$nav-logo-padding-vertical: 0;
+$nav-logo-padding-horizontal: 14px;
+
+$dropdown-container-border-radius: 3px;
+$dropdown-container-box-shadow: 0 3px 10px 0 rgba(45,45,45,.125);
+$dropdown-container-margin-top: 4px;
+$dropdown-container-min-width: 192px;
+$dropdown-container-item-padding-top: 10px;
+$dropdown-container-item-padding-right: 30px;
+$dropdown-container-item-padding-bottom: 10px;
+$dropdown-container-item-padding-left: 10px;
+$dropdown-container-item-font-size: 14px;
+$dropdown-container-item-text-transform: capitalize;
+
+$profile-img-width: 24px;
+$profile-img-height: $profile-img-width;
+$profile-img-margin-right: 10px;
+$profile-img-border-radius: 2px;
+
+$nav-icon-font-size: 22px;
+$nav-icon-width: 52px;
+
+$myapps-dropdown-app-tile-width: 83px;
+$myapps-dropdown-app-tile-height: 82px;
+$myapps-dropdown-app-padding: 10px;
+$myapps-dropdown-app-radius: 3px;
+$myapps-dropdown-app-margin-bottom: 5px;
+$myapps-dropdown-app-font-size: 12px;
+
+$myapps-dropdown-app-hover-border-color: #e0dfdf;
+$myapps-dropdown-app-hover-border: 1px;
+$myapps-dropdown-app-hover-border: $myapps-dropdown-app-hover-border solid #e0dfdf;
+$myapps-dropdown-app-hover-padding: ($myapps-dropdown-app-padding - 1px);
+
+$myapps-dropdown-app-img-container-height: 40px;
+$myapps-dropdown-app-img-max-width: 80%;
+$myapps-dropdown-app-img-max-height: $myapps-dropdown-app-img-max-width;
+
+$myapps-dropdown-app-img-placeholder-font-size: 23px;
+$myapps-dropdown-app-img-placeholder-color: #7a7a7a;
+
+$myapps-dropdown-app-see-all-cta-bg: #f3f3f3;
+$myapps-dropdown-app-see-all-cta-color: #737373;
+$myapps-dropdown-app-see-all-cta-font-size: 14px;
+$myapps-dropdown-app-see-all-cta-container-height: 40px;
+$myapps-dropdown-app-see-all-cta-hover-bg: #efefef;
+$myapps-dropdown-app-see-all-cta-hover-color: #575757;
+
+$notifications-bg: #009abf;
+$notifications-font-color: #ffffff;
+$notifications-font-family: 'Helvetica Neue', Arial, sans-serif;
+$notifications-font-size: 10px;
+$notifications-font-weight: 600;
+$notifications-min-width: 8px;
+$notifications-height: 14px;
+$notifications-border-radius: 3px;
+$notifications-padding-horizontal: 3px;
+$notifications-padding-vertical: 0;

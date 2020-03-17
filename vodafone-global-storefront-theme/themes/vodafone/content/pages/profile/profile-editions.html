@@ -1,0 +1,87 @@
+{% extends "/layout/profile.html" %}
+{% from "/macros/profile/profile-edition-details.html" import profileEditionDetails %}
+{% from "/macros/profile/profile-edition-cost.html" import profileEditionCost %}
+
+{% block profileContent %}
+    <div class="row js-editions">
+        {% if application.editions.bullets.length %}
+            <div class="col-xs-8 col-fix-sm-4 profile-box js-edition-box">
+                <div class="profile-edition__bullets js-edition-bullets">
+                    <h3>{{ application.editions.i18n.bulletsHeader }}</h3>
+                    <ul class="profile-checklist">
+                        {% for bullet in application.editions.bullets %}
+                            <li class="profile-checklist__item profile-checklist__item--checked">{{ bullet.content | safe }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% if application.editions.bullets.length > 7 %}
+                        <div class="js-edition-bullets-toggle">
+                            <a class="toggle-show">{{ application.editions.i18n.showMoreDetails }}</a>
+                            <a class="toggle-hide">{{ application.editions.i18n.hideMoreDetails }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        {% for edition in application.editions.items %}
+            <div class="col-xs-8 col-fix-sm-4 profile-box js-edition-box">
+                <div class="profile-edition{% if edition.primary %} profile-edition--primary{% endif %}">
+                    <div class="profile-edition__header{% if edition.primary %} profile-edition__header--primary{% endif %} js-edition-header">
+                        <h3>{{ edition.name }}</h3>
+                    </div>
+                    <div class="profile-edition__content">
+                        <div class="profile-edition__prices js-edition-prices">
+                            <ul class="profile-checklist profile-checklist--flush">
+                                {% set planCount = edition.plans.length %}
+                                {% for plan in edition.plans %}
+                                    {% if plan.costs and plan.costs.flatPrice %}
+                                        {{ profileEditionCost(plan.costs.flatPrice) }}
+                                    {% endif %}
+                                    {% if plan.costs and plan.costs.unitPrice %}
+                                        {% for unitPrice in plan.costs.unitPrice %}
+                                            {% for usageRange in unitPrice.usageRange %}
+                                                {{ profileEditionCost(usageRange) }}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endif %}
+                                    {% if plan.contractLength %}
+                                        <li class="profile-checklist__item badges">
+                                            <span class="badge badge__outline">{{ plan.formattedContract }}</span>
+                                        </li>
+                                    {% endif %}
+                                    {% if loop.index < planCount %}
+                                        <li class="profile-checklist__item profile-edition__prices-separator">
+                                            <span>{{ application.editions.i18n.tierSeparator }}</span>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="profile-edition__action">
+                            <a class="button button__{% if edition.primary %}emphasis{% else %}primary{% endif %} button__{{ edition.action.button.size }}">{{ edition.action.button.label }}</a>
+                        </div>
+                    	<div class="profile-edition__details">
+                            {{ profileEditionDetails(edition.audience, application.editions.i18n.audience) }}
+                    	</div>
+                    	<div class="profile-edition__details">
+                            {{ profileEditionDetails(edition.items, application.editions.i18n.inclusions) }}
+                    	</div>
+                    	<div class="profile-edition__details profile-edition__bullets js-edition-bullets">
+                            {{ profileEditionDetails(edition.bullets) }}
+                            {% if edition.bullets.length > 7 %}
+                                <div class="js-edition-bullets-toggle">
+                                    <a class="toggle-show">{{ application.editions.i18n.showMoreDetails }}</a>
+                                    <a class="toggle-hide">{{ application.editions.i18n.hideMoreDetails }}</a>
+                                </div>
+                            {% endif %}
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{{ r('/assets/js/profile-editions.js') }}"></script>
+    <script>
+        $(".js-editions").editionSizing();
+        $(".js-edition-bullets").editionBulletsToggle();
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+.badges {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    margin-top: 4px;
+}
+
+.badge {
+    color: #fff;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #e9e9e9;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    white-space: nowrap;
+    padding: 4px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    a {
+        text-decoration: none;
+    }
+    &__outline {
+        color: #9c9c9c;
+        background: 0 0;
+        a {
+            color: #fff;
+        }
+    }
+    &--emphasis {
+        background-color: #006080;
+        box-shadow: 0 0 0 1px #006080;
+    }
+    &--success {
+        background-color: #76bd22;
+        box-shadow: 0 0 0 1px #76bd22;
+    }
+}

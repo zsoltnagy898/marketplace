@@ -1,0 +1,154 @@
+h1, h2, h3, h4, h6, .title__xxlarge {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   margin-bottom: .375em;
+}
+
+h1+*, h2+*, h3+*, h4+*, h5+*, h6+* {
+    margin-top: 0;
+}
+ul {
+    margin: 0; padding: 0;
+}
+.title__small{
+    font-size: 14px;
+}
+a {
+    outline: none;
+}
+
+.title__xxxxxlarge {
+    font: bold 36px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #575757;
+}
+
+button, menu, nav {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.adb-layout-default {
+    width: 1128px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+}
+ul,li {list-style: none; margin-bottom:0;}
+
+a:hover{
+    text-decoration:underline;
+}
+
+[role=button], body, button, html, input, select, textarea {
+    font: normal normal normal 14px/1.6em Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+[role=button], body, button, html, input, select, textarea {
+    color: #575757;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .375em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.title__xxlarge, h1 {
+    font: bold 24px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #575757;
+}
+
+.title__xlarge, h2 {
+    font: bold 20px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #575757;
+}
+
+.title__large, h3 {
+    font: bold 18px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.title__medium, h4 {
+    font: bold 16px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+[data-truncate=line] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.link, a {
+    color: #009abf;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p:first-child {
+    margin-top: 0;
+}
+p {
+    margin: 1em 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+figure {
+    margin:0 0 5px 0;
+    text-align: center;
+    padding:0;
+    img {
+        max-width: 100%;
+    }   
+}
+
+dt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 12px;
+    line-height: 1.6em;
+    margin-top: 10px;
+    color: #646464;
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+dd{
+    margin:0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border:none;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+[role=button], body, button, html, input, select, textarea {
+    color: #575757;
+}

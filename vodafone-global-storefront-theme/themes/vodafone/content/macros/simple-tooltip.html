@@ -1,0 +1,5 @@
+{% from "/macros/rating.html" import rating %}
+
+{% macro simpleTooltip(content, position) %}
+    <span class="tooltip__text tooltip__text{% if position %} tooltip__text--{{position}}{% endif %} js-simple-tooltip">{{ content }}</span>
+{% endmacro %}

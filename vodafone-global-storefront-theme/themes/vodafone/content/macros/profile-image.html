@@ -1,0 +1,49 @@
+{% macro imageElement(type, imageUrl) %}
+    {% if imageUrl %}
+        <img src="{{ imageUrl }}" alt="" class="id--img">
+    {% else %}
+        <i role="presentation" class="id--placeholder icon__{{ type }}"></i>
+    {% endif %}
+{% endmacro %}
+
+{% macro ribbonElement(ribbon) %}
+    <span class="ribbon" style="background-color: {{ ribbon.ribbonColor }}; color: {{ribbon.textColor}};">{{ ribbon.text }}</span>
+{% endmacro %}
+
+{% macro profileImage(type, size, imageUrl, link, ribbon, className) %}
+    {% if link %}
+        <a href="{{ link }}" class="id id__logo id__sq_{{ size }}{% if className %} {{className}}{% endif %} id__linked">
+            {{ imageElement(type, imageUrl) }}
+            {% if ribbon %}
+                {{ ribbonElement(ribbon) }}
+            {% endif %}
+        </a>
+    {% else %}
+        <div class="id id__logo id__sq_{{ size }}{% if className %} {{className}}{% endif %}">
+            {{ imageElement(type, imageUrl) }}
+            {% if ribbon %}
+                {{ ribbonElement(ribbon) }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro productImageLarge(imageUrl, link, ribbon, className) %}
+    {{ profileImage('product', 'large', imageUrl, link, ribbon, className) }}
+{% endmacro %}
+{% macro productImageMedium(imageUrl, link, ribbon, className) %}
+    {{ profileImage('product', 'medium', imageUrl, link, ribbon, className) }}
+{% endmacro %}
+{% macro productImageSmall(imageUrl, link, ribbon, className) %}
+    {{ profileImage('product', 'small', imageUrl, link, ribbon, className) }}
+{% endmacro %}
+
+{% macro userImageLarge(imageUrl, link) %}
+    {{ profileImage('user', 'large', imageUrl, link) }}
+{% endmacro %}
+{% macro userImageMedium(imageUrl, link) %}
+    {{ profileImage('user', 'medium', imageUrl, link) }}
+{% endmacro %}
+{% macro userImageSmall(imageUrl, link) %}
+    {{ profileImage('user', 'small', imageUrl, link) }}
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% macro profileFeatureCharacteristics(list) %}
+    {% for item in list %}
+        <h3>{{ item.title }}</h3>
+        <ul class="profile-checklist">
+            {% for entry in item.highlights %}
+                <li class="profile-checklist__item{% if entry.displayCheck %} profile-checklist__item--checked{% endif %}">{{ entry.highlight }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endmacro %}

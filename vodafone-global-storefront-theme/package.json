@@ -1,0 +1,40 @@
+{
+  "name": "vodafone-global-storefront-theme",
+  "version": "0.1.0",
+  "description": "AppMarket Storefront theme for the Vodafone Cloud for SME App Marketplace app",
+  "author": "Vodafone Group",
+  "private": true,
+  "scripts": {
+    "build": "run-s build:* package",
+    "build:webpack": "webpack --mode production",
+    "dev": "run-p dev:*",
+    "dev:server": "cross-env RUNDEVSERVER=true sfb-toolkit start",
+    "dev:webpack": "onchange -i themes/vodafone/assets/js/src/**/* -- webpack --mode development",
+    "package": "sfb-toolkit package",
+    "postinstall": "run-s postinstall:*",
+    "postinstall:ws2": "run-p postinstall:ws2:*",
+    "postinstall:ws2:assets": "run-s postinstall:ws2:assets:*",
+    "postinstall:ws2:assets:copy": "sync-files ../node_modules/vodafone-ws2/dist/ themes/vodafone/assets/ws2/",
+    "postinstall:ws2:assets:rm-font-refs": "replace-in-file '/@font-face{[^}]+}/g' '' themes/vodafone/assets/ws2/styles/group/*.css --isRegex",
+    "postinstall:ws2:svgdefs": "sync-files ../node_modules/vodafone-ws2/dist/svg/ themes/vodafone/content/includes/ws2/"
+  },
+  "dependencies": {
+    "app-marketplace-ui-components": "^0.1.0",
+    "lodash": "^4.17.11",
+    "vodafone-ws2": "^9.0.0",
+    "get-video-id": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.5",
+    "babel-preset-vue": "^2.0.2",
+    "cross-env": "^5.2.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^5.2.0",
+    "replace-in-file": "^3.4.4",
+    "sync-files": "^1.0.3",
+    "vue-loader": "^15.6.4",
+    "vue-template-compiler": "^2.6.6",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  }
+}

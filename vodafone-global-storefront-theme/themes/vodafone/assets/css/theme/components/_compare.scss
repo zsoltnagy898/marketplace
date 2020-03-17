@@ -1,0 +1,73 @@
+.compare {
+    &__title {
+        margin-top: 24px;
+    }
+    &__block {
+        width: 100%;
+        border: 1px solid #cbcbcb;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-radius: 4px;
+    }
+    &__list {
+        padding-left: 24px;
+        & li {
+            list-style: disc outside;
+        }
+    }
+    &__row {
+        display: flex;
+        border-bottom: 1px solid #cbcbcb;
+        &:last-child {
+            border-bottom: none;
+        }
+        &--category {
+            .compare__list {
+                padding-left: 0;
+                & li {
+                    list-style: none;
+                    display: inline;
+                    &:after {
+                        content: ", ";
+                    }
+                    &:last-child:after {
+                        content: "";
+                    }
+                }
+            }
+        }
+    }
+    &__heading {
+        width: 15%;
+        background-color: #f5f5f5;
+        text-align: left;
+        padding: 6px 12px;
+        border-right: 1px solid #cbcbcb;
+    }
+    &__cell {
+        flex: 2 0 1px;
+        padding: 6px 12px;
+        vertical-align: middle;
+        font-size: 12px;
+    }
+    &__name {
+        font-size: 14px;
+    }
+    &__image {
+        text-align: center;
+        font-size: 14px;
+        &-link {
+            display: inline-block;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 2px -1px rgba(45,45,45,.1);
+            border: 1px solid #cbcbcb;
+            border-radius: 8%;
+            background-color: #fff;
+            & img {
+                border-radius: 8%;
+                width: 72px;
+                height: 72px;
+            }
+        }
+    }
+}

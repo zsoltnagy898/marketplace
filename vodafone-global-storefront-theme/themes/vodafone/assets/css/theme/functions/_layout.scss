@@ -1,0 +1,164 @@
+////
+/// @group layout
+////
+
+/// Functions
+
+/// Calculates width in terms of grid layout columns
+/// @parameter {Number} $cols  optional number of columns. Default: 1
+/// @parameter {Number} $adjust  optional adjustment used to decrease total column width. Default: 0
+/// @parameter {Number} $column-width  column width for the grid layout
+/// @parameter {Number} $gutter-width  gutter width for the grid layout
+/// @return {Number} final width spanning $cols number of columns, adjusted by $adjust
+@function adb-columns-width (
+    $cols:1,
+    $column-width:$adb-layout-column-width,
+    $gutter-width:$adb-layout-gutter-width,
+    $adjust:0) {
+    @return ($cols * ($column-width + $gutter-width) - $gutter-width) - $adjust;
+}
+
+/// Responsive Layout
+/// Retrieves layout widths at different breakpoints for a given layout component
+/// except for the root breakpoint
+/// @parameter {String} $responsive-layouts-map  SASS list variable where layout is stored
+/// @parameter {String} $layout-element-name  string name for layout component
+/// @example scss
+///     @include _adb-responsive-layout($adb-modal-columns, large);
+/// @return {String} desktop 5, desktop-large 6
+
+@function adb-responsive-layout($responsive-layouts-map, $layout-element-name) {
+    $element-breakpoints: ();
+    @each $item in $responsive-layouts-map {
+        $breakpoint: nth($item, 1);
+        $elements: nth($item, 2);
+        @each $pair in $elements {
+            $element: nth($pair, 1);
+            $columns: nth($pair, 2);
+            @if $element == $layout-element-name {
+                @if $columns > 0 {
+                    $element-breakpoints: append(
+                        $element-breakpoints,
+                        $breakpoint $columns,
+                        comma
+                    );
+                }
+            }
+        }
+    }
+    @return $element-breakpoints;
+}
+
+// Placeholders
+
+/// Tracks placeholders use.
+/// Note: Users should not set this!
+$adb-layout-included: false !default;
+
+/// Encapsulate placeholders so users can @import multiple times without worrying about
+/// duplicate styles
+@if not($adb-layout-included) {
+
+    $adb-layout-included: true;
+
+    // Properties shared by all layout root containers
+    %adb-container_base {
+        @include _adb-clearfix;
+        margin: 0 auto;
+    }
+
+    // Properties shared by all layout column classes
+    %adb-columns_base {
+        @include _adb-clearfix;
+        float: left;
+    }
+
+    // Indicates that a layout container is the first inside its parent container
+    %adb-layout-first {
+        // This a layout util placeholder, so use !important to make sure it'll always apply
+        margin-left: 0 !important;
+    }
+}
+
+// Mixins
+
+/// Set up the placeholder selectors for container and columns of a grid layout system,
+/// which can be used to layout objects.
+//
+/// For example, if the grid has 16 columns, the generated root container class is %adb-layout-container__16',
+/// and generated column classes are '%adb-layout-columns__16_1',
+/// '%adb-layout-columns__16_2', ..., '%adb-layout-columns__16_16'.
+/// @parameter {Number} $total-columns  total number of columns in a layout system
+/// @parameter {Number} $column-width  width of a column in the layout system
+/// @parameter {Number} $gutter-width  width of a gutter in the layout system
+@mixin adb-layout(
+    $column-number,
+    $column-width:$adb-layout-column-width,
+    $gutter-width:$adb-layout-gutter-width) {
+    
+    // first-column margin reset
+    .#{$adb-prefix}layout-column__first {
+        @extend %adb-layout-first;
+    }
+
+    @for $d from 1 through $column-number {
+
+        %adb-layout-container__#{$d} {
+            @extend %adb-container_base;
+            // width: adb-columns-width($d, $column-width, $gutter-width);
+        }
+
+        $columns-class: adb-layout-columns__#{$d};
+        
+        // Create base class
+        %#{$columns-class} {
+            @extend %adb-columns_base;
+            // width: adb-columns-width($d, $column-width, $gutter-width);
+        }
+
+        // Create column class which DON'T show up first
+        %#{$columns-class}__next {
+            @extend %#{$columns-class} !optional;
+        }
+
+        // Create column class which shows up first in a container
+        %#{$columns-class}__first {
+            @extend %#{$columns-class};
+            @extend %adb-layout-first;
+        }
+    }
+}
+
+/// Convenience for extending the layout container class created by adb-layout().
+/// Precondition: adb-layout() was called.
+/// @parameter {Number} $total-columns  must match $total-columns param value in adb-layout() call
+/// @example scss
+///     .root-container {
+///         @include _adb-layout-container(16);
+///     }
+/// @see adb-layout
+@mixin _adb-layout-container($column-number) {
+    @extend %adb-layout-container__#{$column-number};
+}
+
+/// Convenience for extending the layout column classes created by adb-layout().
+/// Precondition: adb-layout() was called.
+/// @parameter {Number} $columns  number of columns spanned
+/// @parameter {Number} $total-columns  must match $total-columns param value in adb-layout() call
+/// @parameter {Boolean} $is-first  optional. If true, the class is the first subcontainer. Default: false
+/// @example scss
+///     .left-sidebar {
+///         @include _adb-layout-column(4, 16, true);
+///     }
+///
+///     .main-content {
+///         @include _adb-layout-column(12, 16);
+///     }
+/// @see adb-layout
+@mixin _adb-layout-column(
+    $column-number,
+    $is-first:false) {
+    $columns-base-class: adb-layout-columns__#{$column-number};
+    $columns-class: if($is-first, #{$columns-base-class}__first, #{$columns-base-class}__next);
+    @extend %#{$columns-class};
+}

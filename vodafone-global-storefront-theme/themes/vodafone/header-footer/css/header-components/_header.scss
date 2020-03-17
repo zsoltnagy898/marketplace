@@ -1,0 +1,75 @@
+.ad-uniheader {
+    background: $headerNavBg;
+	border-bottom: 1px solid $headerNavBorderColor;
+    font-family: $nav-font-family;    
+    height: $nav-height;
+    position: relative;
+    box-sizing: content-box;
+    z-index: 11;
+    
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: $nav-height;
+        list-style: none;        
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        &--section {
+            display: flex;
+            align-content: center;
+            height: $nav-height;
+            padding-left:0;
+
+            &-left {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                height: 100%;
+            }
+            
+            > .ad-component_list-item, > .ad-component_list--item {
+                height: 100%;
+                display: inline-block;
+                border-left: 1px solid $headerNavBorderColor;
+                border-right: 1px solid $headerNavBorderColor;
+                margin-left: -1px;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+// Styling the main nav links
+.ad-component--link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	text-decoration: none;
+	color: $headerNavFontColor;
+	font-size: $nav-item-font-size;
+	height: 100%;
+	padding: 0 $nav-item-padding-horizontal;
+
+	&:hover {
+		background-color: $headerNavItemBgHover;
+		color: $headerNavFontHoverColor;
+		text-decoration: none;
+	}
+}
+
+// Styling the user image
+.ad-img-profile-pic {
+	width: $profile-img-width;
+	height: $profile-img-height;
+	margin-right: $profile-img-margin-right;
+	border-radius: $profile-img-border-radius;
+}
+
+// Hide the Nav headings from view (accessibility)
+// https://www.w3.org/WAI/tutorials/menus/structure/
+.not-visible { display: none; }

@@ -1,0 +1,176 @@
+////
+/// @group layout
+////
+
+//// 
+/// Baseline
+//// 
+
+$baseline: 14px !default;
+
+$height-min: $baseline * 4 !default;
+$height-max: $baseline * 12 !default;
+
+
+/// Media query breakpoints users can customize. Used by responsive mixins
+/// This is a list-map within a list-map. In a list map, each comma-separated pair is a key followed by value.
+/// The keys at the 1st level are media breakpoint names, and values are breakpoint options.
+/// The keys at the 2nd level are option names followed by values. Available options are:
+/// - active {Boolean} if true, then this breakpoint is in use. Relevant to application layer
+/// - min-width {Number} can be null
+/// - max-width {Number} can be null
+/// bg-color to indicate current viewport via background color on header.
+$adb-breakpoints:
+    root (
+        active true,
+        min-width null,
+        max-width 30em,
+        class false,
+        bg-color red
+    ),
+    xsmall (
+        active true,
+        min-width 30.0625em,
+        max-width 40em,
+        class false
+        bg-color blue
+    ),
+    small (
+        active true,
+        min-width 40.0625em,
+        max-width 50em,
+        class false,
+        bg-color orange
+    ),
+    medium (
+        active true,
+        min-width 50.0625em,
+        max-width 60em,
+        class false,
+        bg-color green
+    ),
+    large (
+        active true,
+        min-width 60.0625em,
+        max-width 70em,
+        class false,
+        bg-color yellow
+    ),
+    xlarge (
+        active true,
+        min-width 70.0625em,
+        max-width 80em,
+        class false,
+        bg-color pink
+    ),
+    xxlarge (
+        active true,
+        min-width 80.0625em,
+        max-width null,
+        class false,
+        bg-color purple
+    ) !default;
+    
+    
+    
+$adb-layout-column-width: 48px !default;
+$adb-layout-gutter-width: 24px !default;
+
+/// The standard application basically just gets to use the default core breakpoints. Lucky!
+
+/// This configures how many columns the root container has in different breakpoints.
+/// This is a list-map within a list-map. In a list map, each comma-separated pair is a key followed by value.
+/// The keys at the 1st level are media breakpoint names, and values are element-to-column mappings.
+/// The keys at the 2nd level are container element names, and values are # of columns for that container.
+$adb-layout-containers:
+    root (
+        default 0,
+        dialog 0
+    ),
+    xsmall (
+        default 6,
+        dialog 6
+    ),
+    small (
+        default 8,
+        dialog 6
+    ),
+    medium (
+        default 10,
+        dialog 6
+    ),
+    large (
+        default 12,
+        dialog 6
+    ),
+    xlarge (
+        default 14,
+        dialog 6
+    ),
+    xxlarge (
+        default 16,
+        dialog 6
+    ) !default;
+
+/// This configures what layout elements to create, and how many columns they take up in each media scope.
+/// This is a list-map within a list-map. In a list map, each comma-separated pair is a key followed by value.
+/// The keys at the 1st level are media breakpoint names, and values are element-to-column mappings.
+/// The keys at the 2nd level are layout element names, and values are # of columns for that element.
+/// An element doesn't need to be listed if it should have the same # of columns as in root scope.
+$adb-layout-columns:
+    root (
+        half 0,
+        content 0,
+        content_half 0,
+        sidebar 0,
+        content_full 0,
+        nav_list 0,
+        nav_search 0,
+        subscription 0
+    ),
+    xsmall (),
+    small (),
+    medium (
+        half 5,
+        content 6,
+        content_full 10,
+        content_half 3,
+        sidebar 4,
+        nav_list 5,
+        nav_search 5,
+        subscription 3
+    ),
+    large (
+        half 6,
+        content 8,
+        content_full 12,
+        content_half 4,
+        sidebar 4,
+        nav_list 6,
+        nav_search 6,
+        subscription 4
+    ),
+    xlarge (
+        half 7,
+        content 10,
+        content_full 14,
+        content_half 5,
+        sidebar 4,
+        nav_list 8,
+        nav_search 6,
+        subscription 3
+    ),
+    xxlarge (
+        half 8,
+        content 12,
+        content_full 16,
+        content_half 6,
+        sidebar 4,
+        nav_list 8,
+        nav_search 8,
+        subscription 4
+    ) !default;
+$adb-layout-default-container: get-value($adb-layout-containers, $adb-default-breakpoint) !default;
+$adb-layout-default-layout: get-value($adb-layout-columns, $adb-default-breakpoint) !default;
+
+$adb-layout-widest-container-width: get-value(nth(last-value($adb-layout-containers), 2), default) !default;

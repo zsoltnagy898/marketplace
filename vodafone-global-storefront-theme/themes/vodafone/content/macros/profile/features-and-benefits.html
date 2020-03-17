@@ -1,0 +1,33 @@
+{% macro featuresAndBenefits(items, title) %}
+    <h2 class="container-section--title">{{ title }}</h2>
+    <div class="row">
+        {% for item in items %}
+            {% if item.href %}
+                {% set maxDesc = 90 %}
+            {% else %}
+                {% set maxDesc = 200 %}
+            {% endif %}
+            <div class="col-sm-5 container-toggle js-toggle-more">
+                <h3>{{ item.title | safe }}</h3>
+                <p class="container-toggle--less">
+                    {{ item.description | truncate(maxDesc) }}
+                    {% if item.href and item.linkLabel %}
+                        <a href="{{ item.href }}">{{ item.linkLabel }}</a>
+                    {% endif %}
+                    {% if item.description.length > maxDesc %}
+                        <a class="container-toggle--trigger js-toggle-trigger">show more</a>
+                    {% endif %}
+                </p>
+                <p class="container-toggle--more">
+                    {{ item.description }}
+                    {% if item.href and item.linkLabel %}
+                        <a href="{{ item.href }}">{{ item.linkLabel }}</a>
+                    {% endif %}
+                    {% if item.description.length > maxDesc %}
+                        <a class="container-toggle--trigger js-toggle-trigger">show less</a>
+                    {% endif %}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

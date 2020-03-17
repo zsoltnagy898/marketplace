@@ -1,0 +1,35 @@
+$wrapper-border-color: #cbcbcb;
+$wrapper-bg-color: #fff;
+$padding: 14px;
+$child-border-color: #eaeaea;
+
+.description-list {
+	display: flex;
+	flex-wrap: wrap;
+    border: 1px solid $wrapper-border-color;
+    background-color: $wrapper-bg-color;
+    border-radius: 3px;
+	padding: 0 $padding;
+    margin-bottom: 24px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+	& > dt,
+	& > dd {
+		margin-top: 0;
+		padding: $padding 0;
+		border-bottom: 1px solid $child-border-color;
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+
+	& > dt {
+		flex-basis: 25%;
+	}
+
+	& > dd {
+		flex-basis: 75%;
+	}
+}

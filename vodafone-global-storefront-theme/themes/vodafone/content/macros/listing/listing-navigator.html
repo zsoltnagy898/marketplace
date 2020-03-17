@@ -1,0 +1,66 @@
+{% macro listingNavigator(navigator, query) %}
+{% set i18n = navigator.i18n %}
+{% set sections = navigator.filters %}
+<div class="col-xs-8 col-fix-sm-4">
+    <div class="container-box">
+        <div class="container_header container_header__actionable">
+            <h4 class="container_header--item">
+                <legend>{{ i18n.filters }}</legend>
+            </h4>
+            <menu class="container_header--item js-top-clear-button-container js-clearfilter">
+                <button data-auto="clear-filters" class="button button__inset button__small">
+                    <span>{{ i18n.clearFilters }}</span>
+                </button>
+            </menu>
+        </div>
+        <div class="container_content">
+            <form class="form">
+                <div data-fieldsets="" class="form--fieldset">
+                    <fieldset data-fields="">
+                        <input type="hidden" value="{{ query.pl }}" id="pl">
+                        <input type="hidden" value="{{ query.q }}" id="searchQuery">
+                    {% for section in sections %}
+                        <div class="form--field">
+                            <label>{{ section.text }}</label>
+                            {% for filter in section.items %}
+                            <div class="adb-selector">
+                                <label class="option-selector  js-checkbox">
+                                    <span class="selector--input">
+                                        <input class="js-option-filter" data-query-key="{{ filter.queryKey }}" data-url="{{ filter.url }}" value="{{ filter.id }}" type="checkbox" name="{{ filter.id }}" {% if filter.selected %}checked{% endif %}/>
+                                    </span>
+                                    <span class="selector--value js-value-selector">{{ filter.text }}</span>
+                                </label>
+                            </div>
+                            {% if filter.items.length %}
+                            <div class="form form--nested_fields {% if not filter.selected %}is-hidden{% endif %}" data-parent="{{ filter.id }}">
+                                <div class="form--field field-subCategories">
+                                        {% for subfilter in filter.items %}
+                                        <div class="adb-selector">
+                                            <label class="option-selector  js-checkbox">
+                                                <span class="selector--input">
+                                                    <input class="js-option-filter" data-parent="{{ filter.id }}" data-query-key="{{ subfilter.queryKey }}" data-url="{{ subfilter.url }}" value="{{ subfilter.id }}" type="checkbox" name="{{ subfilter.id }}" {% if subfilter.selected %}checked{% endif %}/>
+                                                </span>
+                                                <span class="selector--value js-value-selector">{{ subfilter.text }}</span>
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div class="container_footer">
+            <div class="container_footer--item__last js-bottom-clear-button-container">
+                <button data-auto="clear-filters" class="button button__inset button__small js-clearfilter">
+                    <span>{{ i18n.clearFilters }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

@@ -1,0 +1,64 @@
+{% macro reviews(reviews) %}
+
+<section id="Reviews" class="section--gutter section--wild-sand">
+<div id="devices-reviews" class="js-tabs-content tabs__content ">
+    <div class="spring ">
+        <h3 class="heading heading--3 heading--center heading--leading">Reviews</h3>
+        <div data-js="_equalRows" data-items=".reviews__item" data-sample-height=".reviews__content" class="reviews">
+            <h3 class="visually-hidden">Reviews</h3>
+            <ul class="grid grid--gutter">
+                {% for review in reviews.items.slice(0, 4) %}
+                <li class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2 flush--sm-bottom">
+                    <div class="reviews__item">
+                        <div class="reviews__content">
+                            <div class="grid grid--gutter reviews__heading">
+                                <div class="grid__item grid__item--gutter grid__item--sm-1/3 grid__item--2/3 flush--sm-bottom">
+                                    <p class="heading heading--5 heading--bold no-gutter--all reviews__author">
+                                        {{ review.author.name }}
+                                    </p>
+                                </div>
+                                <div class="grid__item grid__item--gutter grid__item--sm-2/3 grid__item--1/3 flush--sm-bottom reviews__rating">
+                                    <div class="rating ">
+                                        <svg focusable="false" aria-hidden="true" class="icon  rating__icon rating__icon--no-rating">
+                                            <use xlink:href="#icon-rating-0"/>
+                                        </svg>
+                                        <svg focusable="false" aria-hidden="true" class="icon  rating__icon rating__icon--rating rating__icon--rating--{{ review.rating }}">
+                                            <use xlink:href="#icon-rating-5"/>
+                                        </svg>
+                                        <span class="visually-hidden">Rating {{ review.rating }} of 5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <blockquote>
+                                <div>
+                                    <b>{{ review.title }}</b>
+                                </div>
+                                <div>
+                                    <p>
+                                        {{ review.comment }}
+                                    </p>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <!--<div class="gutter&#45;&#45;top align&#45;&#45;center">-->
+                <!--&lt;!&ndash; START: "group/directives/button/adaptations/$adaptation" Array-->
+        <!--(-->
+            <!--[adaptation] => secondary-->
+        <!--)-->
+         <!--&ndash;&gt;-->
+                <!--<a href="#" class="button button&#45;&#45;secondary  ">-->
+                    <!--See all reviews-->
+                <!--</a>-->
+                <!--&lt;!&ndash; END: "group/directives/button/adaptations/$adaptation" &ndash;&gt;-->
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>
+</section>
+
+{% endmacro %}

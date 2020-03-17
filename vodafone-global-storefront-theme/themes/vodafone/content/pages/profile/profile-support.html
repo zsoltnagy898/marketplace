@@ -1,0 +1,41 @@
+{% extends "/layout/profile.html" %}
+
+{% set supportData = application.support %}
+{% set i18n = application.support.i18n %}
+
+{% block contentSection %}
+    {% if supportData.termsUrl or supportData.privacyUrl %}
+        <h2>{{ i18n.termsAndConditions }}</h2>
+        <dl class="description-list">
+            {% if supportData.termsUrl %}
+                <dt>{{ i18n.termsUrl }}</dt>
+                <dd><a href="{{ supportData.termsUrl }}" target="_blank">{{ supportData.termsUrl }}</a></dd>
+            {% endif %}
+            {% if supportData.privacyUrl %}
+                <dt>{{ i18n.privacyUrl }}:</dt>
+                <dd><a href="{{ supportData.privacyUrl }}" target="_blank">{{ supportData.privacyUrl }}</a></dd>
+            {% endif %}
+        </dl>
+    {% endif %}
+    {% if supportData.email or supportData.knowledgebaseUrl or supportData.description or supportData.phone %}
+        <h2>{{ i18n.support }}</h2>
+        <dl class="description-list">
+           {% if supportData.email %}
+                <dt>{{ i18n.email }}:</dt>
+                <dd><a href="mailto:{{ supportData.email }}" target="_self">{{ supportData.email }}</a></dd>
+            {% endif %}
+            {% if supportData.knowledgebaseUrl %}
+                <dt>{{ i18n.knowledgebaseUrl }}:</dt>
+                <dd><a href="{{ supportData.knowledgebaseUrl }}" target="_blank">{{ supportData.knowledgebaseUrl }}</a></dd>
+            {% endif %}
+            {% if supportData.description %}
+                <dt>{{ i18n.description }}:</dt>
+                <dd>{{ supportData.description }}</dd>
+            {% endif %}
+            {% if supportData.phone %}
+                <dt>{{ i18n.phone }}:</dt>
+                <dd>{{ supportData.phone }}</dd>
+            {% endif %}
+        </dl>
+    {% endif %}
+{% endblock %}

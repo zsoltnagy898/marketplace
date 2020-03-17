@@ -1,0 +1,63 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xx: 0, // not used
+  xm: 1px,
+  xs: 641px,
+  sm: 800px,
+  md: 960px,
+  lg: 1120px,
+  xl: 1281px,
+) !default;
+
+$grid-fixed-breakpoints: () !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  xx: 0px, // not used
+  xm: 408px,
+  xs: 552px,
+  sm: 696px,
+  md: 840px,
+  lg: 984px,
+  xl: 1128px
+) !default;
+
+$enable-grid-classes:       true !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                16 !default;
+$grid-gutter-width:           24px !default;
+
+$grid-columns-map: (
+  xx: 6, // not used
+  xm: 6,
+  xs: 8,
+  sm: 10,
+  md: 12,
+  lg: 14,
+  xl: 16
+) !default;
+

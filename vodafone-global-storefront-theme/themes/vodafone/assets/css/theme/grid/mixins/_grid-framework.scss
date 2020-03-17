@@ -1,0 +1,103 @@
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+@mixin make-grid-columns($columns: $grid-columns, $columnsMap: $grid-columns-map, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px; // Prevent columns from collapsing when empty
+    padding-right: ($gutter / 2);
+    padding-left: ($gutter / 2);
+  }
+
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      @extend %grid-column;
+      @include make-col($i, $columns);
+    }
+  }
+  .col,
+  .col-auto {
+    @extend %grid-column;
+  }
+    
+
+  @each $breakpoint in map-keys($breakpoints) {
+    
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    $responsiveCols: map-get($columnsMap, $breakpoint);
+    @if ($infix == "") {
+      $responsiveCols: 16;
+    }
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $responsiveCols {
+      .col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    .col#{$infix},
+    .col#{$infix}-auto {
+      @extend %grid-column;
+    }
+    
+    
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      $currentMap: ($breakpoint: map-get($breakpoints, $breakpoint));
+      $grid-fixed-breakpoints: map-merge($grid-fixed-breakpoints, $currentMap) !global;
+      @each $bp in map-keys($grid-fixed-breakpoints) {
+          $infix2: breakpoint-infix($bp, $grid-fixed-breakpoints);
+          @for $ir from 1 through $responsiveCols {
+          
+            .col-fix-inv#{$infix2}-#{$ir} {
+              @include make-col-fixed($ir, $responsiveCols);
+            }
+            .col-fix#{$infix2}-#{$ir} {
+              @include make-col($ir, $responsiveCols);
+            }
+          }
+        }
+    }
+    
+   
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none; // Reset earlier grid tiers
+      }
+
+      @for $i from 1 through $responsiveCols {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $responsiveCols);
+        }
+      }
+
+      .order#{$infix}-first { order: -1; }
+
+      .order#{$infix}-last { order: $responsiveCols + 1; }
+
+      @for $i from 0 through $responsiveCols {
+        .order#{$infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($responsiveCols - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $responsiveCols);
+          }
+        }
+      }
+    }
+  }
+}

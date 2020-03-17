@@ -1,0 +1,104 @@
+.local_alert {
+    border-radius: 3px;
+    border-width: 1px;
+    margin-bottom: 14px;
+    position: relative;
+    border-color: #e6e6e6;
+    border-style: solid;
+    background: #f5f5f5;
+    clear: both;
+    color: #8c8c8c;
+
+    .local_alert--link {
+        color: #5e5e5e;
+        font-weight: 700
+    }
+    .local_alert--close {
+        color: #8c8c8c
+    }
+
+    &--content {
+        padding: 8px 16px;
+        padding-right: 36px
+    }
+    &--close {
+        top: 8px;
+        right: 16px
+    }
+    &__error {
+        border-color: #f8cfd4;
+        border-style: solid;
+        background: #fcecee;
+        clear: both;
+        color: #cc3749;
+        .local_alert--link {
+            color: #882531;
+            font-weight: 700
+        }
+        .local_alert--close {
+            color: #cc3749
+        }
+    }
+
+    &__pending, &__warning {
+        border-color: #f9e053;
+        border-style: solid;
+        background: #fef9dd;
+        clear: both;
+        color: #b9a113;
+        .local_alert--link {
+            color: #88760e;
+            font-weight: 700
+        }
+        .local_alert--close {
+            color: #b9a113
+        }
+    }
+
+    &__success {
+        border-color: #ddefc8;
+        border-style: solid;
+        background: #f1f8e9;
+        clear: both;
+        color: #6aaa1f;
+        .local_alert--link {
+            color: #477114;
+            font-weight: 700
+        }
+        .local_alert--close {
+            color: #6aaa1f
+        }
+    }
+
+    &__info {
+        border-color: #bfe6ef;
+        border-style: solid;
+        background: #e6f5f9;
+        clear: both;
+        color: #008bac;
+        .local_alert--link {
+            color: #005c73;
+            font-weight: 700
+        }
+        .local_alert--close {
+            color: #008bac
+        }
+    }
+    
+    &--close, .close {
+        -webkit-transition: opacity .1s linear;
+        -moz-transition: opacity .1s linear;
+        -o-transition: opacity .1s linear;
+        transition: opacity .1s linear;
+        opacity: .5;
+        color: inherit;
+        display: block;
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        &:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+    }
+}

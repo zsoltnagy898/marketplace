@@ -1,0 +1,23 @@
+{% macro utagDataScript(data) -%}
+
+<script>
+    var utag_data = Object.assign(
+        {
+            page_channel: 'business',
+            page_country: 'UK',
+            page_domain: window.location.host,
+            page_locale: 'en_GB',
+            page_path_query: window.location.pathname + (window.location.query || ''),
+            page_platform: 'app direct',
+            page_type: 'app direct',
+            page_url: window.location.href,
+            site_section_lvl_1: 'business',
+            site_section_lvl_2: 'app direct',
+            visitor_customer_type: 'business',
+            visitor_login_status: {{ "'logged in'" if config.user.isLoggedIn else "'logged out'" | safe }}
+        },
+        {{ data | dump | safe }}
+    );
+</script>
+
+{%- endmacro %}

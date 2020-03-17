@@ -1,0 +1,5 @@
+# Editor code style configuration
+# http://editorconfig.org/
+
+[*]
+indent_size = 2

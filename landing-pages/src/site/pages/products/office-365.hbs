@@ -1,0 +1,127 @@
+---
+layout: default.hbs
+title: Cloud for SME | Office365 | Vodafone UK
+description: Technology and customer demands are changing the way we work. Work is increasingly digital. What employees want from their employers has changed.
+utag_data:
+    page_name: uk>business>app direct>office 365
+    page_type: product list
+---
+<style>
+.navigation__item--cta {
+    float: right;
+    margin: 11px 0;
+}
+
+@media (max-width: 1024px) {
+    .navigation__item--cta {
+        margin: 5px 0;
+    }
+}
+</style>
+<div id="app">
+    <a href="#content" class="jumper">Skip to content</a>
+
+    {{> header cta="<li class='navigation__item navigation__item--cta'><a href='#order' @click.prevent='navigateOrder' class='button button--primary'>Order now</a></li>" }}
+
+    <main id="content">
+        <section class="section section--white hero-section">
+            <div class="spring">
+                <div class="grid grid--gutter">
+                    <div class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2 align--center flush--sm-bottom">
+                        <div class="hide--lg">
+                            <h2 class="heading heading--3">Office 365</h2>
+                            <p class="heading heading--5">Office 365 from Vodafone gives you all your favourite Microsoft software, like Word, Excel and PowerPoint, on all your devices that store documents in the cloud when you choose, so you can use them wherever you are. Whatever size your business is, it enables employees to work together securely across any device.</p>
+                            <a href="#order" @click.prevent="navigateOrder" class="button button--primary gutter--top gutter--bottom">Order now</a>
+                        </div>
+
+                        <img src="{{ asset '/images/vf-office-365-hero.png' }}" alt="Office 365 from Vodafone">
+                    </div>
+                    <div class="grid__item grid__item--gutter grid__item--md-1/1 grid__item--1/2">
+                        <div class="hide--md hide--sm">
+                            <h2 class="heading heading--3">Office 365</h2>
+                            <p class="heading heading--5">Office 365 from Vodafone gives you all your favourite Microsoft software, like Word, Excel and PowerPoint, on all your devices that store documents in the cloud when you choose, so you can use them wherever you are. Whatever size your business is, it enables employees to work together securely across any device.</p>
+                            <a href="#order" @click.prevent="navigateOrder" class="button button--primary gutter--top gutter--bottom">Order now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="editions" class="section section--wild-sand">
+            <div class="spring">
+                <h2 class="heading heading--3 heading--center heading--leading">Editions &amp; Pricing</h2>
+
+                <vf-pricing-table class="section--gutter no-gutter--bottom">
+                    <vf-pricing-card
+                        title="Office 365 Business Essentials"
+                        price="£3.80*"
+                        price-detail="*(per user, per month, price does not include VAT)"
+                        v-bind:features="[
+                            'Web version of Office apps: Outlook, Word, Excel, and PowerPoint (desktop apps not included)',
+                            '1 TB file storage & sharing',
+                            'Business-class email with 50GB mailbox'
+                        ]"
+                    ></vf-pricing-card>
+                    <vf-pricing-card
+                        title="Office 365 Business Premium"
+                        price="£9.40*"
+                        price-detail="*(per user, per month, price does not include VAT)"
+                        v-bind:features="[
+                            'Desktop & web version of Office 2016 apps: Outlook, Word, Excel, and PowerPoint.',
+                            '1 TB file storage & sharing',
+                            'Business-class email with 50GB mailbox',
+                            'One license covers 5 phones, 5 tablets, & 5 PCs or Macs per user'
+                        ]"
+                    ></vf-pricing-card>
+                    <vf-pricing-card
+                        title="Microsoft 365 Business"
+                        price="£15.10*"
+                        price-detail="*(per user, per month, price does not include VAT)"
+                        v-bind:features="[
+                            'Desktop & web version of Office 2016 apps: Outlook, Word, Excel, and PowerPoint.',
+                            '1 TB file storage & sharing',
+                            'Business-class email with 50GB mailbox',
+                            'One license covers 5 phones, 5 tablets, & 5 PCs or Macs per user',
+                            'Protection against security threats and leaks of your business data',
+                            'Protect company data on multiple devices',
+                            'Windows 10 Pro'
+                        ]"
+                    ></vf-pricing-card>
+                </vf-pricing-table>
+            </div>
+        </section>
+
+        <section id="order" class="section section--gallery">
+            <div class="spring">
+                <h1 class="heading heading--3 heading--center heading--leading">Order now</h1>
+
+                <vf-order-form
+                    method="POST"
+                    action="https://s1525.t.eloqua.com/e/f2"
+                    v-bind="{ editionOptions: editionOptions, selectedEdition: edition }"
+                    v-bind:initial-data="{
+                        firstName: '<eloqua type=\'emailfield\' syntax=\'First_Name___Forms1\' />',
+                        lastName: '<eloqua type=\'emailfield\' syntax=\'LastName\' />',
+                        emailAddress: '<eloqua type=\'emailfield\' syntax=\'EmailAddress\' />',
+                        busPhone: '<eloqua type=\'emailfield\' syntax=\'Business_Phone1\' />',
+                        company: '<eloqua type=\'emailfield\' syntax=\'Company\' />',
+                        address1: '<eloqua type=\'emailfield\' syntax=\'Address1\' />',
+                        zipPostal: '<eloqua type=\'emailfield\' syntax=\'Zip_Postal\' />',
+                        country: 'United Kingdom',
+                    }"
+                    show-office-365-fields
+                >
+                    <template v-slot:hidden-fields>
+                        <input type="hidden" name="elqFormName" value="2019Q1UKOffice365AppDirect">
+                        <input type="hidden" name="elqSiteId" value="1525">
+                        <input type="hidden" name="redirectUrl" id="redirectUrl" value="" />
+                    </template>
+                </vf-order-form>
+            </div>
+        </section>
+    </main>
+
+    {{> footer}}
+</div>
+
+<script src="{{ asset '/scripts/pages/products/office-365.js' }}"></script>

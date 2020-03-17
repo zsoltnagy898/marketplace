@@ -1,0 +1,31 @@
+<div class="js-component-component component__component" data-component="header">
+    <nav class="header" data-js="_language">
+        <div class="js-navigation-static navigation-static">&nbsp;</div>
+        <div class="js-navigation navigation navigation--primary component__icon-background" data-js="_navigation">
+            <div class="spring">
+                <ul class="navigation__list navigation__spring navigation__hide" role="navigation">
+                    <li class="navigation__item">
+                        <a href="https://www.vodafone.co.uk/business" class="js-brand brand" target="_blank">
+                            <svg focusable="false" aria-hidden="true" class="icon  icon--small  brand__logo">
+                                <use xlink:href="#icon-vodafone-logo"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="https://www.vodafone.co.uk/business" class="js-navigation-link navigation__link navigation__link--main" target="_blank">Vodafone Business</a>
+                    </li>
+
+                    {{#if USE_LOCAL_JOURNEY}}
+                        <li class="navigation__item hide--sm">
+                            <a href="{{ url '/choose-product.html' }}" class="js-navigation-link navigation__link navigation__link--main">Choose Product Edition</a>
+                        </li>
+                    {{/if}}
+
+                    {{#if cta}}
+                        {{{cta}}}
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

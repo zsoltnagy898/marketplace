@@ -1,0 +1,11 @@
+{
+  "name": "vodafone-ws2",
+  "version": "9.0.0",
+  "description": "Minimal prebuilt local package for the Vodafone WS2 framework",
+  "author": "Digital Detox",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dd-vodafone-group/vodafone-ws2.git"
+  }
+}

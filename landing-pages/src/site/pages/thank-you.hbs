@@ -1,0 +1,57 @@
+---
+layout: default.hbs
+title: Thank You | Office365 | Vodafone UK
+utag_data:
+    page_name: uk>business>app direct>thank you
+    page_type: checkout
+---
+
+{{> header}}
+
+<div>
+    <div class="section section--wild-sand">
+        <div class="spring">
+            <section class="card">
+                <div class="card__content align--center">
+                    <h1 class="heading heading--3 heading--center heading--leading">
+                        Thank you!
+                    </h1>
+                    <svg role="image" class="icon icon--extra-large">
+                        <use xlink:href="#icon-tick-outline"></use>
+                    </svg>
+                    <p>An email has been sent to your address with the details of your order.</p>
+                    <p>Our sales advisor will contact you shortly.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    window.addEventListener('load', function () {
+        if (utag && utag.link) {
+            const data = {
+                "event_name": "checkout_complete",
+                "event_category": "ui interaction",
+                "event_label": "form submit",
+                "product_brand": "Microsoft",
+                "product_category": "Software",
+                "product_name": getParameterByName('edition'),
+                "product_quantity": getParameterByName('licenceCount')
+            };
+            utag.link(data);
+        }
+    });
+</script>
+
+{{> footer}}

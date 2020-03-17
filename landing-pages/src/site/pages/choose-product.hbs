@@ -1,0 +1,65 @@
+---
+layout: default.hbs
+title: Choose Product | Office365 | Vodafone UK
+utag_data:
+    page_name: uk>business>app direct>choose your product
+    page_type: content
+---
+
+<style>
+.welcome-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+</style>
+
+{{> header}}
+
+<div id="app">
+    <div class="hero">
+        <div class="background background--cover">
+            <div class="background__image" style="background-image: url({{ asset '/images/vf-2019-Business-Micro-close-up-screen-pen-hand-RGB.jpg' }})"></div>
+        </div>
+        <div class="hero__band">
+            <div class="hero__message">
+                <h1 class="heading heading--1 heading--light heading--leading hero__heading">
+                    Choose your product
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section--wild-sand">
+        <div class="spring">
+            <vf-product-configurator
+                v-if="configuratorStarted"
+                v-bind="{ questions: questions, getSelectedProduct: getSelectedProduct }"
+                v-on:cancel="handleCancel"
+            ></vf-product-configurator>
+            <vf-card v-if="!configuratorStarted">
+                <template #header>
+                    <vf-progress-bar :value="0" />
+                </template>
+                <div class="welcome-card-content">
+                    <vf-heading tag="h1" variant="h4" align="center" class="visually-hidden">Title hello!</vf-heading>
+                    <svg role="image" class="icon icon--extra-large display"><use xlink:href="#icon-bundles"></use></svg>
+                    <p>In a few easy steps we will recommend you a product.</p>
+                    <vf-button class="gutter--top" v-on:click="handleStartConfigurator">Choose product</vf-button>
+                </div>
+            </vf-card>
+            <nav class="section section--transparent align--center">
+                <vf-button variant="tertiary" href="{{ url '/assistance.html' }}">
+                    <span>
+                        <vf-icon name="call" size="md" />
+                    </span>&nbsp;
+                    <span>Contact us</span>
+                </vf-button>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset '/scripts/pages/choose-product.js' }}"></script>
+
+{{> footer}}

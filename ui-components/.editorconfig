@@ -1,0 +1,8 @@
+# Editor code style configuration
+# http://editorconfig.org/
+
+[*]
+indent_size = 2
+
+[*.md]
+indent_size = 4

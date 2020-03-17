@@ -1,0 +1,44 @@
+{
+  "name": "app-marketplace-ui-components",
+  "version": "0.1.0",
+  "description": "Vue.js component library for App Marketplace",
+  "author": "Vodafone Group",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -s ../vodafone-ws2/dist/,../vodafone-ws2/samplemedia/,src/assets/",
+    "build-storybook": "build-storybook -s ../vodafone-ws2/dist/,../vodafone-ws2/samplemedia/,src/assets/",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "vodafone-ws2": "^9.0.0",
+    "vue": "^2.6.6",
+    "vue-fragment": "^1.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@storybook/addon-actions": "^4.1.12",
+    "@storybook/addon-knobs": "^4.1.13",
+    "@storybook/addon-options": "^4.1.13",
+    "@storybook/vue": "^4.1.12",
+    "babel-loader": "^8.0.5",
+    "babel-preset-vue": "^2.0.2",
+    "eslint": "^5.14.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "has": "^1.0.3",
+    "storybook-addon-vue-info": "^0.7.1",
+    "storybook-readme": "4.0.2",
+    "vue-loader": "^15.6.4",
+    "vue-template-compiler": "^2.6.6"
+  },
+  "peerDependencies": {
+    "babel-loader": "^8.0.5",
+    "babel-preset-vue": "^2.0.2",
+    "vue-loader": "^15.6.4",
+    "vue-template-compiler": "^2.6.6",
+    "webpack": "^4.29.5"
+  }
+}

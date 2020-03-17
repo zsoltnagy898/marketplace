@@ -1,0 +1,20 @@
+{
+  "name": "app-marketplace",
+  "description": "The Vodafone Cloud for SME App Marketplace project",
+  "author": "Vodafone Group",
+  "private": true,
+  "engines": {
+    "node": "^10.15.0",
+    "yarn": "^1.13.0"
+  },
+  "browserslist": "defaults",
+  "workspaces": [
+    "landing-pages",
+    "ui-components",
+    "vodafone-global-storefront-theme",
+    "vodafone-ws2"
+  ],
+  "scripts": {
+    "postinstall": "yarn workspace app-marketplace-landing-pages run postinstall && yarn workspace vodafone-global-storefront-theme run postinstall"
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{title}}</title>
+        <meta name="description" content="{{description}}">
+
+        <link rel="icon" type="image/png" href="{{asset '/favicon.png'}}">
+
+        {{!-- WS2 styles --}}
+        <link rel="stylesheet" href="{{asset '/styles/group/framework.min.css'}}">
+        <link rel="stylesheet" href="{{asset '/styles/group/main.min.css'}}">
+        <link rel="stylesheet" href="{{asset '/styles/framework-custom.css'}}">
+
+        <link rel="stylesheet" href="http://images.response.vodafone.com/Web/VodafoneGroupPLC/{c875a13b-81a7-4b3d-b3cf-85195bd56656}_home.min.css">
+
+        {{#if custom_css}}<link rel="stylesheet" href="{{asset custom_css}}">{{/if}}
+
+        <script src="http://images.response.vodafone.com/Web/VodafoneGroupPLC/{4d3a39ac-fcbe-4839-9550-63139325ab3f}_ls.bgset.min.js"></script>
+
+        {{!-- Tealium sync --}}
+        <script src="//tags.tiqcdn.com/utag/{{ TEALIUM_ACCOUNT }}/{{ TEALIUM_PROFILE }}/{{ TEALIUM_ENV }}/utag.sync.js"></script>
+    </head>
+    <body>
+        {{!-- Tealium universal tag loader --}}
+        <script>
+            (function(a,b,c,d){
+                a='//tags.tiqcdn.com/utag/{{ TEALIUM_ACCOUNT }}/{{ TEALIUM_PROFILE }}/{{ TEALIUM_ENV }}/utag.js';
+                b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+                a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            })();
+        </script>
+        {{{utagDataScript utag_data}}}
+
+        {{{inline 'public/svg/group/sprite.svg'}}}
+
+        {{> cookie-banner}}
+        {{> browser-upgrade-banner}}
+
+        {{{contents}}}
+
+        {{> help-menu}}
+
+        <script src="{{asset '/scripts/group/lib/modernizr-custom.min.js'}}"></script>
+        <script defer src="http://images.response.vodafone.com/Web/VodafoneGroupPLC/{d4f33e60-3d1c-4af0-83e9-86fab0d612ce}_main.min.js"></script>
+
+        <script src="{{asset '/scripts/main.js'}}"></script>
+
+
+        <script>
+            var links = document.querySelectorAll("[data-tracked]");
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i];
+                link.addEventListener('click', function (event) {
+                    if (utag && utag.link) {
+
+                        const data = {
+                            "event_name": "pdf download",
+                            "event_category": "ui interaction",
+                            "event_label": event.target.innerText,
+                            "download_name": event.target.dataset.tracked,
+                            "download_type": "support",
+                            "download_url": event.target.href,
+                            "journey_name": "app direct purchase",
+                            "journey_name": "app direct eloqua",
+                            "product_target_segment": "business"
+                        };
+                        utag.link(data);
+                    }
+                })
+            }
+        </script>
+        <style>
+            div.optanon-alert-box-wrapper {
+                display: none !important;
+            }
+        </style>
+
+    </body>
+</html>

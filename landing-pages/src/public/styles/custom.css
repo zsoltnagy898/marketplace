@@ -1,0 +1,370 @@
+.background__image {
+	background-position: top center;
+	background-repeat: no-repeat;
+}
+
+.card__content {
+	padding: 40px;
+}
+
+.card--quote .card__wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.card--quote .card__content {
+	flex-grow: 1;
+}
+
+.card--quote .background {
+	min-height: 245px;
+}
+
+@media only screen and (max-width: 768px) {
+	.card--quote .background {
+		min-height: 145px;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.card--quote .background {
+		min-height: 145px;
+	}
+}
+
+blockquote.quote--large {
+	font-size: 30px;
+	line-height: 40px;
+	font-family: VodafoneLight;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+blockquote.quote--large p {
+	flex-grow: 1;
+}
+
+blockquote.quote--large footer {
+	font-family: VodafoneRegular;
+	font-size: 18px;
+	line-height: 23px;
+}
+
+.quote__logo {
+	position: absolute;
+	bottom: -40px;
+	left: 50%;
+	margin-left: -40px;
+	width: 80px;
+	height: 80px;
+}
+
+.hero {
+	height: 655px;
+}
+
+.hero__overlap {
+	margin-top: -110px;
+}
+
+.why-vodafone {
+	background-color: #E60000;
+	color: #FFF;
+}
+
+.why-vodafone__grid {
+	margin: 0 auto;
+	max-width: 860px;
+}
+
+.why-vodafone__content {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 60px 10px;
+	position: relative;
+	font-size: 21px;
+	line-height: 26px;
+}
+
+.why-vodafone__image img {
+	border-radius: 50%;
+}
+
+
+@media only screen and (max-width: 1480px) {
+	.hero {
+		height: 510px;
+	}
+
+	.hero__overlap {
+		margin-top: -110px;
+	}
+}
+
+
+@media only screen and (min-width: 768px) {
+	.why-vodafone__grid {
+		margin: 0 auto;
+		max-width: 860px;
+		display: flex;
+		align-items: center;
+	}
+
+	.why-vodafone__text {
+		flex: 3;
+	}
+
+	.why-vodafone__image {
+		flex: 1;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.why-vodafone__image img {
+		max-width: 250px;
+	}
+}
+
+.why-vodafone__caption {
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.why-vodafone__caption,
+.why-vodafone__headline {
+	display: block;
+}
+
+.steps-guide {
+	text-align: center;
+}
+
+.steps-guide__process {
+	position: relative;
+	margin-top: 50px;
+}
+
+.steps-guide__icon {
+	position: relative;
+	text-align: right;
+}
+
+.steps-guide__icon-wrap {
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	padding: 18px;
+	background-color: #E60000;
+	border-radius: 50%;
+	margin-bottom: 35px;
+}
+
+.steps-guide__icon-wrap svg {
+	color: #FFFFFF;
+}
+
+.steps-guide__heading {
+	font-size: 28px;
+	line-height: 32px;
+	margin-top: 0;
+	margin-bottom: 6px;
+	font-family: VodafoneLight;
+	color: #E60000;
+}
+
+.steps-guide__text {
+	font-size: 17px;
+	line-height: 21px;
+}
+
+.steps-guide__process::before {
+	content: "";
+	display: block;
+}
+
+.steps-guide__process::before {
+	border-top: 1px dashed #666;
+	left: 12%;
+	position: absolute;
+	right: 12%;
+	top: 40px;
+}
+
+@media only screen and (max-width: 1024px) {
+	.steps-guide {
+		text-align: left;
+	}
+
+	.steps-guide__process {
+		margin-top: 30px;
+	}
+
+	.steps-guide__process::before {
+		content: none
+	}
+
+	.steps-guide__bordered {
+		position: relative;
+	}
+
+	.steps-guide__heading {
+		font-size: 20px;
+		line-height: 28px;
+		margin: 8px 0 10px;
+	}
+
+	.steps-guide__text {
+		margin: 0 0 35px;
+		min-height: 42px;
+	}
+
+	.steps-guide__bordered::before {
+		bottom: 0;
+		content: "";
+		display: block;
+		border-left: 1px dashed #666;
+		left: -69px;
+		position: absolute;
+		top: 0;
+		z-index: 0;
+	}
+
+	.steps-guide__bordered--first::before {
+		top: 1.333em;
+	}
+
+	.steps-guide__bordered--last::before {
+		bottom: calc(100% - 1.333em);
+		top: -100%;
+	}
+
+	.steps-guide__icon-wrap {
+		margin-right: 30px;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.steps-guide__bordered::before {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	.hero {
+		height: 364px;
+	}
+
+	.hero__overlap {
+		margin-top: -80px;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.hero {
+		height: 400px;
+	}
+
+	blockquote.quote--large {
+		font-size: 20px;
+		line-height: 26px;
+	}
+
+	.card {
+		height: auto !important;
+	}
+
+	.hero {
+		height: 208px;
+	}
+
+	.hero__overlap {
+		margin-top: -56px;
+	}
+
+	.steps-guide__heading {
+		font-size: 18px;
+		line-height: 24px;
+		margin: 5px 0 10px;
+	}
+
+	.steps-guide__icon-wrap {
+		margin-right: 40px;
+	}
+}
+
+.software__content {
+	padding: 30px 40px;
+}
+
+@media only screen and (max-width: 639px) {
+	.software__content {
+		padding: 20px;
+	}
+}
+
+.work-better__content {
+	padding: 50px;
+	font-size: 21px;
+	line-height: 26px;
+}
+
+.work-better__text {
+	padding-right: 60px;
+}
+
+@media only screen and (max-width: 639px) {
+	.work-better__content {
+		padding: 20px;
+		font-size: 16px;
+		line-height: 1.333;
+	}
+
+	.work-better__text {
+		padding-right: 0;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.footer__copyright {
+		clear: left;
+		display: block;
+		float: none;
+	}
+
+	.footer__contract {
+		padding: 0 5px;
+		margin: 5px 0 15px;
+	}
+}
+
+@media only screen and (max-width: 639px) {
+	.footer__contract {
+		padding: 0 5px;
+		margin: 5px 0 15px;
+	}
+}
+
+.hidden-desktop {
+	display: none;
+}
+
+.hidden-mobile {
+	display: inline-block;
+}
+
+@media only screen and (max-width: 639px) {
+	.hidden-desktop {
+		display: inline-block;
+	}
+
+	.hidden-mobile {
+		display: none;
+	}
+}
+
+.side-toggle__button span {
+    display: flex;
+    align-items: center;
+}

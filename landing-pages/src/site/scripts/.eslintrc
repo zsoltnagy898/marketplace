@@ -1,0 +1,10 @@
+extends:
+  - plugin:vue/recommended
+env:
+  browser: true
+  es6: true
+parserOptions:
+  sourceType: module
+rules:
+  vue/name-property-casing: kebab-case
+  vue/require-default-prop: off

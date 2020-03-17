@@ -1,0 +1,42 @@
+@import "./variables";
+
+.help {
+  font-size: 16px;
+  color: $color-wild-sand;
+  font-family: "VodafoneLight";
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    margin-right: 1px;
+  }
+
+  img {
+    margin-left: 4px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.primary-navigation {
+  height: $headerHeight;
+  background-color: $color-mine-shaft !important;
+
+  .language__current {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "VodafoneLight" !important;
+  }
+
+  .language__icon {
+    top: 47%;
+    color: $color-wild-sand !important;
+  }
+}
+
+.navigation__list__inline {
+  display: flex !important;
+}

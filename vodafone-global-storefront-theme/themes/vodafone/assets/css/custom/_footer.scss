@@ -1,0 +1,93 @@
+.footer {
+  color: #FFFFFF;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+
+.footer__logo {
+  height: 80px;
+  margin-bottom: 32px;
+}
+
+.footer__links {
+  margin-top: 32px;
+  margin-bottom: 64px;
+  font-size: 32px;
+}
+
+.footer__link {
+  font-size: 32px;
+}
+
+.footer__link {
+  &:not(&--last) {
+    padding-right: 52px;
+    margin-right: 52px;
+    border-right: 2px solid;
+  }
+}
+
+.footer__navigation {
+  padding: 20px 0 50px;
+}
+
+.footer__aside {
+  font-size: 28px;
+  margin-top: 30px;
+}
+
+.footer__aside::after,
+.footer__aside::before {
+  content: " ";
+  display: table;
+}
+
+.footer__aside::after {
+  clear: both;
+}
+
+.footer__copyright {
+  font-family: VodafoneRegular;
+}
+
+@include media-breakpoint-down(md) {
+  .footer__navigation {
+    padding: 20px 20px 40px;
+  }
+
+  .footer__aside {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+
+  .footer__link {
+    width: 100%;
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .footer__link {
+    &:not(&--last) {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: none;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .footer__aside {
+    margin-top: 20px;
+  }
+
+  .footer__navigation {
+    padding: 15px 0 30px;
+  }
+
+  .footer__copyright {
+    clear: left;
+    display: block;
+    float: none;
+  }
+}

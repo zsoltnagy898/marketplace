@@ -1,0 +1,30 @@
+@import "./variables";
+
+.carousel {
+  height: 400px;
+
+  .carousel-indicator-item {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid $color-mine-shaft;
+
+    &.active {
+      background-color: $color-red-berry;
+    }
+  }
+
+  .carousel-control-icon-container {
+    width: 32px;
+    height: 32px;
+    background: white;
+    box-shadow: 0 -1px 4px 1px rgba(130, 130, 130, 0.50);
+    border-radius: 50%;
+
+    svg {
+      padding: 7px;
+      color: $color-mine-shaft;
+    }
+  }
+
+}

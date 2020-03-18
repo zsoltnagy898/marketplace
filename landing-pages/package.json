@@ -16,7 +16,7 @@
     "postinstall": "run-p postinstall:*",
     "postinstall:ws2": "run-s postinstall:ws2:*",
     "postinstall:ws2:copy": "sync-files --no-delete ../node_modules/vodafone-ws2/dist/ src/public/",
-    "postinstall:ws2:rm-font-refs": "replace-in-file '/@font-face{[^}]+}/g' '' src/public/styles/group/*.css --isRegex"
+    "postinstall:ws2:rm-font-refs": "replace-in-file /@font-face{[^}]+}/g '' src/public/styles/group/*.css --isRegex"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",

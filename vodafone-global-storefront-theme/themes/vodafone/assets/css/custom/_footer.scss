@@ -1,5 +1,5 @@
 .footer {
-  color: #FFFFFF;
+  color: #ffffff;
   overflow: hidden;
   position: relative;
   z-index: 4;
@@ -57,14 +57,23 @@
   }
 
   .footer__aside {
-    margin-top: 40px;
-    font-size: 16px;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .footer__logo {
+    height: 60px;
+    margin-bottom: 0;
+  }
+
+  .footer__links {
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 
   .footer__link {
     width: 100%;
-    font-size: 28px;
-    margin-bottom: 16px;
+    font-size: 23px;
   }
 
   .footer__link {
@@ -72,6 +81,7 @@
       padding-right: 0;
       margin-right: 0;
       border-right: none;
+      margin-bottom: 14px;
     }
   }
 }

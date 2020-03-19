@@ -1,4 +1,4 @@
-{% macro slider(products=[]) %}
+{% macro carousel(products=[]) %}
 <div class="container">
     <div id="slider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -9,15 +9,16 @@
         <div class="carousel-inner">
             {% for product in products.items %}
             <div class="carousel-item">
-                <div class="row d-flex flex-wrap">
-                    <div class="col-6">
-                        <h1>{{product.name}}</h1>
-                        <h2>{{product.overview}}</h2>
-                        <h4>{{product.description}}</h4>
+                <div class="row d-flex flex-wrap flex-column-reverse flex-lg-row mb-5">
+                    <div class="col-lg-6 col-12">
+                        <div class="carousel-item-title" title="{{product.name}}">{{product.name}}</div>
+                        <div class="carousel-item-overview" title="{{product.overview}}">{{product.overview}}</div>
+                        <div class="carousel-item-description" title="{{product.description}}">{{product.description}}
+                        </div>
 
                         <a href="{{product.url}}" role="button">Go to product</a>
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-12 mb-2 mb-lg-0">
                         <img aria-label="{{product.name}}" class="id--sliderimg" alt=""
                              src="{{ product.overviewImageUrl }}">
                     </div>

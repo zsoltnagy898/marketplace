@@ -2,7 +2,7 @@
 
 {% from "/macros/analytics.html" import utagDataScript %}
 
-{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/carousel.html" import carousel %}
 {% from "/macros/sliders/bundle.html" import bundleSlider %}
 {% from "/macros/sliders/hero.html" import hero %}
 {% from "/macros/navigator.html" import navigator %}
@@ -14,7 +14,6 @@
 {% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
 {% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
 {% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
-{% from "/macros/sliders/slider.html" import slider %}
 {% from "/macros/sliders/script.html" import sliderScript %}
 {% from "/macros/notification.html" import notificationModel %}
 
@@ -43,8 +42,9 @@
 {% block content %}
 
 <div id="home">
-    <section class="section section--white hero-section">
-        {{ slider(productLists.featuredapps) }}
+    <section class="section section--white">
+        <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
+        {{ carousel(productLists.featuredapps) }}
     </section>
     <section class="section section--gallery">
         {{ carouselList(productLists.featuredapps, productLists.featuredapps.name) }}

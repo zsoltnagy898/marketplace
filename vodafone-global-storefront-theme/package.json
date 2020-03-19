@@ -15,14 +15,15 @@
     "postinstall:ws2": "run-p postinstall:ws2:*",
     "postinstall:ws2:assets": "run-s postinstall:ws2:assets:*",
     "postinstall:ws2:assets:copy": "sync-files ../node_modules/vodafone-ws2/dist/ themes/vodafone/assets/ws2/",
-    "postinstall:ws2:assets:rm-font-refs": "replace-in-file '/@font-face{[^}]+}/g' '' themes/vodafone/assets/ws2/styles/group/*.css --isRegex",
+    "postinstall:ws2:assets:rm-font-refs": "replace-in-file /@font-face{[^}]+}/g '' themes/vodafone/assets/ws2/styles/group/*.css --isRegex",
     "postinstall:ws2:svgdefs": "sync-files ../node_modules/vodafone-ws2/dist/svg/ themes/vodafone/content/includes/ws2/"
   },
   "dependencies": {
     "app-marketplace-ui-components": "^0.1.0",
+    "bootstrap": "^4.4.1",
+    "get-video-id": "^3.1.1",
     "lodash": "^4.17.11",
-    "vodafone-ws2": "^9.0.0",
-    "get-video-id": "^3.1.1"
+    "vodafone-ws2": "^9.0.0"
   },
   "devDependencies": {
     "babel-loader": "^8.0.5",

@@ -1,0 +1,10 @@
+@import "./variables";
+
+a {
+  color: $color-wild-sand;
+
+  &:hover {
+    color: $color-wild-sand;
+    text-decoration: none;
+  }
+}

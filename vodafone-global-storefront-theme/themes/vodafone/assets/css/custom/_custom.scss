@@ -30,7 +30,7 @@
 //  font-size: 18px;
 //  color: #333333;
 //  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-//  @media (max-width: 767px) {
+//  @include media-breakpoint-down(sm) {
 //    height: auto;
 //    max-height: none;
 //  }
@@ -38,7 +38,7 @@
 //    height: 200px;
 //    padding: 50px;
 //    text-align: center;
-//    @media (max-width: 767px) {
+//    @include media-breakpoint-down(sm) {
 //      height: auto;
 //      max-height: none;
 //    }
@@ -126,19 +126,19 @@
 //    top: 30%;
 //    left: 0;
 //    color: white;
-//    @media (max-width: 767px) {
+//    @include media-breakpoint-down(sm) {
 //      margin: 0px auto;
 //      left: auto;
 //    }
 //    .title {
 //      font-size: 56px !important;
-//      @media (max-width: 767px) {
+//     @include media-breakpoint-down(sm) {
 //        font-size: 42px;
 //      }
 //    }
 //    .description {
 //      font-size: 22px;
-//      @media (max-width: 767px) {
+//      @include media-breakpoint-down(sm) {
 //        font-size: 16px;
 //      }
 //    }
@@ -321,7 +321,7 @@ p {
   color: #FFFFFF;
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .why-vodafone__content {
     padding: 50px 10px;
   }
@@ -343,7 +343,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .why-vodafone__content {
     padding: 35px 10px;
   }
@@ -396,7 +396,7 @@ p {
   max-width: 950px;
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .why-vodafone-header {
     padding: 100px 0;
   }
@@ -408,7 +408,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .why-vodafone-header {
     padding: 0;
   }
@@ -484,7 +484,7 @@ p {
   min-height: 300px;
 }
 
-@media only screen and (max-width: 576px) {
+@include media-breakpoint-down(xs) {
   .stage__image {
     min-height: 1px !important;
   }
@@ -510,24 +510,19 @@ p {
   width: 100%;
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .grid__item--md-1\/1 {
     width: 100%;
   }
 }
 
-@media only screen and (max-width: 640px) {
+@include media-breakpoint-down(xs) {
   .grid__item--sm-1\/1 {
     width: 100%;
   }
 }
 
-
-//#profile-page {
-//  margin-bottom: -23px;
-//}
-
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .gallery {
     top: -237px;
     z-index: 99;
@@ -594,7 +589,7 @@ p {
   }
 
   p {
-    @media (max-width: 1024px) {
+    @include media-breakpoint-down(md) {
       font-size: 14px !important;
     }
   }
@@ -683,7 +678,6 @@ p {
   width: 55px;
 }
 
-
 #header-universal {
   display: none;
 }
@@ -699,10 +693,6 @@ p {
 
 #home {
   margin-top: -18px;
-}
-
-.navigation__item {
-  list-style: none;
 }
 
 .local_alert,
@@ -751,7 +741,7 @@ p {
     height: 30px;
     border-radius: 100%;
     font-size: 12px !important;
-    @media (max-width: 1024px) {
+    @include media-breakpoint-down(md) {
       width: 20px;
       height: 20px;
       font-size: 10px;
@@ -766,10 +756,6 @@ p {
 
 .carousel__control {
   box-shadow: none !important;
-}
-
-.navigation__spring {
-  overflow: hidden;
 }
 
 .icon--verysmall {
@@ -814,18 +800,13 @@ p {
   opacity: 0;
 }
 
-.navigation--fixed,
-nav.header {
-  z-index: 99 !important;
-}
-
-@media (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   #field--1 {
     order: 3 !important;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .side-toggle--viewport-height-fix {
     display: none;
   }
@@ -977,7 +958,7 @@ nav.header {
   margin-left: 30px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .brand {
     margin: 10px 10px 10px 0;
     width: 40px;
@@ -992,9 +973,9 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .brand {
-    margin: 8px 10px 8px 0;
+    margin: 14px 10px 14px 0;
     left: 10px;
     width: 32px;
     height: 32px
@@ -1118,7 +1099,7 @@ nav.header {
   right: -14px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .breadcrumbs {
     padding: 14px 0
   }
@@ -1132,7 +1113,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .brand-outline {
     font-size: 18px
   }
@@ -1176,13 +1157,13 @@ nav.header {
   height: calc(100% - 106px)
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary {
     top: calc(100% - 70px)
   }
 }
 
-@media (min-width: 1024px) {
+@include media-breakpoint-up(lg) {
   .bundle-summary {
     top: calc(100% - 80px)
   }
@@ -1202,7 +1183,7 @@ nav.header {
   overflow-y: auto
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary__body {
     height: calc(100% - 70px)
   }
@@ -1214,7 +1195,7 @@ nav.header {
   line-height: 0
 }
 
-@media (min-width: 1024px) {
+@include media-breakpoint-up(lg) {
   .bundle-summary__body {
     height: calc(100% - 80px)
   }
@@ -1252,7 +1233,7 @@ nav.header {
   color: #FFF
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary-header__total {
     float: left;
     padding: 0 20px
@@ -1295,7 +1276,7 @@ nav.header {
   display: none
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .bundle-summary-header__expand-button {
     position: absolute;
     right: 5px;
@@ -1329,7 +1310,7 @@ nav.header {
   color: #E60000
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .card__content:last-child .bundle-summary-options__fieldset {
     padding-bottom: 95px
   }
@@ -1360,7 +1341,7 @@ nav.header {
   padding: 20px 90px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .bundle-promotion__logo {
     max-height: 22px
   }
@@ -1369,7 +1350,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .call-us__card {
     padding: 25px 10px
   }
@@ -1468,7 +1449,7 @@ nav.header {
   margin: 0 auto 12px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .hero__message {
     padding: 55px 10px
   }
@@ -1477,7 +1458,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .hero__message {
     padding: 25px 10px 15px
   }
@@ -1547,13 +1528,13 @@ nav.header {
   background-color: #FFF
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .horizontal-text-rule {
     margin: 10px 0
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .horizontal-text-rule {
     margin: 0
   }
@@ -1663,7 +1644,7 @@ nav.header {
   display: inline-block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .language {
     width: 100%;
     margin-right: 0;
@@ -1738,7 +1719,7 @@ nav.header {
   height: 100%
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .location-nudge__map {
     height: 250px
   }
@@ -1814,15 +1795,11 @@ nav.header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2)
 }
 
-.navigation__link--active, .navigation__link--main:hover, .navigation__link:focus, .navigation__link:hover {
-  color: #E60000
-}
-
 .login-nudge__login {
   margin-bottom: 15px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .login-nudge--active .login-nudge__link::after {
     height: 2px
   }
@@ -1831,542 +1808,14 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .login-nudge__prompt {
     right: -40px
   }
 }
 
-.navigation {
-  background-color: #4A4D4E;
-  font-size: 32px;
-  position: relative
-}
-
-.navigation__link--active .navigation__accessibility {
-  display: inline-block
-}
-
-.navigation__accessibility {
-  display: none
-}
-
-.navigation--primary {
-  background-color: #FFF;
-  border-bottom: 1px solid rgba(102, 102, 102, .5);
-  background-clip: padding-box
-}
-
-.navigation--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0
-}
-
-.navigation--transparent {
-  background: 0 0
-}
-
-.navigation__list {
-  list-style: none;
-  margin: 0;
-  padding-left: 0
-}
-
-.navigation__list::after, .navigation__list::before {
-  content: " ";
-  display: table
-}
-
-.navigation__icon--active {
-  background-color: #E60000
-}
-
-.navigation__spring {
-  display: block;
-  max-height: 72px
-}
-
-.navigation__spring--primary {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 75px
-}
-
-.navigation__content {
-  padding: 0;
-  margin: 0;
-  list-style: none
-}
-
-.navigation--secondary {
-  background-color: rgba(255, 255, 255, .9);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: -200%;
-  opacity: 0;
-  visibility: hidden;
-  z-index: -1;
-  transition: all .1s ease .15s
-}
-
-.navigation--secondary-sub {
-  background-color: rgba(255, 255, 255, .95);
-  position: absolute;
-  left: 0;
-  top: -200%;
-  opacity: 0;
-  z-index: -2;
-  transition: all .3s ease .35s
-}
-
-.navigation--tertiary {
-  background-color: transparent;
-  display: none;
-  position: absolute;
-  right: 0;
-  text-align: left
-}
-
-.navigation__item--parent, .navigation__link {
-  position: relative
-}
-
-.navigation--tertiary--user {
-  background-color: rgba(255, 255, 255, .96);
-  width: 300px
-}
-
-.navigation--display {
-  display: block;
-  top: 100%;
-  opacity: 1;
-  visibility: visible;
-  transition: all .3s ease .3s
-}
-
-.navigation__item {
-  float: left;
-  font-family: VodafoneLight;
-  font-size: 24px
-}
-
-.navigation__item--right {
-  float: right
-}
-
-.navigation__item--secondary-sub {
-  float: none;
-  white-space: nowrap
-}
-
-.navigation__item--nested, .navigation__item--tertiary {
-  width: 100%
-}
-
-.navigation__item--first {
-  border-top: none
-}
-
-.navigation__item--last {
-  border-bottom: none
-}
-
-.navigation__item--clickable {
-  pointer-events: auto
-}
-
-.navigation__item--go-to {
-  display: none
-}
-
-.navigation__item--active > .navigation__link--main-secondary {
-  color: #E60000;
-  background: rgba(255, 255, 255, .7)
-}
-
-.navigation__link {
-  display: block;
-  padding: 15px 20px
-}
-
-.navigation__link--main {
-  min-width: 100px;
-  text-align: center;
-  padding: 21px 20px 20px
-}
-
-.navigation__link--main-secondary:hover {
-  background-color: rgba(255, 255, 255, .7)
-}
-
-.navigation__link--active::after, .navigation__link--main:hover::after {
-  background-color: #E60000;
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  height: 3px;
-  left: 0;
-  right: 0
-}
-
-.navigation__link--menu.navigation__link--active:hover, .navigation__link--slim:hover {
-  background-color: #FFF;
-  color: #333
-}
-
-.navigation__link--nested {
-  padding-left: 40px
-}
-
-.navigation__link--nested-sub {
-  padding-left: 60px
-}
-
-.navigation__link--icon {
-  line-height: 0;
-  padding: 21px 20px 23px
-}
-
-.navigation__link--slim {
-  padding: 4px 20px
-}
-
-.navigation__link--menu {
-  padding: 16px 20px
-}
-
-.navigation__link--user.navigation__link--active, .navigation__link--user.navigation__link--active:active, .navigation__link--user.navigation__link--active:focus, .navigation__link--user.navigation__link--active:hover {
-  background-color: rgba(255, 255, 255, .95)
-}
-
-.navigation__link--menu.navigation__link--active .navigation__toggle {
-  display: none
-}
-
-.navigation__link--menu.navigation__link--active .navigation__close {
-  display: block
-}
-
-.navigation__link--user.navigation__link--active::after {
-  content: none
-}
-
-.navigation__close {
-  display: none
-}
-
-.navigation__user {
-  height: 53px;
-  width: 60px
-}
-
-.navigation__user--icon {
-  height: auto;
-  width: auto;
-  line-height: 0;
-  padding: 15px 25px
-}
-
-.navigation__user--close {
-  padding: 6px;
-  color: #FFF
-}
-
-.navigation__basket {
-  background-color: #E60000;
-  border-radius: 50%;
-  color: #FFF;
-  display: inline-block;
-  font-size: 13px;
-  font-family: VodafoneRegularBold;
-  height: 20px;
-  line-height: 1.5em;
-  position: absolute;
-  right: 5px;
-  text-align: center;
-  top: 10px;
-  -ms-transform: scale(.75);
-  transform: scale(.75);
-  width: 20px
-}
-
-.navigation__global {
-  width: 100%;
-  overflow: hidden;
-  background: 0 0;
-  z-index: 1;
-  padding-left: 60px
-}
-
-.navigation__global--type {
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: 0 0;
-  float: left
-}
-
-.navigation__global--type::after, .navigation__global--type::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: #4A4D4E;
-  content: ""
-}
-
-.navigation__global--type::before {
-  right: 100%;
-  width: 265px
-}
-
-.navigation__global--type::after {
-  left: 100%;
-  width: 100vw
-}
-
-.navigation__global--language {
-  position: static;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: 0 0;
-  float: right
-}
-
-.navigation__site {
-  font-size: 16px;
-  background-color: #4A4D4E;
-  color: #CCC
-}
-
-.navigation__site--active {
-  background-color: #FCFDFD;
-  color: #333
-}
-
-.navigation__site-chevron {
-  background-color: #E60000;
-  position: relative;
-  width: 54px;
-  height: 54px;
-  float: right
-}
-
-.mouse-active .navigation__link:focus, .navigation__select {
-  background-color: transparent
-}
-
-.navigation__select {
-  border: none;
-  padding: 5px 22px 5px 5px;
-  overflow: hidden
-}
-
-.navigation__selectable {
-  color: #FFF;
-  padding: 5px
-}
-
-.touch .navigation__item--go-to {
-  display: inline-block
-}
-
-@media only screen and (max-width: 1024px) {
-  .navigation__spring {
-    max-width: none;
-    margin-left: 0;
-    max-height: none
-  }
-  .navigation--tertiary {
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-    width: 370px;
-    right: -20px;
-    top: auto;
-    bottom: auto;
-    position: absolute;
-    overflow: visible
-  }
-  .navigation--tertiary::before {
-    background-color: rgba(255, 255, 255, .96);
-    content: "";
-    display: block;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: inherit;
-    z-index: 0
-  }
-  .navigation--tertiary--user {
-    background: 0 0
-  }
-  .navigation--display {
-    transition-delay: 0s;
-    display: block
-  }
-  .navigation__hide {
-    position: relative;
-    z-index: 2
-  }
-  .navigation__item {
-    font-size: 20px;
-    pointer-events: auto;
-    font-family: VodafoneRegular
-  }
-  .navigation__item--tertiary {
-    padding: 0 10px;
-    color: #333
-  }
-  .navigation__item--clickable .navigation__link--active.navigation__link--menu, .navigation__item--clickable .navigation__link--active.navigation__link--menu:hover, .navigation__link--menu.navigation__link--active {
-    background-color: #E60000;
-    color: #FFF
-  }
-  .navigation__item--site {
-    padding: 10px
-  }
-  .navigation__item--nested {
-    padding-left: 20px
-  }
-  .navigation__link {
-    padding: 15px 10px
-  }
-  .navigation__link--nested {
-    padding-left: 40px
-  }
-  .navigation__link--icon {
-    margin: 8px 5px;
-    padding: 10px
-  }
-  .navigation__link--icon-last {
-    margin-right: 0
-  }
-  .navigation__link--menu {
-    z-index: 2
-  }
-  .navigation__link--active, .navigation__link--menu.navigation__link--active:hover {
-    background-color: #FFF;
-    color: #333
-  }
-  .navigation__link--menu.navigation__link--active .navigation__toggle {
-    display: none
-  }
-  .navigation__item--go-to, .navigation__link--menu.navigation__link--active .navigation__close, .touch .navigation__item--go-to {
-    display: block
-  }
-  .navigation__user--menu {
-    padding: 0;
-    border-radius: 50%
-  }
-  .navigation__user--icon {
-    padding: 15px
-  }
-  .navigation__user--close {
-    padding: 10px
-  }
-  .navigation__chevron {
-    color: #E60000;
-    margin-right: 10px;
-    padding-left: 0;
-    right: 30px
-  }
-  .navigation__chevron--site {
-    margin-right: 0
-  }
-  .navigation__site {
-    background-color: #666;
-    color: #FFF;
-    font-size: inherit;
-    margin-top: 40px
-  }
-  .navigation__site:hover {
-    background-color: #333;
-    color: #FFF
-  }
-  .navigation__site--active {
-    background-color: transparent;
-    border-bottom: 2px solid #FFF
-  }
-  .navigation__site .navigation__chevron {
-    color: #FFF
-  }
-  .navigation__basket {
-    right: 0;
-    top: 0
-  }
-  .navigation__accordion {
-    padding-bottom: 180px;
-    max-height: 100vh;
-    max-height: calc(100vh - 180px);
-    overflow-y: auto
-  }
-  .mouse-active .navigation__link--menu.navigation__link--active:active, .mouse-active .navigation__link--menu.navigation__link--active:focus, .mouse-active .navigation__link--user.navigation__link--active:active, .mouse-active .navigation__link--user.navigation__link--active:focus {
-    background-color: #E60000;
-    color: #FFF
-  }
-}
-
 .pass__label-bold, .roaming__rate, .support-bubble__wrapper {
   font-family: VodafoneRegularBold
-}
-
-@media only screen and (max-width: 639px) {
-  .navigation__chevron {
-    float: right
-  }
-  .navigation--tertiary {
-    left: 45px;
-    position: fixed;
-    width: auto;
-    right: 0
-  }
-  .navigation--tertiary::before {
-    left: 45px;
-    right: 0
-  }
-  .navigation__link {
-    padding: 15px 10px
-  }
-  .navigation__link--icon {
-    padding: 6px;
-    margin: 8px 5px
-  }
-  .navigation__link--icon-last {
-    margin-right: 0
-  }
-  .navigation__link--nested {
-    padding-left: 30px
-  }
-  .navigation__link--user.navigation__link--active {
-    border-radius: 0;
-    padding: 8px
-  }
-  .navigation__user {
-    height: 40px;
-    width: 47px
-  }
-  .navigation__user--icon {
-    height: auto;
-    width: auto;
-    padding: 10px
-  }
-  .navigation__user--close {
-    padding: 0
-  }
-  .navigation__user--menu {
-    padding: 0;
-    border-radius: 50%
-  }
-}
-
-.navigation-static {
-  width: 100%;
-  line-height: 0
 }
 
 .pass {
@@ -2566,7 +2015,7 @@ nav.header {
   width: 60px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .picker::before {
     height: 50px;
     width: 50px
@@ -2638,7 +2087,7 @@ nav.header {
   width: 66.6666666667%
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .product__heading {
     padding-bottom: 5px
   }
@@ -2680,7 +2129,7 @@ nav.header {
   margin-top: 10px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .radio-buttons__button {
     padding: 15px;
     margin-bottom: 10px
@@ -2690,7 +2139,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .radio-buttons__button {
     display: block;
     font-size: 18px;
@@ -2813,7 +2262,7 @@ nav.header {
   font-size: 18px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .range-slider__value {
     font-size: 24px
   }
@@ -2822,7 +2271,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .range-slider__heading {
     font-size: 18px
   }
@@ -2973,13 +2422,13 @@ nav.header {
   display: block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .roaming__form {
     margin-bottom: 40px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .roaming__form {
     margin-bottom: 30px;
     margin-top: 10px
@@ -3047,7 +2496,7 @@ nav.header {
   display: inline-block
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .sayt__heading {
     display: block
   }
@@ -3070,7 +2519,7 @@ nav.header {
   max-width: 580px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .search-form__wrapper {
     padding: 20px 10px
   }
@@ -3118,13 +2567,13 @@ nav.header {
   border-radius: 25px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .search-snack__input {
     width: 480px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .search-snack__input {
     width: 100%
   }
@@ -3238,7 +2687,7 @@ nav.header {
   display: block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .side-toggle {
     min-height: 250px
   }
@@ -3255,14 +2704,14 @@ nav.header {
   }
 }
 
-@media only screen and (max-height: 776px) {
+@include media-breakpoint-down(sm) {
   .side-toggle--viewport-height-fix {
     bottom: initial;
     top: 155px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .side-toggle {
     width: calc(100% - 50px);
     bottom: 20%;
@@ -3309,7 +2758,7 @@ nav.header {
   text-align: right
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .social {
     text-align: center;
     margin-top: 25px
@@ -3383,7 +2832,7 @@ nav.header {
   width: 30px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .suggest__suggestions {
     position: static
   }
@@ -3448,13 +2897,13 @@ nav.header {
   line-height: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .support-bubble {
     right: 20px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .support-bubble {
     right: 10px
   }
@@ -3490,13 +2939,13 @@ nav.header {
   cursor: default
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .time-picker__time {
     font-size: 24px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .time-picker__time {
     font-size: 20px;
     font-family: VodafoneRegular
@@ -3583,7 +3032,7 @@ nav.header {
   border: none
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .tooltip {
     position: static;
     font-size: 16px
@@ -3627,7 +3076,7 @@ nav.header {
   width: 40px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .user-menu {
     position: static
   }
@@ -3636,7 +3085,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .user-menu__image {
     width: 36px
   }
@@ -3690,7 +3139,7 @@ nav.header {
   margin-bottom: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .accessory__content {
     padding-bottom: 30px
   }
@@ -3699,7 +3148,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .accessory__content {
     padding: 25px 10px
   }
@@ -3830,7 +3279,7 @@ nav.header {
   margin-bottom: 10px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .basket-package-grid__item {
     width: 10%
   }
@@ -3851,7 +3300,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .basket-package-grid {
     display: block
   }
@@ -3908,7 +3357,7 @@ nav.header {
   font-size: 28px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .basket-package-header__image-wrapper {
     text-align: center
   }
@@ -3951,7 +3400,7 @@ nav.header {
   display: table
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .basket-package-header__heading-wrapper {
     padding: 20px 10px
   }
@@ -4111,7 +3560,7 @@ nav.header {
   margin-left: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .results__item--last {
     margin-bottom: 20px
   }
@@ -4120,7 +3569,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .results__wrapper {
     padding: 10px
   }
@@ -4136,54 +3585,6 @@ nav.header {
 
 .footer__heading:hover, .language, .range-slider__handle, .time-picker__time:hover {
   cursor: pointer
-}
-
-.brand {
-  margin: 12px 10px 12px 0
-}
-
-.brand__logo {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  vertical-align: top
-}
-
-.breadcrumbs__chevron, .bundle-promotion__conjunction, .bundle-promotion__item, .bundle-promotion__logo, .call-us__number, .language__selector, .pass--single {
-  vertical-align: middle
-}
-
-.brand__logo--documentation {
-  margin-top: -10px;
-  width: 85px;
-  margin-left: 30px
-}
-
-@media only screen and (max-width: 1024px) {
-  .brand {
-    margin: 10px 10px 10px 0;
-    width: 40px;
-    height: 40px
-  }
-  .brand--docs {
-    margin: 10px 0 0
-  }
-  .brand__logo {
-    height: 100%;
-    width: 100%
-  }
-}
-
-@media only screen and (max-width: 639px) {
-  .brand {
-    margin: 8px 10px 8px 0;
-    left: 10px;
-    width: 32px;
-    height: 32px
-  }
-  .brand--docs {
-    margin: 10px 0 0
-  }
 }
 
 .breadcrumbs {
@@ -4300,7 +3701,7 @@ nav.header {
   right: -14px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .breadcrumbs {
     padding: 14px 0
   }
@@ -4314,7 +3715,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .brand-outline {
     font-size: 18px
   }
@@ -4358,13 +3759,13 @@ nav.header {
   height: calc(100% - 106px)
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary {
     top: calc(100% - 70px)
   }
 }
 
-@media (min-width: 1024px) {
+@include media-breakpoint-up(lg) {
   .bundle-summary {
     top: calc(100% - 80px)
   }
@@ -4384,7 +3785,7 @@ nav.header {
   overflow-y: auto
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary__body {
     height: calc(100% - 70px)
   }
@@ -4396,7 +3797,7 @@ nav.header {
   line-height: 0
 }
 
-@media (min-width: 1024px) {
+@include media-breakpoint-up(lg) {
   .bundle-summary__body {
     height: calc(100% - 80px)
   }
@@ -4434,7 +3835,7 @@ nav.header {
   color: #FFF
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary-header__total {
     float: left;
     padding: 0 20px
@@ -4477,7 +3878,7 @@ nav.header {
   display: none
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .bundle-summary-header__expand-button {
     position: absolute;
     right: 5px;
@@ -4511,7 +3912,7 @@ nav.header {
   color: #E60000
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .card__content:last-child .bundle-summary-options__fieldset {
     padding-bottom: 95px
   }
@@ -4542,7 +3943,7 @@ nav.header {
   padding: 20px 90px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .bundle-promotion__logo {
     max-height: 22px
   }
@@ -4551,7 +3952,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .call-us__card {
     padding: 25px 10px
   }
@@ -4660,7 +4061,7 @@ nav.header {
   margin: 0 auto 12px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .hero__message {
     padding: 55px 10px
   }
@@ -4669,7 +4070,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .hero__message {
     padding: 25px 10px 15px
   }
@@ -4739,13 +4140,13 @@ nav.header {
   background-color: #FFF
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .horizontal-text-rule {
     margin: 10px 0
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .horizontal-text-rule {
     margin: 0
   }
@@ -4855,7 +4256,7 @@ nav.header {
   display: inline-block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .language {
     width: 100%;
     margin-right: 0;
@@ -4930,7 +4331,7 @@ nav.header {
   height: 100%
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .location-nudge__map {
     height: 250px
   }
@@ -5006,15 +4407,11 @@ nav.header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2)
 }
 
-.navigation__link--active, .navigation__link--main:hover, .navigation__link:focus, .navigation__link:hover {
-  color: #E60000
-}
-
 .login-nudge__login {
   margin-bottom: 15px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .login-nudge--active .login-nudge__link::after {
     height: 2px
   }
@@ -5023,542 +4420,14 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .login-nudge__prompt {
     right: -40px
   }
 }
 
-.navigation {
-  background-color: #4A4D4E;
-  font-size: 32px;
-  position: relative
-}
-
-.navigation__link--active .navigation__accessibility {
-  display: inline-block
-}
-
-.navigation__accessibility {
-  display: none
-}
-
-.navigation--primary {
-  background-color: #FFF;
-  border-bottom: 1px solid rgba(102, 102, 102, .5);
-  background-clip: padding-box
-}
-
-.navigation--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0
-}
-
-.navigation--transparent {
-  background: 0 0
-}
-
-.navigation__list {
-  list-style: none;
-  margin: 0;
-  padding-left: 0
-}
-
-.navigation__list::after, .navigation__list::before {
-  content: " ";
-  display: table
-}
-
-.navigation__icon--active {
-  background-color: #E60000
-}
-
-.navigation__spring {
-  display: block;
-  max-height: 72px
-}
-
-.navigation__spring--primary {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 75px
-}
-
-.navigation__content {
-  padding: 0;
-  margin: 0;
-  list-style: none
-}
-
-.navigation--secondary {
-  background-color: rgba(255, 255, 255, .9);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: -200%;
-  opacity: 0;
-  visibility: hidden;
-  z-index: -1;
-  transition: all .1s ease .15s
-}
-
-.navigation--secondary-sub {
-  background-color: rgba(255, 255, 255, .95);
-  position: absolute;
-  left: 0;
-  top: -200%;
-  opacity: 0;
-  z-index: -2;
-  transition: all .3s ease .35s
-}
-
-.navigation--tertiary {
-  background-color: transparent;
-  display: none;
-  position: absolute;
-  right: 0;
-  text-align: left
-}
-
-.navigation__item--parent, .navigation__link {
-  position: relative
-}
-
-.navigation--tertiary--user {
-  background-color: rgba(255, 255, 255, .96);
-  width: 300px
-}
-
-.navigation--display {
-  display: block;
-  top: 100%;
-  opacity: 1;
-  visibility: visible;
-  transition: all .3s ease .3s
-}
-
-.navigation__item {
-  float: left;
-  font-family: VodafoneLight;
-  font-size: 24px
-}
-
-.navigation__item--right {
-  float: right
-}
-
-.navigation__item--secondary-sub {
-  float: none;
-  white-space: nowrap
-}
-
-.navigation__item--nested, .navigation__item--tertiary {
-  width: 100%
-}
-
-.navigation__item--first {
-  border-top: none
-}
-
-.navigation__item--last {
-  border-bottom: none
-}
-
-.navigation__item--clickable {
-  pointer-events: auto
-}
-
-.navigation__item--go-to {
-  display: none
-}
-
-.navigation__item--active > .navigation__link--main-secondary {
-  color: #E60000;
-  background: rgba(255, 255, 255, .7)
-}
-
-.navigation__link {
-  display: block;
-  padding: 15px 20px
-}
-
-.navigation__link--main {
-  min-width: 100px;
-  text-align: center;
-  padding: 21px 20px 20px
-}
-
-.navigation__link--main-secondary:hover {
-  background-color: rgba(255, 255, 255, .7)
-}
-
-.navigation__link--active::after, .navigation__link--main:hover::after {
-  background-color: #E60000;
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  height: 3px;
-  left: 0;
-  right: 0
-}
-
-.navigation__link--menu.navigation__link--active:hover, .navigation__link--slim:hover {
-  background-color: #FFF;
-  color: #333
-}
-
-.navigation__link--nested {
-  padding-left: 40px
-}
-
-.navigation__link--nested-sub {
-  padding-left: 60px
-}
-
-.navigation__link--icon {
-  line-height: 0;
-  padding: 21px 20px 23px
-}
-
-.navigation__link--slim {
-  padding: 4px 20px
-}
-
-.navigation__link--menu {
-  padding: 16px 20px
-}
-
-.navigation__link--user.navigation__link--active, .navigation__link--user.navigation__link--active:active, .navigation__link--user.navigation__link--active:focus, .navigation__link--user.navigation__link--active:hover {
-  background-color: rgba(255, 255, 255, .95)
-}
-
-.navigation__link--menu.navigation__link--active .navigation__toggle {
-  display: none
-}
-
-.navigation__link--menu.navigation__link--active .navigation__close {
-  display: block
-}
-
-.navigation__link--user.navigation__link--active::after {
-  content: none
-}
-
-.navigation__close {
-  display: none
-}
-
-.navigation__user {
-  height: 53px;
-  width: 60px
-}
-
-.navigation__user--icon {
-  height: auto;
-  width: auto;
-  line-height: 0;
-  padding: 15px 25px
-}
-
-.navigation__user--close {
-  padding: 6px;
-  color: #FFF
-}
-
-.navigation__basket {
-  background-color: #E60000;
-  border-radius: 50%;
-  color: #FFF;
-  display: inline-block;
-  font-size: 13px;
-  font-family: VodafoneRegularBold;
-  height: 20px;
-  line-height: 1.5em;
-  position: absolute;
-  right: 5px;
-  text-align: center;
-  top: 10px;
-  -ms-transform: scale(.75);
-  transform: scale(.75);
-  width: 20px
-}
-
-.navigation__global {
-  width: 100%;
-  overflow: hidden;
-  background: 0 0;
-  z-index: 1;
-  padding-left: 60px
-}
-
-.navigation__global--type {
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: 0 0;
-  float: left
-}
-
-.navigation__global--type::after, .navigation__global--type::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: #4A4D4E;
-  content: ""
-}
-
-.navigation__global--type::before {
-  right: 100%;
-  width: 265px
-}
-
-.navigation__global--type::after {
-  left: 100%;
-  width: 100vw
-}
-
-.navigation__global--language {
-  position: static;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: 0 0;
-  float: right
-}
-
-.navigation__site {
-  font-size: 16px;
-  background-color: #4A4D4E;
-  color: #CCC
-}
-
-.navigation__site--active {
-  background-color: #FCFDFD;
-  color: #333
-}
-
-.navigation__site-chevron {
-  background-color: #E60000;
-  position: relative;
-  width: 54px;
-  height: 54px;
-  float: right
-}
-
-.mouse-active .navigation__link:focus, .navigation__select {
-  background-color: transparent
-}
-
-.navigation__select {
-  border: none;
-  padding: 5px 22px 5px 5px;
-  overflow: hidden
-}
-
-.navigation__selectable {
-  color: #FFF;
-  padding: 5px
-}
-
-.touch .navigation__item--go-to {
-  display: inline-block
-}
-
-@media only screen and (max-width: 1024px) {
-  .navigation__spring {
-    max-width: none;
-    margin-left: 0;
-    max-height: none
-  }
-  .navigation--tertiary {
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-    width: 370px;
-    right: -20px;
-    top: auto;
-    bottom: auto;
-    position: absolute;
-    overflow: visible
-  }
-  .navigation--tertiary::before {
-    background-color: rgba(255, 255, 255, .96);
-    content: "";
-    display: block;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: inherit;
-    z-index: 0
-  }
-  .navigation--tertiary--user {
-    background: 0 0
-  }
-  .navigation--display {
-    transition-delay: 0s;
-    display: block
-  }
-  .navigation__hide {
-    position: relative;
-    z-index: 2
-  }
-  .navigation__item {
-    font-size: 20px;
-    pointer-events: auto;
-    font-family: VodafoneRegular
-  }
-  .navigation__item--tertiary {
-    padding: 0 10px;
-    color: #333
-  }
-  .navigation__item--clickable .navigation__link--active.navigation__link--menu, .navigation__item--clickable .navigation__link--active.navigation__link--menu:hover, .navigation__link--menu.navigation__link--active {
-    background-color: #E60000;
-    color: #FFF
-  }
-  .navigation__item--site {
-    padding: 10px
-  }
-  .navigation__item--nested {
-    padding-left: 20px
-  }
-  .navigation__link {
-    padding: 15px 10px
-  }
-  .navigation__link--nested {
-    padding-left: 40px
-  }
-  .navigation__link--icon {
-    margin: 8px 5px;
-    padding: 10px
-  }
-  .navigation__link--icon-last {
-    margin-right: 0
-  }
-  .navigation__link--menu {
-    z-index: 2
-  }
-  .navigation__link--active, .navigation__link--menu.navigation__link--active:hover {
-    background-color: #FFF;
-    color: #333
-  }
-  .navigation__link--menu.navigation__link--active .navigation__toggle {
-    display: none
-  }
-  .navigation__item--go-to, .navigation__link--menu.navigation__link--active .navigation__close, .touch .navigation__item--go-to {
-    display: block
-  }
-  .navigation__user--menu {
-    padding: 0;
-    border-radius: 50%
-  }
-  .navigation__user--icon {
-    padding: 15px
-  }
-  .navigation__user--close {
-    padding: 10px
-  }
-  .navigation__chevron {
-    color: #E60000;
-    margin-right: 10px;
-    padding-left: 0;
-    right: 30px
-  }
-  .navigation__chevron--site {
-    margin-right: 0
-  }
-  .navigation__site {
-    background-color: #666;
-    color: #FFF;
-    font-size: inherit;
-    margin-top: 40px
-  }
-  .navigation__site:hover {
-    background-color: #333;
-    color: #FFF
-  }
-  .navigation__site--active {
-    background-color: transparent;
-    border-bottom: 2px solid #FFF
-  }
-  .navigation__site .navigation__chevron {
-    color: #FFF
-  }
-  .navigation__basket {
-    right: 0;
-    top: 0
-  }
-  .navigation__accordion {
-    padding-bottom: 180px;
-    max-height: 100vh;
-    max-height: calc(100vh - 180px);
-    overflow-y: auto
-  }
-  .mouse-active .navigation__link--menu.navigation__link--active:active, .mouse-active .navigation__link--menu.navigation__link--active:focus, .mouse-active .navigation__link--user.navigation__link--active:active, .mouse-active .navigation__link--user.navigation__link--active:focus {
-    background-color: #E60000;
-    color: #FFF
-  }
-}
-
 .pass__label-bold, .results__offer {
   font-family: VodafoneRegularBold
-}
-
-@media only screen and (max-width: 639px) {
-  .navigation__chevron {
-    float: right
-  }
-  .navigation--tertiary {
-    left: 45px;
-    position: fixed;
-    width: auto;
-    right: 0
-  }
-  .navigation--tertiary::before {
-    left: 45px;
-    right: 0
-  }
-  .navigation__link {
-    padding: 15px 10px
-  }
-  .navigation__link--icon {
-    padding: 6px;
-    margin: 8px 5px
-  }
-  .navigation__link--icon-last {
-    margin-right: 0
-  }
-  .navigation__link--nested {
-    padding-left: 30px
-  }
-  .navigation__link--user.navigation__link--active {
-    border-radius: 0;
-    padding: 8px
-  }
-  .navigation__user {
-    height: 40px;
-    width: 47px
-  }
-  .navigation__user--icon {
-    height: auto;
-    width: auto;
-    padding: 10px
-  }
-  .navigation__user--close {
-    padding: 0
-  }
-  .navigation__user--menu {
-    padding: 0;
-    border-radius: 50%
-  }
-}
-
-.navigation-static {
-  width: 100%;
-  line-height: 0
 }
 
 .pass {
@@ -5789,7 +4658,7 @@ nav.header {
   width: 66.6666666667%
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .product__heading {
     padding-bottom: 5px
   }
@@ -5832,7 +4701,7 @@ nav.header {
   margin-top: 10px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .radio-buttons__button {
     padding: 15px;
     margin-bottom: 10px
@@ -5842,7 +4711,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .radio-buttons__button {
     display: block;
     font-size: 18px;
@@ -6020,7 +4889,7 @@ nav.header {
   font-size: 18px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .range-slider__value {
     font-size: 24px
   }
@@ -6029,7 +4898,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .range-slider__heading {
     font-size: 18px
   }
@@ -6140,7 +5009,7 @@ nav.header {
   margin-left: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .results__item--last {
     margin-bottom: 20px
   }
@@ -6149,7 +5018,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .results__wrapper {
     padding: 10px
   }
@@ -6294,13 +5163,13 @@ nav.header {
   display: block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .roaming__form {
     margin-bottom: 40px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .roaming__form {
     margin-bottom: 30px;
     margin-top: 10px
@@ -6368,7 +5237,7 @@ nav.header {
   display: inline-block
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .sayt__heading {
     display: block
   }
@@ -6391,7 +5260,7 @@ nav.header {
   max-width: 580px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .search-form__wrapper {
     padding: 20px 10px
   }
@@ -6439,13 +5308,13 @@ nav.header {
   border-radius: 25px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .search-snack__input {
     width: 480px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .search-snack__input {
     width: 100%
   }
@@ -6559,7 +5428,7 @@ nav.header {
   display: block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .side-toggle {
     min-height: 250px
   }
@@ -6576,14 +5445,14 @@ nav.header {
   }
 }
 
-@media only screen and (max-height: 776px) {
+@include media-breakpoint-down(sm) {
   .side-toggle--viewport-height-fix {
     bottom: initial;
     top: 155px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .side-toggle {
     width: calc(100% - 50px);
     bottom: 20%;
@@ -6630,7 +5499,7 @@ nav.header {
   text-align: right
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .social {
     text-align: center;
     margin-top: 25px
@@ -6704,7 +5573,7 @@ nav.header {
   width: 30px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .suggest__suggestions {
     position: static
   }
@@ -6769,13 +5638,13 @@ nav.header {
   line-height: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .support-bubble {
     right: 20px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .support-bubble {
     right: 10px
   }
@@ -6811,13 +5680,13 @@ nav.header {
   cursor: default
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .time-picker__time {
     font-size: 24px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .time-picker__time {
     font-size: 20px;
     font-family: VodafoneRegular
@@ -6909,7 +5778,7 @@ nav.header {
   right: 0
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .tooltip {
     position: static;
     font-size: 16px
@@ -6953,7 +5822,7 @@ nav.header {
   width: 40px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .user-menu {
     position: static
   }
@@ -6962,7 +5831,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .user-menu__image {
     width: 36px
   }
@@ -7210,7 +6079,7 @@ nav.header {
   padding-top: 30px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .bundle {
     padding-bottom: 20px
   }
@@ -7313,7 +6182,7 @@ nav.header {
   color: #F0C103
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .bundle-price {
     text-align: center;
     margin-bottom: 10px
@@ -7329,7 +6198,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .bundle-price__cost {
     font-size: 24px
   }
@@ -7403,7 +6272,7 @@ nav.header {
   background-color: #FFF
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .picker::before {
     height: 50px;
     width: 50px
@@ -7453,7 +6322,7 @@ nav.header {
   padding: 30px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .show-more__content {
     padding: 20px
   }
@@ -7463,54 +6332,6 @@ nav.header {
 
 .footer__heading:hover, .language, .range-slider__handle, .time-picker__time:hover {
   cursor: pointer
-}
-
-.brand {
-  margin: 12px 10px 12px 0
-}
-
-.brand__logo {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  vertical-align: top
-}
-
-.breadcrumbs__chevron, .bundle-promotion__conjunction, .bundle-promotion__item, .bundle-promotion__logo, .call-us__number, .language__selector, .pass--single {
-  vertical-align: middle
-}
-
-.brand__logo--documentation {
-  margin-top: -10px;
-  width: 85px;
-  margin-left: 30px
-}
-
-@media only screen and (max-width: 1024px) {
-  .brand {
-    margin: 10px 10px 10px 0;
-    width: 40px;
-    height: 40px
-  }
-  .brand--docs {
-    margin: 10px 0 0
-  }
-  .brand__logo {
-    height: 100%;
-    width: 100%
-  }
-}
-
-@media only screen and (max-width: 639px) {
-  .brand {
-    margin: 8px 10px 8px 0;
-    left: 10px;
-    width: 32px;
-    height: 32px
-  }
-  .brand--docs {
-    margin: 10px 0 0
-  }
 }
 
 .breadcrumbs {
@@ -7627,7 +6448,7 @@ nav.header {
   right: -14px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .breadcrumbs {
     padding: 14px 0
   }
@@ -7641,7 +6462,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .brand-outline {
     font-size: 18px
   }
@@ -7685,13 +6506,13 @@ nav.header {
   height: calc(100% - 106px)
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary {
     top: calc(100% - 70px)
   }
 }
 
-@media (min-width: 1024px) {
+@include media-breakpoint-up(lg) {
   .bundle-summary {
     top: calc(100% - 80px)
   }
@@ -7711,7 +6532,7 @@ nav.header {
   overflow-y: auto
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary__body {
     height: calc(100% - 70px)
   }
@@ -7723,7 +6544,7 @@ nav.header {
   line-height: 0
 }
 
-@media (min-width: 1024px) {
+@include media-breakpoint-up(lg) {
   .bundle-summary__body {
     height: calc(100% - 80px)
   }
@@ -7761,7 +6582,7 @@ nav.header {
   color: #FFF
 }
 
-@media (min-width: 639px) {
+@include media-breakpoint-up(sm) {
   .bundle-summary-header__total {
     float: left;
     padding: 0 20px
@@ -7804,7 +6625,7 @@ nav.header {
   display: none
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .bundle-summary-header__expand-button {
     position: absolute;
     right: 5px;
@@ -7838,7 +6659,7 @@ nav.header {
   color: #E60000
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .card__content:last-child .bundle-summary-options__fieldset {
     padding-bottom: 95px
   }
@@ -7869,7 +6690,7 @@ nav.header {
   padding: 20px 90px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .bundle-promotion__logo {
     max-height: 22px
   }
@@ -7878,7 +6699,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .call-us__card {
     padding: 25px 10px
   }
@@ -7977,7 +6798,7 @@ nav.header {
   margin: 0 auto 12px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .hero__message {
     padding: 55px 10px
   }
@@ -7986,7 +6807,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .hero__message {
     padding: 25px 10px 15px
   }
@@ -8056,13 +6877,13 @@ nav.header {
   background-color: #FFF
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .horizontal-text-rule {
     margin: 10px 0
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .horizontal-text-rule {
     margin: 0
   }
@@ -8172,7 +6993,7 @@ nav.header {
   display: inline-block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .language {
     width: 100%;
     margin-right: 0;
@@ -8247,7 +7068,7 @@ nav.header {
   height: 100%
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .location-nudge__map {
     height: 250px
   }
@@ -8323,15 +7144,11 @@ nav.header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2)
 }
 
-.navigation__link--active, .navigation__link--main:hover, .navigation__link:focus, .navigation__link:hover {
-  color: #E60000
-}
-
 .login-nudge__login {
   margin-bottom: 15px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .login-nudge--active .login-nudge__link::after {
     height: 2px
   }
@@ -8340,542 +7157,14 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .login-nudge__prompt {
     right: -40px
   }
 }
 
-.navigation {
-  background-color: #4A4D4E;
-  font-size: 32px;
-  position: relative
-}
-
-.navigation__link--active .navigation__accessibility {
-  display: inline-block
-}
-
-.navigation__accessibility {
-  display: none
-}
-
-.navigation--primary {
-  background-color: #FFF;
-  border-bottom: 1px solid rgba(102, 102, 102, .5);
-  background-clip: padding-box
-}
-
-.navigation--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0
-}
-
-.navigation--transparent {
-  background: 0 0
-}
-
-.navigation__list {
-  list-style: none;
-  margin: 0;
-  padding-left: 0
-}
-
-.navigation__list::after, .navigation__list::before {
-  content: " ";
-  display: table
-}
-
-.navigation__icon--active {
-  background-color: #E60000
-}
-
-.navigation__spring {
-  display: block;
-  max-height: 72px
-}
-
-.navigation__spring--primary {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 75px
-}
-
-.navigation__content {
-  padding: 0;
-  margin: 0;
-  list-style: none
-}
-
-.navigation--secondary {
-  background-color: rgba(255, 255, 255, .9);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: -200%;
-  opacity: 0;
-  visibility: hidden;
-  z-index: -1;
-  transition: all .1s ease .15s
-}
-
-.navigation--secondary-sub {
-  background-color: rgba(255, 255, 255, .95);
-  position: absolute;
-  left: 0;
-  top: -200%;
-  opacity: 0;
-  z-index: -2;
-  transition: all .3s ease .35s
-}
-
-.navigation--tertiary {
-  background-color: transparent;
-  display: none;
-  position: absolute;
-  right: 0;
-  text-align: left
-}
-
-.navigation__item--parent, .navigation__link {
-  position: relative
-}
-
-.navigation--tertiary--user {
-  background-color: rgba(255, 255, 255, .96);
-  width: 300px
-}
-
-.navigation--display {
-  display: block;
-  top: 100%;
-  opacity: 1;
-  visibility: visible;
-  transition: all .3s ease .3s
-}
-
-.navigation__item {
-  float: left;
-  font-family: VodafoneLight;
-  font-size: 24px
-}
-
-.navigation__item--right {
-  float: right
-}
-
-.navigation__item--secondary-sub {
-  float: none;
-  white-space: nowrap
-}
-
-.navigation__item--nested, .navigation__item--tertiary {
-  width: 100%
-}
-
-.navigation__item--first {
-  border-top: none
-}
-
-.navigation__item--last {
-  border-bottom: none
-}
-
-.navigation__item--clickable {
-  pointer-events: auto
-}
-
-.navigation__item--go-to {
-  display: none
-}
-
-.navigation__item--active > .navigation__link--main-secondary {
-  color: #E60000;
-  background: rgba(255, 255, 255, .7)
-}
-
-.navigation__link {
-  display: block;
-  padding: 15px 20px
-}
-
-.navigation__link--main {
-  min-width: 100px;
-  text-align: center;
-  padding: 21px 20px 20px
-}
-
-.navigation__link--main-secondary:hover {
-  background-color: rgba(255, 255, 255, .7)
-}
-
-.navigation__link--active::after, .navigation__link--main:hover::after {
-  background-color: #E60000;
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  height: 3px;
-  left: 0;
-  right: 0
-}
-
-.navigation__link--menu.navigation__link--active:hover, .navigation__link--slim:hover {
-  background-color: #FFF;
-  color: #333
-}
-
-.navigation__link--nested {
-  padding-left: 40px
-}
-
-.navigation__link--nested-sub {
-  padding-left: 60px
-}
-
-.navigation__link--icon {
-  line-height: 0;
-  padding: 21px 20px 23px
-}
-
-.navigation__link--slim {
-  padding: 4px 20px
-}
-
-.navigation__link--menu {
-  padding: 16px 20px
-}
-
-.navigation__link--user.navigation__link--active, .navigation__link--user.navigation__link--active:active, .navigation__link--user.navigation__link--active:focus, .navigation__link--user.navigation__link--active:hover {
-  background-color: rgba(255, 255, 255, .95)
-}
-
-.navigation__link--menu.navigation__link--active .navigation__toggle {
-  display: none
-}
-
-.navigation__link--menu.navigation__link--active .navigation__close {
-  display: block
-}
-
-.navigation__link--user.navigation__link--active::after {
-  content: none
-}
-
-.navigation__close {
-  display: none
-}
-
-.navigation__user {
-  height: 53px;
-  width: 60px
-}
-
-.navigation__user--icon {
-  height: auto;
-  width: auto;
-  line-height: 0;
-  padding: 15px 25px
-}
-
-.navigation__user--close {
-  padding: 6px;
-  color: #FFF
-}
-
-.navigation__basket {
-  background-color: #E60000;
-  border-radius: 50%;
-  color: #FFF;
-  display: inline-block;
-  font-size: 13px;
-  font-family: VodafoneRegularBold;
-  height: 20px;
-  line-height: 1.5em;
-  position: absolute;
-  right: 5px;
-  text-align: center;
-  top: 10px;
-  -ms-transform: scale(.75);
-  transform: scale(.75);
-  width: 20px
-}
-
-.navigation__global {
-  width: 100%;
-  overflow: hidden;
-  background: 0 0;
-  z-index: 1;
-  padding-left: 60px
-}
-
-.navigation__global--type {
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: 0 0;
-  float: left
-}
-
-.navigation__global--type::after, .navigation__global--type::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: #4A4D4E;
-  content: ""
-}
-
-.navigation__global--type::before {
-  right: 100%;
-  width: 265px
-}
-
-.navigation__global--type::after {
-  left: 100%;
-  width: 100vw
-}
-
-.navigation__global--language {
-  position: static;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  background: 0 0;
-  float: right
-}
-
-.navigation__site {
-  font-size: 16px;
-  background-color: #4A4D4E;
-  color: #CCC
-}
-
-.navigation__site--active {
-  background-color: #FCFDFD;
-  color: #333
-}
-
-.navigation__site-chevron {
-  background-color: #E60000;
-  position: relative;
-  width: 54px;
-  height: 54px;
-  float: right
-}
-
-.mouse-active .navigation__link:focus, .navigation__select {
-  background-color: transparent
-}
-
-.navigation__select {
-  border: none;
-  padding: 5px 22px 5px 5px;
-  overflow: hidden
-}
-
-.navigation__selectable {
-  color: #FFF;
-  padding: 5px
-}
-
-.touch .navigation__item--go-to {
-  display: inline-block
-}
-
-@media only screen and (max-width: 1024px) {
-  .navigation__spring {
-    max-width: none;
-    margin-left: 0;
-    max-height: none
-  }
-  .navigation--tertiary {
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-    width: 370px;
-    right: -20px;
-    top: auto;
-    bottom: auto;
-    position: absolute;
-    overflow: visible
-  }
-  .navigation--tertiary::before {
-    background-color: rgba(255, 255, 255, .96);
-    content: "";
-    display: block;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: inherit;
-    z-index: 0
-  }
-  .navigation--tertiary--user {
-    background: 0 0
-  }
-  .navigation--display {
-    transition-delay: 0s;
-    display: block
-  }
-  .navigation__hide {
-    position: relative;
-    z-index: 2
-  }
-  .navigation__item {
-    font-size: 20px;
-    pointer-events: auto;
-    font-family: VodafoneRegular
-  }
-  .navigation__item--tertiary {
-    padding: 0 10px;
-    color: #333
-  }
-  .navigation__item--clickable .navigation__link--active.navigation__link--menu, .navigation__item--clickable .navigation__link--active.navigation__link--menu:hover, .navigation__link--menu.navigation__link--active {
-    background-color: #E60000;
-    color: #FFF
-  }
-  .navigation__item--site {
-    padding: 10px
-  }
-  .navigation__item--nested {
-    padding-left: 20px
-  }
-  .navigation__link {
-    padding: 15px 10px
-  }
-  .navigation__link--nested {
-    padding-left: 40px
-  }
-  .navigation__link--icon {
-    margin: 8px 5px;
-    padding: 10px
-  }
-  .navigation__link--icon-last {
-    margin-right: 0
-  }
-  .navigation__link--menu {
-    z-index: 2
-  }
-  .navigation__link--active, .navigation__link--menu.navigation__link--active:hover {
-    background-color: #FFF;
-    color: #333
-  }
-  .navigation__link--menu.navigation__link--active .navigation__toggle {
-    display: none
-  }
-  .navigation__item--go-to, .navigation__link--menu.navigation__link--active .navigation__close, .touch .navigation__item--go-to {
-    display: block
-  }
-  .navigation__user--menu {
-    padding: 0;
-    border-radius: 50%
-  }
-  .navigation__user--icon {
-    padding: 15px
-  }
-  .navigation__user--close {
-    padding: 10px
-  }
-  .navigation__chevron {
-    color: #E60000;
-    margin-right: 10px;
-    padding-left: 0;
-    right: 30px
-  }
-  .navigation__chevron--site {
-    margin-right: 0
-  }
-  .navigation__site {
-    background-color: #666;
-    color: #FFF;
-    font-size: inherit;
-    margin-top: 40px
-  }
-  .navigation__site:hover {
-    background-color: #333;
-    color: #FFF
-  }
-  .navigation__site--active {
-    background-color: transparent;
-    border-bottom: 2px solid #FFF
-  }
-  .navigation__site .navigation__chevron {
-    color: #FFF
-  }
-  .navigation__basket {
-    right: 0;
-    top: 0
-  }
-  .navigation__accordion {
-    padding-bottom: 180px;
-    max-height: 100vh;
-    max-height: calc(100vh - 180px);
-    overflow-y: auto
-  }
-  .mouse-active .navigation__link--menu.navigation__link--active:active, .mouse-active .navigation__link--menu.navigation__link--active:focus, .mouse-active .navigation__link--user.navigation__link--active:active, .mouse-active .navigation__link--user.navigation__link--active:focus {
-    background-color: #E60000;
-    color: #FFF
-  }
-}
-
 .pass__label-bold, .results__offer {
   font-family: VodafoneRegularBold
-}
-
-@media only screen and (max-width: 639px) {
-  .navigation__chevron {
-    float: right
-  }
-  .navigation--tertiary {
-    left: 45px;
-    position: fixed;
-    width: auto;
-    right: 0
-  }
-  .navigation--tertiary::before {
-    left: 45px;
-    right: 0
-  }
-  .navigation__link {
-    padding: 15px 10px
-  }
-  .navigation__link--icon {
-    padding: 6px;
-    margin: 8px 5px
-  }
-  .navigation__link--icon-last {
-    margin-right: 0
-  }
-  .navigation__link--nested {
-    padding-left: 30px
-  }
-  .navigation__link--user.navigation__link--active {
-    border-radius: 0;
-    padding: 8px
-  }
-  .navigation__user {
-    height: 40px;
-    width: 47px
-  }
-  .navigation__user--icon {
-    height: auto;
-    width: auto;
-    padding: 10px
-  }
-  .navigation__user--close {
-    padding: 0
-  }
-  .navigation__user--menu {
-    padding: 0;
-    border-radius: 50%
-  }
-}
-
-.navigation-static {
-  width: 100%;
-  line-height: 0
 }
 
 .pass {
@@ -9071,7 +7360,7 @@ nav.header {
   width: 60px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .picker::before {
     height: 50px;
     width: 50px
@@ -9143,7 +7432,7 @@ nav.header {
   width: 66.6666666667%
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .product__heading {
     padding-bottom: 5px
   }
@@ -9186,7 +7475,7 @@ nav.header {
   margin-top: 10px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .radio-buttons__button {
     padding: 15px;
     margin-bottom: 10px
@@ -9196,7 +7485,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .radio-buttons__button {
     display: block;
     font-size: 18px;
@@ -9378,7 +7667,7 @@ nav.header {
   font-size: 18px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .range-slider__value {
     font-size: 24px
   }
@@ -9387,7 +7676,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .range-slider__heading {
     font-size: 18px
   }
@@ -9498,7 +7787,7 @@ nav.header {
   margin-left: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .results__item--last {
     margin-bottom: 20px
   }
@@ -9507,7 +7796,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .results__wrapper {
     padding: 10px
   }
@@ -9652,13 +7941,13 @@ nav.header {
   display: block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .roaming__form {
     margin-bottom: 40px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .roaming__form {
     margin-bottom: 30px;
     margin-top: 10px
@@ -9726,7 +8015,7 @@ nav.header {
   display: inline-block
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .sayt__heading {
     display: block
   }
@@ -9749,7 +8038,7 @@ nav.header {
   max-width: 580px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .search-form__wrapper {
     padding: 20px 10px
   }
@@ -9797,13 +8086,13 @@ nav.header {
   border-radius: 25px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .search-snack__input {
     width: 480px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .search-snack__input {
     width: 100%
   }
@@ -9917,7 +8206,7 @@ nav.header {
   display: block
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .side-toggle {
     min-height: 250px
   }
@@ -9934,14 +8223,14 @@ nav.header {
   }
 }
 
-@media only screen and (max-height: 776px) {
+@include media-breakpoint-down(sm) {
   .side-toggle--viewport-height-fix {
     bottom: initial;
     top: 155px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .side-toggle {
     width: calc(100% - 50px);
     bottom: 20%;
@@ -9988,7 +8277,7 @@ nav.header {
   text-align: right
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .social {
     text-align: center;
     margin-top: 25px
@@ -10062,7 +8351,7 @@ nav.header {
   width: 30px
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .suggest__suggestions {
     position: static
   }
@@ -10130,13 +8419,13 @@ nav.header {
   line-height: 20px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .support-bubble {
     right: 20px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .support-bubble {
     right: 10px
   }
@@ -10172,13 +8461,13 @@ nav.header {
   cursor: default
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .time-picker__time {
     font-size: 24px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .time-picker__time {
     font-size: 20px;
     font-family: VodafoneRegular
@@ -10263,7 +8552,7 @@ nav.header {
   border: none
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .tooltip {
     position: static;
     font-size: 16px
@@ -10307,7 +8596,7 @@ nav.header {
   width: 40px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .user-menu {
     position: static
   }
@@ -10316,7 +8605,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .user-menu__image {
     width: 36px
   }
@@ -10438,13 +8727,13 @@ nav.header {
   height: 27px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .coverage-checker__footer {
     padding: 20px 20px 0
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .coverage-checker__result {
     padding: 20px 0
   }
@@ -10601,7 +8890,7 @@ nav.header {
   padding-left: 15px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .network-checker__panel {
     margin-left: 0
   }
@@ -10623,7 +8912,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .network-checker {
     padding: 0;
     margin-top: 0
@@ -10875,13 +9164,13 @@ nav.header {
   opacity: 1
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .network-speed__results--wide {
     width: 100%
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .network-speed__results {
     padding: 0 10px
   }
@@ -11125,7 +9414,7 @@ nav.header {
   padding-right: 53px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .quicklinks__input--number, .quicklinks__roaming-form {
     width: 100%
   }
@@ -11148,7 +9437,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .quicklinks__hidden-scrollbar {
     overflow: hidden;
     position: relative
@@ -11257,14 +9546,14 @@ nav.header {
   margin-bottom: 2px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .segmentation__content {
     padding-left: 25px;
     padding-right: 25px
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .segmentation__content {
     padding-left: 20px;
     padding-right: 20px
@@ -11596,7 +9885,7 @@ nav.header {
   margin-right: 10px
 }
 
-@media only screen and (max-width: 1024px) {
+@include media-breakpoint-down(md) {
   .top-up__landing-content {
     padding-bottom: 70px
   }
@@ -11626,7 +9915,7 @@ nav.header {
   }
 }
 
-@media only screen and (max-width: 639px) {
+@include media-breakpoint-down(xs) {
   .top-up__heading, .top-up__or {
     text-align: center
   }
@@ -11748,6 +10037,3 @@ nav.header {
 .top-up-success__cell--right {
   text-align: right
 }
-
-/*# sourceMappingURL=home.min.css.map */
-

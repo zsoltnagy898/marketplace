@@ -1,5 +1,559 @@
 @import "./variables";
 
+.navigation {
+  background-color: #4A4D4E;
+  font-size: 32px;
+  position: relative
+}
+
+.navigation__link {
+  color: #333;
+}
+
+.navigation__icon--active {
+  background-color: #E60000
+}
+
+.navigation__link--active, .navigation__link--main:hover, .navigation__link:focus, .navigation__link:hover {
+  color: #E60000
+}
+
+.navigation__link--active .navigation__accessibility {
+  display: inline-block
+}
+
+.navigation__accessibility {
+  display: none
+}
+
+.navigation--primary {
+  background-color: #FFF;
+  border-bottom: 1px solid rgba(102, 102, 102, .5);
+  background-clip: padding-box
+}
+
+.navigation--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0
+}
+
+.navigation--fixed,
+nav.header {
+  z-index: 99 !important;
+}
+
+
+.navigation--transparent {
+  background: 0 0
+}
+
+.navigation__list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0
+}
+
+.navigation__list::after, .navigation__list::before {
+  content: " ";
+  display: table
+}
+
+.navigation__spring {
+  display: block;
+  max-height: 72px
+}
+
+.navigation__spring--primary {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 75px
+}
+
+.navigation__content {
+  padding: 0;
+  margin: 0;
+  list-style: none
+}
+
+.navigation--secondary {
+  background-color: rgba(255, 255, 255, .9);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -200%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: all .1s ease .15s
+}
+
+.navigation--secondary-sub {
+  background-color: rgba(255, 255, 255, .95);
+  position: absolute;
+  left: 0;
+  top: -200%;
+  opacity: 0;
+  z-index: -2;
+  transition: all .3s ease .35s
+}
+
+.navigation--tertiary {
+  background-color: transparent;
+  display: none;
+  position: absolute;
+  right: 0;
+  text-align: left
+}
+
+.navigation__item {
+  list-style: none;
+}
+
+.navigation__item--parent, .navigation__link {
+  position: relative
+}
+
+.navigation--tertiary--user {
+  background-color: rgba(255, 255, 255, .96);
+  width: 300px
+}
+
+.navigation--display {
+  display: block;
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: all .3s ease .3s
+}
+
+.navigation__item {
+  float: left;
+  font-family: VodafoneLight;
+  font-size: 24px
+}
+
+.navigation__item--right {
+  float: right
+}
+
+.navigation__item--secondary-sub {
+  float: none;
+  white-space: nowrap
+}
+
+.navigation__item--nested, .navigation__item--tertiary {
+  width: 100%
+}
+
+.navigation__item--first {
+  border-top: none
+}
+
+.navigation__item--last {
+  border-bottom: none
+}
+
+.navigation__item--clickable {
+  pointer-events: auto
+}
+
+.navigation__item--go-to {
+  display: none
+}
+
+.navigation__item--active > .navigation__link--main-secondary {
+  color: #E60000;
+  background: rgba(255, 255, 255, .7)
+}
+
+.navigation__link {
+  display: block;
+  padding: 15px 20px
+}
+
+.navigation__link--main {
+  min-width: 100px;
+  text-align: center;
+  padding: 20px 50px;
+}
+
+.navigation__link--main-secondary:hover {
+  background-color: rgba(255, 255, 255, .7)
+}
+
+.navigation__link--active::after, .navigation__link--main:hover::after {
+  background-color: #E60000;
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  height: 3px;
+  left: 30px;
+  right: 30px
+}
+
+.navigation__link--menu.navigation__link--active:hover, .navigation__link--slim:hover {
+  background-color: #FFF;
+  color: #333
+}
+
+.navigation__link--nested {
+  padding-left: 40px
+}
+
+.navigation__link--nested-sub {
+  padding-left: 60px
+}
+
+.navigation__link--icon {
+  line-height: 0;
+  padding: 15px 20px;
+  text-align: center;
+  display: block;
+}
+
+.navigation__link--icon--last {
+  margin-right: -20px;
+}
+
+.navigation__icon-text {
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+.navigation__icon-text ~ .navigation__icon {
+  margin-bottom: 10px;
+}
+
+.navigation__link--slim {
+  padding: 4px 20px
+}
+
+.navigation__link--menu {
+  padding: 16px 20px
+}
+
+.navigation__link--user.navigation__link--active, .navigation__link--user.navigation__link--active:active, .navigation__link--user.navigation__link--active:focus, .navigation__link--user.navigation__link--active:hover {
+  background-color: rgba(255, 255, 255, .95)
+}
+
+.navigation__link--menu.navigation__link--active .navigation__toggle {
+  display: none
+}
+
+.navigation__link--menu.navigation__link--active .navigation__close {
+  display: block
+}
+
+.navigation__link--user.navigation__link--active::after {
+  content: none
+}
+
+.navigation__close {
+  display: none
+}
+
+.navigation__user {
+  height: 53px;
+  width: 60px
+}
+
+.navigation__user--icon {
+  height: auto;
+  width: auto;
+  line-height: 0;
+  padding: 15px 25px
+}
+
+.navigation__user--close {
+  padding: 6px;
+  color: #FFF
+}
+
+.navigation__basket {
+  background-color: #E60000;
+  border-radius: 50%;
+  color: #FFF;
+  display: inline-block;
+  font-size: 13px;
+  font-family: VodafoneRegularBold;
+  height: 20px;
+  line-height: 1.5em;
+  position: absolute;
+  right: 5px;
+  text-align: center;
+  top: 10px;
+  -ms-transform: scale(.75);
+  transform: scale(.75);
+  width: 20px
+}
+
+.navigation__global {
+  width: 100%;
+  overflow: hidden;
+  background: 0 0;
+  z-index: 1;
+  padding-left: 60px
+}
+
+.navigation__global--type {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: 0 0;
+  float: left
+}
+
+.navigation__global--type::after, .navigation__global--type::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #4A4D4E;
+  content: ""
+}
+
+.navigation__global--type::before {
+  right: 100%;
+  width: 265px
+}
+
+.navigation__global--type::after {
+  left: 100%;
+  width: 100vw
+}
+
+.navigation__global--language {
+  position: static;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: 0 0;
+  float: right
+}
+
+.navigation__site {
+  font-size: 16px;
+  background-color: #4A4D4E;
+  color: #CCC
+}
+
+.navigation__site--active {
+  background-color: #FCFDFD;
+  color: #333
+}
+
+.navigation__site-chevron {
+  background-color: #E60000;
+  position: relative;
+  width: 54px;
+  height: 54px;
+  float: right
+}
+
+.mouse-active .navigation__link:focus, .navigation__select {
+  background-color: transparent
+}
+
+.navigation__select {
+  border: none;
+  padding: 5px 22px 5px 5px;
+  overflow: hidden
+}
+
+.navigation__selectable {
+  color: #FFF;
+  padding: 5px
+}
+
+.touch .navigation__item--go-to {
+  display: inline-block
+}
+
+@include media-breakpoint-down(md) {
+  .navigation--tertiary {
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    width: 370px;
+    right: -20px;
+    top: auto;
+    bottom: auto;
+    position: absolute;
+    overflow: visible
+  }
+
+  .navigation--tertiary::before {
+    background-color: rgba(255, 255, 255, .96);
+    content: "";
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: inherit;
+    z-index: 0
+  }
+  .navigation--tertiary--user {
+    background: 0 0
+  }
+  .navigation--display {
+    transition-delay: 0s;
+    display: block
+  }
+  .navigation__hide {
+    position: relative;
+    z-index: 2
+  }
+  .navigation__item {
+    font-size: 20px;
+    pointer-events: auto;
+    font-family: VodafoneRegular
+  }
+  .navigation__item--tertiary {
+    padding: 0 10px;
+    color: #333
+  }
+  .navigation__item--clickable .navigation__link--active.navigation__link--menu, .navigation__item--clickable .navigation__link--active.navigation__link--menu:hover, .navigation__link--menu.navigation__link--active {
+    background-color: #E60000;
+    color: #FFF
+  }
+  .navigation__item--site {
+    padding: 10px
+  }
+  .navigation__item--nested {
+    padding-left: 20px
+  }
+  .navigation__link {
+    padding: 18px 10px
+  }
+  .navigation__link--nested {
+    padding-left: 40px
+  }
+  .navigation__link--icon-last {
+    margin-right: 0
+  }
+  .navigation__link--menu {
+    z-index: 2
+  }
+  .navigation__link--active, .navigation__link--menu.navigation__link--active:hover {
+    background-color: #FFF;
+    color: #333
+  }
+  .navigation__link--menu.navigation__link--active .navigation__toggle {
+    display: none
+  }
+  .navigation__item--go-to, .navigation__link--menu.navigation__link--active .navigation__close, .touch .navigation__item--go-to {
+    display: block
+  }
+  .navigation__user--menu {
+    padding: 0;
+    border-radius: 50%
+  }
+  .navigation__user--icon {
+    padding: 15px
+  }
+  .navigation__user--close {
+    padding: 10px
+  }
+  .navigation__chevron {
+    color: #E60000;
+    margin-right: 10px;
+    padding-left: 0;
+    right: 30px
+  }
+  .navigation__chevron--site {
+    margin-right: 0
+  }
+  .navigation__site {
+    background-color: #666;
+    color: #FFF;
+    font-size: inherit;
+    margin-top: 40px
+  }
+  .navigation__site:hover {
+    background-color: #333;
+    color: #FFF
+  }
+  .navigation__site--active {
+    background-color: transparent;
+    border-bottom: 2px solid #FFF
+  }
+  .navigation__site .navigation__chevron {
+    color: #FFF
+  }
+  .navigation__basket {
+    right: 0;
+    top: 0
+  }
+  .navigation__accordion {
+    padding-bottom: 180px;
+    max-height: 100vh;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto
+  }
+  .mouse-active .navigation__link--menu.navigation__link--active:active, .mouse-active .navigation__link--menu.navigation__link--active:focus, .mouse-active .navigation__link--user.navigation__link--active:active, .mouse-active .navigation__link--user.navigation__link--active:focus {
+    background-color: #E60000;
+    color: #FFF
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .navigation__chevron {
+    float: right
+  }
+  .navigation--tertiary {
+    left: 45px;
+    position: fixed;
+    width: auto;
+    right: 0
+  }
+  .navigation--tertiary::before {
+    left: 45px;
+    right: 0
+  }
+  .navigation__link {
+    padding: 15px 10px
+  }
+  .navigation__link--icon {
+    padding: 18px 0;
+  }
+  .navigation__link--icon-last {
+    margin-right: 0
+  }
+  .navigation__link--nested {
+    padding-left: 30px
+  }
+  .navigation__link--user.navigation__link--active {
+    border-radius: 0;
+    padding: 8px
+  }
+  .navigation__user {
+    height: 40px;
+    width: 47px
+  }
+  .navigation__user--icon {
+    height: auto;
+    width: auto;
+    padding: 10px
+  }
+  .navigation__user--close {
+    padding: 0
+  }
+  .navigation__user--menu {
+    padding: 0;
+    border-radius: 50%
+  }
+}
+
+.navigation-static {
+  width: 100%;
+  line-height: 0
+}
+
 .help {
   font-size: 16px;
   color: $color-wild-sand;

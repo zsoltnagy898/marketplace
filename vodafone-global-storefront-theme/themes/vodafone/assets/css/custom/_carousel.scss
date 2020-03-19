@@ -1,10 +1,5 @@
 @import "./variables";
 
-.title-and-overview {
-  font-size: 37px;
-  line-height: 39px;
-}
-
 .carousel {
   min-height: 400px;
 
@@ -38,39 +33,36 @@
   .carousel-item {
     padding: 0 90px;
 
-    .carousel-item-title {
-      @extend .title-and-overview;
-      font-family: VodafoneRegularBold;
-    }
+    .hero-carousel-item {
+      .carousel-item-title {
+        font-family: VodafoneRegularBold;
+      }
 
-    .carousel-item-overview {
-      @extend .title-and-overview;
-      font-family: VodafoneRegular;
-    }
+      .carousel-item-overview {
+        font-family: VodafoneRegular;
+      }
 
-    .carousel-item-title, .carousel-item-overview {
-      color: $color-red;
-      margin-bottom: 15px;
-    }
+      .carousel-item-title, .carousel-item-overview {
+        color: $color-red;
+      }
 
-    .carousel-item-description {
-      color: $color-grey;
-      font-family: VodafoneRegular;
-      font-size: 19px;
-      line-height: 27px;
-      margin-bottom: 25px;
-    }
+      .carousel-item-description {
+        color: $color-grey;
+        font-family: VodafoneRegular;
+        margin-bottom: 25px;
+      }
 
-    a[role=button] {
-      background-color: $color-red;
-      box-shadow: 0 2px 4px 0 rgba(230, 0, 0, 0.52);
-      border-radius: 6px;
-      font-family: VodafoneRegular;
-      padding: 8px 20px;
-      font-size: 20px;
-      color: $color-white;
-      text-align: center;
-      line-height: 28px;
+      a[role=button] {
+        background-color: $color-red;
+        box-shadow: 0 2px 4px 0 rgba(230, 0, 0, 0.52);
+        border-radius: 6px;
+        font-family: VodafoneRegular;
+        padding: 8px 20px;
+        font-size: 1.25rem;
+        color: $color-white;
+        text-align: center;
+        line-height: 28px;
+      }
     }
   }
 

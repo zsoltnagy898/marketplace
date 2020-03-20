@@ -1,5 +1,5 @@
 <nav class="header" data-js="_language">
-    <div class="js-navigation-language navigation primary-navigation d-none d-xl-block">
+    <div class="js-navigation-language navigation primary-navigation d-none d-lg-block">
         <div class="container h-100">
             <ul class="navigation__list navigation__global navigation__hide no-gutter--all h-100">
                 <li class="navigation__spring h-100">
@@ -130,136 +130,153 @@
                     [journey] => anonymous
                     )
                 -->
-                <li class="navigation__item navigation__item--right navigation__hide js-navigation-item-clickable navigation__item--clickable d-lg-none dropdown-accordion">
-                    <a href="#"
-                       class="navigation__link navigation__link--icon navigation__link--icon-last navigation__link--menu"
-                       data-toggle="dropdown"
-                    >
-                            <span class="visually-hidden">
-                                <span class="navigation__accessibility">Close</span>Menu
-                            </span>
-                            <svg focusable="false" aria-hidden="true"
-                                 class="icon icon--small navigation__icon js-navigation-toggle navigation__toggle">
-                                <use xlink:href="#icon-menu"/>
-                            </svg>
-                            <svg focusable="false" aria-hidden="true"
-                                 class="icon icon--small navigation__icon js-navigation-close navigation__close">
-                                <use xlink:href="#icon-close"/>
-                            </svg>
+
+                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide js-navigation-item-clickable navigation__item--clickable d-lg-none">
+                    <a href="#" class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon-last navigation__link--menu">
+                        <span class="visually-hidden">
+                            <span class="navigation__accessibility">Close</span>Menu
+                        </span>
+                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon js-navigation-toggle navigation__toggle">
+                            <use xlink:href="#icon-menu"/>
+                        </svg>
+                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon js-navigation-close navigation__close">
+                            <use xlink:href="#icon-close"/>
+                        </svg>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
-                        <li>
-                            <div class="js-accordion" data-js="_accordion">
-                                <div class="js-accordion-item">
-                                    <div class="js-accordion-heading">
-                                            <span class="chevron">
-                                                <span class="chevron__text">Business Apps</span>
-                                                <span class="chevron__container accordion__chevron">
-                                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon">
-                                                        <use xlink:href="#icon-chevron-down"/>
-                                                    </svg>
-                                                </span>
-                                            </span>
-                                    </div>
-                                    <div class="js-accordion-content">
-                                        <ul class="list list--reset">
-                                            <li class="list__item">
-                                                <a href="#">About us</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+
+
+                    <div class="js-navigation navigation navigation--tertiary">
+                        <div class="js-accordion" data-js="_accordion">
+                            <div class="js-accordion-item">
+                                <div class="js-accordion-heading navigation__accordion--heading">
+                                   <span class="chevron">
+                                       <span class="chevron__text">Business Apps</span>
+                                       <span class="chevron__container accordion__chevron">
+                                           <svg focusable="false"
+                                                aria-hidden="true"
+                                                class="icon  icon--small  chevron__icon">
+                                               <use xlink:href="#icon-chevron-down"/>
+                                           </svg>
+                                       </span>
+                                   </span>
+                                </div>
+                                <div class="js-accordion-content navigation__accordion-content">
+                                    <ul class="list list--reset navigation--tertiary-accordion-content">
+                                        <li class="list__item navigation--tertiary-accordion-item">
+                                            <a href="#">All Apps</a>
+                                        </li>
+                                        <li class="list__item navigation--tertiary-accordion-item">
+                                            <a href="#">IT Management</a>
+                                        </li>
+                                        <li class="list__item navigation--tertiary-accordion-item">
+                                            <a href="#">IT Support</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+
+                        <ul class="list list--reset">
+                            <li class="list__item navigation--tertiary-item">
+                                <a href="/en-GB/home">
+                                   App support
+                                </a>
+                            </li>
+                            <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
+                                <a href="#">
+                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation--tertiary__icon" id="search-icon">
+                                        <use xlink:href="#icon-search"/>
+                                    </svg>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
+                                <a href="https://marketplace-empresas.vodafone.es/login?986202465" >
+                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation--tertiary__icon" id="login-icon">
+                                        <use xlink:href="#icon-my-vodafone"/>
+                                    </svg>
+                                    <span>Log In</span>
+                                </a>
+                            </li>
+                            <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
+                                <a href="https://ayudacliente.vodafone.es/empresas/contacta/" >
+                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation--tertiary__icon" id="contact-us-icon-icon">
+                                        <use xlink:href="#icon-landline-or-call"/>
+                                    </svg>
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- START: "group/components/header/content/language" Array
+                            (
+                        [journey] => anonymous
+                        )
+                        -->
+                        <div class="js-language language">
+                            <div class="language-header">
+                                <a href="#" class="js-language-current language__current">
+                                    <span class="visually-hidden">menu</span>
+                                    <span class="js-language-chosen language__chosen">English</span>
+                                    <svg focusable="false" aria-hidden="true"
+                                         class="icon icon--small js-location-icon-down language__icon language__icon--down">
+                                        <use xlink:href="#icon-chevron-down"/>
+                                    </svg>
+                                    <svg focusable="false" aria-hidden="true"
+                                         class="icon icon--small js-location-icon-up language__icon language__icon--up">
+                                        <use xlink:href="#icon-chevron-up"/>
+                                    </svg>
+                                </a>
+                                <a href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/" target="_blank" class="help">
+                                    Help
+                                    <img src="{{ r('/assets/images/help-circle-dark.png') }}" alt="Help"
+                                         class="gallery__image">
+                                </a>
+
+                            </div>
+                            <ul class="js-language-options language__options">
+                                <li class="language__item">
+                                    <a href="?language=English" class="js-language-option language__option">
+                                        <span class="visually-hidden">menu item</span>
+                                        <span class="language__selector">
+                                            <span class="js-language-circle language__circle "></span>
+                                        </span>
+                                        English
+                                    </a>
+                                </li>
+                                <li class="language__item">
+                                    <a href="?language=Deutsch" class="js-language-option language__option">
+                                        <span class="visually-hidden">menu item</span>
+                                        <span class="language__selector">
+                                            <span class="js-language-circle language__circle "></span>
+                                        </span>
+                                        Deutsch
+                                    </a>
+                                </li>
+                                <li class="language__item">
+                                    <a href="?language=Italiano" class="js-language-option language__option">
+                                        <span class="visually-hidden">menu item</span>
+                                        <span class="language__selector">
+                                            <span class="js-language-circle language__circle "></span>
+                                        </span>
+                                        Italiano
+                                    </a>
+                                </li>
+                                <li class="language__item">
+                                    <a href="?language=Espa&#xF1;ol" class="js-language-option language__option">
+                                        <span class="visually-hidden">menu item</span>
+                                        <span class="language__selector">
+                                            <span class="js-language-circle language__circle "></span>
+                                        </span>
+                                        Espa&#xF1;ol
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END: "group/components/header/content/language" -->
+                    </div>
+                    <div class="navigation__backdrop"></div>
                 </li>
-
-<!--                <li class="js-navigation-item navigation__item navigation__item&#45;&#45;right navigation__hide js-navigation-item-clickable navigation__item&#45;&#45;clickable d-lg-none">-->
-<!--                    <a href="#" class="js-navigation-link navigation__link navigation__link&#45;&#45;icon navigation__link&#45;&#45;icon-last navigation__link&#45;&#45;menu">-->
-<!--                        <span class="visually-hidden">-->
-<!--                            <span class="navigation__accessibility">Close</span>Menu-->
-<!--                        </span>-->
-<!--                        <svg focusable="false" aria-hidden="true" class="icon icon&#45;&#45;small navigation__icon js-navigation-toggle navigation__toggle">-->
-<!--                            <use xlink:href="#icon-menu"/>-->
-<!--                        </svg>-->
-<!--                        <svg focusable="false" aria-hidden="true" class="icon icon&#45;&#45;small navigation__icon js-navigation-close navigation__close">-->
-<!--                            <use xlink:href="#icon-close"/>-->
-<!--                        </svg>-->
-<!--                    </a>-->
-
-<!--                    <div class="js-navigation navigation navigation&#45;&#45;tertiary">-->
-<!--                        &lt;!&ndash; START: "group/components/header/content/language" Array-->
-<!--                            (-->
-<!--                                [journey] => anonymous-->
-<!--                            )-->
-<!--                         &ndash;&gt;-->
-<!--                        <div class="js-language language">-->
-<!--                            <a href="#" class="js-language-current language__current">-->
-<!--                                <span class="visually-hidden">menu</span>-->
-<!--                                <span class="js-language-chosen language__chosen">English</span>-->
-<!--                                <svg focusable="false" aria-hidden="true" class="icon icon&#45;&#45;small js-location-icon-down language__icon language__icon&#45;&#45;down">-->
-<!--                                    <use xlink:href="#icon-chevron-down"/>-->
-<!--                                </svg>-->
-<!--                                <svg focusable="false" aria-hidden="true" class="icon icon&#45;&#45;small js-location-icon-up language__icon language__icon&#45;&#45;up">-->
-<!--                                    <use xlink:href="#icon-chevron-up"/>-->
-<!--                                </svg>-->
-<!--                            </a>-->
-<!--                            <ul class="js-language-options language__options">-->
-<!--                                <li class="language__item">-->
-<!--                                    <a href="?language=English" class="js-language-option language__option">-->
-<!--                                        <span class="visually-hidden">menu item</span>-->
-<!--                                        <span class="language__selector">-->
-<!--                                            <span class="js-language-circle language__circle "></span>-->
-<!--                                        </span>-->
-<!--                                        English-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li class="language__item">-->
-<!--                                    <a href="?language=Deutsch" class="js-language-option language__option">-->
-<!--                                        <span class="visually-hidden">menu item</span>-->
-<!--                                        <span class="language__selector">-->
-<!--                                            <span class="js-language-circle language__circle "></span>-->
-<!--                                        </span>-->
-<!--                                        Deutsch-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li class="language__item">-->
-<!--                                    <a href="?language=Italiano" class="js-language-option language__option">-->
-<!--                                        <span class="visually-hidden">menu item</span>-->
-<!--                                        <span class="language__selector">-->
-<!--                                            <span class="js-language-circle language__circle "></span>-->
-<!--                                        </span>-->
-<!--                                        Italiano-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li class="language__item">-->
-<!--                                    <a href="?language=Espa&#xF1;ol" class="js-language-option language__option">-->
-<!--                                        <span class="visually-hidden">menu item</span>-->
-<!--                                        <span class="language__selector">-->
-<!--                                            <span class="js-language-circle language__circle "></span>-->
-<!--                                        </span>-->
-<!--                                        Espa&#xF1;ol-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; END: "group/components/header/content/language" &ndash;&gt;-->
-
-<!--                        <ul class="js-accordion accordion navigation__accordion" data-js="_accordion">-->
-<!--                            <li class="js-navigation-item navigation__item navigation__item&#45;&#45;tertiary hide&#45;&#45;lg">-->
-<!--                                <a href="/en-GB/home" class="js-navigation-link navigation__link chevron chevron&#45;&#45;inline">-->
-<!--                                    <span class="chevron__text">Marketplace</span>-->
-
-<!--                                    <span class="chevron__container chevron__container&#45;&#45;float">-->
-<!--                                        <svg focusable="false" aria-hidden="true" class="icon icon&#45;&#45;small chevron__icon accordion__chevron navigation__chevron">-->
-<!--                                            <use xlink:href="#icon-chevron-right"/>-->
-<!--                                        </svg>-->
-<!--                                    </span>-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </li>-->
 
 
                 <!-- END: "group/components/header/adaptations/accordion" -->
@@ -272,7 +289,6 @@
                 <!-- END: "group/components/header/journeys/user/$journey" -->
                 <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
                     <a href="https://ayudacliente.vodafone.es/empresas/contacta/" class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon--last" >
-                        <span class="visually-hidden">Contact Us</span>
                         <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon" id="contact-us-icon-icon">
                             <use xlink:href="#icon-landline-or-call"/>
                         </svg>
@@ -281,7 +297,6 @@
                 </li>
                 <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
                     <a href="https://marketplace-empresas.vodafone.es/login?986202465" class="js-navigation-link navigation__link navigation__link--icon" >
-                        <span class="visually-hidden">Log In</span>
                         <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon" id="login-icon">
                             <use xlink:href="#icon-my-vodafone"/>
                         </svg>
@@ -290,7 +305,6 @@
                 </li>
                 <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
                     <a href="#" class="js-navigation-link navigation__link navigation__link--icon">
-                        <span class="visually-hidden">Search</span>
                         <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon" id="search-icon">
                             <use xlink:href="#icon-search"/>
                         </svg>
@@ -315,11 +329,6 @@
 
     $("#search-close").on("click", function(){
         $('.js-dialog').removeClass('js-dialog-display dialog--display dialog--scrollable');
-    });
-
-    $('.dropdown-accordion').on('click', '.js-accordion-heading', function (event) {
-      event.preventDefault();
-      event.stopPropagation();
     });
 
     var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];

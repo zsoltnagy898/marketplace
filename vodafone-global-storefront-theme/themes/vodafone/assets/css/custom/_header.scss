@@ -376,27 +376,124 @@ nav.header {
 
 @include media-breakpoint-down(md) {
   .navigation--tertiary {
-    margin: 0;
     -webkit-overflow-scrolling: touch;
-    width: 370px;
-    right: -20px;
+    right: 0;
     top: auto;
     bottom: auto;
     position: absolute;
-    overflow: visible
+    overflow: visible;
+    background: white;
+    z-index: 1;
+    margin-top: 10px;
+    border-radius: 0.25rem;
   }
 
-  .navigation--tertiary::before {
-    background-color: rgba(255, 255, 255, .96);
+  .navigation--tertiary {
+    a {
+      color: #333;
+
+      &:hover {
+        color: #E60000;
+      }
+    }
+  }
+
+  .navigation__backdrop {
+    background-color: rgba(48, 48, 48, 0.68);
     content: "";
-    display: block;
+    display: none;
     position: fixed;
     right: 0;
-    top: 0;
+    top: 61px;
     bottom: 0;
-    width: inherit;
-    z-index: 0
+    width: 100%;
+    left: 0;
   }
+
+  .navigation--tertiary.navigation--display ~ .navigation__backdrop {
+    display: block;
+  }
+
+  .navigation__accordion-content {
+    display: none;
+  }
+
+  .navigation--tertiary-accordion-content {
+    background-color: rgba(136, 136, 136, 0.15);
+  }
+
+  .navigation--tertiary-item,
+  .navigation__accordion--heading {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .navigation--tertiary-accordion-item {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  .navigation__accordion--heading {
+    padding: 12px 10px;
+  }
+
+  .navigation--tertiary-item,
+  .navigation--tertiary-accordion-item {
+    a {
+      padding: 12px 10px;
+      width: 100%;
+    }
+  }
+
+  .navigation--tertiary__icon {
+    margin-right: 10px;
+  }
+
+  .navigation__accordion--heading {
+    cursor: pointer;
+  }
+
+  .navigation--tertiary {
+    .language {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .language-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 10px;
+    }
+
+    .language__current {
+      padding: 0;
+      width: auto;
+    }
+
+    .language__chosen {
+      color: #333;
+      text-align: left;
+      margin-right: 25px;
+    }
+
+    .language__options {
+      padding-left: 10px;
+      padding-top: 0;
+      padding-bottom: 0;
+      background-color: rgba(136, 136, 136, 0.15);
+    }
+
+    .language__option {
+      padding-left: 0;
+
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+
   .navigation--tertiary--user {
     background: 0 0
   }
@@ -416,10 +513,6 @@ nav.header {
   .navigation__item--tertiary {
     padding: 0 10px;
     color: #333
-  }
-  .navigation__item--clickable .navigation__link--active.navigation__link--menu, .navigation__item--clickable .navigation__link--active.navigation__link--menu:hover, .navigation__link--menu.navigation__link--active {
-    background-color: #E60000;
-    color: #FFF
   }
   .navigation__item--site {
     padding: 10px
@@ -490,8 +583,6 @@ nav.header {
     top: 0
   }
   .navigation__accordion {
-    padding-bottom: 180px;
-    max-height: 100vh;
     max-height: calc(100vh - 180px);
     overflow-y: auto
   }
@@ -506,20 +597,16 @@ nav.header {
     float: right
   }
   .navigation--tertiary {
-    left: 45px;
+    left: 10px;
     position: fixed;
     width: auto;
-    right: 0
-  }
-  .navigation--tertiary::before {
-    left: 45px;
-    right: 0
+    right: 10px
   }
   .navigation__link {
     padding: 15px 10px
   }
   .navigation__link--icon {
-    padding: 18px 0;
+    padding: 18px 10px;
   }
   .navigation__link--icon-last {
     margin-right: 0

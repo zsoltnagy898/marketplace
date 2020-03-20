@@ -2,7 +2,7 @@
 
 {% from "/macros/analytics.html" import utagDataScript %}
 
-{% from "/macros/sliders/slider.html" import slider %}
+{% from "/macros/sliders/carousel.html" import carousel %}
 {% from "/macros/sliders/bundle.html" import bundleSlider %}
 {% from "/macros/sliders/hero.html" import hero %}
 {% from "/macros/navigator.html" import navigator %}
@@ -14,10 +14,8 @@
 {% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
 {% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
 {% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
-{% from "/macros/sliders/slider.html" import slider %}
 {% from "/macros/sliders/script.html" import sliderScript %}
 {% from "/macros/notification.html" import notificationModel %}
-
 
 
 {% from "/pages/home/components/carousel-list.html" import carouselList %}
@@ -33,20 +31,20 @@
 {% endblock %}
 
 {% block data %}
-<data type="navigator" />
-<data type="faq" />
-<data name="core" type="list" attributes="4320" />
-<data name="mobile" type="list" attributes="4334" />
-<data name="hero" type="list" products="222633,216359,195808,167032,140680" />
+<data type="navigator"/>
+<data type="faq"/>
+<data name="core" type="list" attributes="4320"/>
+<data name="mobile" type="list" attributes="4334"/>
+<data name="hero" type="list" products="222633,216359,195808,167032,140680"/>
 {% endblock %}
-
 
 
 {% block content %}
 
 <div id="home">
-    <section class="section section--white hero-section">
-        {% include "/includes/home/hero.html" %}
+    <section class="section section--white">
+        <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
+        {{ carousel('hero', productLists.featuredapps) }}
     </section>
     <section class="section section--gallery">
         {{ carouselList(productLists.featuredapps, productLists.featuredapps.name) }}
@@ -56,7 +54,7 @@
         {{ carouselList(productLists.popularapps, productLists.popularapps.name) }}
     </section>
     <br>
-
+    
     {{ whyVodafone() }}
 </div>
 {% endblock %}
@@ -68,7 +66,6 @@
     $('.carousel-inner .carousel-item:first').addClass('active');
 
 
-
 </script>
 {% endblock %}
 
@@ -76,5 +73,5 @@
 
 
 {% block analytics_data %}
-    {{ utagDataScript({ page_name: 'uk:business:app direct' }) }}
+{{ utagDataScript({ page_name: 'uk:business:app direct' }) }}
 {% endblock %}

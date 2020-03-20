@@ -1,0 +1,39 @@
+{% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem %}
+
+{% macro carousel(id='carousel', products=[], itemTheme='hero') %}
+<div class="container">
+    <div id="{{id}}" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for product in products.items %}
+            <li class="carousel-indicator-item {{'active' if loop.first}}" data-target="#{{id}}"
+                data-slide-to="{{loop.index-1}}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for product in products.items %}
+            <div class="carousel-item {{'active' if loop.first}}">
+                {% if itemTheme === 'hero' %}
+                {{heroCarouselItem(product)}}
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <button class=" carousel-control-prev" href="#{{id}}" data-slide="prev">
+            <div class="carousel-control-icon-container">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
+                    <use xlink:href="#icon-chevron-left"/>
+                </svg>
+            </div>
+        </button>
+        <button class="carousel-control-next" href="#{{id}}" data-slide="next">
+            <div class="carousel-control-icon-container">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
+                    <use xlink:href="#icon-chevron-right"/>
+                </svg>
+            </div>
+        </button>
+    </div>
+</div>
+{% endmacro %}

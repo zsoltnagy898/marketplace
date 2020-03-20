@@ -1,0 +1,74 @@
+@import "./variables";
+
+.carousel {
+  height: 400px;
+
+  .carousel-indicator-item {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-white;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+
+    &.active {
+      background-color: $color-red;
+    }
+  }
+
+  .carousel-control-icon-container {
+    width: 32px;
+    height: 32px;
+    background: $color-white;
+    box-shadow: 0 -1px 4px 1px rgba(130, 130, 130, 0.50);
+    border-radius: 50%;
+
+    svg {
+      float: none !important;
+      padding: 5px;
+      color: $color-mine-shaft;
+      margin-right: 0 !important;
+    }
+  }
+
+  .carousel-item {
+    padding: 0 90px;
+
+    .hero-carousel-item {
+      .carousel-item-title {
+        font-family: VodafoneRegularBold;
+      }
+
+      .carousel-item-overview {
+        font-family: VodafoneRegular;
+      }
+
+      .carousel-item-title, .carousel-item-overview {
+        color: $color-red;
+      }
+
+      .carousel-item-description {
+        color: $color-grey;
+        font-family: VodafoneRegular;
+        margin-bottom: 25px;
+      }
+
+      a[role=button] {
+        background-color: $color-red;
+        box-shadow: 0 2px 4px 0 rgba(230, 0, 0, 0.52);
+        border-radius: 6px;
+        font-family: VodafoneRegular;
+        padding: 8px 20px;
+        font-size: 1.25rem;
+        color: $color-white;
+        text-align: center;
+        line-height: 28px;
+      }
+    }
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    top: calc(50% - 16px);
+    height: 32px;
+    width: 32px;
+  }
+}

@@ -1,23 +1,24 @@
 {% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem %}
 
-{% macro carousel(products=[], itemTheme='hero') %}
+{% macro carousel(id='carousel', products=[], itemTheme='hero') %}
 <div class="container">
-    <div id="slider" class="carousel slide" data-ride="carousel">
+    <div id="{{id}}" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             {% for product in products.items %}
-            <li class="carousel-indicator-item" data-target="#slider" data-slide-to="{{loop.index-1}}"></li>
+            <li class="carousel-indicator-item {{'active' if loop.first}}" data-target="#{{id}}"
+                data-slide-to="{{loop.index-1}}"></li>
             {% endfor %}
         </ol>
         <div class="carousel-inner">
             {% for product in products.items %}
-            <div class="carousel-item">
+            <div class="carousel-item {{'active' if loop.first}}">
                 {% if itemTheme === 'hero' %}
                 {{heroCarouselItem(product)}}
                 {% endif %}
             </div>
             {% endfor %}
         </div>
-        <button class="carousel-control-prev" onclick="prev()">
+        <button class=" carousel-control-prev" href="#{{id}}" data-slide="prev">
             <div class="carousel-control-icon-container">
                 <svg focusable="false" aria-hidden="true"
                      class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
@@ -25,36 +26,14 @@
                 </svg>
             </div>
         </button>
-        <button class="carousel-control-next" onclick="next()">
+        <button class="carousel-control-next" href="#{{id}}" data-slide="next">
             <div class="carousel-control-icon-container">
                 <svg focusable="false" aria-hidden="true"
                      class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
                     <use xlink:href="#icon-chevron-right"/>
                 </svg>
             </div>
-
         </button>
     </div>
 </div>
-<script>
-    const carousel = $('.carousel');
-    const carouselItem = $('.carousel-item');
-    const carouselItemIndicator = $('.carousel-indicator-item');
-
-    if (carouselItem) {
-        carouselItem.first().addClass('active');
-    }
-    if (carouselItemIndicator) {
-        carouselItemIndicator.first().addClass('active');
-    }
-
-    function next() {
-        carousel.carousel('next');
-    }
-
-    function prev() {
-        carousel.carousel('prev');
-    }
-
-</script>
 {% endmacro %}

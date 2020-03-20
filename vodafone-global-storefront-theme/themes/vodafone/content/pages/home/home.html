@@ -44,7 +44,7 @@
 <div id="home">
     <section class="section section--white">
         <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
-        {{ carousel(productLists.featuredapps) }}
+        {{ carousel('hero', productLists.featuredapps) }}
     </section>
     <section class="section section--gallery">
         {{ carouselList(productLists.featuredapps, productLists.featuredapps.name) }}
@@ -54,7 +54,7 @@
         {{ carouselList(productLists.popularapps, productLists.popularapps.name) }}
     </section>
     <br>
-
+    
     {{ whyVodafone() }}
 </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 <nav class="header" data-js="_language">
-    <div class="js-navigation-language navigation">
-        <div class="container">
-            <ul class="navigation__list navigation__global navigation__hide no-gutter--all">
-                <li class="navigation__spring">
-                    <ul class="js-navigation navigation navigation__list navigation__global--language">
-                        <li class="js-navigation-item navigation__item navigation__item--right hide--md hide--sm">
+    <div class="js-navigation-language navigation primary-navigation d-none d-xl-block">
+        <div class="container h-100">
+            <ul class="navigation__list navigation__global navigation__hide no-gutter--all h-100">
+                <li class="navigation__spring h-100">
+                    <ul class="js-navigation navigation navigation__list navigation__global--language navigation__list__inline h-100">
+                        <li class="js-navigation-item navigation__item navigation__item--right h-100">
                             <!-- START: "group/components/header/content/language" Array
 (
 [journey] => anonymous
@@ -61,6 +61,15 @@
                                 </ul>
                             </div>
                             <!-- END: "group/components/header/content/language" -->
+                        </li>
+                        <li class="h-100">
+                            <div class="help">
+                                <a href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/" target="_blank">
+                                    Help
+                                    {{home.welcome}}
+                                    <img src="{{ r('/assets/images/help-circle.png') }}" alt="Help" class="gallery__image">
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </li>

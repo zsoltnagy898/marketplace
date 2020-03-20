@@ -1065,7 +1065,7 @@ address {
 }
 
 a {
-  color: inherit;
+  color: #F4F4F4;
   display: inline-block;
   text-decoration: none;
 }
@@ -1144,12 +1144,6 @@ address {
 
 *:active {
   outline: 0;
-}
-
-a {
-  color: inherit;
-  display: inline-block;
-  text-decoration: none;
 }
 
 blockquote {
@@ -6872,13 +6866,20 @@ td {
   cursor: pointer;
   text-align: right;
   color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .language__current {
-  display: block;
   position: relative;
   z-index: 1;
-  padding: 4px 30px 4px 0;
+  padding: 0 30px 0 0;
+  height: 100%;
+  width: 100%;
+  display: flex !important;
+  align-items: center;
 }
 
 .language__current--open {
@@ -6985,7 +6986,7 @@ td {
 
   .language__current {
     z-index: 1;
-    padding: 15px 25px 15px 20px;
+    padding: 0 25px 0 20px;
     display: inline-block;
   }
 

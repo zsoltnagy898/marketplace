@@ -182,6 +182,7 @@
 @import "../../../../../../node_modules/bootstrap/scss/bootstrap";
 @import "./variables";
 @import "./bootstrap_override";
+@import "./header";
 
 $font-family-vodafone-regular: vodafone_rg,
 Arial,
@@ -283,7 +284,7 @@ p {
 }
 
 .why-vodafone__circle {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border-radius: 50%;
   color: #666666;
   display: inline-block;
@@ -669,8 +670,8 @@ p {
   padding-right: 0px;
   float: left;
   margin-left: -55px;
-  margin-top: 8px;
   width: 100%;
+  color: $color-wild-sand;
 }
 
 .social-icon-youtube {
@@ -1015,7 +1016,7 @@ nav.header {
 }
 
 .breadcrumbs--extrude {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   color: #333
 }
 
@@ -2829,7 +2830,7 @@ nav.header {
 .radio-buttons__button {
   display: block;
   padding: 25px 14px;
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border: 1px solid #999;
   margin-bottom: 20px;
   font-size: 20px
@@ -3341,7 +3342,7 @@ nav.header {
   text-align: center;
   box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .5);
   max-width: 500px;
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border-top: 1px solid #CCC;
   border-bottom: 1px solid #CCC;
   border-right: 1px solid #EBEBEB;
@@ -3704,7 +3705,7 @@ nav.header {
 .tooltip--active .tooltip__trigger::before {
   content: "";
   border: 12px solid transparent;
-  border-top-color: #F4F4F4;
+  border-top-color: $color-wild-sand;
   position: absolute;
   -webkit-filter: drop-shadow(0 2px 1px #AFAFAF);
   filter: drop-shadow(0 2px 1px #AFAFAF);
@@ -3720,7 +3721,7 @@ nav.header {
   margin-left: -6px;
   content: "";
   border: 12px solid transparent;
-  border-top-color: #F4F4F4;
+  border-top-color: $color-wild-sand;
   position: absolute;
   bottom: -24px;
   -webkit-filter: drop-shadow(0 2px 1px #AFAFAF);
@@ -3729,7 +3730,7 @@ nav.header {
 }
 
 .tooltip__content {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   color: #000;
   border-radius: 10px;
   padding: 40px 20px 20px;
@@ -3787,7 +3788,7 @@ nav.header {
   .tooltip--active .tooltip__trigger::before {
     margin-left: 8px;
     border: 8px solid transparent;
-    border-top-color: #F4F4F4;
+    border-top-color: $color-wild-sand;
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
     top: -10px;
@@ -3945,7 +3946,7 @@ nav.header {
 }
 
 .basket-package-grid--content, .basket-package-grid--cost-breakdown {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   margin: 0
 }
 
@@ -4228,7 +4229,7 @@ nav.header {
 }
 
 .results__item--alert {
-  box-shadow: inset 0 0 0 4px #F4F4F4;
+  box-shadow: inset 0 0 0 4px $color-wild-sand;
   border-radius: 3px;
   border: 1px solid #E60000;
   overflow: hidden;
@@ -4381,7 +4382,7 @@ nav.header {
 }
 
 .breadcrumbs--extrude {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   color: #333
 }
 
@@ -6154,7 +6155,7 @@ nav.header {
 .radio-buttons__button {
   display: block;
   padding: 25px 14px;
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border: 1px solid #999;
   margin-bottom: 20px;
   font-size: 20px;
@@ -6427,7 +6428,7 @@ nav.header {
 }
 
 .results__item--alert {
-  box-shadow: inset 0 0 0 4px #F4F4F4;
+  box-shadow: inset 0 0 0 4px $color-wild-sand;
   border-radius: 3px;
   border: 1px solid #E60000;
   overflow: hidden;
@@ -6836,7 +6837,7 @@ nav.header {
   text-align: center;
   box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .5);
   max-width: 500px;
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border-top: 1px solid #CCC;
   border-bottom: 1px solid #CCC;
   border-right: 1px solid #EBEBEB;
@@ -7199,7 +7200,7 @@ nav.header {
 .tooltip--active .tooltip__trigger::before {
   content: "";
   border: 12px solid transparent;
-  border-top-color: #F4F4F4;
+  border-top-color: $color-wild-sand;
   position: absolute;
   -webkit-filter: drop-shadow(0 2px 1px #AFAFAF);
   filter: drop-shadow(0 2px 1px #AFAFAF);
@@ -7215,7 +7216,7 @@ nav.header {
   margin-left: -6px;
   content: "";
   border: 12px solid transparent;
-  border-top-color: #F4F4F4;
+  border-top-color: $color-wild-sand;
   position: absolute;
   bottom: -24px;
   -webkit-filter: drop-shadow(0 2px 1px #AFAFAF);
@@ -7224,7 +7225,7 @@ nav.header {
 }
 
 .tooltip__content {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   color: #000;
   border-radius: 10px;
   padding: 40px 20px 20px;
@@ -7287,7 +7288,7 @@ nav.header {
   .tooltip--active .tooltip__trigger::before {
     margin-left: 8px;
     border: 8px solid transparent;
-    border-top-color: #F4F4F4;
+    border-top-color: $color-wild-sand;
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
     top: -10px;
@@ -7423,7 +7424,7 @@ nav.header {
 }
 
 .bundle__details {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   padding: 30px
 }
 
@@ -7716,7 +7717,7 @@ nav.header {
 }
 
 .mask--wild-sand::after {
-  background-color: #F4F4F4
+  background-color: $color-wild-sand
 }
 
 .mask--gallery::after {
@@ -7805,7 +7806,7 @@ nav.header {
 }
 
 .show-more__content {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   padding: 30px
 }
 
@@ -7882,7 +7883,7 @@ nav.header {
 }
 
 .breadcrumbs--extrude {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   color: #333
 }
 
@@ -9692,7 +9693,7 @@ nav.header {
 .radio-buttons__button {
   display: block;
   padding: 25px 14px;
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border: 1px solid #999;
   margin-bottom: 20px;
   font-size: 20px;
@@ -9969,7 +9970,7 @@ nav.header {
 }
 
 .results__item--alert {
-  box-shadow: inset 0 0 0 4px #F4F4F4;
+  box-shadow: inset 0 0 0 4px $color-wild-sand;
   border-radius: 3px;
   border: 1px solid #E60000;
   overflow: hidden;
@@ -10378,7 +10379,7 @@ nav.header {
   text-align: center;
   box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .5);
   max-width: 500px;
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   border-top: 1px solid #CCC;
   border-bottom: 1px solid #CCC;
   border-right: 1px solid #EBEBEB;
@@ -10743,7 +10744,7 @@ nav.header {
 
 .tooltip--active .tooltip__trigger::before {
   border: 12px solid transparent;
-  border-top-color: #F4F4F4;
+  border-top-color: $color-wild-sand;
   position: absolute;
   -webkit-filter: drop-shadow(0 2px 1px #AFAFAF);
   filter: drop-shadow(0 2px 1px #AFAFAF);
@@ -10758,7 +10759,7 @@ nav.header {
   left: 50%;
   margin-left: -6px;
   border: 12px solid transparent;
-  border-top-color: #F4F4F4;
+  border-top-color: $color-wild-sand;
   position: absolute;
   bottom: -24px;
   -webkit-filter: drop-shadow(0 2px 1px #AFAFAF);
@@ -10767,7 +10768,7 @@ nav.header {
 }
 
 .tooltip__content {
-  background-color: #F4F4F4;
+  background-color: $color-wild-sand;
   color: #000;
   border-radius: 10px;
   padding: 40px 20px 20px;
@@ -10825,7 +10826,7 @@ nav.header {
   .tooltip--active .tooltip__trigger::before {
     margin-left: 8px;
     border: 8px solid transparent;
-    border-top-color: #F4F4F4;
+    border-top-color: $color-wild-sand;
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
     top: -10px;
@@ -12290,3 +12291,4 @@ nav.header {
 }
 
 /*# sourceMappingURL=home.min.css.map */
+

@@ -48,7 +48,12 @@
         {{ carousel('hero', productLists.featuredapps) }}
     </section>
     <section class="section section--white">
-        {{ carousel('popularApps', productLists.popularapps) }}
+        <div class="d-block d-lg-none">
+            {{ carousel('popularAppsMobile', productLists.popularapps,'list', true, false, true, 'mobile') }}
+        </div>
+        <div class="d-none d-lg-block">
+            {{ carousel('popularAppsDesktop', productLists.popularapps,'list', true, false, true, 'desktop') }}
+        </div>
     </section>
     <section class="section section--gallery gutter__large--y">
         {{ recommendedSolutions(productLists.staffpicks) }}

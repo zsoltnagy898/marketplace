@@ -4,3 +4,4 @@ vodafone-global-storefront-theme/yarn-error.log
 ui-components/node_modules/
 landing-pages/node_modules/
 vodafone-global-storefront-theme/node_modules/
+*.css

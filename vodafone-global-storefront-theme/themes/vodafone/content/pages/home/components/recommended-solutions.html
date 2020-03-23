@@ -1,0 +1,46 @@
+{% macro recommendedSolutions(data) %}
+<div class="container">
+    <h3 class="heading heading--3 heading--center heading--leading">
+        Recommended solutions
+    </h3>
+    <div class="row">
+        {% for item in data.items %}
+        <div class="col col-12 col-lg-6 mb-3 mb-lg-0">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column justify-content-between p-3">
+                    <div class="row pb-3">
+                        <div class="col text-center">
+                            <img class="mw-100" src={{item.overviewImageUrl}} alt="">
+                        </div>
+                        <div class="col">
+                            <h4 class="heading heading--4 heading--regular mt-0">
+                                {{ item.name }}
+                            </h4>
+                            <div class="body-text pb-2">
+                                {{ item.overview }}
+                            </div>
+                            <div class="body-text">
+                                {{ item.description }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col align--center">
+                            <a target="_blank" href={{item.url}} class="button button--secondary">
+                                Go to product
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <div class="center w-100 align--center">
+        <a target="_blank" href={{data.url}} class="button button--primary">
+            View More
+        </a>
+    </div>
+</div>
+{% endmacro %}

@@ -47,23 +47,23 @@
         <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
         {{ carousel('hero', productLists.featuredapps) }}
     </section>
-    <section class="section gutter--all">
+    <section class="section gutter__large--y">
         {{ carouselList(productLists.popularapps, productLists.popularapps.name) }}
     </section>
-    <section class="section section--gallery">
+    <section class="section section--gallery gutter__large--y">
         {{ recommendedSolutions(productLists.staffpicks) }}
     </section>
-    {{ whyVodafone() }}
+    <section class="section gutter__large--y">
+        {{ whyVodafone() }}
+    </section>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    var appDescription = document.getElementsByClassName('card-text');
-    console.log(appDescription);
-    $('.carousel-inner .carousel-item:first').addClass('active');
-
-
+  var appDescription = document.getElementsByClassName('card-text');
+  console.log(appDescription);
+  $('.carousel-inner .carousel-item:first').addClass('active');
 </script>
 {% endblock %}
 

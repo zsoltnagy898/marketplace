@@ -196,6 +196,7 @@ sans-serif;
 body {
   background: white;
   font-size: 18px !important;
+  color: $color-grey;
 }
 
 p {
@@ -472,16 +473,17 @@ p {
 
 .card {
   border: none;
-  border-radius: 6px;
+  border-radius: $border-radius;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
-.heading {
-  color: $color-grey;
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);
+  border-radius: $border-radius;
 }
 
 .body-text {
-  color: $color-grey;
   font-family: "VodafoneRegular";
   font-size: 16px;
   line-height: 23px;

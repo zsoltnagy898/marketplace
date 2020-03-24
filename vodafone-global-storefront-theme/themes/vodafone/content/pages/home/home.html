@@ -62,7 +62,10 @@
         {{ whyVodafone() }}
     </section>
     <section class="section section--gallery">
-        {{ carouselList(productLists.featuredapps, productLists.featuredapps.name) }}
+        {{ carousel('featuredPartners', {name: 'Featured Partners', items:
+        ['/assets/images/zscaler-logo.png','/assets/images/microsoft-logo.png',
+        '/assets/images/huawei-logo.png','/assets/images/hp-enterprise-logo.png', '/assets/images/google-logo.png']},'logo',
+        true, false) }}
     </section>
 </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem %}
 {% from "/macros/sliders/list-carousel.html" import listCarousel %}
+{% from "/macros/sliders/logo-carousel-item.html" import logoCarouselItem %}
 
 {% macro carousel(id='carousel', products={}, itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop') %}
 <div class="container">
@@ -28,6 +29,14 @@
             </div>
             {% elif itemTheme === 'list' %}
             {{listCarousel(products, viewType)}}
+            {% elif itemTheme === 'logo' %}
+            <div>
+                {% for product in products.items %}
+                <div class="carousel-item {{'active' if loop.first}}">
+                    {{logoCarouselItem(product)}}
+                </div>
+                {% endfor %}
+            </div>
             {% endif %}
         </div>
         <button class=" carousel-control-prev d-none d-lg-flex" href="#{{id}}" data-slide="prev">

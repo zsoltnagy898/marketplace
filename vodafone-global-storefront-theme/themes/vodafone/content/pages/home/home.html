@@ -42,6 +42,12 @@
 
 {% block content %}
 
+{% set featuredPartners = {name: 'Featured
+Partners',items:[ '/assets/images/google-logo.png','/assets/images/hp-enterprise-logo.png',
+'/assets/images/huawei-logo.png','/assets/images/microsoft-logo.png', '/assets/images/zscaler-logo.png'
+]} %}
+
+
 <div id="home">
     <section class="section section--white">
         <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
@@ -52,7 +58,7 @@
             {{ carousel('popularAppsMobile', productLists.popularapps,'list', true, false, true, 'mobile') }}
         </div>
         <div class="d-none d-lg-block">
-            {{ carousel('popularAppsDesktop', productLists.popularapps,'list', true, false, true, 'desktop') }}
+            {{ carousel('popularAppsDesktop', productLists.popularapps,'list', true, false, true, 'desktop', 3) }}
         </div>
     </section>
     <section class="section section--gallery gutter__large--y">
@@ -61,11 +67,15 @@
     <section class="section gutter__large--y">
         {{ whyVodafone() }}
     </section>
-    <section class="section section--gallery">
-        {{ carousel('featuredPartners', {name: 'Featured Partners', items:
-        ['/assets/images/zscaler-logo.png','/assets/images/microsoft-logo.png',
-        '/assets/images/huawei-logo.png','/assets/images/hp-enterprise-logo.png', '/assets/images/google-logo.png']},'logo',
-        true, false) }}
+    <section class="section section--light-grey">
+        <div class="d-block d-lg-none">
+            {{ carousel('featuredPartnersMobile', featuredPartners,'logo', true, false, false, 'mobile', 3, true, true)
+            }}
+        </div>
+        <div class="d-none d-lg-block">
+            {{ carousel('featuredPartnersDesktop', featuredPartners,'logo', true, false, false,
+            'desktop', 5, true, true) }}
+        </div>
     </section>
 </div>
 {% endblock %}

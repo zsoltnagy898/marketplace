@@ -1,8 +1,9 @@
 {% from "/macros/sliders/list-carousel-item.html" import listCarouselItem %}
+{% from "/macros/sliders/logo-carousel-item.html" import logoCarouselItem %}
 
 {% macro listCarousel(products={}, viewType='desktop', sliceCount=3) %}
-{% set sliceCount = products.items.length // sliceCount %}
-{% set sliceCount = sliceCount + 1  if products.items.length / sliceCount > 0 else sliceCount %}
+
+{% set itemWidth = 100  * ((12 / sliceCount) / 12) %}
 
 {% if viewType === 'mobile' %}
 <div class="mobile-carousel-list d-flex flex-nowrap">
@@ -21,18 +22,36 @@
 {% elif viewType === 'desktop' %}
 <div class="row d-flex flex-nowrap">
     <div class="mb-5 w-100">
-        {%- for items in products.items | slice(sliceCount) %}
+        {%- for item in products.items %}
+        {% if (loop.index0 % sliceCount) === 0 or loop.index0 === 0 %}
         <div class="carousel-item low-padding {{'active' if loop.first}}">
             <div class="col-12 d-flex flex-wrap">
-                {%- for item in items %}
+                {% for index in range(loop.index0, loop.index0 + sliceCount) -%}
+                {% if index < products.items.length %}
                 <div class="col-4 pl-2 pr-2">
-                    {{listCarouselItem(item)}}
+                    {{listCarouselItem(products.items[index])}}
                 </div>
+                {% endif %}
                 {%- endfor %}
             </div>
         </div>
+        {% endif %}
         {%- endfor %}
     </div>
+</div>
+{% elif viewType === 'logo' %}
+<div class="row d-flex flex-nowrap align-items-center">
+    {%- for item in products.items %}
+    {% if (loop.index0 % sliceCount) === 0 or loop.index0 === 0 %}
+    <div class="carousel-item {{'active' if loop.first}}">
+        <div class="col-12 d-flex flex-nowrap pl-0 pr-0">
+            {% for index in range(loop.index0, loop.index0 + sliceCount) -%}
+            {{logoCarouselItem(products.items[index], itemWidth) if index < products.items.length}}
+            {%- endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {%- endfor %}
 </div>
 {% endif %}
 

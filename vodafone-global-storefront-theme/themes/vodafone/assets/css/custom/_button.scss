@@ -1,3 +1,5 @@
+@import "./variables";
+
 .button {
   border-radius: $border-radius;
   border: 1px solid;
@@ -51,6 +53,22 @@
 
 .button--secondary--dark:hover {
   background-color: #CCCCCC;
+}
+
+.button__toggle {
+  color: $color-red;
+  border-color: $color-red;
+  background-color: #F9F9F9;
+}
+
+.button__toggle:hover {
+  color: $color-red;
+}
+
+.button__toggle.active {
+  color: $color-white;
+  background-color: $color-red;
+  border-color: $color-red;
 }
 
 .button--tertiary {

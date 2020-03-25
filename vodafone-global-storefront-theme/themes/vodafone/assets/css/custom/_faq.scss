@@ -1,0 +1,25 @@
+.faq-category-dropdown:not(.show) {
+  .faq-category-dropdown-selected-item, .icon--closed {
+    display: block;
+  }
+
+  .faq-category-dropdown-helper-text, .icon--open {
+    display: none;
+  }
+}
+
+.faq-category-dropdown.show {
+  .faq-category-dropdown-selected-item, .icon--closed {
+    display: none;
+  }
+
+  .faq-category-dropdown-helper-text, .icon--open {
+    display: block;
+  }
+}
+
+.faq-question-section:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 24px;
+}

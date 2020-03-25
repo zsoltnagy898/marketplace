@@ -1,11 +1,127 @@
 {% extends "/layout/base.html" %}
+{% from "/macros/home-faq.html" import homeFaq %}
+
+{% set data = {
+    "faq": {
+        "items": [
+            {
+                "name": "General Questions",
+                "faqs": [
+                    { "question": "What is AppDirect?","answer": "AppDirect is Something" },
+                    { "question": "What is AppDirect?","answer": "AppDirect is Something" },
+                    { "question": "What is AppDirect?","answer": "AppDirect is Something" }
+                ]
+            },
+            {
+                "name": "Business Apps",
+                "faqs": [
+                    { "question": "What is AppDirect?","answer": "AppDirect is Something" },
+                    { "question": "What is AppDirect?","answer": "AppDirect is Something" },
+                    { "question": "What is AppDirect?","answer": "AppDirect is Something" }
+                ]
+            },
+            {
+                "name": "Office 365",
+                "faqs": [
+                    { "question": "What is AppDirect?", "answer": "AppDirect is Something" },
+                    { "question": "What is AppDirect?", "answer": "AppDirect is Something" }
+                ]
+            }
+        ]
+    }
+} %}
 
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
 {% block content %}
-<div id="app" data-office-premium-url="/en-US/apps/122611/#Editions"
-     data-office-essentials-url="/en-US/apps/122611/#Editions">
+<div>
     {{breadcrumb([{label: 'Home', link: '/'}, {label: 'App Support'}])}}
-    App Support FAQ
+
+    <div class="container mb-5 mt-5">
+        <h2 class="heading heading--2 heading--center mt-0 mb-5">
+            App Support
+        </h2>
+        <div class="dropdown faq-category-dropdown d-block d-lg-none mb-4">
+            <button class="button w-100 d-flex justify-content-between align-items-center faq-category-dropdown-toggle"
+                    type="button" data-toggle="dropdown">
+                <span class="faq-category-dropdown-selected-item">
+                    {{ data.faq.items[0].name }}
+                </span>
+                <span class="faq-category-dropdown-helper-text">
+                    Select Support category
+                </span>
+
+                <svg focusable="false"
+                     aria-hidden="true"
+                     class="icon icon--small icon--open chevron__icon">
+                    <use xlink:href="#icon-chevron-up"/>
+                </svg>
+
+                <svg focusable="false"
+                     aria-hidden="true"
+                     class="icon icon--small icon--closed chevron__icon">
+                    <use xlink:href="#icon-chevron-down"/>
+                </svg>
+            </button>
+            <div class="dropdown-menu w-100 faq-category-dropdown-menu">
+                {% for item in data.faq.items %}
+                <button class="dropdown-item" type="button" value="{{ loop.index }}">{{ item.name }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-4 d-none d-lg-block">
+                <ul class="nav nav-pills flex-column" id="faq-tab" role="tablist">
+                    {% for item in data.faq.items %}
+                    <li class="nav-item mb-3">
+                        <a class="button button__toggle w-100 {{'active' if loop.first}}" data-toggle="pill"
+                           href="#faq-item-{{ loop.index }}" data-index="{{ loop.index }}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col col-12 col-lg-8 ">
+                <div class="tab-content" id="faq-tab-content">
+                    {% for item in data.faq.items %}
+                    <div class="tab-pane fade {{'show active' if loop.first}}" id="faq-item-{{ loop.index }}" role="tabpanel">
+
+                        <h4 class="heading heading--4 no-gutter--top mb-3">{{ item.name }}</h4>
+
+                        {% for faq in item.faqs %}
+                        <section class="faq-question-section">
+                            <h6 class="heading heading--6 font-weight-bold mb-3">
+                                {{faq.question}}
+                            </h6>
+                            <div class="body-text">
+                                {{faq.answer}}
+                            </div>
+                        </section>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+  $.noConflict();
+
+  jQuery(document).ready(function($) {
+    $('a[data-toggle="pill"]').on('click', function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+
+      $('.faq-category-dropdown-toggle .faq-category-dropdown-selected-item').text($('.faq-category-dropdown-menu .dropdown-item[value=' + $(this).attr('data-index') +']').text());
+    });
+
+    $('.faq-category-dropdown-menu').on('click', 'button', function() {
+      $('.faq-category-dropdown-toggle .faq-category-dropdown-selected-item').text($(this).text());
+
+      $('#faq-tab li a').eq(+$(this).val() - 1).tab('show');
+    });
+  });
+</script>
 {% endblock %}

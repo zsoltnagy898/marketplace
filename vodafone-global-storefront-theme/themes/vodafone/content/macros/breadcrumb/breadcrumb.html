@@ -1,0 +1,23 @@
+{% macro breadcrumb(items=[]) %}
+<div class="breadcrumb-container">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% for item in items %}
+                {% if loop.last %}
+                <li class="breadcrumb-item active" aria-current="page">{{item.label}}</li>
+                {% else %}
+                <li class="breadcrumb-item">
+                    <a href="{{item.link}}">{{item.label}}</a>
+                    <svg focusable="false" aria-hidden="true"
+                         class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+                        <use xlink:href="#icon-chevron-right"/>
+                    </svg>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</div>
+{% endmacro %}

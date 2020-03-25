@@ -1,0 +1,39 @@
+.breadcrumb-container {
+  background-color: $color-wild-sand;
+
+  .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+    align-items: center;
+    height: 62px;
+    padding-left: 0;
+    padding-right: 0;
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: '';
+      display: none;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      cursor: default;
+
+      &, a {
+        font-family: VodafoneRegular;
+        color: $color-mine-shaft;
+        font-size: 1.13rem;
+        text-align: left;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .svg-icon {
+        padding: 6px 0 6px 0.5rem;
+      }
+    }
+  }
+}

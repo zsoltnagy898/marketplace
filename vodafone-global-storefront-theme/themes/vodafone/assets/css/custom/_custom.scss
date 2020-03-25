@@ -185,6 +185,7 @@
 @import "./header";
 @import "./footer";
 @import "./carousel";
+@import "./button";
 @import "./section_backrgound";
 
 $font-family-vodafone-regular: vodafone_rg,
@@ -195,6 +196,7 @@ sans-serif;
 body {
   background: white;
   font-size: 18px !important;
+  color: $color-grey;
 }
 
 p {
@@ -469,6 +471,24 @@ p {
   z-index: 9999;
 }
 
+.card {
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);
+  border-radius: $border-radius;
+}
+
+.body-text {
+  font-family: "VodafoneRegular";
+  font-size: 16px;
+  line-height: 23px;
+}
+
 .segmentation__content {
   overflow: hidden;
   margin-bottom: 20px;
@@ -702,26 +722,6 @@ p {
   display: none;
 }
 
-.button--purple {
-  background: #5E2750;
-  color: white;
-  text-align: center;
-
-  &:hover {
-    background: #411f39;
-  }
-}
-
-.button--white {
-  background: white;
-  color: #333333;
-  text-align: center;
-
-  &:hover {
-    background: #cccccc;
-  }
-}
-
 .heading-nomargin {
   margin: 10px 0 !important;
 }
@@ -833,15 +833,6 @@ p {
 
 .form-input-single {
   padding: 10px;
-}
-
-.button--secondary {
-  color: #FFF;
-  background-color: #666;
-}
-
-.button--secondary:hover {
-  background-color: #333;
 }
 
 .tabs {

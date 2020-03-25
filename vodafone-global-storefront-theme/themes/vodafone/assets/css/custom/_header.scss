@@ -7,7 +7,7 @@
 }
 
 .navigation__link {
-  color: #333;
+  color: $color-grey;
 }
 
 .navigation__icon--active {
@@ -183,7 +183,9 @@ nav.header {
   background-color: rgba(255, 255, 255, .7)
 }
 
-.navigation__link--active::after, .navigation__link--main:hover::after {
+.navigation__link--active::after,
+.navigation__link--main:hover::after,
+.navigation__link--main[aria-expanded="true"]::after {
   background-color: #E60000;
   content: "";
   position: absolute;
@@ -222,6 +224,7 @@ nav.header {
   font-size: 14px;
   line-height: 1;
   margin-top: 5px;
+  color: $color-mine-shaft;
 }
 
 .navigation__icon-text ~ .navigation__icon {

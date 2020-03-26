@@ -68,4 +68,13 @@
 
     </div>
 </div>
+<script>
+    var truncateOptions = {
+        truncate: "node",
+        after: ".more"
+    };
+    $(".carousel-item-title").dotdotdot(truncateOptions);
+    $(".carousel-item-overview").dotdotdot(truncateOptions);
+    $(".carousel-item-description").dotdotdot(truncateOptions);
+</script>
 {% endmacro %}

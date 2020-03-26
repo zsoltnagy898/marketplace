@@ -192,6 +192,11 @@
 @import "./faq";
 @import "./select";
 
+.hide-text-overflow {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
 $font-family-vodafone-regular: vodafone_rg,
 Arial,
 Helvetica,

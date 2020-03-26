@@ -1,0 +1,42 @@
+@import "./variables";
+
+.select .select-toggle {
+  background-color: $secondary-background;
+  font-size: 18px;
+}
+
+.select:not(.show) {
+  .selected-item-label,
+  .icon--closed {
+    display: block;
+  }
+
+  .select-helper-text,
+  .icon--open {
+    display: none;
+  }
+}
+
+.select.show {
+  .selected-item-label,
+  .icon--closed {
+    display: none;
+  }
+
+  .select-helper-text,
+  .icon--open {
+    display: block;
+  }
+}
+
+.select .dropdown-item {
+  padding: 0 16px;
+}
+
+.select .select-label {
+  padding: 8px 0;
+}
+
+.select .dropdown-item:not(:last-child) .select-label {
+  border-bottom: 1px solid rgba(151, 151, 151, 0.5);
+}

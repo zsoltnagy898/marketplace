@@ -58,11 +58,12 @@
 .button__toggle {
   color: $color-red;
   border-color: $color-red;
-  background-color: #F9F9F9;
+  background-color: $secondary-background;
 }
 
 .button__toggle:hover {
   color: $color-red;
+  background-color: rgba($color-red, 0.05);
 }
 
 .button__toggle.active {

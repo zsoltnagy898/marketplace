@@ -6,21 +6,21 @@
                  src="{{ product.iconUrl }}">
         </div>
         <div class="col-8 d-flex align-items-center">
-            <h2 class="carousel-item-title mb-0">{{product.name}}</h2>
+            <h4 class="carousel-item-title heading heading--4 heading--regular mt-0 mb-0">{{product.name}}</h4>
         </div>
     </div>
     <div class="col-12 p-0">
-        <h6 class="carousel-item-description">{{product.description}}</h6>
+        <div class="carousel-item-description body-text">{{product.description}}</div>
     </div>
     <div class="col-12 more-text text-right p-0">
         <a href={{product.url}}>
-            <h6 class="d-flex align-items-center">
+            <div class="d-flex align-items-center body-text">
                 More
                 <svg focusable="false" aria-hidden="true"
                      class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
                     <use xlink:href="#icon-chevron-right"/>
                 </svg>
-            </h6>
+            </div>
         </a>
     </div>
 </div>

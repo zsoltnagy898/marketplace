@@ -1,0 +1,8 @@
+{% macro logoCarouselItem(logo='', itemWidth=0) %}
+<div class="col pl-2 pr-2 d-flex align-items-center justify-content-center"
+     style="flex: 0 0 {{itemWidth}}%;max-width: {{itemWidth}}%;">
+    <div class="logo-carousel-item">
+        <img src="{{r(logo)}}"/>
+    </div>
+</div>
+{% endmacro %}

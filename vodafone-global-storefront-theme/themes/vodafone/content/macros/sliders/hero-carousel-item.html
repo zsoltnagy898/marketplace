@@ -1,8 +1,11 @@
 {% macro heroCarouselItem(product) %}
 <div class="hero-carousel-item row d-flex flex-wrap flex-column-reverse flex-lg-row mb-5">
     <div class="col-lg-6 col-12">
-        <h1 class="carousel-item-title" title="{{product.name}}">{{product.name}}</h1>
-        <h1 class="carousel-item-overview" title="{{product.overview}}">{{product.overview}}</h1>
+        <h3 class="carousel-item-title heading heading--3 heading--center heading--leading text-left"
+            title="{{product.name}}">
+            {{product.name}}</h3>
+        <h3 class="carousel-item-overview heading heading--3 heading--center heading--leading text-left"
+            title="{{product.overview}}">{{product.overview}}</h3>
         <h5 class="carousel-item-description" title="{{product.description}}">{{product.description}}
         </h5>
 

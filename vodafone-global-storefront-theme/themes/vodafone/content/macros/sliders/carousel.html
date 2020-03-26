@@ -1,11 +1,13 @@
 {% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem %}
 {% from "/macros/sliders/list-carousel.html" import listCarousel %}
 
-{% macro carousel(id='carousel', products={}, itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop') %}
+{% macro carousel(id='carousel', products={}, itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop', sliceCount=1, greyBg=false, widerControls=false) %}
 <div class="container">
-    <div id="{{id}}" class="carousel slide {{'high-height' if showViewMore}}" data-ride="carousel">
+    <div id="{{id}}"
+         class="carousel slide {{'high-height' if showViewMore}} {{'low-height' if itemTheme === 'logo'}} {{'grey-bg' if greyBg}} {{'wider-controls' if widerControls}}"
+         data-ride="carousel">
         {% if showTitle %}
-        <h1 class="text-center carousel-title">{{products.name}}</h1>
+        <h3 class="text-center heading heading--3 heading--center heading--leading">{{products.name}}</h3>
         {% endif %}
 
         {% if showIndicators %}
@@ -28,24 +30,35 @@
             </div>
             {% elif itemTheme === 'list' %}
             {{listCarousel(products, viewType)}}
+            {% elif itemTheme === 'logo' %}
+            <div>
+                {% if viewType === 'mobile' %}
+                {{listCarousel(products, itemTheme, sliceCount)}}
+                {% elif viewType === 'desktop' %}
+                {{listCarousel(products, itemTheme, sliceCount)}}
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if products.items.length > sliceCount %}
+            <button class=" carousel-control-prev d-none d-lg-flex" href="#{{id}}" data-slide="prev">
+                <div class="carousel-control-icon-container">
+                    <svg focusable="false" aria-hidden="true"
+                         class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
+                        <use xlink:href="#icon-chevron-left"/>
+                    </svg>
+                </div>
+            </button>
+            <button class="carousel-control-next d-none d-lg-flex" href="#{{id}}" data-slide="next">
+                <div class="carousel-control-icon-container">
+                    <svg focusable="false" aria-hidden="true"
+                         class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
+                        <use xlink:href="#icon-chevron-left"/>
+                    </svg>
+                </div>
+            </button>
             {% endif %}
         </div>
-        <button class=" carousel-control-prev d-none d-lg-flex" href="#{{id}}" data-slide="prev">
-            <div class="carousel-control-icon-container">
-                <svg focusable="false" aria-hidden="true"
-                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
-                    <use xlink:href="#icon-chevron-left"/>
-                </svg>
-            </div>
-        </button>
-        <button class="carousel-control-next d-none d-lg-flex" href="#{{id}}" data-slide="next">
-            <div class="carousel-control-icon-container">
-                <svg focusable="false" aria-hidden="true"
-                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
-                    <use xlink:href="#icon-chevron-left"/>
-                </svg>
-            </div>
-        </button>
 
         {% if showViewMore %}
         <div class="text-center carousel-view-all">

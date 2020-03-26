@@ -1,0 +1,18 @@
+.more-text {
+  cursor: pointer;
+
+  .body-text {
+    font-family: VodafoneRegularBold;
+  }
+
+  a {
+    color: $color-grey;
+  }
+
+  svg {
+    color: $color-mine-shaft;
+    padding-left: 0;
+    height: 13px;
+    width: 20px;
+  }
+}

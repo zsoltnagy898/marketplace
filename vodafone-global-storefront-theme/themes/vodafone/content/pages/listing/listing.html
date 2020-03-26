@@ -1,14 +1,20 @@
 {% extends "/layout/base.html" %}
 {% from "/macros/listing/listing-navigator.html" import listingNavigator %}
 {% from "/macros/listing/listing-items.html" import listingItems %}
+{% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
 {% block content %}
+{{breadcrumb([{label: 'Home', link: '/'}, {label: 'Listing Page'}])}}
 <div class="container listing listing-page mt-3" data-sort='{{ listing.query.order }}'>
     <div class="mb-3">
         {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint) }}
     </div>
 
-    {{ listingItems(listingProducts, listingFilters.selectedFilters) }}
+    <div class="col-12 listing-items">
+        <div class="content">
+            {{ listingItems(listingProducts, listingFilters.selectedFilters) }}
+        </div>
+    </div>
     <div class="listing-overlay is-hidden"></div>
 </div>
 {% endblock %}

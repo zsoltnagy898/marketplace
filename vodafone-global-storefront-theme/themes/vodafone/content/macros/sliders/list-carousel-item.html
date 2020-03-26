@@ -1,3 +1,5 @@
+{% from "/macros/more/more.html" import more %}
+
 {% macro listCarouselItem(product, mobile, next) %}
 <div class="list-carousel-item" style="{{'width: 90%;' if mobile}}{{'display: none;' if next}}">
     <div class="col-12 p-0 d-flex flex-wrap title-container">
@@ -12,16 +14,8 @@
     <div class="col-12 p-0">
         <div class="carousel-item-description body-text" title="{{product.description}}">{{product.description}}</div>
     </div>
-    <div class="col-12 more-text text-right p-0">
-        <a href={{product.url}}>
-            <div class="d-flex align-items-center body-text">
-                More
-                <svg focusable="false" aria-hidden="true"
-                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
-                    <use xlink:href="#icon-chevron-right"/>
-                </svg>
-            </div>
-        </a>
+    <div class="col-12 p-0 more-text-container text-right">
+        {{more(product.url)}}
     </div>
 </div>
 {% endmacro %}

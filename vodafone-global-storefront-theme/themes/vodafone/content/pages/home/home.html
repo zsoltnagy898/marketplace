@@ -47,14 +47,22 @@
         <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
         {{ carousel('hero', productLists.featuredapps) }}
     </section>
-    <section class="section gutter__large--y">
-        {{ carouselList(productLists.popularapps, productLists.popularapps.name) }}
+    <section class="section section--white">
+        <div class="d-block d-lg-none">
+            {{ carousel('popularAppsMobile', productLists.popularapps,'list', true, false, true, 'mobile') }}
+        </div>
+        <div class="d-none d-lg-block">
+            {{ carousel('popularAppsDesktop', productLists.popularapps,'list', true, false, true, 'desktop') }}
+        </div>
     </section>
     <section class="section section--gallery gutter__large--y">
         {{ recommendedSolutions(productLists.staffpicks) }}
     </section>
     <section class="section gutter__large--y">
         {{ whyVodafone() }}
+    </section>
+    <section class="section section--gallery">
+        {{ carouselList(productLists.featuredapps, productLists.featuredapps.name) }}
     </section>
 </div>
 {% endblock %}

@@ -1,0 +1,39 @@
+{% from "/macros/sliders/list-carousel-item.html" import listCarouselItem %}
+
+{% macro listCarousel(products={}, viewType='desktop', sliceCount=3) %}
+{% set sliceCount = products.items.length // sliceCount %}
+{% set sliceCount = sliceCount + 1  if products.items.length / sliceCount > 0 else sliceCount %}
+
+{% if viewType === 'mobile' %}
+<div class="mobile-carousel-list d-flex flex-nowrap">
+    {% for product in products.items %}
+    <div class="carousel-item {{'active' if loop.first}} mb-5">
+        {{listCarouselItem(product, true)}}
+
+        {% if loop.index0 === products.items.length - 1 %}
+        {{listCarouselItem(products.items[0], true, true)}}
+        {% else %}
+        {{listCarouselItem(products.items[loop.index0 + 1], true, true)}}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% elif viewType === 'desktop' %}
+<div class="row d-flex flex-nowrap">
+    <div class="mb-5 w-100">
+        {%- for items in products.items | slice(sliceCount) %}
+        <div class="carousel-item low-padding {{'active' if loop.first}}">
+            <div class="col-12 d-flex flex-wrap">
+                {%- for item in items %}
+                <div class="col-4 pl-2 pr-2">
+                    {{listCarouselItem(item)}}
+                </div>
+                {%- endfor %}
+            </div>
+        </div>
+        {%- endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endmacro %}

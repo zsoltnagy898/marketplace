@@ -25,12 +25,10 @@
             <div class="heading--bold heading--3 m-0 listing-formatted-price">
                 {{app.startingPrice.formattedPrice}}
             </div>
-            {% if app.startingPrice.frequency.label %}
-            <div class="body-text listing-frequency-label heading--light mb-2">
+            <div class="body-text listing-frequency-label heading--light {{'invisible' if app.startingPrice.frequency.label.length === 0}}">
                 /{{app.startingPrice.frequency.label}}
             </div>
-            {% endif %}
-            <a href="{{app.url}}" role="button" class="button button--primary w-100">Buy Now</a>
+            <a href="{{app.url}}" role="button" class="button button--primary mt-2 w-100 max-width">Buy Now</a>
         </div>
     </div>
     {% endfor %}

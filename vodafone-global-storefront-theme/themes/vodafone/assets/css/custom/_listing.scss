@@ -11,6 +11,11 @@
 }
 
 .listing-items {
+
+  @include media-breakpoint-down(md) {
+    padding: 0;
+  }
+
   .content {
 
     @include media-breakpoint-down(md) {
@@ -57,6 +62,10 @@
 .listing-items-grid {
   .grid-item-card-container {
     padding: 0 10px;
+
+    @include media-breakpoint-down(md) {
+      padding: 0;
+    }
   }
 
   .list-item-card {

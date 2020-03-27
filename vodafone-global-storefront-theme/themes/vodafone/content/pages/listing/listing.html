@@ -4,7 +4,13 @@
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
 {% block content %}
-{{breadcrumb([{label: 'Home', link: '/'}, {label: 'Listing Page'}])}}
+
+{% set pageTitle = 'All Categories' %}
+{% if listingFilters.selectedFilters and listingFilters.selectedFilters[0] and listingFilters.selectedFilters[0].text %}
+{% set pageTitle = listingFilters.selectedFilters[0].text %}
+{% endif %}
+
+{{breadcrumb([{label: 'Home', link: '/'}, {label: pageTitle}])}}
 <div class="container listing listing-page mt-3" data-sort='{{ listing.query.order }}'>
     <div class="mb-3">
         {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint) }}

@@ -12,6 +12,10 @@
         <div class="dropdown select faq-group-select d-flex d-lg-none justify-content-center mb-4" id="faq-group-select">
             <button class="button d-flex justify-content-between align-items-center select-toggle"
                     type="button" data-toggle="dropdown">
+                <span class="select-helper-text">
+                    Select Support category
+                </span>
+
                 <span class="selected-item-label">
                     {% if faqGroups.items and faqGroups.items[0] %}
                         {{ faqGroups.items[0].name }}
@@ -19,19 +23,10 @@
                         No Support categories available
                     {% endif %}
                 </span>
-                <span class="select-helper-text">
-                    Select Support category
-                </span>
 
                 <svg focusable="false"
                      aria-hidden="true"
-                     class="icon icon--small icon--open chevron__icon">
-                    <use xlink:href="#icon-chevron-up"/>
-                </svg>
-
-                <svg focusable="false"
-                     aria-hidden="true"
-                     class="icon icon--small icon--closed chevron__icon">
+                     class="icon icon--small chevron__icon">
                     <use xlink:href="#icon-chevron-down"/>
                 </svg>
             </button>
@@ -82,9 +77,7 @@
         </div>
     </div>
 </div>
-{% endblock %}
 
-{% block scripts %}
 <script>
   $.noConflict();
 

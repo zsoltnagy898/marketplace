@@ -5,27 +5,32 @@
   font-size: 18px;
 }
 
+.select .chevron__icon {
+  margin-left: 16px;
+  transition: transform 0.2s ease;
+}
+
 .select:not(.show) {
-  .selected-item-label,
-  .icon--closed {
+  .selected-item-label {
     display: block;
   }
 
-  .select-helper-text,
-  .icon--open {
+  .select-helper-text {
     display: none;
   }
 }
 
 .select.show {
-  .selected-item-label,
-  .icon--closed {
+  .select-helper-text + .selected-item-label {
     display: none;
   }
 
-  .select-helper-text,
-  .icon--open {
+  .select-helper-text {
     display: block;
+  }
+
+  .chevron__icon {
+    transform: rotate(180deg);
   }
 }
 

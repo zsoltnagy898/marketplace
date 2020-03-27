@@ -325,7 +325,8 @@ p {
   font-size: 18px;
 }
 
-.dropdown-item:active {
+.dropdown-item:active,
+.dropdown-item.active {
   background: $color-dusty-gray;
   color: white;
 }

@@ -182,11 +182,20 @@
 @import "../../../../../../node_modules/bootstrap/scss/bootstrap";
 @import "./variables";
 @import "./bootstrap_override";
+@import "./svg_icon";
 @import "./header";
 @import "./footer";
 @import "./carousel";
 @import "./button";
 @import "./section_backrgound";
+@import "./breadcrumb";
+@import "./faq";
+@import "./select";
+
+.hide-text-overflow {
+  overflow: hidden;
+  word-wrap: break-word;
+}
 
 $font-family-vodafone-regular: vodafone_rg,
 Arial,
@@ -309,14 +318,27 @@ p {
 
 .dropdown-menu {
   border: none;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
   border-radius: $border-radius;
+  font-family: "VodafoneRegular";
+  color: $color-mine-shaft;
+  font-size: 18px;
+}
+
+.dropdown-item:active,
+.dropdown-item.active {
+  background: $color-dusty-gray;
+  color: white;
 }
 
 .body-text {
   font-family: "VodafoneRegular";
   font-size: 16px;
   line-height: 23px;
+}
+
+.pre-line {
+  white-space: pre-line;
 }
 
 .segmentation__content {

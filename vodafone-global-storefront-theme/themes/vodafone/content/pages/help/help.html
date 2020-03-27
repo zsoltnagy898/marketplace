@@ -1,0 +1,101 @@
+{% extends "/layout/base.html" %}
+{% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
+
+{% block content %}
+<div>
+    {{breadcrumb([{label: 'Home', link: '/'}, {label: 'App Support'}])}}
+
+    <div class="container mb-5 mt-5">
+        <h2 class="heading heading--2 heading--center mt-0 mb-5">
+            App Support
+        </h2>
+        <div class="dropdown select faq-group-select d-flex d-lg-none justify-content-center mb-4" id="faq-group-select">
+            <button class="button d-flex justify-content-between align-items-center select-toggle"
+                    type="button" data-toggle="dropdown">
+                <span class="select-helper-text">
+                    Select Support category
+                </span>
+
+                <span class="selected-item-label">
+                    {% if faqGroups.items and faqGroups.items[0] %}
+                        {{ faqGroups.items[0].name }}
+                    {% else %}
+                        No Support categories available
+                    {% endif %}
+                </span>
+
+                <svg focusable="false"
+                     aria-hidden="true"
+                     class="icon icon--small chevron__icon">
+                    <use xlink:href="#icon-chevron-down"/>
+                </svg>
+            </button>
+            <div class="dropdown-menu">
+                {% for item in faqGroups.items %}
+                <button class="dropdown-item" type="button" value="{{ loop.index }}" data-name="{{ item.name }}">
+                    <div class="select-label">
+                        {{ item.name }}
+                    </div>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-3 d-none d-lg-block">
+                <ul class="nav nav-pills flex-column" id="faq-tab" role="tablist">
+                    {% for item in faqGroups.items %}
+                    <li class="nav-item mb-3">
+                        <a class="button button__toggle text-left w-100 {{'active' if loop.first}}" data-toggle="pill"
+                           href="#faq-item-{{ loop.index }}" data-index="{{ loop.index }}">
+                            {{ item.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col col-12 col-lg-9">
+                <div class="tab-content" id="faq-tab-content">
+                    {% for item in faqGroups.items %}
+                    <div class="tab-pane fade {{'show active' if loop.first}}" id="faq-item-{{ loop.index }}" role="tabpanel">
+
+                        {% if item.name %}
+                        <h4 class="heading heading--4 no-gutter--top mb-3 heading--regular">{{ item.name | safe }}</h4>
+                        {% endif %}
+
+                        {% for faq in item.faqs %}
+                        <section class="faq-question-section">
+                            <h6 class="heading heading--6 font-weight-bold mb-3">
+                                {{ faq.question | safe }}
+                            </h6>
+                            <div class="body-text pre-line">{{ faq.answer | safe }}</div>
+                        </section>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  $.noConflict();
+
+  jQuery(document).ready(function($) {
+    $('#faq-tab a[data-toggle="pill"]').on('click', function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+
+      var text = $('#faq-group-select .dropdown-item[value=' + $(this).attr('data-index') +']').attr('data-name');
+
+      $('#faq-group-select .selected-item-label').text(text);
+    });
+
+    $('#faq-group-select .dropdown-menu').on('click', 'button', function() {
+      $('#faq-group-select .selected-item-label').text($(this).attr('data-name'));
+
+      $('#faq-tab li a').eq(+$(this).val() - 1).tab('show');
+    });
+  });
+</script>
+{% endblock %}

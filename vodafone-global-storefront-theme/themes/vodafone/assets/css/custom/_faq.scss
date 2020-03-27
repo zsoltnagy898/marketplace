@@ -1,0 +1,24 @@
+.faq-question-section:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 24px;
+}
+
+.faq-group-select .select-toggle,
+.faq-group-select .dropdown-menu {
+  width: 100%;
+}
+
+@include media-breakpoint-up(sm) {
+  .faq-group-select .select-toggle,
+  .faq-group-select .dropdown-menu {
+    width: 80%;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .faq-group-select .select-toggle,
+  .faq-group-select .dropdown-menu {
+    width: 50%;
+  }
+}

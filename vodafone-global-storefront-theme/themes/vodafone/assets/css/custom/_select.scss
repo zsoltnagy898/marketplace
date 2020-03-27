@@ -1,0 +1,47 @@
+@import "./variables";
+
+.select .select-toggle {
+  background-color: $secondary-background;
+  font-size: 18px;
+}
+
+.select .chevron__icon {
+  margin-left: 16px;
+  transition: transform 0.2s ease;
+}
+
+.select:not(.show) {
+  .selected-item-label {
+    display: block;
+  }
+
+  .select-helper-text {
+    display: none;
+  }
+}
+
+.select.show {
+  .select-helper-text + .selected-item-label {
+    display: none;
+  }
+
+  .select-helper-text {
+    display: block;
+  }
+
+  .chevron__icon {
+    transform: rotate(180deg);
+  }
+}
+
+.select .dropdown-item {
+  padding: 0 16px;
+}
+
+.select .select-label {
+  padding: 8px 0;
+}
+
+.select .dropdown-item:not(:last-child) .select-label {
+  border-bottom: 1px solid rgba(151, 151, 151, 0.5);
+}

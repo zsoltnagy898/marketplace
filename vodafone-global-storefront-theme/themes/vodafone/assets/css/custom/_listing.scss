@@ -1,0 +1,11 @@
+@import "./variables";
+
+.listing .filter-header,
+.listing .filter-link {
+  font-family: VodafoneRegular;
+  color: $color-dove-gray;
+}
+
+.listing .filter-link {
+  font-size: 14px;
+}

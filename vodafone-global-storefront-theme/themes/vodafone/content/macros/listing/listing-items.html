@@ -29,23 +29,6 @@
     </div>
     <section class="container-box">
         <div class="container_header">
-            <div class="filter-container">
-                <menu class="filters--content">
-                    <div class="filters--filter">
-                        <label class="label__small label__inline">{{ listing.i18n.sortBy }}:</label>
-                        <div class="select-input-container">
-                            <div class="dropdown dropdown__small">
-                                <span class="js-dropdown-placeholder">{{ listing.sorting.selected.label }}</span>
-                                <select aria-label="{{ listing.i18n.sortBy }}:" class="js-dropdown-select js-grid-filters" name="">
-                                    {% for option in listing.sorting.options %}
-                                    <option href="{{ option.url }}" value="{{ option.value }}" {% if (option.selected == true) %}selected{% endif %} >{{ option.label }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </menu>
-            </div>
             <div class="tags-container">
                 <div class="filters--tags">
                     {% for filter in selectedFilters %}

@@ -10,27 +10,30 @@
         {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint) }}
     </div>
 
-    <div class="col-12">
-        <menu class="toggle_buttons toolbar--item d-flex align-items-center justify-content-end">
-            <button class="button button--small button__toggle_font_color button--no--border d-flex align-items-center mr-2 list-view-button"
-                    aria-label="list"
-                    onclick="setView('list')">
-                <svg focusable="false" aria-hidden="true"
-                     class="icon icon--small icon--closed chevron__icon no-stroke mr-1">
-                    <use xlink:href="#icon-numbered-view"></use>
-                </svg>
-                List view
-            </button>
-            <button class=" button button--small button__toggle_font_color button--no--border d-flex align-items-center grid-view-button"
-                    aria-label="grid"
-                    onclick="setView('grid')">
-                <svg focusable="false" aria-hidden="true" class="icon icon--small icon--closed no-stroke mr-1">
-                    <use xlink:href="#icon-grid-view"></use>
-                </svg>
-                Grid view
-            </button>
-        </menu>
-    </div>
+    <script>
+        function setViewClass(view) {
+            if (view === "grid") {
+                document.querySelector(".listing-page").classList.add("listing-grid-list");
+                document.querySelector(".listing-page").classList.remove("listing-show-list");
+                document.querySelector(".grid-view-button").classList.add("active");
+                document.querySelector(".list-view-button").classList.remove("active");
+            } else {
+                document.querySelector(".listing-page").classList.add("listing-show-list");
+                document.querySelector(".listing-page").classList.remove("listing-grid-list");
+                document.querySelector(".list-view-button").classList.add("active");
+                document.querySelector(".grid-view-button").classList.remove("active");
+            }
+        }
+
+        function setView(type) {
+            sessionStorage.setItem("listingView", type);
+            setViewClass(type);
+        }
+
+        var view = sessionStorage.getItem("listingView");
+
+        setViewClass(view);
+    </script>
 
     <div class="col-12 listing-items">
         <div class="content">
@@ -43,29 +46,6 @@
 
 {% block scripts %}
 <script>
-    function setViewClass(view) {
-        if (view === "grid") {
-            document.querySelector(".listing-page").classList.add("listing-grid-list");
-            document.querySelector(".listing-page").classList.remove("listing-show-list");
-            document.querySelector(".grid-view-button").classList.add("active");
-            document.querySelector(".list-view-button").classList.remove("active");
-        } else {
-            document.querySelector(".listing-page").classList.add("listing-show-list");
-            document.querySelector(".listing-page").classList.remove("listing-grid-list");
-            document.querySelector(".list-view-button").classList.add("active");
-            document.querySelector(".grid-view-button").classList.remove("active");
-        }
-    }
-
-    function setView(type) {
-        sessionStorage.setItem("listingView", type);
-        setViewClass(type);
-    }
-
-    var view = sessionStorage.getItem("listingView");
-
-    setViewClass(view);
-
-  $('.listing-page').listing({});
+    $('.listing-page').listing({});
 </script>
 {% endblock %}

@@ -9,34 +9,38 @@
         {{ listingItemsRow(listing) }}
     </div>
     <div class="container_footer">
-        <div class="container_footer--item count-container">
-            <span class="subtitle js-nbResults">{{ listing.pagination.totalCount }} {{ listing.i18n.results }} </span>
-        </div>
-        {% if listing.pagination.totalCount >= 13 %}
-        <div class="container_footer--item__last pager-container js-pager">
-            <nav class="pagination">
-                {% for item in listing.pagination.pagesList %}
-                {% if(item.type == "previous") %}
-                <a href="{{ item.url }}"
-                   class="icon__angle_left paginationLink pagination--button pagination--button__prev {% if item.status === "
-                   disabled" %}is-disabled{% endif %}"></a>
-                {% endif %}
-                {% if(item.type == "next") %}
-                <a href="{{ item.url }}"
-                   class="icon__angle_right pagination--button pagination--button__next  {% if item.status === "
-                   disabled" %}is-disabled{% endif %}"></a>
-                {% endif %}
-                {% if(item.type == "ellipsis") %}
-                <span class="pagination--ellipsis"></span>
-                {% endif %}
-                {% if(item.type == "page") %}
-                <a href="{{ item.url }}"
-                   class="pagination--button {% if item.status === 'selected' %}active{% endif %}">{{ item.nb }}</a>
-                {% endif %}
-                {% endfor %}
-            </nav>
-        </div>
-        {% endif %}
+        <nav class="pagination position-relative d-flex align-items-center justify-content-center">
+            {% for item in listing.pagination.pagesList %}
+            {% if(item.type == "previous") %}
+            <a href="{{ item.url }}"
+               class="pagination--button-prev {% if item.status === 'disabled' %}is-disabled{% endif %} body-text">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+                    <use xlink:href="#icon-chevron-left"/>
+                </svg>
+            </a>
+            {% endif %}
+            {% if(item.type == "next") %}
+            <a href="{{ item.url }}"
+               class="pagination--button-next {% if item.status === 'disabled' %}is-disabled{% endif %} body-text">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+                    <use xlink:href="#icon-chevron-right"/>
+                </svg>
+            </a>
+            {% endif %}
+            {% if(item.type == "ellipsis") %}
+            <span class="pagination--ellipsis body-text">
+                ...
+            </span>
+            {% endif %}
+            {% if(item.type == "page") %}
+            <a href="{{ item.url }}"
+               class="pagination--button {% if item.status === 'selected' %}active{% endif %} body-text">{{ item.nb
+                }}</a>
+            {% endif %}
+            {% endfor %}
+        </nav>
     </div>
 </section>
 <script>

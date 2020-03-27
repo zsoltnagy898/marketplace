@@ -12,32 +12,32 @@
     <div class="col col-6 col-lg-12 d-block d-lg-none text-right">
         <a class="filter-link" href="{{ listingEndpoint }}">Clear filters</a>
     </div>
-    <div class="col col-12 d-flex align-items-baseline">
+    <div class="col col-12 d-flex align-items-center">
         {% for filter in filters %}
-            {% if filter.id === 'categories' %}
-                <div class="dropdown select justify-content-center mr-3 flex-grow-1 flex-lg-grow-0">
-                    <button class="button d-flex justify-content-between align-items-center select-toggle w-100"
-                            type="button" data-toggle="dropdown">
+        {% if filter.id === 'categories' %}
+        <div class="dropdown select justify-content-center mr-3 flex-grow-1 flex-lg-grow-0">
+            <button class="button d-flex justify-content-between align-items-center select-toggle w-100"
+                    type="button" data-toggle="dropdown">
                         <span class="selected-item-label">
                             Categories
                         </span>
-                        <svg focusable="false"
-                             aria-hidden="true"
-                             class="icon icon--small icon--closed chevron__icon">
-                            <use xlink:href="#icon-chevron-down"/>
-                        </svg>
-                    </button>
-                    <div class="dropdown-menu">
-                        {% for item in filter.items %}
-                            <a href="{{ item.url }}" class="dropdown-item {{'active' if item.selected}}">
+                <svg focusable="false"
+                     aria-hidden="true"
+                     class="icon icon--small icon--closed chevron__icon">
+                    <use xlink:href="#icon-chevron-down"/>
+                </svg>
+            </button>
+            <div class="dropdown-menu">
+                {% for item in filter.items %}
+                <a href="{{ item.url }}" class="dropdown-item {{'active' if item.selected}}">
                                 <span class="d-block select-label">
                                     {{ item.text }}
                                 </span>
-                            </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
 
         <div class="dropdown select justify-content-center mr-lg-3 flex-grow-1 flex-lg-grow-0">
@@ -54,11 +54,11 @@
             </button>
             <div class="dropdown-menu">
                 {% for item in sorting.options %}
-                    <a href="{{ item.url }}" class="dropdown-item {{'active' if item.selected}}">
+                <a href="{{ item.url }}" class="dropdown-item {{'active' if item.selected}}">
                         <span class="d-block select-label">
                             {{ item.label }}
                         </span>
-                    </a>
+                </a>
                 {% endfor %}
             </div>
         </div>
@@ -66,6 +66,26 @@
         <div class="d-none d-lg-block">
             <a class="filter-link" href="{{ listingEndpoint }}">Clear filters</a>
         </div>
+
+        <menu class="toggle_buttons toolbar--item d-flex align-items-center justify-content-end ml-auto mt-0 mb-0">
+            <button class="button button--small button__toggle_font_color button--no--border d-flex align-items-center mr-2 list-view-button"
+                    aria-label="list"
+                    onclick="setView('list')">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon icon--small icon--closed chevron__icon no-stroke mr-1">
+                    <use xlink:href="#icon-numbered-view"></use>
+                </svg>
+                List view
+            </button>
+            <button class=" button button--small button__toggle_font_color button--no--border d-flex align-items-center grid-view-button"
+                    aria-label="grid"
+                    onclick="setView('grid')">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small icon--closed no-stroke mr-1">
+                    <use xlink:href="#icon-grid-view"></use>
+                </svg>
+                Grid view
+            </button>
+        </menu>
     </div>
 </div>
 {% endmacro %}

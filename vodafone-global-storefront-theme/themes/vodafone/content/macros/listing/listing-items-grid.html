@@ -1,9 +1,44 @@
-{% from "/macros/rating.html" import rating %}
-{% from "/macros/profile-image.html" import productImageSmall %}
-{% from "/macros/simple-tooltip.html" import simpleTooltip %}
+{% from "/macros/more/more.html" import more %}
 
 {% macro listingItemsGrid(listing, showUtils = true) %}
-<div class="listing-items-grid">
-    Grid
+<div class="listing-items-grid flex-wrap">
+    {% for app in listing.items %}
+    <div class="grid-item-card-container d-flex col-12 col-lg-4">
+        <div data-id="{{ app.id }}" data-component="ListingGridTile"
+             class="col-12 d-flex align-items-center list-item-card flex-wrap">
+            <div class="col-12 pl-0 pr-0 d-flex mb-1">
+                <img aria-label="{{app.name}}" class="id--sliderimg" alt=""
+                     src="{{ app.profileLogoUrl }}">
+                <h4 class="heading heading--4 heading--regular mt-0 mb-2 ml-3 listing-title">{{app.name}}</h4>
+            </div>
+            <div class="col-12 pl-0 pr-0 mb-1">
+                <div class="body-text listing-description mb-2" title="{{app.description}}">
+                    {{app.description}}
+                </div>
+                <div class="col-12 p-0 text-right">
+                    {{more(app.url)}}
+                </div>
+            </div>
+            <div class="col-12 pl-0 pr-0 d-flex align-items-center">
+                <div class="col-6 p-0">
+                    <div class="body-text heading--light listing-started-at">
+                        Starting at
+                    </div>
+                    <div class="heading--bold heading--3 m-0 listing-formatted-price">
+                        {{app.startingPrice.formattedPrice}}
+                    </div>
+                    {% if app.startingPrice.frequency.label %}
+                    <div class="body-text listing-frequency-label heading--light mb-2">
+                        /{{app.startingPrice.frequency.label}}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-6 p-0 text-right">
+                    <a href="{{app.url}}" role="button" class="button button--primary mb-0">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endmacro %}

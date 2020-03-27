@@ -3,6 +3,14 @@
 
     @include media-breakpoint-down(md) {
       padding: 0;
+
+      .listing-items-row {
+        display: none;
+      }
+
+      .listing-items-grid {
+        display: flex;
+      }
     }
 
     padding: 0 55px;
@@ -20,7 +28,7 @@
   }
 
   .listing-items-grid {
-    display: block;
+    display: flex;
   }
 }
 
@@ -31,6 +39,25 @@
 
   .listing-items-grid {
     display: none;
+  }
+}
+
+.listing-items-grid {
+  .grid-item-card-container {
+    padding: 0 10px;
+  }
+
+  .list-item-card {
+    height: 316px;
+    margin: 10px 0;
+
+    img {
+      height: 72px;
+    }
+
+    .listing-title {
+      word-break: break-all;
+    }
   }
 }
 

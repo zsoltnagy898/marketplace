@@ -14,10 +14,12 @@
                                 <a href="#" class="js-language-current language__current">
                                     <span class="visually-hidden">menu</span>
                                     <span class="js-language-chosen language__chosen">English</span>
-                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  js-location-icon-down language__icon language__icon--down">
+                                    <svg focusable="false" aria-hidden="true"
+                                         class="icon  icon--small  js-location-icon-down language__icon language__icon--down">
                                         <use xlink:href="#icon-chevron-down"></use>
                                     </svg>
-                                    <svg focusable="false" aria-hidden="true" class="icon  icon--small  js-location-icon-down language__icon language__icon--up">
+                                    <svg focusable="false" aria-hidden="true"
+                                         class="icon  icon--small  js-location-icon-down language__icon language__icon--up">
                                         <use xlink:href="#icon-chevron-up"></use>
                                     </svg>
                                 </a>
@@ -67,7 +69,8 @@
                                 <a href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/" target="_blank">
                                     Help
                                     {{home.welcome}}
-                                    <img src="{{ r('/assets/images/help-circle.png') }}" alt="Help" class="gallery__image">
+                                    <img src="{{ r('/assets/images/help-circle.png') }}" alt="Help"
+                                         class="gallery__image">
                                 </a>
                             </div>
                         </li>
@@ -79,7 +82,7 @@
     <div class="js-navigation-static navigation-static">&#xA0;</div>
     <div class="js-navigation navigation navigation--primary component__icon-background" data-js="_navigation">
         <div class="container">
-            <ul class="navigation__list navigation__hide" role="navigation">
+            <ul class="navigation__list navigation__hide d-flex" role="navigation">
                 <li class="navigation__item">
                     <!-- START: "group/components/brand/index" Array
                         (
@@ -100,7 +103,7 @@
                 -->
                 <li class="navigation__item dropdown d-none d-lg-block">
                     <a href="#"
-                       class="navigation__link navigation__link--main {{'navigation__link--active' if config.pageId === 'listing'}}"
+                       class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'listing'}}"
                        id="business-apps-dropdown"
                        role="button"
                        data-toggle="dropdown"
@@ -117,7 +120,7 @@
 
                 <li class="js-navigation-item navigation__item d-none d-lg-block">
                     <a href="/en-US/help"
-                       class="navigation__link navigation__link--main {{'navigation__link--active' if config.pageId === 'help'}}"
+                       class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}"
                     >
                         App support
                         <span class="visually-hidden">menu</span>
@@ -125,21 +128,57 @@
                 </li>
 
                 <!-- END: "group/components/header/adaptations/list" -->
+                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-auto">
+                    <form class="search-container" id="header-search-container" novalidate>
+                        <input class="search-input" placeholder="Find Applications" type="search" name="search">
+                        <div class="search-icon-container">
+                            <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
+                                 id="search-icon">
+                                <use xlink:href="#icon-search"/>
+                            </svg>
+                            <span class="navigation__icon-text d-none d-lg-block">Search</span>
+                        </div>
+                    </form>
+                </li>
+                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
+                    <a href="https://marketplace-empresas.vodafone.es/login?986202465"
+                       class="js-navigation-link navigation__link navigation__link--icon">
+                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
+                             id="login-icon">
+                            <use xlink:href="#icon-my-vodafone"/>
+                        </svg>
+                        <span class="navigation__icon-text">Log In</span>
+                    </a>
+                </li>
+                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
+                    <a href="https://ayudacliente.vodafone.es/empresas/contacta/"
+                       class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon--last">
+                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
+                             id="contact-us-icon-icon">
+                            <use xlink:href="#icon-landline-or-call"/>
+                        </svg>
+                        <span class="navigation__icon-text">Contact Us</span>
+                    </a>
+                </li>
+
                 <!-- START: "group/components/header/adaptations/accordion" Array
-                    (
-                    [journey] => anonymous
-                    )
-                -->
+                     (
+                     [journey] => anonymous
+                     )
+                 -->
 
                 <li class="js-navigation-item navigation__item navigation__item--right navigation__hide js-navigation-item-clickable navigation__item--clickable d-lg-none">
-                    <a href="#" class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon-last navigation__link--menu">
+                    <a href="#"
+                       class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon-last navigation__link--menu">
                         <span class="visually-hidden">
                             <span class="navigation__accessibility">Close</span>Menu
                         </span>
-                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon js-navigation-toggle navigation__toggle">
+                        <svg focusable="false" aria-hidden="true"
+                             class="icon icon--small navigation__icon js-navigation-toggle navigation__toggle">
                             <use xlink:href="#icon-menu"/>
                         </svg>
-                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon js-navigation-close navigation__close">
+                        <svg focusable="false" aria-hidden="true"
+                             class="icon icon--small navigation__icon js-navigation-close navigation__close">
                             <use xlink:href="#icon-close"/>
                         </svg>
                     </a>
@@ -179,28 +218,22 @@
                         <ul class="list list--reset">
                             <li class="list__item navigation--tertiary-item">
                                 <a href="/en-US/help">
-                                   App support
+                                    App support
                                 </a>
                             </li>
                             <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
-                                <a href="#">
-                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation--tertiary__icon" id="search-icon">
-                                        <use xlink:href="#icon-search"/>
-                                    </svg>
-                                    <span>Search</span>
-                                </a>
-                            </li>
-                            <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
-                                <a href="https://marketplace-empresas.vodafone.es/login?986202465" >
-                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation--tertiary__icon" id="login-icon">
+                                <a href="https://marketplace-empresas.vodafone.es/login?986202465">
+                                    <svg focusable="false" aria-hidden="true"
+                                         class="icon icon--small navigation--tertiary__icon" id="login-icon">
                                         <use xlink:href="#icon-my-vodafone"/>
                                     </svg>
                                     <span>Log In</span>
                                 </a>
                             </li>
                             <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
-                                <a href="https://ayudacliente.vodafone.es/empresas/contacta/" >
-                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation--tertiary__icon" id="contact-us-icon-icon">
+                                <a href="https://ayudacliente.vodafone.es/empresas/contacta/">
+                                    <svg focusable="false" aria-hidden="true"
+                                         class="icon icon--small navigation--tertiary__icon" id="contact-us-icon-icon">
                                         <use xlink:href="#icon-landline-or-call"/>
                                     </svg>
                                     <span>Contact Us</span>
@@ -227,7 +260,8 @@
                                         <use xlink:href="#icon-chevron-up"/>
                                     </svg>
                                 </a>
-                                <a href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/" target="_blank" class="help">
+                                <a href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/" target="_blank"
+                                   class="help">
                                     Help
                                     <img src="{{ r('/assets/images/help-circle-dark.png') }}" alt="Help"
                                          class="gallery__image">
@@ -280,62 +314,47 @@
 
 
                 <!-- END: "group/components/header/adaptations/accordion" -->
-                <!-- START: "group/components/header/journeys/user/$journey" Array
-                    (
-                    [journey] => anonymous
-                    )
-                -->
-
-                <!-- END: "group/components/header/journeys/user/$journey" -->
-                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
-                    <a href="https://ayudacliente.vodafone.es/empresas/contacta/" class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon--last" >
-                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon" id="contact-us-icon-icon">
-                            <use xlink:href="#icon-landline-or-call"/>
-                        </svg>
-                        <span class="navigation__icon-text">Contact Us</span>
-                    </a>
-                </li>
-                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
-                    <a href="https://marketplace-empresas.vodafone.es/login?986202465" class="js-navigation-link navigation__link navigation__link--icon" >
-                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon" id="login-icon">
-                            <use xlink:href="#icon-my-vodafone"/>
-                        </svg>
-                        <span class="navigation__icon-text">Log In</span>
-                    </a>
-                </li>
-                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
-                    <a href="#" class="js-navigation-link navigation__link navigation__link--icon">
-                        <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon" id="search-icon">
-                            <use xlink:href="#icon-search"/>
-                        </svg>
-                        <span class="navigation__icon-text">Search</span>
-                    </a>
-                </li>
-                <!-- START: "group/components/header/journeys/basket/$journey" Array
-                    (
-                    [journey] => anonymous
-                    )
-                -->
-                <!-- END: "group/components/header/journeys/basket/$journey" -->
             </ul>
         </div>
     </div>
 </nav>
 
 <script>
-    $("#search-trigger").on("click", function(){
-        $('.js-dialog').addClass('js-dialog-display dialog--display dialog--scrollable');
-    });
+  $('#search-trigger').on('click', function() {
+    $('.js-dialog').addClass('js-dialog-display dialog--display dialog--scrollable');
+  });
 
-    $("#search-close").on("click", function(){
-        $('.js-dialog').removeClass('js-dialog-display dialog--display dialog--scrollable');
-    });
+  $('#search-close').on('click', function() {
+    $('.js-dialog').removeClass('js-dialog-display dialog--display dialog--scrollable');
+  });
 
-    var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];
+  $('#header-search-container .search-icon-container').on('click', function() {
+    var container = $('#header-search-container.search-container');
 
-    if (itemsInBasket.length < 1) {
-        $('#cart-on-header').addClass('hide');
+    if (container.hasClass('open')) {
+      container.removeClass('open');
     } else {
-        $('#cart-on-header').text(itemsInBasket.length);
+      container.addClass('open');
+      container.find('.search-input').focus();
     }
+  });
+
+  $('#header-search-container').on('submit', function(e) {
+    e.preventDefault();
+
+    var value = $('#header-search-container .search-input').val();
+
+    if (value) {
+      console.log('submit');
+      console.log(value);
+    }
+  });
+
+  var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];
+
+  if (itemsInBasket.length < 1) {
+    $('#cart-on-header').addClass('hide');
+  } else {
+    $('#cart-on-header').text(itemsInBasket.length);
+  }
 </script>

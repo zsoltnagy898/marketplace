@@ -225,6 +225,7 @@ nav.header {
   line-height: 1;
   margin-top: 5px;
   color: $color-mine-shaft;
+  white-space: nowrap;
 }
 
 .navigation__icon-text ~ .navigation__icon {
@@ -683,4 +684,54 @@ nav.header {
 
 .navigation__list__inline {
   display: flex !important;
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 15px;
+  border-radius: $border-radius;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+  height: 40px;
+}
+
+@include media-breakpoint-up(lg) {
+  .search-container {
+    height: 54px;
+  }
+}
+
+.search-container .search-input {
+  background-color: transparent;
+  padding: 0 20px;
+  border: none;
+  width: 0;
+  transition: width 0.3s;
+}
+
+.search-container .search-icon-container {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.search-container.open {
+  border-color: $color-mine-shaft;
+}
+
+.search-container.open .search-input {
+  width: 100%;
+}
+
+.search-container.open .search-icon-container {
+  background-color: $color-red;
+  color: white;
+}
+
+.search-container.open .navigation__icon-text {
+  display: none !important;
 }

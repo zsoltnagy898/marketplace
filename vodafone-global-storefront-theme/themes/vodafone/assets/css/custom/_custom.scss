@@ -352,6 +352,10 @@ p {
   white-space: pre-line;
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .segmentation__content {
   overflow: hidden;
   margin-bottom: 20px;

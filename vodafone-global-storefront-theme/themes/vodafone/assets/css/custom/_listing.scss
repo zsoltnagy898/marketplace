@@ -63,6 +63,12 @@
   .grid-item-card-container {
     padding: 0 10px;
 
+    @include media-breakpoint-down(lg) {
+      .button {
+        padding: 8px 18px;
+      }
+    }
+
     @include media-breakpoint-down(md) {
       padding: 0;
     }

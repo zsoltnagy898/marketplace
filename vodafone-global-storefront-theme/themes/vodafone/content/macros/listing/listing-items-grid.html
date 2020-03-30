@@ -1,6 +1,6 @@
 {% from "/macros/more/more.html" import more %}
 
-{% macro listingItemsGrid(listing, showUtils = true) %}
+{% macro listingItemsGrid(listing) %}
 <div class="listing-items-grid flex-wrap">
     {% for app in listing.items %}
     <div class="grid-item-card-container d-flex col-12 col-lg-4">
@@ -19,7 +19,7 @@
                     {{more(app.url)}}
                 </div>
             </div>
-            <div class="col-12 pl-0 pr-0 d-flex align-items-end">
+            <div class="col-12 pl-0 pr-0 d-flex align-items-end align-items-lg-center">
                 <div class="col-6 p-0">
                     <div class="body-text heading--light listing-started-at">
                         Starting at

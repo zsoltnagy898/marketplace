@@ -75,11 +75,15 @@
   }
 
   .list-item-card {
-    height: 316px;
+    height: auto;
     margin: 10px 0;
 
+    .item-card-header {
+      margin-bottom: 12px;
+    }
+
     img {
-      height: 72px;
+      max-height: 72px;
     }
 
     .listing-title {

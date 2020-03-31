@@ -6,10 +6,14 @@
     <div class="grid-item-card-container d-flex col-12 col-lg-4">
         <div data-id="{{ app.id }}" data-component="ListingGridTile"
              class="col-12 d-flex align-items-center list-item-card flex-wrap">
-            <div class="col-12 pl-0 pr-0 d-flex mb-1">
-                <img aria-label="{{app.name}}" class="id--sliderimg" alt=""
-                     src="{{ app.profileLogoUrl }}">
-                <h4 class="heading heading--4 heading--regular mt-0 mb-2 ml-3 listing-title">{{app.name}}</h4>
+            <div class="col-12 pl-0 pr-0 d-flex item-card-header">
+                <div class="col-3 p-0 d-flex align-items-center">
+                    <img aria-label="{{app.name}}" class="id--sliderimg" alt=""
+                         src="{{ app.profileLogoUrl }}">
+                </div>
+                <div class="col-9 pr-0">
+                    <h4 class="heading heading--4 heading--regular mt-0 mb-0 listing-title">{{app.name}}</h4>
+                </div>
             </div>
             <div class="col-12 pl-0 pr-0 mb-1">
                 <div class="body-text listing-description mb-2" title="{{app.description}}">

@@ -194,6 +194,7 @@
 @import "./listing";
 @import "./more";
 @import "./pagination";
+@import "./mixins";
 
 .hide-text-overflow {
   overflow: hidden;
@@ -350,6 +351,10 @@ p {
 
 .pre-line {
   white-space: pre-line;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 .segmentation__content {

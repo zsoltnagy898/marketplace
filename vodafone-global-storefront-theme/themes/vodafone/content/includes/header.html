@@ -128,9 +128,10 @@
                 </li>
 
                 <!-- END: "group/components/header/adaptations/list" -->
-                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-auto">
-                    <form class="search-container" id="header-search-container" novalidate>
-                        <input class="search-input" placeholder="Find Applications" type="search" name="search">
+                <li class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-md-auto navigation__item--search">
+                    <form class="search-container" id="header-search-container" novalidate
+                          data-base-url="{{ config.listingEndpoint }}">
+                        <input class="search-input" placeholder="Find Applications" type="search" name="q">
                         <div class="search-icon-container">
                             <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
                                  id="search-icon">
@@ -330,9 +331,11 @@
 
   $('#header-search-container .search-icon-container').on('click', function() {
     var container = $('#header-search-container.search-container');
+    var input = $('#header-search-container .search-input');
 
     if (container.hasClass('open')) {
       container.removeClass('open');
+      input.val('');
     } else {
       container.addClass('open');
       container.find('.search-input').focus();
@@ -342,11 +345,14 @@
   $('#header-search-container').on('submit', function(e) {
     e.preventDefault();
 
-    var value = $('#header-search-container .search-input').val();
+    var input = $('#header-search-container .search-input');
+
+    var baseUrl = $(this).attr('data-base-url');
+    var value = input.val();
 
     if (value) {
-      console.log('submit');
-      console.log(value);
+      window.location.href = baseUrl + '?q=' + value;
+      input.val('');
     }
   });
 

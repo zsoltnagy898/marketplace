@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 .navigation {
   background-color: #4A4D4E;
@@ -694,20 +695,36 @@ nav.header {
   border: 1px solid transparent;
   transition: border-color 0.3s;
   height: 40px;
+  overflow: hidden;
+  min-width: 60px;
 }
 
 @include media-breakpoint-up(lg) {
   .search-container {
-    height: 54px;
+    height: 56px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navigation__item--search {
+    width: 100%;
   }
 }
 
 .search-container .search-input {
   background-color: transparent;
-  padding: 0 20px;
+  padding: 0;
   border: none;
   width: 0;
-  transition: width 0.3s;
+  transition: width 0.3s, padding 0.3s;
+  outline: none;
+}
+
+.search-container .search-input {
+  @include placeholder {
+    font-size: 20px;
+    color: $color-grey;
+  }
 }
 
 .search-container .search-icon-container {
@@ -716,15 +733,21 @@ nav.header {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
+.search-container .navigation__icon-text {
+  transition: color 0.3s;
+}
+
 .search-container.open {
-  border-color: $color-mine-shaft;
+  border-color: $color-red;
 }
 
 .search-container.open .search-input {
-  width: 100%;
+  width: calc(100% - 100px);
+  padding: 0 20px;
 }
 
 .search-container.open .search-icon-container {
@@ -734,4 +757,5 @@ nav.header {
 
 .search-container.open .navigation__icon-text {
   display: none !important;
+  color: white;
 }

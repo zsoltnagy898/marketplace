@@ -20,3 +20,13 @@
     max-height: 87px;
   }
 }
+
+.profile-page .tabs {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.profile-overview {
+  max-width: 768px !important;
+}

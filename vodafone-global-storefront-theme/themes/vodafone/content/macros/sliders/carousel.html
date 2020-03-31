@@ -1,5 +1,5 @@
 {% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem %}
-{% from "/macros/sliders/list-carousel.html" import listCarousel %}
+{% from "/macros/sliders/list-carousel.html" import listCarousel with context %}
 
 {% macro carousel(id='carousel', products={}, itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop', sliceCount=1, greyBg=false, widerControls=false) %}
 <div class="container">

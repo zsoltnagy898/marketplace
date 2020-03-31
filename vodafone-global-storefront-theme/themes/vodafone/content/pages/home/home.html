@@ -2,7 +2,7 @@
 
 {% from "/macros/analytics.html" import utagDataScript %}
 
-{% from "/macros/sliders/carousel.html" import carousel %}
+{% from "/macros/sliders/carousel.html" import carousel with context %}
 {% from "/macros/sliders/bundle.html" import bundleSlider %}
 {% from "/macros/sliders/hero.html" import hero %}
 {% from "/macros/navigator.html" import navigator %}
@@ -20,7 +20,7 @@
 
 {% from "/pages/home/components/carousel-list.html" import carouselList %}
 {% from "/pages/home/components/recommended-solutions.html" import recommendedSolutions %}
-{% from "/pages/home/components/why-vodafone.html" import whyVodafone %}
+{% from "/pages/home/components/why-vodafone.html" import whyVodafone with context %}
 {% from "/pages/home/components/actions.html" import actions %}
 
 
@@ -82,9 +82,9 @@ Partners',items:[ '/assets/images/google-logo.png','/assets/images/hp-enterprise
 
 {% block scripts %}
 <script>
-  var appDescription = document.getElementsByClassName('card-text');
-  console.log(appDescription);
-  $('.carousel-inner .carousel-item:first').addClass('active');
+    var appDescription = document.getElementsByClassName('card-text');
+    console.log(appDescription);
+    $('.carousel-inner .carousel-item:first').addClass('active');
 </script>
 {% endblock %}
 

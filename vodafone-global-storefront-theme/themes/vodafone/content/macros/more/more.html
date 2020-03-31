@@ -1,0 +1,13 @@
+{% macro more(url) %}
+<div class="more-text">
+    <a href={{url}}>
+        <div class="d-flex align-items-center body-text">
+            More
+            <svg focusable="false" aria-hidden="true"
+                 class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron">
+                <use xlink:href="#icon-chevron-right"/>
+            </svg>
+        </div>
+    </a>
+</div>
+{% endmacro %}

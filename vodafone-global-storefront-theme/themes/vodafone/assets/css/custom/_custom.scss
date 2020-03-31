@@ -191,10 +191,21 @@
 @import "./breadcrumb";
 @import "./faq";
 @import "./select";
+@import "./listing";
+@import "./more";
+@import "./pagination";
 
 .hide-text-overflow {
   overflow: hidden;
   word-wrap: break-word;
+}
+
+.arrow-button {
+  width: 32px;
+  height: 32px;
+  background: $color-white;
+  box-shadow: 0 -1px 4px 1px rgba(130, 130, 130, 0.50);
+  border-radius: 50%;
 }
 
 $font-family-vodafone-regular: vodafone_rg,

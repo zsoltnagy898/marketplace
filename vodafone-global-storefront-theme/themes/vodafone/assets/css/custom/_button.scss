@@ -8,10 +8,27 @@
   font-size: 1.25rem;
   text-align: center;
   line-height: 28px;
+
+  &.max-width {
+    max-width: 150px;
+  }
 }
 
 .button:hover {
   cursor: pointer;
+}
+
+.button--small {
+  line-height: 24px;
+  padding: 4px 20px;
+}
+
+.button--no--border {
+  border-color: transparent;
+
+  &.active, &:hover {
+    border-color: currentColor;
+  }
 }
 
 .button--reset {
@@ -70,6 +87,14 @@
   color: $color-white;
   background-color: $color-red;
   border-color: $color-red;
+}
+
+.button__toggle_font_color:hover {
+  color: $color-red;
+}
+
+.button__toggle_font_color.active {
+  color: $color-red;
 }
 
 .button--tertiary {

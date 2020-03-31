@@ -1,27 +1,57 @@
 {% extends "/layout/base.html" %}
 {% from "/macros/listing/listing-navigator.html" import listingNavigator %}
 {% from "/macros/listing/listing-items.html" import listingItems %}
+{% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
 {% block content %}
-<div class="row listing listing-page row--spaced" data-sort='{{ listing.query.order }}'>
+
+{% set pageTitle = 'All Categories' %}
+{% if listingFilters.selectedFilters and listingFilters.selectedFilters[0] and listingFilters.selectedFilters[0].text %}
+{% set pageTitle = listingFilters.selectedFilters[0].text %}
+{% endif %}
+
+{{breadcrumb([{label: 'Home', link: '/'}, {label: pageTitle}])}}
+<div class="container listing listing-page mt-3" data-sort='{{ listing.query.order }}'>
+    <div class="mb-3">
+        {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint) }}
+    </div>
+
     <script>
-        var view = sessionStorage.getItem("listingView");
-        if(view === "grid") {
-            document.querySelector(".listing-page").classList.add("listing-grid-list");
-        } else {
-            document.querySelector(".listing-page").classList.add("listing-show-list");
+        function setViewClass(view) {
+            if (view === "grid") {
+                document.querySelector(".listing-page").classList.add("listing-grid-list");
+                document.querySelector(".listing-page").classList.remove("listing-show-list");
+                document.querySelector(".grid-view-button").classList.add("active");
+                document.querySelector(".list-view-button").classList.remove("active");
+            } else {
+                document.querySelector(".listing-page").classList.add("listing-show-list");
+                document.querySelector(".listing-page").classList.remove("listing-grid-list");
+                document.querySelector(".list-view-button").classList.add("active");
+                document.querySelector(".grid-view-button").classList.remove("active");
+            }
         }
+
+        function setView(type) {
+            sessionStorage.setItem("listingView", type);
+            setViewClass(type);
+        }
+
+        var view = sessionStorage.getItem("listingView");
+
+        setViewClass(view);
     </script>
 
-    {{ listingNavigator(listingFilters, listingProducts.query) }}
-    <div class="col-xs-8 col-fix-inv-sm-4 listing-items">
+    <div class="col-12 listing-items">
         <div class="content">
             {{ listingItems(listingProducts, listingFilters.selectedFilters) }}
         </div>
-        <div class="listing-overlay is-hidden"></div>
     </div>
+    <div class="listing-overlay is-hidden"></div>
 </div>
+{% endblock %}
+
+{% block scripts %}
 <script>
-    $(".listing-page").listing({});
+    $('.listing-page').listing({});
 </script>
 {% endblock %}

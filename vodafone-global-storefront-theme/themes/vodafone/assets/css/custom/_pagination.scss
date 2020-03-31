@@ -1,0 +1,41 @@
+.pagination {
+  margin-bottom: 1.57rem;
+
+  .pagination--button-prev, .pagination--button-next {
+    @extend .arrow-button;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: unset;
+    margin: 0 5px;
+    padding: 0;
+    opacity: 0.62;
+  }
+
+  a, .pagination--ellipsis {
+    font-family: VodafoneLight;
+    color: $color-grey;
+    padding: 5px 15px;
+
+    @include media-breakpoint-down(md) {
+      padding: 5px 10px;
+    }
+
+    &.active {
+      font-family: VodafoneRegularBold;
+      color: $color-medium-grey;
+      font-size: 21px;
+      padding-top: 0;
+    }
+
+    &.is-disabled {
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.3;
+    }
+  }
+
+  .pagination--ellipsis {
+    cursor: default;
+  }
+}

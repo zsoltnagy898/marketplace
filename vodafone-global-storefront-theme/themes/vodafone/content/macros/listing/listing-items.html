@@ -3,99 +3,53 @@
 {% from "/macros/simple-tooltip.html" import simpleTooltip %}
 
 {% macro listingItems(listing, selectedFilters, showUtils = true) %}
-    <div data-component="ListingContent">
-        <div data-component="ListingContentHeader" class="header">
-            <h3 class="header--item js-listing-content-header-count">{{ listing.i18n.searchLabel }}</h3>
-            {% if showUtils == true %}
-            <div class="listing-header-menu js-listing-header-menu header--item">
-                <menu class="toolbar">
-                    <menu class="toggle_buttons toolbar--item">
-                        <button class="button toggle_buttons--button button__small js-list-view" aria-label="list">
-                            <span><i class="icon__list"></i></span>
-                        </button><button class="button toggle_buttons--button button__small js-grid-view" aria-label="grid">
-                            <span><i class="icon__grid"></i></span>
-                        </button>
-                    </menu>
-                    <menu class="toolbar--item tooltip">
-                        <button data-base-url="{{ listing.compare.baseUrl }}" type="button" class="button toolbar--item button__small is-disabled js-compare-button" aria-label="compare">
-                            <span><i class="icon__check" style="display: none;"></i> {{ listing.i18n.compare }}</span>                 
-                        </button>
-                        {{ simpleTooltip(listing.i18n.selectAppsCompare, "top") }}
-                    </menu>
-                </menu>
-            </div>
-            {% endif %}
-        </div>
+<section class="container-box">
+    <div class="grid-container table">
+        {{ listingItemsGrid(listing) }}
+        {{ listingItemsRow(listing) }}
     </div>
-    <section class="container-box">
-        <div class="container_header">
-            <div class="filter-container">
-                <menu class="filters--content">
-                    <div class="filters--filter">
-                        <label class="label__small label__inline">{{ listing.i18n.sortBy }}:</label>
-                        <div class="select-input-container">
-                            <div class="dropdown dropdown__small">
-                                <span class="js-dropdown-placeholder">{{ listing.sorting.selected.label }}</span>
-                                <select aria-label="{{ listing.i18n.sortBy }}:" class="js-dropdown-select js-grid-filters" name="">
-                                    {% for option in listing.sorting.options %}
-                                    <option href="{{ option.url }}" value="{{ option.value }}" {% if (option.selected == true) %}selected{% endif %} >{{ option.label }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </menu>
-            </div>
-            <div class="tags-container">
-                <div class="filters--tags">
-                    {% for filter in selectedFilters %}
-                    <span class="tag">
-                        <span class="tag--text">{{ filter.text }}</span>
-                        <a data-query-key="{{ filter.queryKey }}" data-query-id="{{ filter.id }}" class="tag--remove js-tag-remove" title="Remove"></a>
-                    </span>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div class="grid-container table">
-            <div class="listing">
-                {{ listingItemsGrid(listing, showUtils) }}
-                {{ listingItemsRow(listing) }}
-            </div>
-        </div>
-        <div class="container_footer">
-            <div class="container_footer--item count-container">
-                <span class="subtitle js-nbResults">{{ listing.pagination.totalCount }} {{ listing.i18n.results }} </span>
-            </div>
-            {% if listing.pagination.totalCount >= 13 %}
-                <div class="container_footer--item__last pager-container js-pager">
-                    <nav class="pagination">
-                        {% for item in listing.pagination.pagesList %}
-                            {% if(item.type == "previous") %}
-                                <a href="{{ item.url }}" class="icon__angle_left paginationLink pagination--button pagination--button__prev {% if item.status === "disabled" %}is-disabled{% endif %}"></a>
-                            {% endif %}
-                            {% if(item.type == "next") %}
-                                <a href="{{ item.url }}" class="icon__angle_right pagination--button pagination--button__next  {% if item.status === "disabled" %}is-disabled{% endif %}"></a>
-                            {% endif %}
-                            {% if(item.type == "ellipsis") %}
-                                <span class="pagination--ellipsis"></span>
-                            {% endif %}
-                            {% if(item.type == "page") %}
-                            <a href="{{ item.url }}" class="pagination--button {% if item.status === 'selected' %}active{% endif %}">{{ item.nb }}</a>
-                            {% endif %}
-                        {% endfor %}
-                    </nav>
-                </div>
+    <div class="container_footer">
+        <nav class="pagination position-relative d-flex align-items-center justify-content-center">
+            {% for item in listing.pagination.pagesList %}
+            {% if(item.type == "previous") %}
+            <a href="{{ item.url }}"
+               class="pagination--button-prev {% if item.status === 'disabled' %}is-disabled{% endif %} body-text">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+                    <use xlink:href="#icon-chevron-left"/>
+                </svg>
+            </a>
             {% endif %}
-        </div>
-    </section>
-    <script>
-        $(".listing-description").dotdotdot({
-            truncate:"node",
-            after: ".more"
-        });
-        $(".tile__content--description").dotdotdot({
-            truncate:"node"
-        });
-    </script>
+            {% if(item.type == "next") %}
+            <a href="{{ item.url }}"
+               class="pagination--button-next {% if item.status === 'disabled' %}is-disabled{% endif %} body-text">
+                <svg focusable="false" aria-hidden="true"
+                     class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+                    <use xlink:href="#icon-chevron-right"/>
+                </svg>
+            </a>
+            {% endif %}
+            {% if(item.type == "ellipsis") %}
+            <span class="pagination--ellipsis body-text">
+                ...
+            </span>
+            {% endif %}
+            {% if(item.type == "page") %}
+            <a href="{{ item.url }}"
+               class="pagination--button {% if item.status === 'selected' %}active{% endif %} body-text">{{ item.nb
+                }}</a>
+            {% endif %}
+            {% endfor %}
+        </nav>
+    </div>
+</section>
+<script>
+    $(".listing-description").dotdotdot({
+        truncate: "node",
+        after: ".more"
+    });
+    $(".tile__content--description").dotdotdot({
+        truncate: "node"
+    });
+</script>
 {% endmacro %}

@@ -1,59 +1,36 @@
-{% from "/macros/rating.html" import rating %}
-{% from "/macros/profile-image.html" import productImageLarge %}
-{% from "/macros/simple-tooltip.html" import simpleTooltip %}
+{% from "/macros/more/more.html" import more %}
 
 {% macro listingItemsRow(listing) %}
-    <div class="listing-items-row">
+<div class="listing-items-row">
     {% for app in listing.items %}
-    <div data-id="{{ app.id }}" data-component="ListingRow" class="listing-row">
-        <div class="listing-row-image">
-            <p aria-hidden="true" role="presentation">
-                {{ productImageLarge(app.profileLogoUrl, app.url, app.productRibbon) }}
-            </p>
-            {{ rating(app.rating) }}
+    <div data-id="{{ app.id }}" data-component="ListingRow"
+         class="col-12 d-flex align-items-center list-item-card">
+        <div class="col-2 pl-0 pr-0 d-flex align-items-center justify-content-center h-100">
+            <img aria-label="{{app.name}}" class="id--sliderimg" alt=""
+                 src="{{ app.profileLogoUrl }}">
         </div>
-        <div class="listing-row-content js-row-content">
-            <a class="listing-row-content-title js-title--link" href="{{ app.url }}">{{ app.name }}</a>
-            <span class="js-badges-container">
-                <span class="listing-row-badges">
-                    {% for badge in app.badges %}
-                    <span class="badge badge--{{ badge.type }}">{{ badge.label }}</span>
-                    {% endfor %}
-                </span>
-            </span>
-            <h4 class="title__small">{{ app.blurb }}</h4>
-            <p class="listing-description">
-                {{ app.overview }}
-                <a class="more" href="{{ app.url }}">{{ listing.i18n.learnMore }}</a>
-            </p>
-            <div class="merchandising-badges">
-                {% for badge in app.merchandisingBadges %}
-                <div class="merchandising-badges-item">
-                    <img src="{{ badge.image }}" alt="{{ badge.name }}" />
-                </div>
-                {% endfor %}
+        <div class="col-8 h-100">
+            <h4 class="heading heading--4 heading--regular mt-0 mb-2 listing-title">{{app.name}}</h4>
+            <div class="body-text listing-description mb-2" title="{{app.description}}">
+                {{app.description}}
+            </div>
+            <div class="col-12 p-0">
+                {{more(app.url)}}
             </div>
         </div>
-        <menu class="listing-row-toolbar">
-            <div class="stat listing-row-price js-tile-pricing-container">
-                <div class="caption">{{ app.startingPrice.priceCaption }}</div>
-                <div class="js-listing-item-price">
-                    <div class="price--value" title="{{ app.startingPrice.formattedPrice }}">{{ app.startingPrice.formattedPrice }}</div>
-                    {% if app.startingPrice.frequency.shortLabel %}
-                        <span class="price--unit">/{{ app.startingPrice.frequency.shortLabel | lower }}</span>
-                    {% endif %}
-                </div>
+        <div class="col-2 pl-0 pr-0 h-100">
+            <div class="body-text heading--light listing-started-at">
+                Starting at
             </div>
-            <div class="listing-row-actions">
-                <a class="button button__medium button__primary button__long_i18n_text" href="{{ app.url }}">{{ listing.i18n.viewProfile }}</a>
-                <label class="label selector__button button button__neutral button__small adb-js-checkbox compare-label js-compare-label tooltip">
-                    <span class="selector--input"><input type="checkbox" class="js-compare-checkbox" data-app-id="{{ app.id }}"></span>
-                    <span class="selector--value">{{ listing.i18n.compare }}</span>
-                    {{ simpleTooltip(listing.i18n.selectToCompare, "bottom") }}
-                </label>
+            <div class="heading--bold heading--3 m-0 listing-formatted-price">
+                {{app.startingPrice.formattedPrice}}
             </div>
-        </menu>
+            <div class="body-text listing-frequency-label heading--light {{'invisible' if app.startingPrice.frequency.label.length === 0}}">
+                /{{app.startingPrice.frequency.label}}
+            </div>
+            <a href="{{app.url}}" role="button" class="button button--primary mt-2 w-100 max-width">Buy Now</a>
+        </div>
     </div>
     {% endfor %}
-    </div>
+</div>
 {% endmacro %}

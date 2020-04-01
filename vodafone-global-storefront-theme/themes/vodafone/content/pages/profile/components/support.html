@@ -1,0 +1,51 @@
+{% macro productSupport(application) %}
+<div class="container">
+    <div class="row">
+        <div class="col col-12">
+            <h3 class="heading heading--3 heading--center heading--leading">Policies & Support</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-12 col-md">
+            <a href="{{application.support.privacyUrl}}" class="link link--tile mb-3 mb-md-0" target="_blank">
+                <span class="chevron">
+                    <span class="chevron__text">
+                        <span class="media media--gutter media--middle">
+                            <span class="media__body">
+                                <span class="link__heading heading heading--4 no-gutter--all ">
+                                    Terms &amp; conditions
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="chevron__container">
+                        <svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+                            <use xlink:href="#icon-chevron-right"/>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="col col-12 col-md">
+            <a href="{{application.support.privacyUrl}}" class="link link--tile" target="_blank">
+                <span class="chevron">
+                    <span class="chevron__text">
+                        <span class="media media--gutter media--middle">
+                            <span class="media__body">
+                                <span class="link__heading heading heading--4 no-gutter--all ">
+                                    Privacy Policy
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="chevron__container">
+                        <svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+                            <use xlink:href="#icon-chevron-right"/>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endmacro %}

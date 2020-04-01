@@ -82,12 +82,30 @@
     </div>
 </div>
 <script>
+
+    var titleWrapper = document.querySelector(".carousel-item-title");
+    var overviewWrapper = document.querySelector(".carousel-item-overview");
+    var descriptionWrapper = document.querySelector(".carousel-item-description");
+
+
     var truncateOptions = {
         truncate: "node",
         after: ".more"
     };
-    $(".carousel-item-title").dotdotdot(truncateOptions);
-    $(".carousel-item-overview").dotdotdot(truncateOptions);
-    $(".carousel-item-description").dotdotdot(truncateOptions);
+
+    function truncate() {
+        new Dotdotdot(titleWrapper, truncateOptions);
+        // new Dotdotdot(overviewWrapper, truncateOptions);
+        new Dotdotdot(descriptionWrapper, truncateOptions);
+    }
+
+    window.addEventListener("resize", truncate);
+
+    $('.carousel').on('slide.bs.carousel', function () {
+        console.log("slide");
+        setTimeout(truncate)
+    })
+
+    truncate();
 </script>
 {% endmacro %}

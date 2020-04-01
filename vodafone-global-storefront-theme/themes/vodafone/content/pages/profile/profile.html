@@ -1,6 +1,5 @@
 {% extends "/layout/profile.html" %}
 
-{% from "/pages/profile/components/carousel-single.html" import carouselSingle %}
 
 {% from "/macros/analytics.html" import utagDataScript %}
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
@@ -21,7 +20,7 @@
 {% block content %}
 
 {% from "/pages/profile/components/product-summary.html" import productSummary %}
-
+{% from "/macros/sliders/carousel.html" import carousel with context %}
 
 {% set breadcrumbData = [{label: 'Home', link: '/'}] %}
 {% if application.categories.items.length > 0 %}
@@ -48,8 +47,9 @@
     </div>
 </div>
 {% if application.features.items.length > 0 %}
-<section id="Features" class="section--gutter section--wild-sand">
-    {{ carouselSingle(application.features) }}
+<section class="section section--light-grey">
+    {{ carousel('profile', application.features, 'profile', true, false, false, 'desktop', 1, true, false, 'Features')
+    }}
 </section>
 {% endif %}
 <div id="appbottom" data-vue-page="profile2">

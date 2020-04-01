@@ -6,9 +6,23 @@
 
   @include media-breakpoint-down(md) {
     height: 528px;
+
+    &.high-height-image {
+      padding: 0 !important;
+    }
   }
 
-  &.high-height {
+  @include media-breakpoint-down(xs) {
+    &.high-height-image {
+      height: 350px !important;
+    }
+  }
+
+  &.high-height-image {
+    padding: 0 80px;
+  }
+
+  &.high-height, &.high-height-image {
     height: 450px;
   }
 
@@ -118,6 +132,39 @@
 
       .carousel-item-description {
         margin-bottom: 36px;
+      }
+    }
+
+    .profile-carousel-item {
+      .image-container {
+        margin: 28px 0;
+        height: 224px;
+
+        img {
+          max-height: 100%;
+        }
+      }
+
+      .carousel-item-description {
+        padding: 0 150px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        .image-container {
+          height: 124px;
+        }
+      }
+
+      @include media-breakpoint-down(sm) {
+        .carousel-item-description {
+          padding: 0 15px;
+        }
+      }
+
+      @include media-breakpoint-between(sm, lg) {
+        .carousel-item-description {
+          padding: 0 110px;
+        }
       }
     }
 

@@ -16,6 +16,7 @@
 
 {% block content %}
 {% from "/pages/profile/components/product-summary.html" import productSummary %}
+{% from "/pages/profile/components/editions-pricing.html" import editionsPricing with context %}
 {% from "/macros/sliders/carousel.html" import carousel with context %}
 {% from "/pages/profile/components/simple-tabs.html" import productTabs %}
 {% from "/pages/profile/components/overview.html" import productOverview %}
@@ -50,10 +51,12 @@
     }}
 </section>
 {% endif %}
+{% if application.editions.items.length > 0 %}
+<section class="section section--white">
+    {{editionsPricing(application.editions)}}
+</section>
+{% endif %}
 <div id="appbottom" data-vue-page="profile2">
-    <section id="Editions" class="section section--gutter">
-        <editions :application="{{ application|dump }}"></editions>
-    </section>
     <section id="Policies" class="section section--gallery gutter__large--y">
         {{ productSupport(application) }}
     </section>

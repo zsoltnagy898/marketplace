@@ -1,33 +1,67 @@
 {% macro productTabs(application) %}
-<section id="tabs" class="container">
-    <div class="tabs">
-        <div class="tabs__navigation-wrapper">
-            <nav class="js-tabs-navigation tabs__navigation tabs__navigation--fixed" role="tablist">
-                <a href="#Overview" class="js-tabs-tab tabs__tab tabs__tab--active" aria-controls="#devices-features" role="tab" aria-selected="false">
-                    Overview
-                </a>
+<div id="profile-tabs" class="tabs">
+    <div class="tabs__navigation-wrapper">
+        <nav class="js-tabs-navigation tabs__navigation tabs__navigation--fixed" role="tablist">
+            <a href="#Overview" class="js-tabs-tab tabs__tab tabs__tab--active" aria-controls="#devices-features"
+               role="tab" aria-selected="false">
+                Overview
+            </a>
 
-                {% if application.features.items.length > 0 %}
-                <a href="#Features" class="js-tabs-tab tabs__tab" aria-controls="#devices-specifications" role="tab" aria-selected="false">
-                    Features
-                </a>
-                {% endif %}
+            {% if application.features.items.length > 0 %}
+            <a href="#Features" class="js-tabs-tab tabs__tab" aria-controls="#devices-specifications" role="tab"
+               aria-selected="false">
+                Features
+            </a>
+            {% endif %}
 
-                {% if application.editions.items.length > 0 %}
-                <a href="#Editions" class="js-tabs-tab tabs__tab  js-products-reviews" aria-controls="#devices-reviews" role="tab" aria-selected="false">
-                    Editions & Pricing
-                </a>
-                {% endif %}
+            {% if application.editions.items.length > 0 %}
+            <a href="#Editions" class="js-tabs-tab tabs__tab  js-products-reviews" aria-controls="#devices-reviews"
+               role="tab" aria-selected="false">
+                Editions & Pricing
+            </a>
+            {% endif %}
 
-                <a href="#Policies" class="js-tabs-tab tabs__tab" aria-controls="#devices-returns-cancellations" role="tab" aria-selected="false">
-                    Policies & Support
-                </a>
-            </nav>
-        </div>
+            <a href="#Policies" class="js-tabs-tab tabs__tab" aria-controls="#devices-returns-cancellations"
+               role="tab" aria-selected="false">
+                Policies & Support
+            </a>
+        </nav>
     </div>
-</section>
+</div>
 
 <script>
+  $(document).ready(function() {
+    var tabsContainer = $('#profile-tabs');
+    var tabsTop = tabsContainer.offset().top;
 
+    var handleScroll = function() {
+      var scrollTop = $(window).scrollTop();
+      var sections = $('section[class^=\'section\']');
+
+      $.each(sections, function(index) {
+        var section = $(sections[index]);
+        var sectionTop = section.offset().top;
+
+        if (scrollTop + tabsTop >= sectionTop) {
+          tabsContainer.find('.js-tabs-tab').removeClass('tabs__tab--active');
+          tabsContainer.find('.js-tabs-tab[href="#' + section.attr('id') + '"]').addClass('tabs__tab--active');
+        }
+      });
+
+      if (scrollTop >= tabsTop - tabsContainer.outerHeight()) {
+        tabsContainer.addClass('tabs--fixed');
+      } else {
+        tabsContainer.removeClass('tabs--fixed');
+      }
+
+      if (scrollTop === 0) {
+        tabsTop = tabsContainer.offset().top;
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+  });
 </script>
 {% endmacro %}

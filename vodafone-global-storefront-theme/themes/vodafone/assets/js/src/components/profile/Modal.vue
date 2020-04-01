@@ -15,7 +15,7 @@
           <div class="iframe-container">
             <iframe width="560" height="315" :src="'https://www.youtube.com/embed/' + videoId" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          </div>
+        </div>
       </div>
     </div></div>
   </div>
@@ -27,21 +27,21 @@
 
 
   export default {
-  name: 'Modal',
-  data() {
-    return {
-      videoId: '',
-      isModalOpen: false
+    name: 'Modal',
+    data() {
+      return {
+        videoId: '',
+        isModalOpen: false
+      }
+    },
+    props: [
+      'application'
+    ],
+    mounted() {
+      bus.$on('toggle-modal', modalOpen => {
+        this.isModalOpen = modalOpen;
+      });
+      this.videoId = getVideoId(this.application.overview.callToActions.demo.href).id;
     }
-  },
-  props: [
-    'application'
-  ],
-  mounted() {
-    bus.$on('toggle-modal', modalOpen => {
-      this.isModalOpen = modalOpen;
-    });
-    this.videoId = getVideoId(this.application.overview.callToActions.demo.href).id;
   }
-}
 </script>

@@ -2,7 +2,7 @@
 <div id="video-dialog"
      class="confirmation-dialog js-dialog dialog dialog--interstitial js-dialog-display dialog--scrollable">
     <div>
-        <a href="#" id="close-dialog" class="js-dialog-close dialog__close d-block">
+        <a href="javascript:void(0)" id="close-dialog" class="js-dialog-close dialog__close d-block">
             <svg focusable="false" aria-hidden="true" class="icon icon--small dialog__icon">
                 <use xlink:href="#icon-close"></use>
             </svg>
@@ -40,18 +40,29 @@
             </h2>
             <p>{{ application.overview.description }}</p>
         </div>
-        <div class="col col-12 d-flex justify-content-center">
+        <div class="col col-12 d-flex justify-content-center flex-wrap flex-md-nowrap profile-overview__call-to-actions">
+            <a href="#Editions" class="button button--primary mb-3 mb-md-0 d-flex align-items-center justify-content-center">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small mr-3">
+                    <use xlink:href="#icon-shopping-trolley"/>
+                </svg>
+                Buy Now
+            </a>
+
             {% if application.overview.callToActions.demo.label %}
-            <button class="button button--secondary mr-3 demo-link">
+            <button class="button button--secondary ml-md-3 mb-3 mb-md-0 demo-link d-flex align-items-center justify-content-center">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small chevron__icon--red mr-3">
+                    <use xlink:href="#icon-play-circle"></use>
+                </svg>
                 {{ application.overview.callToActions.demo.label }}
             </button>
             {% endif %}
-            <a href="#Editions" class="button button--primary">
-                Buy Now
-            </a>
+
             {% if application.overview.downloadDocumentationUrl %}
-            <a href="{{application.overview.downloadDocumentationUrl}}" class="button button--secondary">
-                Buy Now
+            <a href="{{application.overview.downloadDocumentationUrl}}" class="ml-md-3 button button--secondary d-flex align-items-center justify-content-center">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small chevron__icon--red mr-3">
+                    <use xlink:href="#icon-download"/>
+                </svg>
+                Download Guide
             </a>
             {% endif %}
         </div>

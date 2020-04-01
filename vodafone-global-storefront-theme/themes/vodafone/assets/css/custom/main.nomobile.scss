@@ -4781,20 +4781,7 @@ td {
 
 .tabs:not(.tabs--fieldset) > .tabs__navigation-wrapper .tabs__tab--active::after,
 .tabs__tab-input:checked + .tabs__tab-label::after {
-  border: 8px solid transparent;
-  border-top-color: currentColor;
-  display: block;
-  height: 0;
-  width: 0;
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  color: #E60000;
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -8px;
-  z-index: 1;
+  display: none;
 }
 
 .tabs__tab-input:focus + .tabs__tab-label {

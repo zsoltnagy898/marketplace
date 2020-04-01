@@ -1,0 +1,22 @@
+.product-summary {
+  background-color: transparent;
+  padding: 20px 120px;
+
+  @include media-breakpoint-down(md) {
+    padding: 20px 0;
+
+    a {
+      display: unset;
+      width: unset;
+      margin-bottom: 0;
+    }
+  }
+
+  .product-summary-title, .product-summary-detail {
+    color: $white;
+  }
+
+  img {
+    max-height: 87px;
+  }
+}

@@ -5,8 +5,6 @@
 {% from "/macros/profile/profile-product-section.html" import productSidebarSection %}
 {% from "/macros/profile/profile-product-sidebar-top.html" import productSidebarTopSection %}
 {% from "/macros/profile/profile-screenshot.html" import productScreenshotModal %}
-{% from "/macros/sliders/slider.html" import slider %}
-{% from "/macros/sliders/script.html" import sliderScript %}
 {% from "/macros/notification.html" import notificationModel %}
 
 {% block dataPage %}profile{% endblock %}
@@ -17,20 +15,21 @@
 {% endblock %}
 
 {% block content %}
-    {% block profileContent %}
-    {% block contentSection %}
-    {% endblock %}
+{% block profileContent %}
 {% endblock %}
 
+{% block contentSection %}
+{% endblock %}
+{% endblock %}
 
+{% block scripts %}
 
 <script>
     $(".featuresDesc span").shave(40);
-    $(".profile_header").fixedHeader({ container: ".profile-region" });
+    $(".profile_header").fixedHeader({container: ".profile-region"});
     $(".container-box-section").simpleSlider();
 </script>
 
-{{ sliderScript() }}
 {{ productScreenshotModal(application.screenshots) }}
 {{ notificationModel() }}
 

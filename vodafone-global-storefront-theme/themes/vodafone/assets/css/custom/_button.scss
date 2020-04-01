@@ -23,6 +23,10 @@
   padding: 4px 20px;
 }
 
+.button--wide {
+  padding: 8px 30px;
+}
+
 .button--no--border {
   border-color: transparent;
 
@@ -95,6 +99,23 @@
 
 .button__toggle_font_color.active {
   color: $color-red;
+}
+
+
+.button--primary--white {
+  color: $color-red;
+  border-color: $color-red;
+  background-color: $color-white;
+  box-shadow: 0 2px 4px 0 rgba(230, 0, 0, 0.52);
+}
+
+.button--primary--white:hover {
+  color: $color-red;
+  background-color: rgba($color-white, 0.95);
+}
+
+.button--primary--white.active {
+  background-color: rgba($color-white, 0.95);
 }
 
 .button--tertiary {

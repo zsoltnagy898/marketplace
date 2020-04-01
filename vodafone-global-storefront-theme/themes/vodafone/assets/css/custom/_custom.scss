@@ -195,6 +195,7 @@
 @import "./more";
 @import "./pagination";
 @import "./mixins";
+@import "./product";
 
 .hide-text-overflow {
   overflow: hidden;
@@ -710,6 +711,7 @@ p {
 .tabs--fixed {
   position: fixed;
   top: 72px;
+  left: 0;
   z-index: 100;
   width: 100%;
 }

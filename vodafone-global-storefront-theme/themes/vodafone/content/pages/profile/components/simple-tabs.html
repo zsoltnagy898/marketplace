@@ -1,4 +1,5 @@
 {% macro productTabs(application) %}
+<div id="tabs-placeholder" style="height: 0"></div>
 <div id="profile-tabs" class="tabs">
     <div class="tabs__navigation-wrapper">
         <nav class="js-tabs-navigation tabs__navigation tabs__navigation--fixed" role="tablist">
@@ -32,6 +33,7 @@
 <script>
   $(document).ready(function() {
     var tabsContainer = $('#profile-tabs');
+    var tabsPlaceholder = $('#tabs-placeholder');
     var tabsTop = tabsContainer.offset().top;
 
     var handleScroll = function() {
@@ -50,8 +52,10 @@
 
       if (scrollTop >= tabsTop - tabsContainer.outerHeight()) {
         tabsContainer.addClass('tabs--fixed');
+        tabsPlaceholder.css({ height: tabsContainer.outerHeight(true) });
       } else {
         tabsContainer.removeClass('tabs--fixed');
+        tabsPlaceholder.css({ height: 0 });
       }
 
       if (scrollTop === 0) {
@@ -62,6 +66,14 @@
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
+
+    $('.js-tabs-navigation .js-tabs-tab').on('click', function(e) {
+      e.preventDefault();
+
+      $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top - 138
+      }, 200);
+    });
   });
 </script>
 {% endmacro %}

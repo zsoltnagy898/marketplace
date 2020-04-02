@@ -43,12 +43,28 @@ $editionsHeaderBg: #E6E6E6;
   }
 
   .profile-edition {
-    background: $color-light-grey;
-    box-shadow: 0 2px 11px 0 rgba(black, 0.43);
-    border-radius: 6px;
-
-    .profile-edition__header {
+    &.profile-edition-header-container {
       background-color: $editionsHeaderBg;
+      padding: 20px 30px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+
+
+      &.profile-edition--primary {
+        box-shadow: 0 0 11px 0 rgba(black, 0.43);
+      }
+    }
+
+    &.profile-edition-content-container {
+      background: $color-light-grey;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+
+      &.profile-edition--primary {
+        box-shadow: 0 0 11px 0 rgba(black, 0.43);
+      }
     }
   }
 

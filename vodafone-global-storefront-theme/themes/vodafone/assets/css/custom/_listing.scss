@@ -85,10 +85,6 @@
     img {
       max-height: 72px;
     }
-
-    .listing-title {
-      word-break: break-all;
-    }
   }
 }
 
@@ -98,6 +94,10 @@
   border-radius: 6px;
   margin: 20px 0;
   padding: 15px;
+
+  .listing-title {
+    word-break: break-word;
+  }
 
   .listing-description {
     @extend .hide-text-overflow;

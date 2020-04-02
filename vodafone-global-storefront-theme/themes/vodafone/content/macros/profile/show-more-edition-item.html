@@ -1,0 +1,14 @@
+{% macro showMoreEditionItem(editions) %}
+<a class="toggle-show">{{ editions.i18n.showMoreDetails }}
+    <svg focusable="false" aria-hidden="true"
+         class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+        <use xlink:href="#icon-chevron-down"/>
+    </svg>
+</a>
+<a class="toggle-hide">{{ editions.i18n.hideMoreDetails }}
+    <svg focusable="false" aria-hidden="true"
+         class="icon  icon--small  chevron__icon accordion__chevron navigation__chevron svg-icon">
+        <use xlink:href="#icon-chevron-up"/>
+    </svg>
+</a>
+{% endmacro %}

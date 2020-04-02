@@ -1,11 +1,11 @@
 {% macro profileEditionCost(cost) %}
 <div class="profile-checklist__item profile-edition__price">
-    <div class="amount">{{ cost.formattedPrice }}</div>
+    <div class="amount heading--bold heading--3 m-0">{{ cost.formattedPrice }}</div>
     {% if cost.unit and cost.unit.label %}
-    <span class="unit">/ {{ cost.unit.label }}</span>
+    <span class="unit body-text">/ {{ cost.unit.label }}</span>
     {% endif %}
     {% if cost.frequency and cost.frequency.label %}
-    <span class="frequency">/ {{ cost.frequency.label }}</span>
+    <span class="frequency body-text">/ {{ cost.frequency.label }}</span>
     {% endif %}
 </div>
 {% endmacro %}

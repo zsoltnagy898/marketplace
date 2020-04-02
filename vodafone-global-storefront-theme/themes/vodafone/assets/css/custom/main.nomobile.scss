@@ -4303,17 +4303,21 @@ td {
 
 .link--tile {
   background: #FFFFFF;
-  border-left: 6px solid transparent;
-  box-shadow: 0 1px 3px 0 #AFAFAF;
+  border-radius: $border-radius;
+  border: 1px solid $color-dusty-gray;
+  padding: 22px 40px 20px;
+  box-shadow: none;
   display: block;
-  margin-bottom: 10px;
-  font-size: 22px;
-  padding: 22px 40px 24px;
+  font-family: 'VodafoneRegular';
+  margin-bottom: 0;
+  font-size: 25px;
+  color: $color-dove-gray;
 }
 
 .link--tile:hover,
 .link--tile:focus {
-  color: #333333;
+  color: $color-red;
+  background-color: rgba($color-red, 0.025);
 }
 
 .link--tile--dark {
@@ -4332,13 +4336,6 @@ td {
 
 .link__heading {
   padding-right: 25px;
-}
-
-@media only screen and (max-width: 1024px) {
-  .link--tile {
-    padding: 25px 30px;
-    font-size: 20px;
-  }
 }
 
 .list {

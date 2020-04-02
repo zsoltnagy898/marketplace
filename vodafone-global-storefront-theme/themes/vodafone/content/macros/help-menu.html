@@ -1,21 +1,41 @@
 {% macro helpMenu() %}
 
-<div data-vue-partial>
-    <vf-help-menu
-        label="Need help?"
-        title="We're here to help"
-        v-bind:links="[
-            {
-                title: 'Call us',
-                icon: 'call',
-                url: 'tel:+448080057333'
-            }
-        ]"
-        variant="primary"
-    >
-        <p>If you're an existing customer please call +44&nbsp;(0)8080&nbsp;057333.</p>
-    </vf-help-menu>
+<div>
+    <nav class="side-toggle">
+        <button class="side-toggle__button background-primary" type="button">
+            <span class="heading heading--4 heading--inline no-gutter--all side-toggle__tab-text d-flex d-xl-inline-block align-items-center">
+                Need help?
+                <svg role="image" class="side-toggle__chevron icon icon--small" focusable="false">
+                    <use xlink:href="#icon-chevron-left"></use>
+                </svg>
+            </span>
+        </button>
+        <div class="side-toggle__content" :aria-hidden="!open">
+           <span class="heading heading--3 heading--leading gutter--bottom">
+                We're here to help
+            </span>
+            <p>If you're an existing customer please call +44&nbsp;(0)8080&nbsp;057333.</p>
+            <div class="grid gutter--top">
+                <div class="grid__item grid__item--align-center grid__item--1/3">
+                    <a href="tel:+448080057333" class="side-toggle__link">
+                        <div class="side-toggle__icon-circle">
+                            <svg role="image" class="side-toggle__icon icon icon--small" focusable="false">
+                                <use xlink:href="#icon-call"></use>
+                            </svg>
+                        </div>
+                        <span class="side-toggle__detail">Call us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>
+
+<script>
+  $('.side-toggle__button').on('click', function() {
+    $('.side-toggle').toggleClass('side-toggle--show');
+  });
+</script>
 
 {% endmacro %}
 

@@ -1,3 +1,9 @@
+{% set businessAppsLinks = [
+ {label: 'All Apps', link: config.listingEndpoint },
+ {label: 'Popular Apps', link: config.listingEndpoint + '?order=POPULARITY' },
+ {label: 'Recommended solutions', link: config.listingEndpoint + '?filter=STAFFPICK' }
+] %}
+
 <nav class="header" data-js="_language">
     <div class="js-navigation-language navigation primary-navigation d-none d-lg-block">
         <div class="container h-100">
@@ -112,9 +118,9 @@
                         <span class="visually-hidden">menu</span>
                     </a>
                     <div class="dropdown-menu w-100">
-                        <a class="dropdown-item" href="#">All Apps</a>
-                        <a class="dropdown-item" href="#">IT Management</a>
-                        <a class="dropdown-item" href="#">IT Support</a>
+                        {% for link in businessAppsLinks %}
+                        <a class="dropdown-item" href="{{link.link}}">{{ link.label }}</a>
+                        {% endfor %}
                     </div>
                 </li>
 
@@ -202,15 +208,11 @@
                                 </div>
                                 <div class="js-accordion-content navigation__accordion-content">
                                     <ul class="list list--reset navigation--tertiary-accordion-content">
+                                        {% for link in businessAppsLinks %}
                                         <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="#">All Apps</a>
+                                            <a href="{{link.link}}">{{ link.label }}</a>
                                         </li>
-                                        <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="#">IT Management</a>
-                                        </li>
-                                        <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="#">IT Support</a>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>

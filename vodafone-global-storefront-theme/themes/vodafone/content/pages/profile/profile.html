@@ -7,20 +7,18 @@
 
 {% block contentSection %}
 
-{% from "/pages/profile/components/simple-tabs.html" import productTabs %}
 {% from "/pages/profile/components/grid-features.html" import productFeatures %}
 {% from "/pages/profile/components/bundles.html" import productBundles %}
 {% from "/pages/profile/components/reviews.html" import reviews %}
-{% from "/pages/profile/components/resources.html" import resources %}
-{% from "/pages/profile/components/resources.html" import resources %}
 {% from "/pages/profile/components/policies-support.html" import support %}
 {% from "/pages/profile/components/addons.html" import addons %}
 
 
 {% block content %}
-
 {% from "/pages/profile/components/product-summary.html" import productSummary %}
 {% from "/macros/sliders/carousel.html" import carousel with context %}
+{% from "/pages/profile/components/simple-tabs.html" import productTabs %}
+{% from "/pages/profile/components/overview.html" import productOverview %}
 
 {% set breadcrumbData = [{label: 'Home', link: '/'}] %}
 {% if application.categories.items.length > 0 %}
@@ -30,24 +28,23 @@
 
 {{breadcrumb(breadcrumbData)}}
 
-<section class="section section--white p-0">
+<section class="position-relative section--white p-0">
     <img src="{{r('/assets/images/banner-2-red.png')}}" style="width: 100%;" class="section-bg"/>
     {{productSummary(application.summary)}}
 </section>
 
 <div id="apptop" data-vue-page="profile">
     <div id="profile-page" class="profile-page">
-        <modal :application="{{ application|dump }}"></modal>
-        <section id="tabs" class="container">
-            <simple-tabs :application="{{ application|dump }}"></simple-tabs>
+        <section class="container">
+            {{ productTabs(application) }}
         </section>
         <section id="Overview" class="section--gutter">
-            <overview :application="{{ application|dump }}"></overview>
+            {{ productOverview(application) }}
         </section>
     </div>
 </div>
 {% if application.features.items.length > 0 %}
-<section class="section section--light-grey">
+<section id="Features" class="section section--light-grey">
     {{ carousel('profile', application.features, 'profile', true, false, false, 'desktop', 1, true, false, 'Features')
     }}
 </section>
@@ -59,13 +56,8 @@
     <section id="Policies" class="section section--gutter section--gutter">
         <support :application="{{ application|dump }}"></support>
     </section>
-    <Toaster :application="{{ application|dump }}"></Toaster>
+    <!--    <Toaster :application="{{ application|dump }}"></Toaster>-->
 </div>
-{% endblock %}
-
-{% block page_scripts %}
-<script src="{{ r('/assets/js/dist/pages/profile.js') }}"></script>
-<script src="{{ r('/assets/js/dist/pages/profile2.js') }}"></script>
 {% endblock %}
 
 {% endblock %}
@@ -86,10 +78,3 @@ product_sku: '',
 product_target_segment: 'small business'
 }) }}
 {% endblock %}
-<script>
-    import FeaturesCarousel from "../../../assets/js/src/components/profile/featuresCarousel";
-
-    export default {
-        components: {FeaturesCarousel}
-    }
-</script>

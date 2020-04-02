@@ -1,0 +1,85 @@
+{% macro productOverview(application) %}
+<div id="video-dialog"
+     class="confirmation-dialog js-dialog dialog dialog--interstitial js-dialog-display dialog--scrollable">
+    <div>
+        <a href="javascript:void(0)" id="close-dialog" class="js-dialog-close dialog__close d-block">
+            <svg focusable="false" aria-hidden="true" class="icon icon--small dialog__icon">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+            <span class="visually-hidden">Close dialog</span>
+        </a>
+    </div>
+    <div class="js-dialog-content dialog__content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="iframe-container">
+                        <iframe width="560"
+                                class="video-iframe"
+                                height="315"
+                                src="{{ application.overview.callToActions.demo.iFrameFriendlyUrl }}"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container profile-overview">
+    <div class="row">
+        <div class="col col-12 col-lg text-center">
+            <img src="{{application.overview.image}}" alt="{{ application.overview.title }}">
+        </div>
+        <div class="col col-12 col-lg">
+            <h2 class="heading heading--3 heading--leading">
+                {{ application.overview.title }}
+            </h2>
+            <p>{{ application.overview.description }}</p>
+        </div>
+        <div class="col col-12 d-flex justify-content-center flex-wrap flex-md-nowrap profile-overview__call-to-actions">
+            <a href="#Editions" class="button button--primary mb-3 mb-md-0 d-flex align-items-center justify-content-center">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small mr-3">
+                    <use xlink:href="#icon-shopping-trolley"/>
+                </svg>
+                Buy Now
+            </a>
+
+            {% if application.overview.callToActions.demo.label %}
+            <button class="button button--secondary ml-md-3 mb-3 mb-md-0 demo-link d-flex align-items-center justify-content-center">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small chevron__icon--red mr-3">
+                    <use xlink:href="#icon-play-circle"></use>
+                </svg>
+                {{ application.overview.callToActions.demo.label }}
+            </button>
+            {% endif %}
+
+            {% if application.overview.downloadDocumentationUrl %}
+            <a href="{{application.overview.downloadDocumentationUrl}}" class="ml-md-3 button button--secondary d-flex align-items-center justify-content-center">
+                <svg focusable="false" aria-hidden="true" class="icon icon--small chevron__icon--red mr-3">
+                    <use xlink:href="#icon-download"/>
+                </svg>
+                Download Guide
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+  $('.profile-overview .demo-link').on('click', function() {
+    $('#video-dialog').addClass('dialog--display');
+  });
+
+  $('#close-dialog').on('click', function() {
+    $('#video-dialog').removeClass('dialog--display');
+
+    $('.video-iframe').each(function() {
+      this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+    });
+  });
+</script>
+{% endmacro %}

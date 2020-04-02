@@ -1,68 +1,19 @@
-{% from "/macros/profile/profile-edition-details.html" import profileEditionDetails %}
-{% from "/macros/profile/profile-edition-cost.html" import profileEditionCost %}
+{% from "/macros/profile/profile-edition-list-item-header.html" import profileEditionListItemHeader %}
+{% from "/macros/profile/profile-edition-list-item-content.html" import profileEditionListItemContent %}
 
 {% macro profileEditionList(editions, items, break) %}
-<div class="col-12 {% if break %} col-lg-9 {% endif %} d-flex flex-wrap">
+<div class="col-12 {% if break %} col-lg-9 {% endif %} d-lg-flex d-none flex-wrap ">
     <div class="col-12 d-flex">
         {% for edition in items %}
         <div class="col-12 {% if break %} col-lg-4 {% else %} col-lg-3 {% endif %} d-flex">
-            <div class="profile-edition{% if edition.primary %} profile-edition--primary{% endif %} profile-edition-header-container w-100">
-                <div class="profile-edition__header{% if edition.primary %} profile-edition__header--primary{% endif %} js-edition-header h-100">
-                    <h4 class="heading heading--4 heading--regular mt-0 mb-0 h-100 d-flex align-items-center justify-content-center text-center">
-                        {{ edition.name }}
-                    </h4>
-                </div>
-            </div>
+            {{profileEditionListItemHeader(edition)}}
         </div>
         {% endfor %}
     </div>
     <div class="col-12 d-flex">
         {% for edition in items %}
         <div class="col-12 {% if break %} col-lg-4 {% else %} col-lg-3 {% endif %} d-flex">
-            <div class="profile-edition{% if edition.primary %} profile-edition--primary{% endif %} profile-edition-content-container w-100">
-                <div class="profile-edition__content">
-                    <div class="profile-edition__prices js-edition-prices">
-                        <ul class="profile-checklist profile-checklist--flush">
-                            {% set planCount = edition.plans.length %} {% for plan in
-                            edition.plans %} {% if plan.costs and plan.costs.unitPrice %} {%
-                            for unitPrice in plan.costs.unitPrice %} {% for usageRange in
-                            unitPrice.usageRange %} {{ profileEditionCost(usageRange) }} {% if
-                            usageRange and usageRange.unit and usageRange.unit.limitLabel %}
-                            <div>{{ usageRange.unit.limitLabel}}</div>
-                            {% endif %} {% endfor %} {% endfor %} {% endif %} {% if loop.index
-                            < planCount %}
-                            <li
-                                    class="profile-checklist__item profile-edition__prices-separator"
-                            >
-                                <span>{{ editions.i18n.tierSeparator }}</span>
-                            </li>
-                            {% endif %} {% endfor %}
-                        </ul>
-                    </div>
-                    <div
-                            class="profile-edition__details profile-edition__bullets js-edition-bullets"
-                    >
-                        {{ profileEditionDetails(edition.bullets) }}
-                    </div>
-                    <div
-                            class="js-edition-bullets-toggle"
-                            onclick="toggleBulletList({{loop.index0}})"
-                    >
-                        <a class="toggle-show">{{ editions.i18n.showMoreDetails }}</a>
-                        <a class="toggle-hide">{{ editions.i18n.hideMoreDetails }}</a>
-                    </div>
-                    {% if edition and edition.callToAction %}
-                    <div class="profile-edition__action">
-                        <a
-                                href="{{edition.callToAction.url}}"
-                                role="button"
-                                class="button button--primary"
-                        >{{edition.callToAction.label}}</a
-                        >
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
+            {{profileEditionListItemContent(edition, editions, 'desktop', loop)}}
         </div>
         {% endfor %}
     </div>

@@ -1,6 +1,8 @@
 {% extends "/layout/profile.html" %}
 
 {% from "/macros/profile/profile-edition-list.html" import profileEditionList %}
+{% from "/macros/profile/profile-edition-list-item-header.html" import profileEditionListItemHeader %}
+{% from "/macros/profile/profile-edition-list-item-content.html" import profileEditionListItemContent %}
 
 {% macro editionsPricing(editions) %}
 <div class="container profile-editions">
@@ -42,7 +44,13 @@
         {% endif %}
 
         {# Loop through first 3 elements #}
+
+        {% if editions.bullets.length %}
         {% set sliceCountFirstRow = 3 %}
+        {% else %}
+        {% set sliceCountFirstRow = 4 %}
+        {% endif %}
+
         {% for edition in editions.items %}
 
         {% if loop.index0 === 0 %}
@@ -59,7 +67,7 @@
 
         {% if items.length > 0 %}
 
-        {{profileEditionList(editions, items, true)}}
+        {{profileEditionList(editions, items, sliceCountFirstRow === 3)}}
 
         {% endif %}
 
@@ -68,6 +76,7 @@
         {%- endfor %}
 
 
+        {# d-lg-flex d-none in profileEditionList macro #}
         {# Loop through next 4 elements #}
         {% if editions.items.length > 3 %}
         {% set sliceCountOtherRows = 4 %}
@@ -102,6 +111,14 @@
         {% endif %}
 
 
+        <div class="col-12 p-0 d-lg-none d-flex flex-wrap">
+            {% for edition in editions.items %}
+            <div class="col-12">
+                {{profileEditionListItemHeader(edition)}}
+                {{profileEditionListItemContent(edition, editions, 'mobile', loop)}}
+            </div>
+            {%- endfor %}
+        </div>
     </div>
 </div>
 
@@ -112,28 +129,37 @@
     );
     var globalBulletsToggleList = $(".js-edition-bullets-toggle-global-bullets");
 
-    var bulletsContainer = $(".profile-edition__bullets");
-    var bulletsList = $(".profile-edition__bullets .profile-checklist");
-    var bulletsToggleList = $(".js-edition-bullets-toggle");
+    var bulletsContainerDesktop = $(".profile-edition-content-container.desktop .profile-edition__bullets");
+    var bulletsListDesktop = $(".profile-edition-content-container.desktop .profile-edition__bullets .profile-checklist");
+    var bulletsToggleListDesktop = $(".profile-edition-content-container.desktop .js-edition-bullets-toggle");
 
-    // each profile checklist item check
-    $.each(bulletsContainer, function (index, value) {
-        if (bulletsList[index].clientHeight > value.clientHeight) {
-            $(bulletsToggleList[index]).addClass("show-more-toggle");
-        }
-    });
+    var bulletsContainerMobile = $(".profile-edition-content-container.mobile .profile-edition__bullets");
+    var bulletsListMobile = $(".profile-edition-content-container.mobile .profile-edition__bullets .profile-checklist");
+    var bulletsToggleListMobile = $(".profile-edition-content-container.mobile .js-edition-bullets-toggle");
+
+    function checkEachItemHeight(container, list, toggleList) {
+        $.each(container, function (index, value) {
+            if (list[index].clientHeight > value.clientHeight) {
+                $(toggleList[index]).addClass("show-more-toggle");
+            }
+        });
+    }
+
+    // each profile checklist item check desktop
+    checkEachItemHeight(bulletsContainerDesktop, bulletsListDesktop, bulletsToggleListDesktop);
+
+    // each profile checklist item check mobile
+    checkEachItemHeight(bulletsContainerMobile, bulletsListMobile, bulletsToggleListMobile);
 
     // bullet list item check
-    $.each(globalBulletsContainer, function (index, value) {
-        if (globalBulletsList[index].clientHeight > value.clientHeight) {
-            $(globalBulletsToggleList[index]).addClass("show-more-toggle");
-        }
-    });
+    checkEachItemHeight(globalBulletsContainer, globalBulletsList, globalBulletsToggleList);
 
-    function toggleBulletList(index) {
+    function toggleBulletList(index, id) {
         var currentContainer;
+        console.log(bulletsContainerDesktop);
+        console.log(bulletsContainerMobile);
         if (typeof index !== "undefined") {
-            currentContainer = $(bulletsContainer[index]);
+            currentContainer = id === 'desktop' ? $(bulletsContainerDesktop[index]) : $(bulletsContainerMobile[index]);
         } else {
             currentContainer = $(globalBulletsContainer);
         }

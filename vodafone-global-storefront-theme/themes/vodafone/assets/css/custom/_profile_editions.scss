@@ -1,0 +1,171 @@
+$bullet-image-width: 14px;
+$editionsHeaderBg: #e6e6e6;
+$defaultBoxShadow: 0 2px 5px 0 rgba(black, 0.15);
+$primaryBoxShadow: 0 0 11px 0 rgba(black, 0.43);
+
+.profile-editions {
+  .profile-edition__bullets {
+    max-height: 300px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+    &.open {
+      max-height: 800px;
+    }
+  }
+
+  .profile-edition__bullets-global-bullets {
+    @extend .profile-edition__bullets;
+    max-height: 535px;
+
+    &.open {
+      max-height: 1000px;
+    }
+
+    .bullet-item {
+      font-size: 13px;
+      line-height: 18px;
+      font-family: VodafoneRegular;
+      color: $color-grey;
+      width: calc(100% - #{$bullet-image-width});
+    }
+
+    .bullet-item-img {
+      width: $bullet-image-width;
+    }
+  }
+
+  .js-edition-bullets-toggle,
+  .js-edition-bullets-toggle-global-bullets {
+    display: none;
+
+    &.show-more-toggle {
+      display: block;
+    }
+  }
+
+  .profile-edition {
+    &.profile-edition-header-container {
+      position: relative;
+      z-index: 1;
+      background-color: $editionsHeaderBg;
+      padding: 20px 30px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      box-shadow: $defaultBoxShadow;
+
+      &.profile-edition--primary {
+        box-shadow: $primaryBoxShadow;
+      }
+
+      .profile-edition-header-container-bottom-mask {
+        position: absolute;
+        height: 11px;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        background-color: $color-light-grey;
+      }
+    }
+
+    &.profile-edition-content-container {
+      background: $color-light-grey;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      box-shadow: $defaultBoxShadow;
+
+      &.profile-edition--primary {
+        box-shadow: $primaryBoxShadow;
+      }
+    }
+  }
+
+  .profile-edition-item {
+    .profile-edition__content {
+      position: relative;
+      height: 100%;
+      padding-bottom: 46px;
+
+      .profile-edition__action {
+        position: absolute;
+        bottom: 0;
+
+        .button {
+          margin-bottom: 0 !important;
+        }
+      }
+
+      .profile-checklist {
+        .amount,
+        .unit,
+        .frequency,
+        .limit-label {
+          color: $color-red;
+        }
+
+        .limit-label {
+          font-size: 11px;
+          font-family: VodafoneLight;
+        }
+      }
+
+      .profile-checklist-detail {
+        font-size: 10px;
+
+        .profile-checklist__item {
+          padding: 8px 0;
+          line-height: 16px;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $color-silver;
+          }
+        }
+      }
+    }
+
+    .show-more-toggle {
+      font-size: 12px;
+      padding: 0 0 10px 0;
+      text-align: center;
+      cursor: pointer;
+
+      .svg-icon {
+        width: 13px;
+        padding: 0 0 2px 2px;
+      }
+    }
+
+    .profile-edition__details,
+    .profile-edition__bullets-global-bullets {
+      margin-bottom: 10px;
+
+      & ~ .show-more-toggle {
+        .toggle-show {
+          display: block;
+        }
+
+        .toggle-hide {
+          display: none;
+        }
+      }
+
+      &.open {
+        & ~ .show-more-toggle {
+          .toggle-show {
+            display: none;
+          }
+
+          .toggle-hide {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .profile-edition-item {
+      padding: 0 0.5rem;
+    }
+  }
+}

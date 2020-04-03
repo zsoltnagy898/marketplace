@@ -1,0 +1,19 @@
+{% from "/macros/profile/profile-edition-list-item-header.html" import profileEditionListItemHeader %}
+{% from "/macros/profile/profile-edition-list-item-content.html" import profileEditionListItemContent %}
+
+{% macro profileEditionList(editions, items, break, startIndex) %}
+<div class="col-12 d-flex p-0 justify-content-center">
+    {% for edition in items %}
+    <div class="col-12 {% if break %}col-lg-4 {% else %}col-lg-3 {% endif %} d-flex profile-edition-item">
+        {{profileEditionListItemHeader(edition)}}
+    </div>
+    {% endfor %}
+</div>
+<div class="col-12 d-flex p-0 mb-3 justify-content-center">
+    {% for edition in items %}
+    <div class="col-12 {% if break %}col-lg-4 {% else %}col-lg-3 {% endif %} d-flex profile-edition-item">
+        {{profileEditionListItemContent(edition, editions, 'desktop', loop, startIndex)}}
+    </div>
+    {% endfor %}
+</div>
+{% endmacro %}

@@ -1,0 +1,10 @@
+{% macro profileEditionListItemHeader(edition) %}
+<div class="profile-edition{% if edition.primary %} profile-edition--primary{% endif %} profile-edition-header-container w-100">
+    <div class="profile-edition__header{% if edition.primary %} profile-edition__header--primary{% endif %} js-edition-header h-100">
+        <h4 class="heading heading--4 heading--regular mt-0 mb-0 h-100 d-flex align-items-center justify-content-center text-center">
+            {{ edition.name }}
+        </h4>
+    </div>
+    <div class="profile-edition-header-container-bottom-mask"></div>
+</div>
+{% endmacro %}

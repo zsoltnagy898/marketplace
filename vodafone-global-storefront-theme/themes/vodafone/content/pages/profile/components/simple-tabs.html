@@ -34,6 +34,7 @@
   $(document).ready(function() {
     var tabsContainer = $('#profile-tabs');
     var tabsPlaceholder = $('#tabs-placeholder');
+    var header = $('.header .navigation--primary');
     var tabsTop = tabsContainer.offset().top;
 
     var handleScroll = function() {
@@ -53,8 +54,10 @@
       if (scrollTop >= tabsTop - tabsContainer.outerHeight()) {
         tabsContainer.addClass('tabs--fixed');
         tabsPlaceholder.css({ height: tabsContainer.outerHeight(true) });
+        header.addClass('borer-bottom-transparent')
       } else {
         tabsContainer.removeClass('tabs--fixed');
+        header.removeClass('borer-bottom-transparent');
         tabsPlaceholder.css({ height: 0 });
       }
 
@@ -71,7 +74,7 @@
       e.preventDefault();
 
       $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top - (tabsContainer.outerHeight() + $('.header .navigation--primary').outerHeight())
+        scrollTop: $($(this).attr('href')).offset().top - (tabsContainer.outerHeight() + header.outerHeight())
       }, 200);
     });
   });

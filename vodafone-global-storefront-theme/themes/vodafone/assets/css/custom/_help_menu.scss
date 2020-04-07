@@ -164,7 +164,7 @@
   background: $color-red !important;
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-down(md) {
   .side-toggle {
     bottom: 0px;
     left: auto;
@@ -199,7 +199,7 @@
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(sm) {
   .side-toggle {
     width: 100%;
     left: 0;

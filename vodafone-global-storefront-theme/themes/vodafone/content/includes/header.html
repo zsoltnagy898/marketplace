@@ -111,9 +111,9 @@
 
                 <!-- END: "group/components/header/adaptations/list" -->
                 <li class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-md-auto navigation__item--search">
-                    <form class="search-container" id="header-search-container" novalidate
+                    <form class="search-container {{'open' if config.query.q}}" id="header-search-container" novalidate
                           data-base-url="{{ config.listingEndpoint }}">
-                        <input class="search-input" placeholder="Find Applications" type="search" name="q">
+                        <input class="search-input" placeholder="Find Applications" type="search" name="q" value="{{config.query.q}}" data-default-value="{{config.query.q}}">
                         <div class="search-icon-container">
                             <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
                                  id="search-icon">
@@ -289,13 +289,13 @@
         var input = $('#header-search-container .search-input');
 
         if (container.hasClass('open')) {
-            container.removeClass('open');
-            input.val('');
+          container.removeClass('open');
+          input.val(input.attr('data-default-value'));
         } else {
-            container.addClass('open');
-            container.find('.search-input').focus();
+          container.addClass('open');
+          container.find('.search-input').focus();
         }
-    });
+  });
 
     $('#header-search-container').on('submit', function (e) {
         e.preventDefault();
@@ -306,10 +306,9 @@
         var value = input.val();
 
         if (value) {
-            window.location.href = baseUrl + '?q=' + value;
-            input.val('');
+          window.location.href = baseUrl + '?q=' + value;
         }
-    });
+  });
 
     var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];
 

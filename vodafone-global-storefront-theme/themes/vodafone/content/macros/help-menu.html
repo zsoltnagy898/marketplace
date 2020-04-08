@@ -1,6 +1,6 @@
 {% macro helpMenu() %}
 
-<div>
+<div id="help-menu">
     <nav class="side-toggle">
         <button class="side-toggle__button background-primary" type="button">
             <span class="heading heading--4 heading--inline no-gutter--all side-toggle__tab-text d-flex d-xl-inline-block align-items-center">
@@ -32,9 +32,9 @@
 </div>
 
 <script>
-    $('.side-toggle__button').on('click', function () {
-        $('.side-toggle').toggleClass('side-toggle--show');
-    });
+  jQuery('#help-menu .side-toggle__button').on('click', function() {
+    jQuery('#help-menu .side-toggle').toggleClass('side-toggle--show');
+  });
 </script>
 
 {% endmacro %}

@@ -29,7 +29,12 @@
 
 .navigation--primary {
   background-color: #FFF;
+  border-bottom: 1px solid rgba(102, 102, 102, .5);
   background-clip: padding-box
+}
+
+.navigation--primary.borer-bottom-transparent {
+  border-bottom-color: transparent;
 }
 
 .navigation--fixed {

@@ -1,7 +1,7 @@
 {% set businessAppsLinks = [
- {label: 'All Apps', link: config.listingEndpoint },
- {label: 'Popular Apps', link: config.listingEndpoint + '?order=POPULARITY' },
- {label: 'Recommended solutions', link: config.listingEndpoint + '?filter=STAFFPICK' }
+{label: 'All Apps', link: config.listingEndpoint },
+{label: 'Popular Apps', link: config.listingEndpoint + '?order=POPULARITY' },
+{label: 'Recommended solutions', link: config.listingEndpoint + '?filter=STAFFPICK' }
 ] %}
 
 <nav class="header" data-js="_language">
@@ -19,7 +19,7 @@
                             <div class="js-language language">
                                 <a href="#" class="js-language-current language__current">
                                     <span class="visually-hidden">menu</span>
-                                    <span class="js-language-chosen language__chosen">English</span>
+                                    <span class="js-language-chosen language__chosen">{{config.locale.current}}</span>
                                     <svg focusable="false" aria-hidden="true"
                                          class="icon  icon--small  js-location-icon-down language__icon language__icon--down">
                                         <use xlink:href="#icon-chevron-down"></use>
@@ -30,42 +30,18 @@
                                     </svg>
                                 </a>
                                 <ul class="js-language-options language__options">
+                                    {% for language in config.locale.available %}
                                     <li class="language__item">
-                                        <a href="?language=English" class="js-language-option language__option">
+                                        <a href="/{{language.value}}/home"
+                                           class="js-language-option language__option">
                                             <span class="visually-hidden">menu item</span>
                                             <span class="language__selector">
                                                 <span class="js-language-circle language__circle "></span>
                                             </span>
-                                            English
+                                            {{language.label}}
                                         </a>
                                     </li>
-                                    <li class="language__item">
-                                        <a href="?language=Deutsch" class="js-language-option language__option">
-                                            <span class="visually-hidden">menu item</span>
-                                            <span class="language__selector">
-                                                <span class="js-language-circle language__circle "></span>
-                                            </span>
-                                            Deutsch
-                                        </a>
-                                    </li>
-                                    <li class="language__item">
-                                        <a href="?language=Italiano" class="js-language-option language__option">
-                                            <span class="visually-hidden">menu item</span>
-                                            <span class="language__selector">
-                                                <span class="js-language-circle language__circle "></span>
-                                            </span>
-                                            Italiano
-                                        </a>
-                                    </li>
-                                    <li class="language__item">
-                                        <a href="?language=Espa&#xF1;ol" class="js-language-option language__option">
-                                            <span class="visually-hidden">menu item</span>
-                                            <span class="language__selector">
-                                                <span class="js-language-circle language__circle "></span>
-                                            </span>
-                                            Espa&#xF1;ol
-                                        </a>
-                                    </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <!-- END: "group/components/header/content/language" -->
@@ -254,7 +230,7 @@
                             <div class="language-header">
                                 <a href="#" class="js-language-current language__current">
                                     <span class="visually-hidden">menu</span>
-                                    <span class="js-language-chosen language__chosen">English</span>
+                                    <span class="js-language-chosen language__chosen">{{config.locale.current}}</span>
                                     <svg focusable="false" aria-hidden="true"
                                          class="icon icon--small js-location-icon-down language__icon language__icon--down">
                                         <use xlink:href="#icon-chevron-down"/>
@@ -273,42 +249,18 @@
 
                             </div>
                             <ul class="js-language-options language__options">
+                                {% for language in config.locale.available %}
                                 <li class="language__item">
-                                    <a href="?language=English" class="js-language-option language__option">
+                                    <a href="/{{language.value}}/home"
+                                       class="js-language-option language__option">
                                         <span class="visually-hidden">menu item</span>
                                         <span class="language__selector">
-                                            <span class="js-language-circle language__circle "></span>
-                                        </span>
-                                        English
+                                                <span class="js-language-circle language__circle "></span>
+                                            </span>
+                                        {{language.label}}
                                     </a>
                                 </li>
-                                <li class="language__item">
-                                    <a href="?language=Deutsch" class="js-language-option language__option">
-                                        <span class="visually-hidden">menu item</span>
-                                        <span class="language__selector">
-                                            <span class="js-language-circle language__circle "></span>
-                                        </span>
-                                        Deutsch
-                                    </a>
-                                </li>
-                                <li class="language__item">
-                                    <a href="?language=Italiano" class="js-language-option language__option">
-                                        <span class="visually-hidden">menu item</span>
-                                        <span class="language__selector">
-                                            <span class="js-language-circle language__circle "></span>
-                                        </span>
-                                        Italiano
-                                    </a>
-                                </li>
-                                <li class="language__item">
-                                    <a href="?language=Espa&#xF1;ol" class="js-language-option language__option">
-                                        <span class="visually-hidden">menu item</span>
-                                        <span class="language__selector">
-                                            <span class="js-language-circle language__circle "></span>
-                                        </span>
-                                        Espa&#xF1;ol
-                                    </a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <!-- END: "group/components/header/content/language" -->
@@ -324,46 +276,46 @@
 </nav>
 
 <script>
-  $('#search-trigger').on('click', function() {
-    $('.js-dialog').addClass('js-dialog-display dialog--display dialog--scrollable');
-  });
+    $('#search-trigger').on('click', function () {
+        $('.js-dialog').addClass('js-dialog-display dialog--display dialog--scrollable');
+    });
 
-  $('#search-close').on('click', function() {
-    $('.js-dialog').removeClass('js-dialog-display dialog--display dialog--scrollable');
-  });
+    $('#search-close').on('click', function () {
+        $('.js-dialog').removeClass('js-dialog-display dialog--display dialog--scrollable');
+    });
 
-  $('#header-search-container .search-icon-container').on('click', function() {
-    var container = $('#header-search-container.search-container');
-    var input = $('#header-search-container .search-input');
+    $('#header-search-container .search-icon-container').on('click', function () {
+        var container = $('#header-search-container.search-container');
+        var input = $('#header-search-container .search-input');
 
-    if (container.hasClass('open')) {
-      container.removeClass('open');
-      input.val('');
+        if (container.hasClass('open')) {
+            container.removeClass('open');
+            input.val('');
+        } else {
+            container.addClass('open');
+            container.find('.search-input').focus();
+        }
+    });
+
+    $('#header-search-container').on('submit', function (e) {
+        e.preventDefault();
+
+        var input = $('#header-search-container .search-input');
+
+        var baseUrl = $(this).attr('data-base-url');
+        var value = input.val();
+
+        if (value) {
+            window.location.href = baseUrl + '?q=' + value;
+            input.val('');
+        }
+    });
+
+    var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];
+
+    if (itemsInBasket.length < 1) {
+        $('#cart-on-header').addClass('hide');
     } else {
-      container.addClass('open');
-      container.find('.search-input').focus();
+        $('#cart-on-header').text(itemsInBasket.length);
     }
-  });
-
-  $('#header-search-container').on('submit', function(e) {
-    e.preventDefault();
-
-    var input = $('#header-search-container .search-input');
-
-    var baseUrl = $(this).attr('data-base-url');
-    var value = input.val();
-
-    if (value) {
-      window.location.href = baseUrl + '?q=' + value;
-      input.val('');
-    }
-  });
-
-  var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];
-
-  if (itemsInBasket.length < 1) {
-    $('#cart-on-header').addClass('hide');
-  } else {
-    $('#cart-on-header').text(itemsInBasket.length);
-  }
 </script>

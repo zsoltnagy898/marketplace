@@ -1,8 +1,4 @@
-{% set businessAppsLinks = [
-{label: 'All Apps', link: config.listingEndpoint },
-{label: 'Popular Apps', link: config.listingEndpoint + '?order=POPULARITY' },
-{label: 'Recommended solutions', link: config.listingEndpoint + '?filter=STAFFPICK' }
-] %}
+{% from "/includes/list-links.html" import listLinks with context %}
 
 <nav class="header" data-js="_language">
     <div class="js-navigation-language navigation primary-navigation d-none d-lg-block">
@@ -94,8 +90,8 @@
                         <span class="visually-hidden">menu</span>
                     </a>
                     <div class="dropdown-menu w-100">
-                        {% for link in businessAppsLinks %}
-                        <a class="dropdown-item" href="{{link.link}}">{{ link.label }}</a>
+                        {% for link in listLinks %}
+                        <a class="dropdown-item" href="{{link.url}}">{{ link.name }}</a>
                         {% endfor %}
                     </div>
                 </li>
@@ -185,9 +181,9 @@
                                 </div>
                                 <div class="js-accordion-content navigation__accordion-content">
                                     <ul class="list list--reset navigation--tertiary-accordion-content">
-                                        {% for link in businessAppsLinks %}
+                                        {% for link in listLinks %}
                                         <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="{{link.link}}">{{ link.label }}</a>
+                                            <a href="{{link.url}}">{{ link.name }}</a>
                                         </li>
                                         {% endfor %}
                                     </ul>

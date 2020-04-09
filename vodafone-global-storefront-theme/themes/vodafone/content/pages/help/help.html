@@ -1,6 +1,14 @@
 {% extends "/layout/base.html" %}
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
+{% block data %}
+<data name="recommendedSolutions" type="list" categories="42153"/>
+<data name="carousel" type="list" categories="42155"/>
+<data name="popularApps" type="list" categories="42152"/>
+<data name="iotSolutions" type="list" categories="40682"/>
+<data name="office365" type="list" categories="39393"/>
+{% endblock %}
+
 {% block content %}
 <div>
     {{breadcrumb([{label: 'Home', link: '/'}, {label: 'App Support'}])}}

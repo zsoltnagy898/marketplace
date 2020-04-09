@@ -3,7 +3,18 @@
 {% from "/macros/listing/listing-items.html" import listingItems %}
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
+
+{% block data %}
+<data name="recommendedSolutions" type="list" categories="42153"/>
+<data name="carousel" type="list" categories="42155"/>
+<data name="popularApps" type="list" categories="42152"/>
+<data name="iotSolutions" type="list" categories="40682"/>
+<data name="office365" type="list" categories="39393"/>
+{% endblock %}
+
 {% block content %}
+
+{% from "/includes/list-links.html" import listLinks with context %}
 
 {% set pageTitle = 'All Categories' %}
 {% if listingFilters.selectedFilters and listingFilters.selectedFilters[0] and listingFilters.selectedFilters[0].text %}
@@ -13,7 +24,7 @@
 {{breadcrumb([{label: 'Home', link: '/'}, {label: pageTitle}])}}
 <div class="container listing listing-page mt-3" data-sort='{{ listing.query.order }}'>
     <div class="mb-3">
-        {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint) }}
+        {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint, listLinks) }}
     </div>
 
     <script>

@@ -1,20 +1,20 @@
 {% from "/macros/sliders/list-carousel-item.html" import listCarouselItem %}
 {% from "/macros/sliders/logo-carousel-item.html" import logoCarouselItem with context %}
 
-{% macro listCarousel(products={}, viewType='desktop', sliceCount=3) %}
+{% macro listCarousel(products={}, list=[], viewType='desktop', sliceCount=3) %}
 
 {% set itemWidth = 100  * ((12 / sliceCount) / 12) %}
 
 {% if viewType === 'mobile' %}
 <div class="mobile-carousel-list d-flex flex-nowrap">
-    {% for product in products.items %}
+    {% for product in list %}
     <div class="carousel-item {{'active' if loop.first}} mb-5">
         {{listCarouselItem(product, true)}}
 
-        {% if loop.index0 === products.items.length - 1 %}
-        {{listCarouselItem(products.items[0], true, true)}}
+        {% if loop.index0 === list.length - 1 %}
+        {{listCarouselItem(list[0], true, true)}}
         {% else %}
-        {{listCarouselItem(products.items[loop.index0 + 1], true, true)}}
+        {{listCarouselItem(list[loop.index0 + 1], true, true)}}
         {% endif %}
     </div>
     {% endfor %}
@@ -22,14 +22,14 @@
 {% elif viewType === 'desktop' %}
 <div class="row d-flex flex-nowrap">
     <div class="mb-5 w-100">
-        {%- for item in products.items %}
+        {%- for item in list %}
         {% if (loop.index0 % sliceCount) === 0 or loop.index0 === 0 %}
         <div class="carousel-item low-padding {{'active' if loop.first}}">
             <div class="col-12 d-flex flex-wrap">
                 {% for index in range(loop.index0, loop.index0 + sliceCount) -%}
-                {% if index < products.items.length %}
+                {% if index < list.length %}
                 <div class="col-4 pl-2 pr-2">
-                    {{listCarouselItem(products.items[index])}}
+                    {{listCarouselItem(list[index])}}
                 </div>
                 {% endif %}
                 {%- endfor %}
@@ -41,12 +41,12 @@
 </div>
 {% elif viewType === 'logo' %}
 <div class="row d-flex flex-nowrap align-items-center">
-    {%- for item in products.items %}
+    {%- for item in list %}
     {% if (loop.index0 % sliceCount) === 0 or loop.index0 === 0 %}
     <div class="carousel-item {{'active' if loop.first}}">
         <div class="col-12 d-flex flex-nowrap pl-0 pr-0">
             {% for index in range(loop.index0, loop.index0 + sliceCount) -%}
-            {{logoCarouselItem(products.items[index], itemWidth) if index < products.items.length}}
+            {{logoCarouselItem(list[index], itemWidth) if index < list.length}}
             {%- endfor %}
         </div>
     </div>

@@ -32,11 +32,11 @@
 {% endblock %}
 
 {% block data %}
-<data type="navigator"/>
-<data type="faq"/>
-<data name="core" type="list" attributes="4320"/>
-<data name="mobile" type="list" attributes="4334"/>
-<data name="hero" type="list" products="222633,216359,195808,167032,140680"/>
+<data name="recommendedSolutions" type="list" categories="42153"/>
+<data name="carousel" type="list" categories="42155"/>
+<data name="popularApps" type="list" categories="42152"/>
+<data name="iotSolutions" type="list" categories="40682"/>
+<data name="office365" type="list" categories="39393"/>
 {% endblock %}
 
 
@@ -51,29 +51,29 @@ Partners',items:[ '/assets/images/google-logo.png','/assets/images/hp-enterprise
 <div id="home">
     <section class="section section--white">
         <img src="{{r('/assets/images/banner-2.png')}}" class="section-bg"/>
-        {{ carousel('hero', productLists.featuredapps) }}
+        {{ carousel('hero', productLists.customLists.carousel, productLists.customLists.carousel.products) }}
     </section>
     <section class="section section--white">
         <div class="d-block d-lg-none">
-            {{ carousel('popularAppsMobile', productLists.popularapps,'list', true, false, true, 'mobile') }}
+            {{ carousel('popularAppsMobile', productLists.customLists.popularApps, productLists.customLists.popularApps.products, 'list', true, false, true, 'mobile') }}
         </div>
         <div class="d-none d-lg-block">
-            {{ carousel('popularAppsDesktop', productLists.popularapps,'list', true, false, true, 'desktop', 3) }}
+            {{ carousel('popularAppsDesktop', productLists.customLists.popularApps, productLists.customLists.popularApps.products, 'list', true, false, true, 'desktop', 3) }}
         </div>
     </section>
     <section class="section section--gallery gutter__large--y">
-        {{ recommendedSolutions(productLists.staffpicks) }}
+        {{ recommendedSolutions(productLists.customLists.recommendedSolutions, productLists.customLists.recommendedSolutions.products) }}
     </section>
     <section class="section gutter__large--y">
         {{ whyVodafone() }}
     </section>
     <section class="section section--light-grey">
         <div class="d-block d-lg-none">
-            {{ carousel('featuredPartnersMobile', featuredPartners,'logo', true, false, false, 'mobile', 3, true, true)
+            {{ carousel('featuredPartnersMobile', featuredPartners, featuredPartners.items, 'logo', true, false, false, 'mobile', 3, true, true)
             }}
         </div>
         <div class="d-none d-lg-block">
-            {{ carousel('featuredPartnersDesktop', featuredPartners,'logo', true, false, false,
+            {{ carousel('featuredPartnersDesktop', featuredPartners, featuredPartners.items, 'logo', true, false, false,
             'desktop', 5, true, true) }}
         </div>
     </section>

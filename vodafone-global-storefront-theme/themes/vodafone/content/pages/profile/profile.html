@@ -22,7 +22,7 @@
 {% from "/pages/profile/components/overview.html" import productOverview %}
 {% from "/pages/profile/components/support.html" import productSupport %}
 
-{% set breadcrumbData = [{label: 'Home', link: '/'}] %}
+{% set breadcrumbData = [{label: 'Home', link: '/'+ config.locale.code +'/home'}] %}
 {% if application.categories.items.length > 0 %}
 {% set breadcrumbData = (breadcrumbData.push({label: application.categories.items[0].label, link:  application.categories.items[0].href}), breadcrumbData) %}
 {% endif %}

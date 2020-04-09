@@ -10,7 +10,7 @@
 {% set pageTitle = listingFilters.selectedFilters[0].text %}
 {% endif %}
 
-{{breadcrumb([{label: 'Home', link: '/'}, {label: pageTitle}])}}
+{{breadcrumb([{label: 'Home', link: '/'+ config.locale.code +'/home'}, {label: pageTitle}])}}
 <div class="container listing listing-page mt-3" data-sort='{{ listing.query.order }}'>
     <div class="mb-3">
         {{ listingNavigator(listingFilters, listingProducts, config.listingEndpoint) }}

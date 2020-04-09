@@ -3,7 +3,7 @@
 
 {% block content %}
 <div>
-    {{breadcrumb([{label: 'Home', link: '/'}, {label: 'App Support'}])}}
+    {{breadcrumb([{label: 'Home', link: '/'+ config.locale.code +'/home'}, {label: 'App Support'}])}}
 
     <div class="container mb-5 mt-5">
         <h2 class="heading heading--2 heading--center mt-0 mb-5">

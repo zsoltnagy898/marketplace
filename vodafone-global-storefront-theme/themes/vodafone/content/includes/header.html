@@ -32,14 +32,14 @@
                                 <ul class="js-language-options language__options">
                                     {% for language in config.locale.available %}
                                     <li class="language__item">
-                                        <a href="/{{language.value}}/home"
-                                           class="js-language-option language__option">
+                                        <div onclick="changeLanguage('{{language.value}}')"
+                                             class="js-language-option language__option">
                                             <span class="visually-hidden">menu item</span>
                                             <span class="language__selector">
                                                 <span class="js-language-circle language__circle "></span>
                                             </span>
                                             {{language.label}}
-                                        </a>
+                                        </div>
                                     </li>
                                     {% endfor %}
                                 </ul>
@@ -101,7 +101,7 @@
                 </li>
 
                 <li class="js-navigation-item navigation__item d-none d-lg-block">
-                    <a href="/en-US/help"
+                    <a href="/{{config.locale.code}}/help"
                        class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}"
                     >
                         App support
@@ -113,7 +113,8 @@
                 <li class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-md-auto navigation__item--search">
                     <form class="search-container {{'open' if config.query.q}}" id="header-search-container" novalidate
                           data-base-url="{{ config.listingEndpoint }}">
-                        <input class="search-input" placeholder="Find Applications" type="search" name="q" value="{{config.query.q}}" data-default-value="{{config.query.q}}">
+                        <input class="search-input" placeholder="Find Applications" type="search" name="q"
+                               value="{{config.query.q}}" data-default-value="{{config.query.q}}">
                         <div class="search-icon-container">
                             <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
                                  id="search-icon">
@@ -251,14 +252,14 @@
                             <ul class="js-language-options language__options">
                                 {% for language in config.locale.available %}
                                 <li class="language__item">
-                                    <a href="/{{language.value}}/home"
-                                       class="js-language-option language__option">
+                                    <div onclick="changeLanguage('{{language.value}}')"
+                                         class="js-language-option language__option">
                                         <span class="visually-hidden">menu item</span>
                                         <span class="language__selector">
                                                 <span class="js-language-circle language__circle "></span>
                                             </span>
                                         {{language.label}}
-                                    </a>
+                                    </div>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -276,6 +277,17 @@
 </nav>
 
 <script>
+
+    function changeLanguage(language) {
+        var separatedLocation = window.location.pathname.split('/');
+        var location = '';
+        for (var separatedLocationIndex = 2; separatedLocationIndex < separatedLocation.length; separatedLocationIndex++) {
+            location = location + '/' + separatedLocation[separatedLocationIndex]
+        }
+
+        window.location = `/${language}${location}${window.location.search}`;
+    }
+
     $('#search-trigger').on('click', function () {
         $('.js-dialog').addClass('js-dialog-display dialog--display dialog--scrollable');
     });
@@ -289,13 +301,13 @@
         var input = $('#header-search-container .search-input');
 
         if (container.hasClass('open')) {
-          container.removeClass('open');
-          input.val(input.attr('data-default-value'));
+            container.removeClass('open');
+            input.val(input.attr('data-default-value'));
         } else {
-          container.addClass('open');
-          container.find('.search-input').focus();
+            container.addClass('open');
+            container.find('.search-input').focus();
         }
-  });
+    });
 
     $('#header-search-container').on('submit', function (e) {
         e.preventDefault();
@@ -306,9 +318,9 @@
         var value = input.val();
 
         if (value) {
-          window.location.href = baseUrl + '?q=' + value;
+            window.location.href = baseUrl + '?q=' + value;
         }
-  });
+    });
 
     var itemsInBasket = JSON.parse(localStorage.getItem('basket')) || [];
 

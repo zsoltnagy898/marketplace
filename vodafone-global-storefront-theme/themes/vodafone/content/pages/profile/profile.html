@@ -28,6 +28,14 @@
 {% endif %}
 {% set breadcrumbData = (breadcrumbData.push({label: application.summary.title}), breadcrumbData) %}
 
+{% block data %}
+<data name="recommendedSolutions" type="list" categories="42153"/>
+<data name="carousel" type="list" categories="42155"/>
+<data name="popularApps" type="list" categories="42152"/>
+<data name="iotSolutions" type="list" categories="40682"/>
+<data name="office365" type="list" categories="39393"/>
+{% endblock %}
+
 {{breadcrumb(breadcrumbData)}}
 
 <section class="position-relative section--white p-0">
@@ -47,7 +55,7 @@
 </div>
 {% if application.features.items.length > 0 %}
 <section id="Features" class="section section--light-grey">
-    {{ carousel('profile', application.features, 'profile', true, false, false, 'desktop', 1, true, false, 'Features')
+    {{ carousel('profile', application.features, application.features.items, 'profile', true, false, false, 'desktop', 1, true, false, 'Features')
     }}
 </section>
 {% endif %}

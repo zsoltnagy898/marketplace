@@ -2,7 +2,8 @@
 {% from "/macros/sliders/profile-carousel-item.html" import profileCarouselItem %}
 {% from "/macros/sliders/list-carousel.html" import listCarousel with context %}
 
-{% macro carousel(id='carousel', products={}, itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop', sliceCount=1, greyBg=false, widerControls=false, title='') %}
+
+{% macro carousel(id='carousel', products={}, list=[], itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop', sliceCount=1, greyBg=false, widerControls=false, title='') %}
 <div class="container">
     <div id="{{id}}"
          class="carousel slide {{'high-height' if showViewMore}} {{'high-height-image' if itemTheme === 'profile'}} {{'low-height' if itemTheme === 'logo'}} {{'grey-bg' if greyBg}} {{'wider-controls' if widerControls}}"
@@ -17,7 +18,7 @@
 
         {% if showIndicators %}
         <ol class="carousel-indicators">
-            {% for product in products.items %}
+            {% for product in list %}
             <li class="carousel-indicator-item {{'active' if loop.first}}" data-target="#{{id}}"
                 data-slide-to="{{loop.index-1}}"></li>
             {% endfor %}
@@ -27,25 +28,25 @@
         <div class="carousel-inner">
             {% if itemTheme === 'hero' %}
             <div>
-                {% for product in products.items %}
+                {% for product in list %}
                 <div class="carousel-item {{'active' if loop.first}}">
                     {{heroCarouselItem(product)}}
                 </div>
                 {% endfor %}
             </div>
             {% elif itemTheme === 'list' %}
-            {{listCarousel(products, viewType)}}
+            {{listCarousel(products, list, viewType)}}
             {% elif itemTheme === 'logo' %}
             <div>
                 {% if viewType === 'mobile' %}
-                {{listCarousel(products, itemTheme, sliceCount)}}
+                {{listCarousel(products, list, itemTheme, sliceCount)}}
                 {% elif viewType === 'desktop' %}
-                {{listCarousel(products, itemTheme, sliceCount)}}
+                {{listCarousel(products, list, itemTheme, sliceCount)}}
                 {% endif %}
             </div>
             {% elif itemTheme === 'profile' %}
             <div>
-                {% for product in products.items %}
+                {% for product in list %}
                 <div class="carousel-item {{'active' if loop.first}}">
                     {{profileCarouselItem(product)}}
                 </div>
@@ -53,7 +54,7 @@
             </div>
             {% endif %}
 
-            {% if products.items.length > sliceCount %}
+            {% if list.length > sliceCount %}
             <button class=" carousel-control-prev d-none d-lg-flex" href="#{{id}}" data-slide="prev">
                 <div class="carousel-control-icon-container">
                     <svg focusable="false" aria-hidden="true"

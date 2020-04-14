@@ -1,4 +1,4 @@
-{% macro listingNavigator(listingFilters, listingProducts, listingEndpoint) %}
+{% macro listingNavigator(listingFilters, listingProducts, listingEndpoint, listLinks) %}
 
 {% set filters = listingFilters.filters %}
 {% set sorting = listingProducts.sorting %}
@@ -13,8 +13,6 @@
         <a class="filter-link" href="{{ listingEndpoint }}">Clear filters</a>
     </div>
     <div class="col col-12 d-flex align-items-center">
-        {% for filter in filters %}
-        {% if filter.id === 'categories' %}
         <div class="dropdown select justify-content-center mr-3 flex-grow-1 flex-lg-grow-0">
             <button class="button d-flex justify-content-between align-items-center select-toggle w-100"
                     type="button" data-toggle="dropdown">
@@ -28,17 +26,15 @@
                 </svg>
             </button>
             <div class="dropdown-menu">
-                {% for item in filter.items %}
+                {% for item in listLinks %}
                 <a href="{{ item.url }}" class="dropdown-item {{'active' if item.selected}}">
                                 <span class="d-block select-label">
-                                    {{ item.text }}
+                                    {{ item.name }}
                                 </span>
                 </a>
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
-        {% endfor %}
 
         <div class="dropdown select justify-content-center mr-lg-3 flex-grow-1 flex-lg-grow-0">
             <button class="button d-flex justify-content-between align-items-center select-toggle w-100"

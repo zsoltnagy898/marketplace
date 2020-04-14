@@ -4,10 +4,10 @@
     <nav class="side-toggle">
         <button class="side-toggle__button background-primary" type="button">
             <span class="heading heading--4 heading--inline no-gutter--all side-toggle__tab-text d-flex d-xl-inline-block align-items-center">
-                Live chat
-                <img src="{{ r('/assets/images/need-help.png') }}"
-                     class="live-chat"
-                     alt="live chat">
+                Need help?
+                <svg role="image" class="side-toggle__chevron icon icon--small" focusable="false">
+                    <use xlink:href="#icon-chevron-left"></use>
+                </svg>
             </span>
         </button>
         <div class="side-toggle__content" :aria-hidden="!open">
@@ -32,9 +32,9 @@
 </div>
 
 <script>
-  jQuery('#help-menu .side-toggle__button').on('click', function() {
-    jQuery('#help-menu .side-toggle').toggleClass('side-toggle--show');
-  });
+    jQuery('#help-menu .side-toggle__button').on('click', function() {
+        jQuery('#help-menu .side-toggle').toggleClass('side-toggle--show');
+    });
 </script>
 
 {% endmacro %}

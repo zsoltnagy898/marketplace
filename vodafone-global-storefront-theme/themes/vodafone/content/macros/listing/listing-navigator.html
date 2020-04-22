@@ -1,6 +1,12 @@
 {% macro listingNavigator(listingFilters, listingProducts, listingEndpoint, listLinks) %}
 
 {% set filters = listingFilters.filters %}
+{% set selectedFilters %}
+    {% for item in listingFilters.selectedFilters %}
+    {{ item.queryKey }}={{ item.id }}
+    {% endfor %}
+{% endset %}
+{% set filterString = selectedFilters | trim %}
 {% set sorting = listingProducts.sorting %}
 
 <div class="row">
@@ -27,10 +33,10 @@
             </button>
             <div class="dropdown-menu">
                 {% for item in listLinks %}
-                <a href="{{ item.url }}" class="dropdown-item {{'active' if item.selected}}">
-                                <span class="d-block select-label">
-                                    {{ item.name }}
-                                </span>
+                <a href="{{ item.url }}" class="dropdown-item {{'active' if (not filterString and item.url == listingEndpoint) or (filterString and filterString in item.url)}}">
+                    <span class="d-block select-label">
+                      {{ item.name }}
+                    </span>
                 </a>
                 {% endfor %}
             </div>

@@ -297,6 +297,10 @@
     var searchIconContainer = $('#header-search-container .search-icon-container');
     var searchClose = $('#header-search-container .search-close-icon');
 
+    var navigation = $('.js-navigation.navigation--primary');
+    var navigationStatic = $('.js-navigation-static');
+    var navigationTop = navigation.offset().top || 0;
+
     function toggleSearchFieldVisibility() {
       if (container.hasClass('open')) {
         container.removeClass('open');
@@ -317,6 +321,22 @@
         window.location.href = baseUrl + '?q=' + value;
       }
     }
+
+    function handleScroll() {
+      var scrollTop = $(window).scrollTop();
+
+      if (scrollTop <= navigationTop && navigation.hasClass('navigation--fixed')) {
+        navigationStatic.css({ height: 0 });
+        navigation.removeClass('navigation--fixed');
+      } else if (scrollTop > navigationTop && !navigation.hasClass('navigation--fixed')) {
+        navigationStatic.css({ height: navigation.outerHeight() });
+        navigation.addClass('navigation--fixed');
+      }
+    }
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
 
     searchIconContainer.on('click', function(e) {
       if (container.hasClass('open')) {

@@ -194,6 +194,7 @@
                     <a
                             href="https://testvfspain.appdirect.com/login"
                             class="js-navigation-link navigation__link navigation__link--icon"
+                            onclick="navToggle()"
                     >
                         <svg
                                 focusable="false"
@@ -212,6 +213,7 @@
                     <a
                             href="https://ayudacliente.vodafone.es/empresas/contacta/"
                             class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon--last"
+                            onclick="navToggle()"
                     >
                         <svg
                                 focusable="false"
@@ -237,6 +239,7 @@
                     <a
                             href="#"
                             class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon-last navigation__link--menu"
+                            onclick="navToggle()"
                     >
             <span class="visually-hidden">
               <span class="navigation__accessibility">Close</span>Menu
@@ -427,6 +430,26 @@
             optionList.addClass("open");
             downIcon.removeClass("open");
             upIcon.addClass("open");
+        }
+    }
+
+    function navToggle() {
+        var navItem = $(".js-navigation-item.navigation__item--clickable");
+        var link = $(".js-navigation-link");
+        var dropdownContent = $(".js-navigation.navigation--tertiary");
+
+        var navItemActiveClass = "navigation__item--active";
+        var linkActiveClass = "navigation__link--active";
+        var dropdownContentActiveClass = "navigation--display";
+
+        if (navItem.hasClass(navItemActiveClass)) {
+            navItem.removeClass(navItemActiveClass);
+            link.removeClass(linkActiveClass);
+            dropdownContent.removeClass(dropdownContentActiveClass);
+        } else {
+            navItem.addClass(navItemActiveClass);
+            link.addClass(linkActiveClass);
+            dropdownContent.addClass(dropdownContentActiveClass);
         }
     }
 

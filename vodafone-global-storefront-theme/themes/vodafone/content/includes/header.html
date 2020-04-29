@@ -265,6 +265,7 @@
                             <div class="js-accordion-item">
                                 <div
                                         class="js-accordion-heading navigation__accordion--heading"
+                                        onclick="accordionToggle()"
                                 >
                   <span class="chevron">
                     <span class="chevron__text">Business Apps</span>
@@ -450,6 +451,21 @@
             navItem.addClass(navItemActiveClass);
             link.addClass(linkActiveClass);
             dropdownContent.addClass(dropdownContentActiveClass);
+        }
+    }
+
+    function accordionToggle() {
+        var head = $(".js-accordion-heading.navigation__accordion--heading");
+        var content = $(".js-accordion-content.navigation__accordion-content");
+
+        var headActiveClass = "js-accordion-heading-active accordion__heading--active";
+
+        if (head.hasClass(headActiveClass)) {
+            head.removeClass(headActiveClass);
+            content.removeClass("open");
+        } else {
+            head.addClass(headActiveClass);
+            content.addClass("open");
         }
     }
 

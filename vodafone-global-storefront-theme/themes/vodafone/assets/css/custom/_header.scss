@@ -785,7 +785,6 @@ nav.header {
   &:hover {
     svg {
       color: $color-red;
-
     }
   }
 }
@@ -807,4 +806,12 @@ nav.header {
 .search-container.open .navigation__icon-text {
   display: none !important;
   color: white;
+}
+
+.js-language-options, .language__icon--down, .language__icon--up, .js-accordion-content {
+  display: none;
+
+  &.open {
+    display: block;
+  }
 }

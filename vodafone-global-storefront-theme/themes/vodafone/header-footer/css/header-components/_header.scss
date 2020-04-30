@@ -1,18 +1,18 @@
 .ad-uniheader {
     background: $headerNavBg;
 	border-bottom: 1px solid $headerNavBorderColor;
-    font-family: $nav-font-family;    
+    font-family: $nav-font-family;
     height: $nav-height;
     position: relative;
     box-sizing: content-box;
     z-index: 11;
-    
+
     &__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: $nav-height;
-        list-style: none;        
+        list-style: none;
         margin: 0;
         padding: 0;
         position: relative;
@@ -30,7 +30,7 @@
                 list-style: none;
                 height: 100%;
             }
-            
+
             > .ad-component_list-item, > .ad-component_list--item {
                 height: 100%;
                 display: inline-block;
@@ -62,7 +62,11 @@
 	}
 }
 
-// Styling the user image
+.loginPage #login-header {
+  display: none;
+}
+
+  // Styling the user image
 .ad-img-profile-pic {
 	width: $profile-img-width;
 	height: $profile-img-height;

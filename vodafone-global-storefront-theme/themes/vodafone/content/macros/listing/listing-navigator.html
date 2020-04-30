@@ -1,12 +1,6 @@
-{% macro listingNavigator(listingFilters, listingProducts, listingEndpoint, listLinks) %}
+{% macro listingNavigator(listingFilters, listingProducts, listingEndpoint, categories) %}
 
 {% set filters = listingFilters.filters %}
-{% set selectedFilters %}
-    {% for item in listingFilters.selectedFilters %}
-    {{ item.queryKey }}={{ item.id }}
-    {% endfor %}
-{% endset %}
-{% set filterString = selectedFilters | trim %}
 {% set sorting = listingProducts.sorting %}
 
 <div class="row">
@@ -32,12 +26,24 @@
                 </svg>
             </button>
             <div class="dropdown-menu">
-                {% for item in listLinks %}
-                <a href="{{ item.url }}" class="dropdown-item {{'active' if (not filterString and item.url == listingEndpoint) or (filterString and filterString in item.url)}}">
+                <a href="{{ listingEndpoint }}" class="dropdown-item  {{'active' if listingFilters.selectedFilters.length == 0}}">
                     <span class="d-block select-label">
-                      {{ item.name }}
+                      All apps
                     </span>
                 </a>
+                {% for category in categories %}
+                <a href="{{ listingEndpoint + '?cat=' + category.id }}" class="dropdown-item {{'active' if category.selected}}">
+                    <span class="d-block select-label">
+                      {{ category.name }}
+                    </span>
+                </a>
+                {% for subCategory in category.subCategories %}
+                <a href="{{ listingEndpoint + '?scat=' + subCategory.id }}" class="dropdown-item {{'active' if subCategory.selected}}">
+                    <span class="d-block select-label ml-3">
+                      {{ subCategory.name }}
+                    </span>
+                </a>
+                {% endfor %}
                 {% endfor %}
             </div>
         </div>

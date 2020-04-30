@@ -177,9 +177,9 @@
 
     .logo-carousel-item {
       width: 100%;
-      max-width: 130px;
+      max-width: 260px;
       padding: 15px;
-      height: 60px;
+      height: 120px;
 
       @include media-breakpoint-down(md) {
         padding: 7px;

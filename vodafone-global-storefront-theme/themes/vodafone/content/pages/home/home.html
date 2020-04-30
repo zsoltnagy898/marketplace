@@ -42,9 +42,7 @@
 {% block content %}
 
 {% set featuredPartners = {name: 'Featured
-Partners',items:[ '/assets/images/google-logo.png','/assets/images/hp-enterprise-logo.png',
-'/assets/images/huawei-logo.png','/assets/images/microsoft-logo.png', '/assets/images/zscaler-logo.png'
-]} %}
+Partners',items:[ '/assets/images/microsoft-logo.png', '/assets/images/google-logo.png' ]} %}
 
 
 <div id="home">
@@ -68,12 +66,12 @@ Partners',items:[ '/assets/images/google-logo.png','/assets/images/hp-enterprise
     </section>
     <section class="section section--light-grey">
         <div class="d-block d-lg-none">
-            {{ carousel('featuredPartnersMobile', featuredPartners, featuredPartners.items, 'logo', true, false, false, 'mobile', 3, true, true)
+            {{ carousel('featuredPartnersMobile', featuredPartners, featuredPartners.items, 'logo', true, false, false, 'mobile', 2, true, true)
             }}
         </div>
         <div class="d-none d-lg-block">
             {{ carousel('featuredPartnersDesktop', featuredPartners, featuredPartners.items, 'logo', true, false, false,
-            'desktop', 5, true, true) }}
+            'desktop', 2, true, true) }}
         </div>
     </section>
 </div>

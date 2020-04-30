@@ -20,13 +20,13 @@
                     {{app.description}}
                 </div>
                 <div class="col-12 p-0 text-right">
-                    {{more(app.url)}}
+                    {{more(app.url, listingProducts.i18n.learnMore)}}
                 </div>
             </div>
             <div class="col-12 pl-0 pr-0 d-flex align-items-end align-items-lg-center">
                 <div class="col-6 p-0">
                     <div class="body-text heading--light listing-started-at">
-                        Starting at
+                        {{listingProducts.i18n.startingAt}}
                     </div>
                     <div class="heading--bold heading--3 m-0 listing-formatted-price">
                         {{app.startingPrice.formattedPrice}}

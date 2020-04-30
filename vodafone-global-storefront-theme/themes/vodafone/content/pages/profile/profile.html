@@ -29,10 +29,7 @@
 {% set breadcrumbData = (breadcrumbData.push({label: application.summary.title}), breadcrumbData) %}
 
 {% block data %}
-<data name="recommendedSolutions" type="list" categories="42153"/>
-<data name="carousel" type="list" categories="42155"/>
-<data name="popularApps" type="list" categories="42152"/>
-<data name="collaboration" type="list" categories="42161"/>
+<data type="navigator"/>
 {% endblock %}
 
 {{breadcrumb(breadcrumbData)}}

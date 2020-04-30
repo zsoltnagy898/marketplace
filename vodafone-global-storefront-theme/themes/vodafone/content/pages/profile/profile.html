@@ -22,7 +22,7 @@
 {% from "/pages/profile/components/overview.html" import productOverview %}
 {% from "/pages/profile/components/support.html" import productSupport %}
 
-{% set breadcrumbData = [{label: 'Home', link: '/'+ config.locale.code +'/home'}] %}
+{% set breadcrumbData = [{label: i18n.Home, link: '/'+ config.locale.code +'/home'}] %}
 {% if application.categories.items.length > 0 %}
 {% set breadcrumbData = (breadcrumbData.push({label: application.categories.items[0].label, link:  application.categories.items[0].href}), breadcrumbData) %}
 {% endif %}
@@ -39,7 +39,7 @@
 
 <section class="position-relative section--white p-0">
     <img src="{{r('/assets/images/banner-2-red.png')}}" style="width: 100%;" class="section-bg"/>
-    {{productSummary(application.summary)}}
+    {{productSummary(application)}}
 </section>
 
 <div id="apptop" data-vue-page="profile">

@@ -1,5 +1,5 @@
-{% from "/macros/listing/listing-items-grid.html" import listingItemsGrid %}
-{% from "/macros/listing/listing-items-row.html" import listingItemsRow %}
+{% from "/macros/listing/listing-items-grid.html" import listingItemsGrid with context %}
+{% from "/macros/listing/listing-items-row.html" import listingItemsRow with context %}
 {% from "/macros/simple-tooltip.html" import simpleTooltip %}
 
 {% macro listingItems(listing, selectedFilters, showUtils = true) %}

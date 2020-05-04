@@ -437,6 +437,7 @@
     }
 
     function toggleLanguageChooser() {
+        var $ = $ || jQuery;
         var optionList = $(".js-language-options");
         var downIcon = $(".language__icon--down");
         var upIcon = $(".language__icon--up");
@@ -453,6 +454,7 @@
     }
 
     function navToggle() {
+        var $ = $ || jQuery;
         var navItem = $(".js-navigation-item.navigation__item--clickable");
         var link = $(".js-navigation-link");
         var dropdownContent = $(".js-navigation.navigation--tertiary");
@@ -473,6 +475,7 @@
     }
 
     function accordionToggle() {
+        var $ = $ || jQuery;
         var head = $(".js-accordion-heading.navigation__accordion--heading");
         var content = $(".js-accordion-content.navigation__accordion-content");
 
@@ -488,6 +491,7 @@
     }
 
     $(document).ready(function () {
+        var $ = $ || jQuery;
         var container = $("#header-search-container.search-container");
         var input = $("#header-search-container .search-input");
         var searchIconContainer = $(
@@ -521,6 +525,7 @@
         }
 
         function handleScroll() {
+            var $ = $ || jQuery;
             var scrollTop = $(window).scrollTop();
 
             if (

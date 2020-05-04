@@ -20,7 +20,7 @@
 {% from "/macros/sliders/carousel.html" import carousel with context %}
 {% from "/pages/profile/components/simple-tabs.html" import productTabs %}
 {% from "/pages/profile/components/overview.html" import productOverview %}
-{% from "/pages/profile/components/support.html" import productSupport %}
+{% from "/pages/profile/components/support.html" import productSupport with context %}
 
 {% set breadcrumbData = [{label: i18n.Home, link: '/'+ config.locale.code +'/home'}] %}
 {% if application.categories.items.length > 0 %}

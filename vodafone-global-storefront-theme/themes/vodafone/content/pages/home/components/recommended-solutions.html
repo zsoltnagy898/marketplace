@@ -1,7 +1,7 @@
 {% macro recommendedSolutions(data={}, list=[]) %}
 <div class="container">
     <h3 class="heading heading--3 heading--center heading--leading">
-        Recommended solutions
+        {{t(i18n.custom.home.recommended_solutions)}}
     </h3>
     <div class="row mb-2">
         {% for item in list %}

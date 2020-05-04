@@ -76,7 +76,9 @@
 
         {% if showViewMore %}
         <div class="text-center carousel-view-all">
-            <a href="{{products.url}}" role="button" class="button button--primary">View More</a>
+            <a href="{{products.url}}" role="button" class="button button--primary">
+                {{t(i18n.custom.home.view_more)}}
+            </a>
         </div>
         {% endif %}
 

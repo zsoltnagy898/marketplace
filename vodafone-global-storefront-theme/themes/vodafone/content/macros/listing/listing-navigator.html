@@ -17,7 +17,7 @@
             <button class="button d-flex justify-content-between align-items-center select-toggle w-100"
                     type="button" data-toggle="dropdown">
                         <span class="selected-item-label">
-                            Categories
+                            {{t(i18n.custom.listing.catergories)}}
                         </span>
                 <svg focusable="false"
                      aria-hidden="true"
@@ -28,7 +28,7 @@
             <div class="dropdown-menu">
                 <a href="{{ listingEndpoint }}" class="dropdown-item  {{'active' if listingFilters.selectedFilters.length == 0}}">
                     <span class="d-block select-label">
-                      All apps
+                        {{t(i18n.custom.home.all_apps)}}
                     </span>
                 </a>
                 {% for category in categories %}
@@ -52,7 +52,7 @@
             <button class="button d-flex justify-content-between align-items-center select-toggle w-100"
                     type="button" data-toggle="dropdown">
                 <span class="selected-item-label">
-                    Sort by
+                    {{t(i18n.custom.listing.sort_by)}}
                 </span>
                 <svg focusable="false"
                      aria-hidden="true"
@@ -83,7 +83,7 @@
                      class="icon icon--small icon--closed chevron__icon no-stroke mr-1">
                     <use xlink:href="#icon-numbered-view"></use>
                 </svg>
-                List view
+                {{t(i18n.custom.listing.list_view)}}
             </button>
             <button class=" button button--small button__toggle_font_color button--no--border d-flex align-items-center grid-view-button"
                     aria-label="grid"
@@ -91,7 +91,7 @@
                 <svg focusable="false" aria-hidden="true" class="icon icon--small icon--closed no-stroke mr-1">
                     <use xlink:href="#icon-grid-view"></use>
                 </svg>
-                Grid view
+                {{t(i18n.custom.listing.grid_view)}}
             </button>
         </menu>
     </div>

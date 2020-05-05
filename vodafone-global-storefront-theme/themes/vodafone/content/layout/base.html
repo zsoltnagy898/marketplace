@@ -1,3 +1,5 @@
+{% from "/macros/help-menu.html" import helpMenu with context %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,6 +88,8 @@
 {% block footer %}
 {% include "/includes/footer.html" %}
 {% endblock %}
+
+{{ helpMenu() }}
 
 {% block scripts_ws2 %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.14/iframeResizer.min.js"

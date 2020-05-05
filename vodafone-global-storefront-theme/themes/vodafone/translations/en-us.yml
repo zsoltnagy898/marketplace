@@ -1,6 +1,27 @@
-home.welcome: Welcome
-home.startingat: Starting At {price}
-product.per.MONTHLY: per month
-product.per.YEARLY: per year
-product.per.ONE_TIME: one time
-product.rating: "{rating}/5 Based on {nbrating} reviews"
+home:
+  help: 'Help'
+  app_support: 'App support'
+  business_app: 'Business app'
+  search: 'Search'
+  login: 'Log in'
+  contact_us: 'Contact us'
+  popular_apps: 'Popular Apps'
+  recommended_solutions: 'Recommended solutions'
+  why_buy_business_apps_from_vodafone: 'Why buy Business Apps from Vodafone'
+  featured_partners: 'Featured partners'
+  terms_and_conditions: 'Terms and Conditions'
+  privacy_policy: 'Privacy Policy'
+  view_more: 'View More'
+  all_apps: 'All apps'
+  why_vodafone:
+    section_1: 'Simple – Manage all your Business App licenses from a single location.'
+    section_2: 'App Support – Get the support you need, when you need it, from one point of contact.'
+    section_3: 'Save Time – Easy access to our growing range of recommended Business Apps to help you run, grow and secure your business.'
+listing:
+  filters: 'Filters'
+  catergories: 'Catergories'
+  sort_by: 'Sort by'
+  clear_filters: 'Clear filters'
+  list_view: 'List view'
+  grid_view: 'Grid view'
+  buy_now: 'Buy Now'

@@ -28,7 +28,9 @@
             <div class="body-text listing-frequency-label heading--light {{'invisible' if app.startingPrice.frequency.label.length === 0}}">
                 /{{app.startingPrice.frequency.label}}
             </div>
-            <a href="{{app.url}}" role="button" class="button button--primary mt-2 w-100 max-width">Buy Now</a>
+            <a href="{{app.url}}" role="button" class="button button--primary mt-2 w-100 max-width">
+                {{t(i18n.custom.listing.buy_now)}}
+            </a>
         </div>
     </div>
     {% endfor %}

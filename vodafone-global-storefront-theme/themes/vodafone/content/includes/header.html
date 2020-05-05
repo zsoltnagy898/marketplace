@@ -70,7 +70,7 @@
                                         href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/"
                                         target="_blank"
                                 >
-                                    Help {{home.welcome}}
+                                    {{ t(i18n.custom.home.help) }} {{home.welcome}}
                                     <img
                                             src="{{ r('/assets/images/help-circle.png') }}"
                                             alt="Help"
@@ -121,19 +121,22 @@
                             role="button"
                             data-toggle="dropdown"
                     >
-                        Business apps
+                        {{ t(i18n.custom.home.business_app) }}
                         <span class="visually-hidden">menu</span>
                     </a>
                     <div class="dropdown-menu w-100">
-                        <a class="dropdown-item" href="{{config.listingEndpoint}}">All apps</a>
+                        <a class="dropdown-item" href="{{config.listingEndpoint}}">
+                            {{t(i18n.custom.home.all_apps)}}
+                        </a>
                         {% for category in nav.primary.categories %}
-                        <a class="dropdown-item" href="{{config.listingEndpoint + '?cat=' + category.id}}">{{ category.name }}</a>
+                        <a class="dropdown-item" href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
+                            category.name }}</a>
                         {% for subCategory in category.subCategories %}
-                            <a class="dropdown-item" href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
+                        <a class="dropdown-item" href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
                                 <span class="ml-3">
                                 {{ subCategory.name }}
                                 </span>
-                            </a>
+                        </a>
                         {% endfor %}
                         {% endfor %}
                     </div>
@@ -144,7 +147,7 @@
                             href="/{{config.locale.code}}/help"
                             class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}"
                     >
-                        App support
+                        {{ t(i18n.custom.home.app_support) }}
                         <span class="visually-hidden">menu</span>
                     </a>
                 </li>
@@ -189,7 +192,7 @@
                                 <use xlink:href="#icon-search"/>
                             </svg>
                             <span class="navigation__icon-text d-none d-lg-block"
-                            >Search</span
+                            >{{ t(i18n.custom.home.search) }}</span
                             >
                         </div>
                     </form>
@@ -210,7 +213,7 @@
                         >
                             <use xlink:href="#icon-my-vodafone"/>
                         </svg>
-                        <span class="navigation__icon-text">Log In</span>
+                        <span class="navigation__icon-text">{{ t(i18n.custom.home.login) }}</span>
                     </a>
                 </li>
                 <li
@@ -229,7 +232,7 @@
                         >
                             <use xlink:href="#icon-landline-or-call"/>
                         </svg>
-                        <span class="navigation__icon-text">Contact Us</span>
+                        <span class="navigation__icon-text">{{ t(i18n.custom.home.contact_us) }}</span>
                     </a>
                 </li>
 
@@ -274,7 +277,7 @@
                                         onclick="accordionToggle()"
                                 >
                   <span class="chevron">
-                    <span class="chevron__text">Business Apps</span>
+                    <span class="chevron__text">{{ t(i18n.custom.home.business_apps) }}</span>
                     <span class="chevron__container accordion__chevron">
                       <svg
                               focusable="false"
@@ -291,12 +294,15 @@
                                             class="list list--reset navigation--tertiary-accordion-content"
                                     >
                                         <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="{{config.listingEndpoint}}">All apps</a>
+                                            <a href="{{config.listingEndpoint}}">
+                                                {{t(i18n.custom.home.all_apps)}}
+                                            </a>
                                         </li>
 
                                         {% for category in nav.primary.categories %}
                                         <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="{{config.listingEndpoint + '?cat=' + category.id}}">{{ category.name }}</a>
+                                            <a href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
+                                                category.name }}</a>
 
                                         </li>
                                         {% for subCategory in category.subCategories %}
@@ -315,7 +321,7 @@
                         <ul class="list list--reset">
                             <li class="list__item navigation--tertiary-item">
                                 <a href="/en-US/help">
-                                    App support
+                                    {{ t(i18n.custom.home.app_support) }}
                                 </a>
                             </li>
                             <li
@@ -437,6 +443,7 @@
     }
 
     function toggleLanguageChooser() {
+        var $ = $ || jQuery;
         var optionList = $(".js-language-options");
         var downIcon = $(".language__icon--down");
         var upIcon = $(".language__icon--up");
@@ -453,6 +460,7 @@
     }
 
     function navToggle() {
+        var $ = $ || jQuery;
         var navItem = $(".js-navigation-item.navigation__item--clickable");
         var link = $(".js-navigation-link");
         var dropdownContent = $(".js-navigation.navigation--tertiary");
@@ -473,6 +481,7 @@
     }
 
     function accordionToggle() {
+        var $ = $ || jQuery;
         var head = $(".js-accordion-heading.navigation__accordion--heading");
         var content = $(".js-accordion-content.navigation__accordion-content");
 
@@ -488,6 +497,7 @@
     }
 
     $(document).ready(function () {
+        var $ = $ || jQuery;
         var container = $("#header-search-container.search-container");
         var input = $("#header-search-container .search-input");
         var searchIconContainer = $(
@@ -521,6 +531,7 @@
         }
 
         function handleScroll() {
+            var $ = $ || jQuery;
             var scrollTop = $(window).scrollTop();
 
             if (

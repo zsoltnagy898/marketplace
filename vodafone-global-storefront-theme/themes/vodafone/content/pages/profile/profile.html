@@ -20,7 +20,7 @@
 {% from "/macros/sliders/carousel.html" import carousel with context %}
 {% from "/pages/profile/components/simple-tabs.html" import productTabs %}
 {% from "/pages/profile/components/overview.html" import productOverview %}
-{% from "/pages/profile/components/support.html" import productSupport %}
+{% from "/pages/profile/components/support.html" import productSupport with context %}
 
 {% set breadcrumbData = [{label: i18n.Home, link: '/'+ config.locale.code +'/home'}] %}
 {% if application.categories.items.length > 0 %}
@@ -51,8 +51,13 @@
 </div>
 {% if application.features.items.length > 0 %}
 <section id="Features" class="section section--light-grey">
-    {{ carousel('profile', application.features, application.features.items, 'profile', true, false, false, 'desktop', 1, true, false, 'Features')
+    {% for navItem in application.navigation.items %}
+    {% if 'features' === navItem.value %}
+    {{ carousel('profile', application.features, application.features.items, 'profile', true, false, false, 'desktop',
+    1, true, false, navItem.label)
     }}
+    {% endif %}
+    {% endfor %}
 </section>
 {% endif %}
 {% if application.editions.items.length > 0 %}

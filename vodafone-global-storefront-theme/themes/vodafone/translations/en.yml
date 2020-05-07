@@ -18,6 +18,7 @@ home:
     section_1: 'Simple – Manage all your Business App licenses from a single location.'
     section_2: 'App Support – Get the support you need, when you need it, from one point of contact.'
     section_3: 'Save Time – Easy access to our growing range of recommended Business Apps to help you run, grow and secure your business.'
+  go_to_product: 'Go to product'
 listing:
   filters: 'Filters'
   catergories: 'Catergories'

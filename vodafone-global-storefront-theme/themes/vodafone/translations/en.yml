@@ -1,7 +1,7 @@
 home:
   help: 'Help'
   app_support: 'App support'
-  business_app: 'Business app'
+  business_apps: 'Business apps'
   search: 'Search'
   login: 'Log in'
   contact_us: 'Contact us'

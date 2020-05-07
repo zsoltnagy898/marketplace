@@ -121,7 +121,7 @@
                             role="button"
                             data-toggle="dropdown"
                     >
-                        {{ t(i18n.custom.home.business_app) }}
+                        {{ t(i18n.custom.home.business_apps) }}
                         <span class="visually-hidden">menu</span>
                     </a>
                     <div class="dropdown-menu w-100">
@@ -165,7 +165,7 @@
                         <div class="search-input-container">
                             <input
                                     class="search-input"
-                                    placeholder="Find Applications"
+                                    placeholder="{{ common.searchBar.placeholder }}"
                                     type="search"
                                     name="q"
                                     value="{{config.query.q}}"
@@ -203,7 +203,6 @@
                     <a
                             href="https://testvfspain.appdirect.com/login"
                             class="js-navigation-link navigation__link navigation__link--icon"
-                            onclick="navToggle()"
                     >
                         <svg
                                 focusable="false"
@@ -221,8 +220,8 @@
                 >
                     <a
                             href="https://ayudacliente.vodafone.es/empresas/contacta/"
+                            target="_blank"
                             class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon--last"
-                            onclick="navToggle()"
                     >
                         <svg
                                 focusable="false"
@@ -336,13 +335,13 @@
                                     >
                                         <use xlink:href="#icon-my-vodafone"/>
                                     </svg>
-                                    <span>Log In</span>
+                                    <span>{{ t(i18n.custom.home.login) }}</span>
                                 </a>
                             </li>
                             <li
                                     class="list__item navigation--tertiary-item navigation--tertiary-item--icon"
                             >
-                                <a href="https://ayudacliente.vodafone.es/empresas/contacta/">
+                                <a href="https://ayudacliente.vodafone.es/empresas/contacta/" target="_blank">
                                     <svg
                                             focusable="false"
                                             aria-hidden="true"
@@ -351,7 +350,7 @@
                                     >
                                         <use xlink:href="#icon-landline-or-call"/>
                                     </svg>
-                                    <span>Contact Us</span>
+                                    <span>{{ t(i18n.custom.home.contact_us) }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -390,7 +389,7 @@
                                         target="_blank"
                                         class="help"
                                 >
-                                    Help
+                                    {{ t(i18n.custom.home.help) }}
                                     <img
                                             src="{{ r('/assets/images/help-circle-dark.png') }}"
                                             alt="Help"

@@ -1,8 +1,9 @@
 home:
   help: 'Help'
   app_support: 'App support'
-  business_app: 'Business app'
+  business_apps: 'Business apps'
   search: 'Search'
+  find_applications: 'Find Applications'
   login: 'Log in'
   contact_us: 'Contact us'
   popular_apps: 'Popular Apps'

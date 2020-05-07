@@ -1,8 +1,9 @@
 home:
   help: 'Ayuda'
   app_support: 'Soporte a aplicaciones'
-  business_app: 'Aplicaciones de negocio'
+  business_apps: 'Aplicaciones de negocio'
   search: 'Búsqueda'
+  find_applications: 'Encuentra aplicaciones'
   login: 'Acceso'
   contact_us: 'Contacto'
   popular_apps: 'Aplicaciones populares'

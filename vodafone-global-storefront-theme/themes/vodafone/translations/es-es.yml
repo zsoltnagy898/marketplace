@@ -18,6 +18,7 @@ home:
     section_1: 'Simple - Gestione todas sus licencias desde un único lugar.'
     section_2: 'Soporte a la aplicación. Tenga el soporte que necesita, cuando lo necesite, desde un único punto de contacto para todas las aplicaciones.'
     section_3: 'Ahorre tiempo: fácil acceso a nuestra creciente gama de aplicaciones de negocio recomendadas para ayudarlo a administrar, hacer crecer y proteger su negocio.'
+  go_to_product: 'Ir al producto'
 listing:
   filters: 'Filtros'
   catergories: 'Categorías'

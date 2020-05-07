@@ -1,4 +1,4 @@
-{% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem %}
+{% from "/macros/sliders/hero-carousel-item.html" import heroCarouselItem with context %}
 {% from "/macros/sliders/profile-carousel-item.html" import profileCarouselItem %}
 {% from "/macros/sliders/list-carousel.html" import listCarousel with context %}
 
@@ -9,10 +9,10 @@
          class="carousel slide {{'high-height' if showViewMore}} {{'high-height-image' if itemTheme === 'profile'}} {{'low-height' if itemTheme === 'logo'}} {{'grey-bg' if greyBg}} {{'wider-controls' if widerControls}}"
          data-ride="carousel">
         {% if showTitle %}
-        {% if products.name %}
-        <h3 class="text-center heading heading--3 heading--center heading--leading">{{products.name}}</h3>
-        {% else %}
+        {% if title %}
         <h3 class="text-center heading heading--3 heading--center heading--leading">{{title}}</h3>
+        {% else %}
+        <h3 class="text-center heading heading--3 heading--center heading--leading">{{products.name}}</h3>
         {% endif %}
         {% endif %}
 

@@ -21,7 +21,7 @@ home:
   go_to_product: 'Go to product'
 listing:
   filters: 'Filters'
-  catergories: 'Catergories'
+  catergories: 'Categories'
   sort_by: 'Sort by'
   clear_filters: 'Clear filters'
   list_view: 'List view'

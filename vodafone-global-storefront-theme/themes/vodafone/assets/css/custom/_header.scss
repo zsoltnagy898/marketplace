@@ -31,9 +31,7 @@
 }
 
 .navigation--primary {
-  background-color: #fff;
-  border-bottom: 1px solid rgba(102, 102, 102, 0.5);
-  background-clip: padding-box;
+  background-color: $color-third-header;
 }
 
 .navigation--primary.borer-bottom-transparent {
@@ -50,6 +48,20 @@
 .navigation--fixed,
 nav.header {
   z-index: 99 !important;
+}
+
+nav.third-header {
+  z-index: 4 !important;
+  position: sticky;
+  top: 76.6px;
+
+  .navigation--primary {
+    position: relative !important;
+  }
+
+  .navigation__link {
+    padding: 0 50px 5px 50px;
+  }
 }
 
 .navigation--transparent {
@@ -808,7 +820,10 @@ nav.header {
   color: white;
 }
 
-.js-language-options, .language__icon--down, .language__icon--up, .js-accordion-content {
+.js-language-options,
+.language__icon--down,
+.language__icon--up,
+.js-accordion-content {
   display: none;
 
   &.open {

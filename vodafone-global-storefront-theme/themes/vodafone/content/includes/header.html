@@ -108,51 +108,6 @@
                     </a>
                     <!-- END: "group/components/brand/index" -->
                 </li>
-                <!-- START: "group/components/header/adaptations/list" Array
-                            (
-                            [journey] => anonymous
-                            )
-                        -->
-                <li class="navigation__item dropdown d-none d-lg-block">
-                    <a
-                            href="#"
-                            class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'listing'}}"
-                            id="business-apps-dropdown"
-                            role="button"
-                            data-toggle="dropdown"
-                    >
-                        {{ t(i18n.custom.home.business_apps) }}
-                        <span class="visually-hidden">menu</span>
-                    </a>
-                    <div class="dropdown-menu w-100">
-                        <a class="dropdown-item" href="{{config.listingEndpoint}}">
-                            {{t(i18n.custom.home.all_apps)}}
-                        </a>
-                        {% for category in nav.primary.categories %}
-                        <a class="dropdown-item" href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
-                            category.name }}</a>
-                        {% for subCategory in category.subCategories %}
-                        <a class="dropdown-item" href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
-                                <span class="ml-3">
-                                {{ subCategory.name }}
-                                </span>
-                        </a>
-                        {% endfor %}
-                        {% endfor %}
-                    </div>
-                </li>
-
-                <li class="js-navigation-item navigation__item d-none d-lg-block">
-                    <a
-                            href="/{{config.locale.code}}/help"
-                            class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}"
-                    >
-                        {{ t(i18n.custom.home.app_support) }}
-                        <span class="visually-hidden">menu</span>
-                    </a>
-                </li>
-
-                <!-- END: "group/components/header/adaptations/list" -->
                 <li
                         class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-md-auto navigation__item--search"
                 >
@@ -269,60 +224,7 @@
                     </a>
 
                     <div class="js-navigation navigation navigation--tertiary">
-                        <div class="js-accordion" data-js="_accordion">
-                            <div class="js-accordion-item">
-                                <div
-                                        class="js-accordion-heading navigation__accordion--heading"
-                                        onclick="accordionToggle()"
-                                >
-                  <span class="chevron">
-                    <span class="chevron__text">{{ t(i18n.custom.home.business_apps) }}</span>
-                    <span class="chevron__container accordion__chevron">
-                      <svg
-                              focusable="false"
-                              aria-hidden="true"
-                              class="icon  icon--small  chevron__icon"
-                      >
-                        <use xlink:href="#icon-chevron-down"/>
-                      </svg>
-                    </span>
-                  </span>
-                                </div>
-                                <div class="js-accordion-content navigation__accordion-content">
-                                    <ul
-                                            class="list list--reset navigation--tertiary-accordion-content"
-                                    >
-                                        <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="{{config.listingEndpoint}}">
-                                                {{t(i18n.custom.home.all_apps)}}
-                                            </a>
-                                        </li>
-
-                                        {% for category in nav.primary.categories %}
-                                        <li class="list__item navigation--tertiary-accordion-item">
-                                            <a href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
-                                                category.name }}</a>
-
-                                        </li>
-                                        {% for subCategory in category.subCategories %}
-                                        <li class="list__item navigation--tertiary-accordion-item pl-3">
-                                            <a href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
-                                                {{ subCategory.name }}
-                                            </a>
-                                        </li>
-                                        {% endfor %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
                         <ul class="list list--reset">
-                            <li class="list__item navigation--tertiary-item">
-                                <a href="/en-US/help">
-                                    {{ t(i18n.custom.home.app_support) }}
-                                </a>
-                            </li>
                             <li
                                     class="list__item navigation--tertiary-item navigation--tertiary-item--icon"
                             >

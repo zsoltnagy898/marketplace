@@ -55,12 +55,40 @@ nav.third-header {
   position: sticky;
   top: 76.6px;
 
+  .navigation__link--main:hover,
+  .navigation__link--active,
+  .navigation__link:focus {
+    color: black;
+    font-weight: bold;
+  }
+
   .navigation--primary {
     position: relative !important;
   }
 
   .navigation__link {
     padding: 0 50px 5px 50px;
+  }
+
+  @include media-breakpoint-down(md) {
+    top: 59.6px;
+
+    .navigation__link {
+      padding: 5px 30px;
+    }
+
+    .container {
+      padding: 0;
+    }
+
+    .navigation__item {
+      width: 50%;
+    }
+
+    .navigation__link:hover,
+    .navigation__link--active {
+      background-color: transparent;
+    }
   }
 }
 
@@ -213,8 +241,8 @@ nav.third-header {
   position: absolute;
   bottom: -1px;
   height: 3px;
-  left: 30px;
-  right: 30px;
+  left: 0;
+  right: 0;
 }
 
 .navigation__link--menu.navigation__link--active:hover,

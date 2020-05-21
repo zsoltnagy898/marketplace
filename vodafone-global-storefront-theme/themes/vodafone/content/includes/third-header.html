@@ -4,8 +4,8 @@
             data-js="_navigation"
     >
         <div class="container">
-            <ul class="navigation__list navigation__hide d-flex ml-5" role="navigation">
-                <li class="navigation__item dropdown d-none d-lg-block ml-3">
+            <ul class="navigation__list navigation__hide d-flex ml-md-5" role="navigation">
+                <li class="navigation__item dropdown d-block ml-md-3">
                     <a
                             href="#"
                             class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'listing'}}"
@@ -16,7 +16,7 @@
                         {{ t(i18n.custom.home.business_apps) }}
                         <span class="visually-hidden">menu</span>
                     </a>
-                    <div class="dropdown-menu w-100">
+                    <div class="dropdown-menu w-100 min-width-dropdown-menu">
                         <a class="dropdown-item" href="{{config.listingEndpoint}}">
                             {{t(i18n.custom.home.all_apps)}}
                         </a>
@@ -34,7 +34,7 @@
                     </div>
                 </li>
 
-                <li class="js-navigation-item navigation__item d-none d-lg-block">
+                <li class="js-navigation-item navigation__item d-block">
                     <a
                             href="/{{config.locale.code}}/help"
                             class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}"

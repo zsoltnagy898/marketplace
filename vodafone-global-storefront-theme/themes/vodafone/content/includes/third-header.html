@@ -1,0 +1,49 @@
+<nav class="header third-header" data-js="_language">
+    <div
+            class="js-navigation navigation navigation--primary component__icon-background"
+            data-js="_navigation"
+    >
+        <div class="container">
+            <ul class="navigation__list navigation__hide d-flex ml-md-5" role="navigation">
+                <li class="navigation__item dropdown d-block ml-md-3">
+                    <a
+                            href="#"
+                            class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'listing'}}"
+                            id="business-apps-dropdown"
+                            role="button"
+                            data-toggle="dropdown"
+                    >
+                        {{ t(i18n.custom.home.business_apps) }}
+                        <span class="visually-hidden">menu</span>
+                    </a>
+                    <div class="dropdown-menu w-100 min-width-dropdown-menu">
+                        <a class="dropdown-item" href="{{config.listingEndpoint}}">
+                            {{t(i18n.custom.home.all_apps)}}
+                        </a>
+                        {% for category in nav.primary.categories %}
+                        <a class="dropdown-item" href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
+                            category.name }}</a>
+                        {% for subCategory in category.subCategories %}
+                        <a class="dropdown-item" href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
+                                <span class="ml-3">
+                                {{ subCategory.name }}
+                                </span>
+                        </a>
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </li>
+
+                <li class="js-navigation-item navigation__item d-block">
+                    <a
+                            href="/{{config.locale.code}}/help"
+                            class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}"
+                    >
+                        {{ t(i18n.custom.home.app_support) }}
+                        <span class="visually-hidden">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

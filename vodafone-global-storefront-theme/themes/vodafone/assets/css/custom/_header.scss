@@ -31,9 +31,7 @@
 }
 
 .navigation--primary {
-  background-color: #fff;
-  border-bottom: 1px solid rgba(102, 102, 102, 0.5);
-  background-clip: padding-box;
+  background-color: $color-third-header;
 }
 
 .navigation--primary.borer-bottom-transparent {
@@ -50,6 +48,48 @@
 .navigation--fixed,
 nav.header {
   z-index: 99 !important;
+}
+
+nav.third-header {
+  z-index: 4 !important;
+  position: sticky;
+  top: 76.6px;
+
+  .navigation__link--main:hover,
+  .navigation__link--active,
+  .navigation__link:focus {
+    color: black;
+    font-weight: bold;
+  }
+
+  .navigation--primary {
+    position: relative !important;
+  }
+
+  .navigation__link {
+    padding: 0 50px 5px 50px;
+  }
+
+  @include media-breakpoint-down(md) {
+    top: 59.6px;
+
+    .navigation__link {
+      padding: 5px 30px;
+    }
+
+    .container {
+      padding: 0;
+    }
+
+    .navigation__item {
+      width: 50%;
+    }
+
+    .navigation__link:hover,
+    .navigation__link--active {
+      background-color: transparent;
+    }
+  }
 }
 
 .navigation--transparent {
@@ -201,8 +241,8 @@ nav.header {
   position: absolute;
   bottom: -1px;
   height: 3px;
-  left: 30px;
-  right: 30px;
+  left: 0;
+  right: 0;
 }
 
 .navigation__link--menu.navigation__link--active:hover,
@@ -808,7 +848,10 @@ nav.header {
   color: white;
 }
 
-.js-language-options, .language__icon--down, .language__icon--up, .js-accordion-content {
+.js-language-options,
+.language__icon--down,
+.language__icon--up,
+.js-accordion-content {
   display: none;
 
   &.open {

@@ -31,7 +31,7 @@
 }
 
 .navigation--primary {
-  background-color: $color-third-header;
+  background-color: $color-white;
 }
 
 .navigation--primary.borer-bottom-transparent {
@@ -54,7 +54,7 @@ nav.third-header {
   z-index: 4 !important;
   position: sticky;
   top: 76.6px;
-
+  
   .navigation__link--main:hover,
   .navigation__link--active,
   .navigation__link:focus {
@@ -64,6 +64,7 @@ nav.third-header {
 
   .navigation--primary {
     position: relative !important;
+    background-image: linear-gradient(rgba($color-third-header, 0), $color-third-header);
   }
 
   .navigation__link {

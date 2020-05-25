@@ -29,3 +29,5 @@ listing:
   buy_now: 'Compra Ahora'
 help_menu: 'Para consultas de carácter comercial, por favor, consulte con su ejecutivo de ventas o con su agente de atención especializado'
 help_menu_title: '¿necesitas ayuda?'
+searchBar:
+  placeholder: 'Buscar aplicaciones'

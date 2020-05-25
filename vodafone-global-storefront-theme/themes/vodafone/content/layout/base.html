@@ -132,6 +132,29 @@
 </script>
 
 <script>
+
+    function setFixedHeader(scrollY) {
+        if (scrollY > 0) {
+            var interval = setInterval(function () {
+                var headerElement = $('#fixed-header');
+                if (headerElement && headerElement.length) {
+                    headerElement.addClass('navigation--fixed');
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    }
+
+    window.onload = function () {
+        if (typeof window.scrollY === "undefined") {
+            setTimeout(function () {
+                setFixedHeader(window.pageYOffset);
+            }, 1000);
+        } else {
+            setFixedHeader(window.scrollY);
+        }
+    }
+
     function readCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');

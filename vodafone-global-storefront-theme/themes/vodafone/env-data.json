@@ -1,0 +1,46 @@
+{
+  "https://testvfspain.appdirect.com": [
+    {
+      "name": "recommendedSolutions",
+      "type": "list",
+      "categories": "42153"
+    },
+    {
+      "name": "carousel",
+      "type": "list",
+      "subcategories": "26738"
+    },
+    {
+      "name": "popularApps",
+      "type": "list",
+      "categories": "42152"
+    },
+    {
+      "name": "collaboration",
+      "type": "list",
+      "categories": "42161"
+    }
+  ],
+  "https://marketplace-empresas.vodafone.es": [
+    {
+      "name": "recommendedSolutions",
+      "type": "list",
+      "categories": "1647"
+    },
+    {
+      "name": "carousel",
+      "type": "list",
+      "subcategories": "2449"
+    },
+    {
+      "name": "popularApps",
+      "type": "list",
+      "categories": "1645"
+    },
+    {
+      "name": "collaboration",
+      "type": "list",
+      "categories": "42161"
+    }
+  ]
+}

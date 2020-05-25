@@ -49,8 +49,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="js-navigation-static navigation-static">&#xA0;</div>
-            <div class="js-navigation navigation navigation--primary component__icon-background" data-js="_navigation">
+            <div class="js-navigation navigation navigation--primary component__icon-background" id="fixed-header"
+                 data-js="_navigation">
                 <div class="container">
                     <ul class="navigation__list navigation__hide d-flex" role="navigation">
                         <li class="navigation__item">
@@ -67,7 +67,7 @@
                                   data-base-url="/{{CURRENT_LANGUAGE_TAG}}/listing"
                                   onsubmit="VodafoneHeader.submitSearch()">
                                 <div class="search-input-container">
-                                    <input class="search-input" placeholder="{{ SearchBar.placeholder }}" type="search"
+                                    <input class="search-input" placeholder="{{searchBar.placeholder}}" type="search"
                                            name="q"/>
                                     <span class="search-close-icon"
                                           onclick="VodafoneHeader.toggleSearchFieldVisibility()">
@@ -170,8 +170,14 @@
                                            target="_blank"
                                            class="help">
                                             {{home.help}}
-                                            <img src="/assets/images/help-circle-dark.png" alt="Help"
-                                                 class="gallery__image"/>
+                                            <svg
+                                                    focusable="false"
+                                                    aria-hidden="true"
+                                                    class="icon icon--small navigation__icon"
+                                                    id="search-icon"
+                                            >
+                                                <use xlink:href="#icon-help"/>
+                                            </svg>
                                         </a>
                                     </div>
                                     <div class="js-language-options language__options">

@@ -50,11 +50,23 @@ nav.header {
   z-index: 99 !important;
 }
 
+.ad-universalnav .ad-uniheader {
+  height: auto !important;
+  border-bottom: none !important;
+  z-index: 17 !important;
+}
+
 nav.third-header {
-  z-index: 4 !important;
-  position: sticky;
-  top: 76.6px;
-  
+  z-index: 16 !important;
+
+  .navigation--fixed {
+    top: 76.6px;
+
+    @include media-breakpoint-down(md) {
+      top: 60px;
+    }
+  }
+
   .navigation__link--main:hover,
   .navigation__link--active,
   .navigation__link:focus {
@@ -63,8 +75,10 @@ nav.third-header {
   }
 
   .navigation--primary {
-    position: relative !important;
-    background-image: linear-gradient(rgba($color-third-header, 0), $color-third-header);
+    background-image: linear-gradient(
+                    rgba($color-third-header, 0),
+                    $color-third-header
+    );
   }
 
   .navigation__link {
@@ -72,8 +86,6 @@ nav.third-header {
   }
 
   @include media-breakpoint-down(md) {
-    top: 59.6px;
-
     .navigation__link {
       padding: 5px 30px;
     }

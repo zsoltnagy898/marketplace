@@ -32,9 +32,15 @@
                                     <div class="help">
                                         <a href="https://www.vodafone.es/c/empresas/grandes-clientes/es/"
                                            target="_blank">
-                                            {{ t(i18n.custom.home.help) }}
-                                            <img src="/assets/images/help-circle.png" alt="Help"
-                                                 class="gallery__image"/>
+                                            {{home.help}}
+                                            <svg
+                                                    focusable="false"
+                                                    aria-hidden="true"
+                                                    class="icon icon--small navigation__icon"
+                                                    id="search-icon"
+                                            >
+                                                <use xlink:href="#icon-help"/>
+                                            </svg>
                                         </a>
                                     </div>
                                 </li>
@@ -54,38 +60,7 @@
                                 </svg>
                             </a>
                         </li>
-                        <li class="navigation__item dropdown d-none d-lg-block">
-                            <a href="#"
-                               class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'listing'}}"
-                               id="business-apps-dropdown" role="button" data-toggle="dropdown">
-                                {{ t(i18n.home.business_apps) }}
-                                <span class="visually-hidden">menu</span>
-                            </a>
-                            <div class="dropdown-menu w-100">
-                                <a class="dropdown-item" href="/{{CURRENT_LANGUAGE_TAG}}/listing">
-                                    {{t(i18n.custom.home.all_apps)}}
-                                </a>
-                                {% for category in nav.primary.categories %}
-                                <a class="dropdown-item" href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
-                                    category.name }}</a>
-                                {% for subCategory in category.subCategories %}
-                                <a class="dropdown-item" href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
-                                <span class="ml-3">
-                                {{ subCategory.name }}
-                                </span>
-                                </a>
-                                {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </li>
 
-                        <li class="js-navigation-item navigation__item d-none d-lg-block">
-                            <a href="/{{CURRENT_LANGUAGE_TAG}}/help"
-                               class="navigation__link navigation__link--main no-wrap {{'navigation__link--active' if config.pageId === 'help'}}">
-                                {{ t(i18n.custom.home.app_support) }}
-                                <span class="visually-hidden">menu</span>
-                            </a>
-                        </li>
                         <li class="js-navigation-item navigation__item navigation__item--right navigation__hide ml-md-auto navigation__item--search">
                             <form class="search-container" id="header-search-container"
                                   novalidate
@@ -108,7 +83,7 @@
                                         <use xlink:href="#icon-search"/>
                                     </svg>
                                     <span class="navigation__icon-text d-none d-lg-block">
-                                {{ t(i18n.custom.home.search) }}
+                                {{home.search}}
                             </span>
                                 </div>
                             </form>
@@ -120,7 +95,7 @@
                                      id="login-icon">
                                     <use xlink:href="#icon-my-vodafone"/>
                                 </svg>
-                                <span class="navigation__icon-text">{{ t(i18n.custom.home.login) }}</span>
+                                <span class="navigation__icon-text">{{home.login}}</span>
                             </a>
                         </li>
                         <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
@@ -130,7 +105,7 @@
                                      id="contact-us-icon-icon">
                                     <use xlink:href="#icon-landline-or-call"/>
                                 </svg>
-                                <span class="navigation__icon-text">{{ t(i18n.custom.home.contact_us) }}</span>
+                                <span class="navigation__icon-text">{{home.contact_us}}</span>
                             </a>
                         </li>
                         <li class="js-navigation-item navigation__item navigation__item--right navigation__hide js-navigation-item-clickable navigation__item--clickable d-lg-none">
@@ -152,60 +127,14 @@
                             </a>
 
                             <div class="js-navigation navigation navigation--tertiary">
-                                <div class="js-accordion" data-js="_accordion">
-                                    <div class="js-accordion-item">
-                                        <div class="js-accordion-heading navigation__accordion--heading"
-                                             onclick="VodafoneHeader.accordionToggle()">
-                                  <span class="chevron">
-                                    <span class="chevron__text">{{ t(i18n.custom.home.business_apps) }}</span>
-                                    <span class="chevron__container accordion__chevron">
-                                      <svg focusable="false" aria-hidden="true"
-                                           class="icon  icon--small  chevron__icon">
-                                        <use xlink:href="#icon-chevron-down"/>
-                                      </svg>
-                                    </span>
-                                  </span>
-                                        </div>
-                                        <div class="js-accordion-content navigation__accordion-content">
-                                            <ul class="list list--reset navigation--tertiary-accordion-content">
-                                                <li class="list__item navigation--tertiary-accordion-item">
-                                                    <a href="/{{CURRENT_LANGUAGE_TAG}}/listing">
-                                                        {{t(i18n.custom.home.all_apps)}}
-                                                    </a>
-                                                </li>
-
-                                                {% for category in nav.primary.categories %}
-                                                <li class="list__item navigation--tertiary-accordion-item">
-                                                    <a href="{{config.listingEndpoint + '?cat=' + category.id}}">{{
-                                                        category.name }}</a>
-
-                                                </li>
-                                                {% for subCategory in category.subCategories %}
-                                                <li class="list__item navigation--tertiary-accordion-item pl-3">
-                                                    <a href="{{config.listingEndpoint + '?scat=' + subCategory.id}}">
-                                                        {{ subCategory.name }}
-                                                    </a>
-                                                </li>
-                                                {% endfor %}
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <ul class="list list--reset">
-                                    <li class="list__item navigation--tertiary-item">
-                                        <a href="/{{CURRENT_LANGUAGE}}/help">
-                                            {{ t(i18n.custom.home.app_support) }}
-                                        </a>
-                                    </li>
                                     <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
                                         <a href="https://testvfspain.appdirect.com/login">
                                             <svg focusable="false" aria-hidden="true"
                                                  class="icon icon--small navigation--tertiary__icon" id="login-icon">
                                                 <use xlink:href="#icon-my-vodafone"/>
                                             </svg>
-                                            <span>{{ t(i18n.custom.home.login) }}</span>
+                                            <span>{{home.login}}</span>
                                         </a>
                                     </li>
                                     <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
@@ -215,7 +144,7 @@
                                                  id="contact-us-icon-icon">
                                                 <use xlink:href="#icon-landline-or-call"/>
                                             </svg>
-                                            <span>{{ t(i18n.custom.home.contact_us) }}</span>
+                                            <span>{{home.contact_us}}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -240,7 +169,7 @@
                                         <a href="https://ayudacliente.vodafone.es/particulares/temas-de-ayuda/"
                                            target="_blank"
                                            class="help">
-                                            {{ t(i18n.custom.home.help) }}
+                                            {{home.help}}
                                             <img src="/assets/images/help-circle-dark.png" alt="Help"
                                                  class="gallery__image"/>
                                         </a>

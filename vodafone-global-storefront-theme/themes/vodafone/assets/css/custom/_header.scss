@@ -550,6 +550,16 @@ nav.third-header {
       margin-right: 25px;
     }
 
+    .js-profile {
+      .language__current {
+        width: 100%;
+      }
+
+      svg.icon {
+        right: 0 !important;
+      }
+    }
+
     .language__options {
       padding-left: 10px;
       padding-top: 0;
@@ -862,8 +872,11 @@ nav.third-header {
 }
 
 .js-language-options,
+.js-profile-options,
 .language__icon--down,
 .language__icon--up,
+.profile__icon--down,
+.profile__icon--up,
 .js-accordion-content {
   display: none;
 

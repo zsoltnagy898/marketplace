@@ -49,7 +49,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css">
 
     {# WS2 styles #}
@@ -72,9 +71,11 @@
 <!--        {% endblock %}-->
 
 {% block header %}
-{% include "/includes/header.html" %}
+<div id="header-universal" role="heading" aria-level="1"></div>
+{% endblock %}
+
+{% block thirdHeader %}
 {% include "/includes/third-header.html" %}
-<!--<div id="header-universal" role="heading" aria-level="1"></div>-->
 {% endblock %}
 
 <div class="main-region page_content page_content__condensed {% block mainRegionClass %}{% endblock %}">
@@ -103,6 +104,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/bgset/ls.bgset.min.js"
         integrity="sha256-pfZ5iIOdSgje8u0J8tn5oP0bNhyKT/XHKFonHTAZ5kU=" crossorigin="anonymous"></script>
 <script src="{{ r('/assets/ws2/scripts/group/lib/modernizr-custom.min.js') }}"></script>
+<script src="{{ r('/assets/js/src/header.js') }}"></script>
 <script type="text/javascript" language="javascript" charset="utf-8"
         src="https://vodafoneuk.digital.nuance.com/chatskins/launch/inqChatLaunch10006330.js"></script>
 
@@ -130,6 +132,29 @@
 </script>
 
 <script>
+
+    function setFixedHeader(scrollY) {
+        if (scrollY > 0) {
+            var interval = setInterval(function () {
+                var headerElement = $('#fixed-header');
+                if (headerElement && headerElement.length) {
+                    headerElement.addClass('navigation--fixed');
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    }
+
+    window.onload = function () {
+        if (typeof window.scrollY === "undefined") {
+            setTimeout(function () {
+                setFixedHeader(window.pageYOffset);
+            }, 1000);
+        } else {
+            setFixedHeader(window.scrollY);
+        }
+    }
+
     function readCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');

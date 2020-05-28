@@ -1,4 +1,4 @@
-(function() {
+(function () {
   var navigationTop = null;
 
   function changeLanguage(language) {
@@ -21,6 +21,23 @@
     var optionList = $(".js-language-options");
     var downIcon = $(".language__icon--down");
     var upIcon = $(".language__icon--up");
+
+    if (optionList.hasClass("open")) {
+      optionList.removeClass("open");
+      downIcon.addClass("open");
+      upIcon.removeClass("open");
+    } else {
+      optionList.addClass("open");
+      downIcon.removeClass("open");
+      upIcon.addClass("open");
+    }
+  }
+
+  function toggleProfileMenu() {
+    var $ = $ || jQuery;
+    var optionList = $(".js-profile-options");
+    var downIcon = $(".profile__icon--down");
+    var upIcon = $(".profile__icon--up");
 
     if (optionList.hasClass("open")) {
       optionList.removeClass("open");
@@ -140,23 +157,23 @@
       scrollTop <= navigationTop &&
       navigation.hasClass("navigation--fixed")
     ) {
-      navigationStatic.css({ height: 0 });
+      navigationStatic.css({height: 0});
       navigation.removeClass("navigation--fixed");
     } else if (
       scrollTop > navigationTop &&
       !navigation.hasClass("navigation--fixed")
     ) {
-      navigationStatic.css({ height: navigation.outerHeight() });
+      navigationStatic.css({height: navigation.outerHeight()});
       navigation.addClass("navigation--fixed");
     }
   }
 
-  $(document).ready(function() {
+  $(document).ready(function () {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
   });
 
-  $(window).on("load", function() {
+  $(window).on("load", function () {
     var container = $("#header-search-container.search-container");
     var input = $("#header-search-container .search-input");
     var searchQuery = getSearchQuery();
@@ -171,6 +188,7 @@
   window.VodafoneHeader = {
     changeLanguage: changeLanguage,
     toggleLanguageChooser: toggleLanguageChooser,
+    toggleProfileMenu: toggleProfileMenu,
     navToggle: navToggle,
     toggleSearchFieldVisibility: toggleSearchFieldVisibility,
     submitSearch: submitSearch,

@@ -1,3 +1,5 @@
+@import "../../../assets/css/custom/variables";
+
 .ad-uniheader {
   background: $headerNavBg;
   border-bottom: 1px solid $headerNavBorderColor;
@@ -77,52 +79,88 @@
   display: none;
 }
 
-.ad-component_list-item {
-  list-style: none;
-  position: relative;
 
-  &:hover {
-    a {
-      background-color: white;
-      color: #434343;
+.profile__options {
+  background-color: white;
+  padding: 8px 0;
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+
+  .ad-component_list-item {
+    &:before {
+      content: '';
     }
-
-    &:after {
-      background-color: white;
-    }
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 18px;
-    left: 12px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #999;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 21px;
-    left: 15px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background-color: #4A4D4E;
-  }
-
-  a {
+  .ad-component--link {
     display: block;
-    padding: 15px 20px 15px 40px;
-    font-size: 16px;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .ad-component_list-item {
+    list-style: none;
+    position: relative;
+
+    a {
+      color: #212529;
+      font-family: "VodafoneRegular";
+      font-size: 18px;
+    }
+
+    &:hover {
+      a {
+        text-decoration: none;
+        background-color: #f8f9fa;
+      }
+    }
+  }
+
+  .ad-component_list {
+    padding: 0;
+  }
+
+  &.profile__options-mobil {
+    background-color: $color-mercury-dark;
+    box-shadow: none;
+    border-radius: 0;
+
+    .ad-component_list-item {
+      .ad-component--link {
+        padding: 0.5rem 1.5rem;
+      }
+
+      a {
+        font-size: 16px;
+      }
+      &:hover {
+        a {
+          background-color: white;
+        }
+      }
+    }
   }
 }
 
-.ad-component_list {
-  padding: 0;
+.profile__header-mobile {
+  font-size: 20px;
+
+  svg {
+    color: #333;
+    width: 20px;
+  }
+}
+
+.profile-dropdown {
+  min-width: 190px;
 }
 
 .help {

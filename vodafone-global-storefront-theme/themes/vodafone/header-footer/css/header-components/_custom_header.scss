@@ -192,6 +192,12 @@ nav.header {
   z-index: 17 !important;
 }
 
+.ad-universalnav {
+  .help a {
+    color: $color-wild-sand !important;
+  }
+}
+
 nav.third-header {
   z-index: 16 !important;
 

@@ -104,7 +104,7 @@ $primaryBoxShadow: 0 0 11px 0 rgba(black, 0.43);
         }
 
         .limit-label {
-          font-size: 11px;
+          font-size: 13px;
           font-family: VodafoneLight;
         }
       }
@@ -115,6 +115,7 @@ $primaryBoxShadow: 0 0 11px 0 rgba(black, 0.43);
         .profile-checklist__item {
           padding: 8px 0;
           line-height: 16px;
+          font-size: 13px;
 
           &:not(:last-child) {
             border-bottom: 1px solid $color-silver;

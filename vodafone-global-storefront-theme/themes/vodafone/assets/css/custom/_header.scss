@@ -1,6 +1,142 @@
 @import "./variables";
 @import "./mixins";
 
+.language__current {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 4px 30px 4px 0;
+}
+
+.language__current--open {
+  background-color: #434343;
+}
+
+.language__chosen {
+  display: block;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.language__icon {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.language__options {
+  position: absolute;
+  top: 100%;
+  width: 236px;
+  z-index: 5;
+  background-color: #4a4d4e;
+  padding: 0;
+  list-style: none;
+  display: none;
+  text-align: left;
+}
+
+.language__option {
+  display: block;
+  padding: 15px 20px;
+}
+
+.language__option:focus,
+.language__option:hover {
+  background-color: #fff;
+  color: #434343;
+}
+
+.language__selector {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #999;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  top: -2px;
+}
+
+.language__circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #999;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: none;
+}
+
+.language__circle--selected {
+  display: inline-block;
+}
+
+@media (max-width: 991.98px) {
+  .language {
+    width: 100%;
+    margin-right: 0;
+    text-align: left;
+    color: #333;
+  }
+  .language__options {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    padding: 10px 0 10px 20px;
+  }
+  .language__selector {
+    border-color: #333;
+    background-color: #ebebeb;
+  }
+  .language__circle {
+    background-color: #333;
+  }
+  .language__current {
+    z-index: 1;
+    padding: 15px 25px 15px 20px;
+    display: inline-block;
+  }
+  .language__current--open {
+    background-color: transparent;
+  }
+  .language__current--open::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: inherit;
+    top: 100%;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+  }
+  .language__icon {
+    right: 14px;
+    color: #e60000;
+  }
+  .language__item--last {
+    margin-bottom: 10px;
+  }
+  .language__option {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .language__option:focus .language__selector,
+  .language__option:hover .language__selector {
+    border-color: #434343;
+  }
+  .language__option:focus .language__circle,
+  .language__option:hover .language__circle {
+    border-color: #434343;
+    background-color: #434343;
+  }
+}
+
 .navigation {
   background-color: #4a4d4e;
   font-size: 32px;
@@ -62,7 +198,7 @@ nav.third-header {
   .navigation--fixed {
     top: 76.6px;
 
-    @include media-breakpoint-down(md) {
+    @media (max-width: 991.98px) {
       top: 60px;
     }
   }
@@ -76,8 +212,8 @@ nav.third-header {
 
   .navigation--primary {
     background-image: linear-gradient(
-                    rgba($color-third-header, 0),
-                    $color-third-header
+      rgba($color-third-header, 0),
+      $color-third-header
     );
   }
 
@@ -85,7 +221,7 @@ nav.third-header {
     padding: 0 50px 5px 50px;
   }
 
-  @include media-breakpoint-down(md) {
+  @media (max-width: 991.98px) {
     .navigation__link {
       padding: 5px 30px;
     }
@@ -363,7 +499,6 @@ nav.third-header {
 }
 
 .navigation__global {
-  width: 100%;
   overflow: hidden;
   background: 0 0;
   z-index: 1;
@@ -447,7 +582,7 @@ nav.third-header {
   display: inline-block;
 }
 
-@include media-breakpoint-down(md) {
+@media (max-width: 991.98px) {
   .navigation--tertiary {
     -webkit-overflow-scrolling: touch;
     right: 0;
@@ -680,7 +815,7 @@ nav.third-header {
   }
 }
 
-@include media-breakpoint-down(xs) {
+@media (max-width: 575.98px) {
   .navigation__chevron {
     float: right;
   }
@@ -782,13 +917,13 @@ nav.third-header {
   min-width: 60px;
 }
 
-@include media-breakpoint-up(lg) {
+@media (min-width: 992px) {
   .search-container {
     height: 56px;
   }
 }
 
-@include media-breakpoint-down(sm) {
+@media (max-width: 767.98px) {
   .navigation__item--search {
     width: 100%;
   }

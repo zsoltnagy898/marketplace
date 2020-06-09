@@ -6,7 +6,7 @@
                     <ul class="navigation__list navigation__global navigation__hide no-gutter--all h-100">
                         <li class="navigation__spring h-100">
                             <ul class="js-navigation navigation navigation__list navigation__global--language navigation__list__inline h-100">
-                                <li class="js-navigation-item navigation__item navigation__item--right h-100">
+                                <li class="js-navigation-item navigation__item navigation__item--right h-100 d-flex align-items-center">
                                     <div class="js-language language">
                                         <a href="#" class="js-language-current language__current"
                                            onclick="VodafoneHeader.toggleLanguageChooser()">
@@ -53,11 +53,10 @@
                  data-js="_navigation">
                 <div class="container">
                     <ul class="navigation__list navigation__hide d-flex" role="navigation">
-                        <li class="navigation__item">
+                        <li class="navigation__item d-flex">
                             <a href="/" class="js-brand brand">
-                                <svg focusable="false" aria-hidden="true" class="icon icon--small brand__logo">
-                                    <use xlink:href="#icon-vodafone-logo"/>
-                                </svg>
+                                <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img6278299006697370250?14da8e1c14f048a3837a600ba841fd5a"
+                                     alt="Vodafone" class="brand__logo">
                             </a>
                         </li>
 
@@ -78,10 +77,9 @@
                                     </span>
                                 </div>
                                 <div class="search-icon-container" onclick="VodafoneHeader.onSearchIconClick()">
-                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
-                                         id="search-icon">
-                                        <use xlink:href="#icon-search"/>
-                                    </svg>
+                                    <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img9117908101071951894?3fb8b017f2debcf01e8fa7f6b9746932"
+                                         alt="Search"
+                                         class="icon-image icon-image--small">
                                     <span class="navigation__icon-text d-none d-lg-block">
                                 {{home.search}}
                             </span>
@@ -93,10 +91,9 @@
                                 <a href="#"
                                    class="js-profile-current js-navigation-link navigation__link navigation__link--icon"
                                    onclick="VodafoneHeader.toggleProfileMenu()">
-                                    <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
-                                         id="login-icon">
-                                        <use xlink:href="#icon-my-vodafone"/>
-                                    </svg>
+                                    <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a"
+                                         alt="User"
+                                         class="icon-image icon-image--small">
                                     <span class="navigation__icon-text">{{USER_NAME}}</span>
                                 </a>
                                 <div class="js-profile-options profile__options">
@@ -108,10 +105,8 @@
                         <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
                             <a href="https://ayudacliente.vodafone.es/empresas/contacta/" target="_blank"
                                class="js-navigation-link navigation__link navigation__link--icon navigation__link--icon--last">
-                                <svg focusable="false" aria-hidden="true" class="icon icon--small navigation__icon"
-                                     id="contact-us-icon-icon">
-                                    <use xlink:href="#icon-landline-or-call"/>
-                                </svg>
+                                <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img3294774245888478304?057c5ab6d493b417628abb691565fcef"
+                                     alt="Contact Us" class="icon-image icon-image--small">
                                 <span class="navigation__icon-text">{{home.contact_us}}</span>
                             </a>
                         </li>
@@ -136,12 +131,9 @@
                             <div class="js-navigation navigation navigation--tertiary profile-dropdown">
                                 <ul class="list list--reset">
                                     <li class="list__item navigation--tertiary-item navigation--tertiary-item--icon">
-                                        <a href="https://ayudacliente.vodafone.es/empresas/contacta/" target="_blank">
-                                            <svg focusable="false" aria-hidden="true"
-                                                 class="icon icon--small navigation--tertiary__icon"
-                                                 id="contact-us-icon-icon">
-                                                <use xlink:href="#icon-landline-or-call"/>
-                                            </svg>
+                                        <a href="https://ayudacliente.vodafone.es/empresas/contacta/" target="_blank" class="d-flex">
+                                            <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img3294774245888478304?057c5ab6d493b417628abb691565fcef"
+                                                 alt="Contact Us" class="icon-image icon-image--small navigation--tertiary__icon">
                                             <span>{{home.contact_us}}</span>
                                         </a>
                                     </li>

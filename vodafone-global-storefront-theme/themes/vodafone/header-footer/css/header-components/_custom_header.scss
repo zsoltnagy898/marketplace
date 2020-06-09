@@ -12,11 +12,26 @@
   background-color: #434343;
 }
 
+.language {
+  width: 236px;
+  margin-right: 20px;
+  font-size: 16px;
+  text-align: right;
+  color: #CCC;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .language__chosen {
   display: block;
   text-align: right;
-  padding-right: 10px;
+  padding-right: 0px;
+  float: left;
+  margin-left: -55px;
+  width: 100%;
+  color: $color-wild-sand;
 }
+
 
 .language__icon {
   width: 12px;
@@ -882,6 +897,7 @@ nav.third-header {
     display: flex;
     align-items: center;
     margin-right: 1px;
+    color: $color-wild-sand;
   }
 
   img {

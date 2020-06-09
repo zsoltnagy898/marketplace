@@ -7,26 +7,23 @@
                      class="footer__logo">
 
                 <ul class="grid footer__links">
-                    <li class="grid__item footer__link">
-                        <a target="_blank" href="https://www.vodafone.es/c/statics/teminos_condiciones_contratacion.pdf">
-                            {{ t(i18n.custom.home.terms_and_conditions) }}
+                    {% for link in common.links %}
+                    
+                    {% if loop.index == 2 %}
+                        <li class="grid__item footer__link">
+                            <a target="_blank" href="https://www.vodafone.es/c/statics/politica_uso_VodafoneBusinessMarketplace.pdf">
+                                {{ t(i18n.custom.home.general_policy) }}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <li class="grid__item footer__link {% if loop.last %} footer__link--last {% endif %}">
+                        <a target="_blank" href="{{link.href}}">
+                            {{link.label}}
                         </a>
                     </li>
-                    <li class="grid__item footer__link">
-                        <a target="_blank" href="https://www.vodafone.es/c/statics/politica_uso_VodafoneBusinessMarketplace.pdf">
-                            {{ t(i18n.custom.home.general_policy) }}
-                        </a>
-                    </li>
-                    <li class="grid__item footer__link">
-                        <a target="_blank" href="https://www.vodafone.es/c/conocenos/es/vodafone-espana/quienes-somos/legal-y-regulatorio/politica-de-privacidad-y-cookies/">
-                            {{ t(i18n.custom.home.privacy_policy) }}
-                        </a>
-                    </li>
-                    <li class="grid__item footer__link footer__link--last">
-                        <a target="_blank" href="https://www.vodafone.es/c/empresas/grandes-clientes/es/">
-                            {{ t(i18n.custom.home.help) }}
-                        </a>
-                    </li>
+                    
+                    {% endfor %}
                 </ul>
 
                 <div class="footer__aside">

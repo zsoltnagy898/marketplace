@@ -440,21 +440,13 @@
 
     function navToggle() {
       var $ = $ || jQuery;
-      var navItem = $(".js-navigation-item.navigation__item--clickable");
-      var link = $(".js-navigation-link");
       var dropdownContent = $(".js-navigation.navigation--tertiary");
 
-      var navItemActiveClass = "navigation__item--active";
-      var linkActiveClass = "navigation__link--active";
       var dropdownContentActiveClass = "navigation--display";
 
-      if (navItem.hasClass(navItemActiveClass)) {
-        navItem.removeClass(navItemActiveClass);
-        link.removeClass(linkActiveClass);
+      if (dropdownContent.hasClass(dropdownContentActiveClass)) {
         dropdownContent.removeClass(dropdownContentActiveClass);
       } else {
-        navItem.addClass(navItemActiveClass);
-        link.addClass(linkActiveClass);
         dropdownContent.addClass(dropdownContentActiveClass);
       }
     }

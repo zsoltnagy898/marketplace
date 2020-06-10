@@ -12,8 +12,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col col-12 col-md">
-            <a href="{{application.support.termsUrl}}" class="link link--tile mb-3 mb-md-0" target="_blank">
+        {% if application.support.termsUrl %}
+        <div class="col col-12 col-lg-6 mb-4 mb-lg-0">
+            <a href="{{application.support.termsUrl}}" class="link link--tile " target="_blank">
                 <span class="chevron">
                     <span class="chevron__text">
                         <span class="media media--gutter media--middle">
@@ -32,7 +33,9 @@
                 </span>
             </a>
         </div>
-        <div class="col col-12 col-md">
+        {% endif %}
+        {% if application.support.privacyUrl %}
+        <div class="col col-12 col-lg-6">
             <a href="{{application.support.privacyUrl}}" class="link link--tile" target="_blank">
                 <span class="chevron">
                     <span class="chevron__text">
@@ -52,6 +55,100 @@
                 </span>
             </a>
         </div>
+        {% endif %}
+        {% if application.support.knowledgebaseUrl %}
+        <div class="col col-12 col-lg-6 mt-4">
+            <a href="{{application.support.knowledgebaseUrl}}" class="link link--tile" target="_blank">
+                <span class="chevron">
+                    <span class="chevron__text">
+                        <span class="media media--gutter media--middle">
+                            <span class="media__body">
+                                <span class="link__heading heading heading--4 no-gutter--all ">
+                                    {{ t(i18n.custom.home.knowledge_base) }}
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="chevron__container">
+                        <svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+                            <use xlink:href="#icon-chevron-right"/>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+        </div>
+        {% endif %}
+        {% if application.support.description %}
+        <div class="col col-12 col-lg-6 mt-4">
+            <div class="link link--tile">
+                <div data-toggle="collapse" data-target="#support-details-content">
+                    <span class="chevron">
+                        <span class="chevron__text">
+                            <span class="media media--gutter media--middle">
+                                <span class="media__body">
+                                    <span class="link__heading heading heading--4 no-gutter--all ">
+                                        {{ t(i18n.custom.home.support_details) }}
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="chevron__container">
+                            <svg focusable="false" aria-hidden="true" class="icon  icon--small  chevron__icon--red">
+                                <use xlink:href="#icon-chevron-down"/>
+                            </svg>
+                        </span>
+                    </span>
+                </div>
+                <div id="support-details-content" class="collapse">
+                    <div class="support-detail-content pt-2 mt-2">
+                    {{application.support.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+    <div class="row">
+        {% if application.support.phone %}
+        <div class="col col-12 col-lg-6 mt-4">
+            <div class="support-detail-container">
+                <h4 class="heading heading--4 heading--leading mb-2">
+                    {{ t(i18n.custom.home.support_telephone) }}
+                </h4>
+                <div class="d-flex align-items-center">
+                    <svg focusable="false" aria-hidden="true" class="icon icon--extra-small">
+                        <use xlink:href="#icon-landline-or-call"/>
+                    </svg>
+                    <span class="ml-2">
+                    {{application.support.phone}}
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        {% endif %}
+
+        {% if application.support.email %}
+        <div class="col col-12 col-lg-6 mt-4">
+            <div class="support-detail-container">
+                <h4 class="heading heading--4 heading--leading mb-2">
+                    {{ t(i18n.custom.home.support_email) }}
+                </h4>
+                <div>
+                    <a class="support-detail-link d-flex align-items-center"
+                       href="mailto:{{application.support.email}}">
+                        <svg focusable="false" aria-hidden="true" class="icon icon--extra-small">
+                            <use xlink:href="#icon-mail"/>
+                        </svg>
+                        <span class="ml-2 support-detail-link-text">
+                            {{application.support.email}}
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endmacro %}

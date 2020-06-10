@@ -1,5 +1,15 @@
 @import "../../../assets/css/custom/variables";
 
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
 .ad-uniheader {
   background: $headerNavBg;
   border-bottom: 1px solid $headerNavBorderColor;
@@ -79,23 +89,28 @@
   display: none;
 }
 
-
 .profile__options {
   background-color: white;
   padding: 8px 0;
   border: none;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
   border-radius: 6px;
+  position: absolute;
+  top: 100%;
+  width: 236px;
+  z-index: 5;
+  list-style: none;
+  display: none;
+  text-align: left;
 
   .ad-component_list-item {
     &:before {
-      content: '';
+      content: "";
     }
   }
 
   .ad-component--link {
     display: block;
-    width: 100%;
     padding: 0.25rem 1.5rem;
     clear: both;
     font-weight: 400;
@@ -132,6 +147,8 @@
     background-color: $color-mercury-dark;
     box-shadow: none;
     border-radius: 0;
+    position: inherit;
+    padding: 0;
 
     .ad-component_list-item {
       .ad-component--link {
@@ -141,6 +158,7 @@
       a {
         font-size: 16px;
       }
+
       &:hover {
         a {
           background-color: white;
@@ -161,11 +179,128 @@
 
 .profile-dropdown {
   min-width: 190px;
+  overflow: hidden;
 }
 
 .help {
   svg {
     width: 18px;
     margin-left: 4px;
+  }
+}
+
+.no-gutter--all {
+  margin: 0 !important;
+}
+
+.visually-hidden {
+  background: #e60000 !important;
+  border: none !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.icon {
+  fill: none;
+  stroke: currentColor;
+  vertical-align: middle;
+}
+
+.icon--small {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-image {
+  vertical-align: middle;
+}
+
+.icon-image--small {
+  height: 28px;
+}
+
+.icon-image--small-container {
+  height: 28px;
+  width: 28px;
+}
+
+.language__icon {
+  width: 12px;
+  height: auto !important;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  &.language__icon--up, &.profile__icon--up {
+    transform: rotate(180deg) translate(0, 50%);
+    top: 50%;
+  }
+}
+
+.language__options {
+  position: absolute;
+  top: 100%;
+  width: 236px;
+  z-index: 5;
+  background-color: #4a4d4e;
+  padding: 0;
+  list-style: none;
+  display: none;
+  text-align: left;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    font-family: VodafoneRegular;
+  }
+}
+
+.language__options-mobile {
+  position: inherit;
+  width: 100%;
+  padding: 0 !important;
+  text-align: left;
+
+  .ad-component--link {
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      background-color: white;
+      color: inherit;
+    }
+  }
+}
+
+.brand {
+  margin: 12px 10px 12px 0;
+}
+
+.brand__logo {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  vertical-align: top;
+}
+
+@media only screen and (max-width: 1024px) {
+  .brand {
+    margin: 10px 10px 10px 0;
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand__logo {
+    height: 100%;
+    width: 100%;
   }
 }

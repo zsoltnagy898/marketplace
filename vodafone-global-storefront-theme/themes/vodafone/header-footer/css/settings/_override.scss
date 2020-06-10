@@ -1,0 +1,14 @@
+@import "../../../assets/css/custom/variables";
+
+a {
+  color: $color-wild-sand;
+  text-decoration: none;
+
+  &:not(.navigation__link):hover {
+    color: $color-wild-sand;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

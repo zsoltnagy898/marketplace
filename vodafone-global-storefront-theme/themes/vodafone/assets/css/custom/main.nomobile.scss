@@ -4282,13 +4282,40 @@ td {
   background: #FFFFFF;
   border-radius: $border-radius;
   border: 1px solid $color-dusty-gray;
-  padding: 22px 40px 20px;
+  padding: 16px 10px 13px;
   box-shadow: none;
   display: block;
   font-family: 'VodafoneRegular';
   margin-bottom: 0;
   font-size: 25px;
   color: $color-dove-gray;
+  cursor: pointer;
+}
+
+.link.link--tile[aria-expanded="true"] {
+  .icon {
+    transform: rotate(180deg);
+  }
+}
+
+.support-detail-container {
+  padding-left: 10px;
+}
+
+.support-detail-link {
+  color: inherit;
+
+  .support-detail-link-text {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: $color-red;
+  }
+}
+
+.support-detail-content {
+  font-size: 20px;
 }
 
 .link--tile:hover,

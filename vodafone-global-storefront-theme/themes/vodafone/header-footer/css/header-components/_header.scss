@@ -147,6 +147,8 @@ a {
     background-color: $color-mercury-dark;
     box-shadow: none;
     border-radius: 0;
+    position: inherit;
+    padding: 0;
 
     .ad-component_list-item {
       .ad-component--link {
@@ -177,6 +179,7 @@ a {
 
 .profile-dropdown {
   min-width: 190px;
+  overflow: hidden;
 }
 
 .help {
@@ -259,6 +262,22 @@ a {
 
   li {
     font-family: VodafoneRegular;
+  }
+}
+
+.language__options-mobile {
+  position: inherit;
+  width: 100%;
+  padding: 0 !important;
+  text-align: left;
+
+  .ad-component--link {
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      background-color: white;
+      color: inherit;
+    }
   }
 }
 

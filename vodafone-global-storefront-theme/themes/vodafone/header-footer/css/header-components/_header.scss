@@ -224,17 +224,21 @@ a {
 .icon-image--small-container {
   height: 28px;
   width: 28px;
-  display: flex;
 }
 
 .language__icon {
   width: 12px;
-  height: 12px;
+  height: auto !important;
   position: absolute;
   right: 14px;
   top: 50%;
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
+
+  &.language__icon--up {
+    transform: rotate(180deg) translate(0, 50%);
+    top: 50%;
+  }
 }
 
 .language__options {

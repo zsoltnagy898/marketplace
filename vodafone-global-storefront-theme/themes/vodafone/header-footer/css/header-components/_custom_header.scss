@@ -17,7 +17,7 @@
   margin-right: 20px;
   font-size: 16px;
   text-align: right;
-  color: #CCC;
+  color: #ccc;
   display: flex;
   justify-content: flex-end;
 }
@@ -31,7 +31,6 @@
   width: 100%;
   color: $color-wild-sand;
 }
-
 
 .language__icon {
   width: 12px;
@@ -691,6 +690,7 @@ nav.third-header {
     .language-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       width: 100%;
       padding: 12px 10px;
     }
@@ -1026,6 +1026,22 @@ nav.third-header {
 .search-container.open .navigation__icon-text {
   display: none !important;
   color: white;
+}
+
+.search-container .search-open-icon {
+  display: none;
+}
+
+.search-container .search-closed-icon {
+  display: block;
+}
+
+.search-container.open .search-open-icon {
+  display: block;
+}
+
+.search-container.open .search-closed-icon {
+  display: none;
 }
 
 .js-language-options,

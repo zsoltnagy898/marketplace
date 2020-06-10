@@ -133,6 +133,7 @@
 <script>
 
     function setFixedHeader(scrollY) {
+        var $ = $ || jQuery;
         if (scrollY > 0) {
             var interval = setInterval(function () {
                 var headerElement = $('#fixed-header');

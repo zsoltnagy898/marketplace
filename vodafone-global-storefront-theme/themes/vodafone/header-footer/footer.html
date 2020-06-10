@@ -386,7 +386,9 @@
     e.Modernizr = Modernizr;
   })(window, document);
 
-  (function() {
+  (function(window, document) {
+    var $ = $ || jQuery;
+
     var navigationTop = null;
 
     function changeLanguage(language) {
@@ -405,7 +407,6 @@
     }
 
     function toggleLanguageChooser() {
-      var $ = $ || jQuery;
       var optionList = $(".js-language-options");
       var downIcon = $(".language__icon--down");
       var upIcon = $(".language__icon--up");
@@ -422,7 +423,6 @@
     }
 
     function toggleProfileMenu() {
-      var $ = $ || jQuery;
       var optionList = $(".js-profile-options");
       var downIcon = $(".profile__icon--down");
       var upIcon = $(".profile__icon--up");
@@ -439,7 +439,6 @@
     }
 
     function navToggle() {
-      var $ = $ || jQuery;
       var dropdownContent = $(".js-navigation.navigation--tertiary");
 
       var dropdownContentActiveClass = "navigation--display";
@@ -452,7 +451,6 @@
     }
 
     function accordionToggle() {
-      var $ = $ || jQuery;
       var head = $(".js-accordion-heading.navigation__accordion--heading");
       var content = $(".js-accordion-content.navigation__accordion-content");
 
@@ -522,8 +520,6 @@
     }
 
     function handleScroll() {
-      var $ = $ || jQuery;
-
       var navigation = $(".js-navigation.navigation--primary");
       var navigationStatic = $(".js-navigation-static");
 
@@ -549,6 +545,8 @@
         navigation.addClass("navigation--fixed");
       }
     }
+
+    handleScroll();
 
     $(document).ready(function() {
       handleScroll();
@@ -578,5 +576,5 @@
       accordionToggle: accordionToggle,
       getSearchQuery: getSearchQuery
     };
-  })();
+  })(window, document);
 </script>

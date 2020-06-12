@@ -1,30 +1,49 @@
 <div class="custom-footer layout-default adb-layout-default">
-  <div class="custom-footer__container">
-    <span class="custom-footer__item">{{Powered.by.AppDirect}} ©2009-2018</span>
-    <div class="custom-footer__item">{{LANGUAGE_SELECT}}</div>
-    <ul class="custom-footer__nav--items">
-      <li class="custom-footer__nav--item">
-        <a class="custom-footer__nav--link" href="{{SUPPORT_URL}}"
-          >{{help.center}}</a
-        >
-      </li>
-      <li class="custom-footer__nav--item">
-        <a class="custom-footer__nav--link" href="mailto:{{SUPPORT_EMAIL}}"
-          >Privacy Policy</a
-        >
-      </li>
-      <li class="custom-footer__nav--item">
-        <a class="custom-footer__nav--link" href="mailto:{{TERMS_URL}}"
-          >Terms & Conditions</a
-        >
-      </li>
-      <li class="custom-footer__nav--item">
-        <a class="custom-footer__nav--link" href="mailto:{{TERMS_URL}}"
-          >Contact</a
-        >
-      </li>
-    </ul>
-  </div>
+  <footer class="footer">
+    <div class="footer__curtain">
+      <div class="container">
+        <div class="footer__navigation">
+          <img
+            src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img6278299006697370250?14da8e1c14f048a3837a600ba841fd5a"
+            alt="Vodafone Business"
+            class="footer__logo"
+          />
+
+          <ul class="footer__links">
+            <li class="footer__link">
+              <a target="_blank" href="{{SUPPORT_URL}}">
+                {{home.contact_support}}
+              </a>
+            </li>
+            <li class="footer__link">
+              <a
+                target="_blank"
+                href="https://www.vodafone.es/c/statics/politica_uso_VodafoneBusinessMarketplace.pdf"
+              >
+                {{home.general_policy}}
+              </a>
+            </li>
+            <li class="footer__link">
+              <a target="_blank" href="{{TERMS_URL}}">
+                {{home.terms_and_conditions}}
+              </a>
+            </li>
+            <li class="footer__link footer__link--last">
+              <a target="_blank" href="{{PRIVACY_POLICY_URL}}">
+                {{home.privacy_policy}}
+              </a>
+            </li>
+          </ul>
+
+          <div class="footer__aside">
+            <span class="footer__copyright float--left">
+              {{COPYRIGHT_YEAR}} Vodafone España S.A.U. Avda. América 115, 28042 Madrid
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
 
 <script>

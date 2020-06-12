@@ -74,7 +74,7 @@
 
 .company-manage-list {
   .ad-component--link.ad-component_dropdown--trigger,
-  .ad-component--link.account-link {
+  & > .ad-component_list-item--account > .account-link {
     font-family: VodafoneLight;
     color: $color-mine-shaft;
 
@@ -98,7 +98,7 @@
 
 .company-manage-list-desktop {
   .ad-component--link.ad-component_dropdown--trigger,
-  .ad-component--link.account-link {
+  & > .ad-component_list-item--account > .account-link {
     flex-direction: column;
 
     &::after {
@@ -112,7 +112,7 @@
   }
 
   .ad-component_dropdown.company-dropdown {
-    .ad-component--link.ad-component_dropdown--trigger, {
+    .ad-component--link.ad-component_dropdown--trigger {
       &::before {
         content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a");
       }
@@ -127,7 +127,7 @@
     }
   }
 
-  .ad-component--link.account-link {
+  & > .ad-component_list-item--account > .account-link {
     &::before {
       content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a");
     }
@@ -135,8 +135,14 @@
 }
 
 .company-manage-list-mobile {
+  & > .ad-component_list-item--account > .account-link {
+    &::after {
+      display: none;
+    }
+  }
+
   .ad-component--link.ad-component_dropdown--trigger,
-  .ad-component--link.account-link {
+  & > .ad-component_list-item--account > .account-link {
     font-size: 20px;
     font-family: VodafoneRegular;
     padding: 12px 23px 12px 10px;
@@ -144,6 +150,7 @@
 
     &::after {
       margin-top: -8px;
+      padding: 0;
     }
 
     &.ad-component_dropdown--is-active {

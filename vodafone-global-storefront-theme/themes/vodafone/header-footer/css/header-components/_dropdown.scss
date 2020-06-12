@@ -73,7 +73,8 @@
 }
 
 .company-manage-list {
-  .ad-component--link.ad-component_dropdown--trigger {
+  .ad-component--link.ad-component_dropdown--trigger,
+  .ad-component--link.account-link {
     font-family: VodafoneLight;
     color: $color-mine-shaft;
 
@@ -90,13 +91,14 @@
     }
 
     span {
-      max-width: 100% !important;
+      max-width: 150px !important;
     }
   }
 }
 
 .company-manage-list-desktop {
-  .ad-component--link.ad-component_dropdown--trigger {
+  .ad-component--link.ad-component_dropdown--trigger,
+  .ad-component--link.account-link {
     flex-direction: column;
 
     &::after {
@@ -110,7 +112,7 @@
   }
 
   .ad-component_dropdown.company-dropdown {
-    .ad-component--link.ad-component_dropdown--trigger {
+    .ad-component--link.ad-component_dropdown--trigger, {
       &::before {
         content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a");
       }
@@ -124,10 +126,17 @@
       }
     }
   }
+
+  .ad-component--link.account-link {
+    &::before {
+      content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a");
+    }
+  }
 }
 
 .company-manage-list-mobile {
-  .ad-component--link.ad-component_dropdown--trigger {
+  .ad-component--link.ad-component_dropdown--trigger,
+  .ad-component--link.account-link {
     font-size: 20px;
     font-family: VodafoneRegular;
     padding: 12px 23px 12px 10px;

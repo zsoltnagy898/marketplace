@@ -48,7 +48,7 @@
                 <div class="container">
                     <ul class="navigation__list navigation__hide d-flex" role="navigation">
                         <li class="navigation__item d-flex">
-                            <a href="/" class="js-brand brand">
+                            <a href="{{HOME_HREF}}" class="js-brand brand">
                                 <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img6278299006697370250?14da8e1c14f048a3837a600ba841fd5a"
                                      alt="Vodafone" class="brand__logo">
                             </a>
@@ -76,12 +76,16 @@
                                     <img src="https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img8123427286832152427?1c192fe915d1261eb62b4999ee50a6ca"
                                          alt="Search"
                                          class="icon-image icon-image--small search-open-icon">
-                                    <span class="navigation__icon-text d-none d-lg-block">
+                                    <span class="navigation__icon-text navigation-search-text d-none d-lg-block">
                                 {{home.search}}
                             </span>
                                 </div>
                             </form>
                         </li>
+                        <ul class="navigation__list navigation__hide d-none d-lg-flex company-manage-list company-manage-list-desktop">
+                            {{COMPANY_DROPDOWN}}
+                            {{MANAGE_DROPDOWN}}
+                        </ul>
                         <li class="js-navigation-item navigation__item navigation__item--right navigation__hide d-none d-lg-block">
                             <div class="js-profile">
                                 <a href="#"
@@ -93,7 +97,6 @@
                                     <span class="navigation__icon-text">{{USER_NAME}}</span>
                                 </a>
                                 <div class="js-profile-options profile__options">
-                                    {{MANAGE_LINKS}}
                                     <ul class="ad-component_list ad-component_list--manage-list manage-links">
                                         <li class="ad-component_list-item ad-component_list-item--developer">
                                             {{MYAPPS_LINK}}
@@ -167,7 +170,6 @@
                                         </a>
                                     </div>
                                     <div class="js-profile-options language__options profile__options profile__options-mobil">
-                                        {{MANAGE_LINKS}}
                                         <ul class="ad-component_list ad-component_list--manage-list manage-links">
                                             <li class="ad-component_list-item ad-component_list-item--developer">
                                                 {{MYAPPS_LINK}}
@@ -176,6 +178,10 @@
                                         {{USER_LIST}}
                                     </div>
                                 </div>
+                                <ul class="list list--reset company-manage-list company-manage-list-mobile">
+                                    {{COMPANY_DROPDOWN}}
+                                    {{MANAGE_DROPDOWN}}
+                                </ul>
                                 <div class="js-language language">
                                     <div class="language-header">
                                         <a href="#"

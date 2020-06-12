@@ -8,7 +8,7 @@ $nav-logo-height: 31px;
 $nav-logo-padding-vertical: 0;
 $nav-logo-padding-horizontal: 14px;
 
-$dropdown-container-border-radius: 3px;
+$dropdown-container-border-radius: 6px;
 $dropdown-container-box-shadow: 0 3px 10px 0 rgba(45, 45, 45, 0.125);
 $dropdown-container-margin-top: 4px;
 $dropdown-container-min-width: 192px;
@@ -16,8 +16,12 @@ $dropdown-container-item-padding-top: 10px;
 $dropdown-container-item-padding-right: 30px;
 $dropdown-container-item-padding-bottom: 10px;
 $dropdown-container-item-padding-left: 10px;
-$dropdown-container-item-font-size: 14px;
+$dropdown-container-item-font-size: 18px;
 $dropdown-container-item-text-transform: capitalize;
+
+$header-nav-dropdown-font-color: #212529;
+$header-nav-dropdown-bg-hover: #f8f9fa;
+$header-nav-dropdown-font-color-hover: #212529;
 
 $profile-img-width: 24px;
 $profile-img-height: $profile-img-width;

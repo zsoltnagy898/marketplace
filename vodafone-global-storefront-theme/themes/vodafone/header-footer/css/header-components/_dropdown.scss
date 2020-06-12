@@ -1,87 +1,166 @@
+@import "../../../assets/css/custom/variables";
+
 .ad-component_dropdown {
-	display: block;	
-	position: relative;
+  display: block;
+  position: relative;
 
-	// Styling of list items in lists / dropdowns
-	.ad-component_list {
-		background-color: $headerNavDropdownBg;
-		border: 1px solid $headerNavDropdownBorderColor;
-		border-radius: $dropdown-container-border-radius;
-		box-shadow: $dropdown-container-box-shadow;
-		background-clip: padding-box;
-		display: none;		
-		list-style: none;	
-		margin-top: $dropdown-container-margin-top;
-		margin-right: $headerNavDropdownMarginRight;
-		min-width: $dropdown-container-min-width;	
-		padding: 0;
-		position: absolute;
-		text-align: left;	
-		top: 100%;
-		right: 0;
-		z-index: 1090;
-		
-		.ad-component_list-item {
-			border-top: 1px solid $headerNavDropdownBorderColor;		
-			margin: 0;
-			padding: 0;
-			text-align: left;
+  // Styling of list items in lists / dropdowns
+  .ad-component_list {
+    background-color: $headerNavDropdownBg;
+    border-radius: $dropdown-container-border-radius;
+    box-shadow: $dropdown-container-box-shadow;
+    background-clip: padding-box;
+    display: none;
+    list-style: none;
+    margin-top: $dropdown-container-margin-top;
+    margin-right: $headerNavDropdownMarginRight;
+    min-width: $dropdown-container-min-width;
+    padding: 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    right: 0;
+    z-index: 1090;
+    padding: 8px 0;
 
-			&:first-child {
-				border-top: none;
-				.ad-component--link {
-					border-top: none;
-					border-top-left-radius: $dropdown-container-border-radius;
-					border-top-right-radius: $dropdown-container-border-radius;
-				}
-			}
+    .ad-component_list-item {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
 
-			&:last-child .ad-component--link {
-				border-bottom-left-radius: $dropdown-container-border-radius;
-				border-bottom-right-radius: $dropdown-container-border-radius;
-			}
-		}
-		
-		// Styling the links within the dropdown containers
-		.ad-component--link {
-			color: $headerNavDropdownFontColor;
-			padding-top: $dropdown-container-item-padding-top;
-			padding-right: $dropdown-container-item-padding-right;
-			padding-bottom: $dropdown-container-item-padding-bottom;
-			padding-left: $dropdown-container-item-padding-left;
-			display: block;
-			text-transform: $dropdown-container-item-text-transform;
-			text-decoration: none;
-			font-size: $dropdown-container-item-font-size;
-			line-height: $dropdown-container-item-font-size;
-			text-align: left;
+    // Styling the links within the dropdown containers
+    .ad-component--link {
+      color: $header-nav-dropdown-font-color;
+      padding-top: $dropdown-container-item-padding-top;
+      padding-right: $dropdown-container-item-padding-right;
+      padding-bottom: $dropdown-container-item-padding-bottom;
+      padding-left: $dropdown-container-item-padding-left;
+      display: block;
+      text-transform: $dropdown-container-item-text-transform;
+      text-decoration: none;
+      font-size: $dropdown-container-item-font-size;
+      line-height: $dropdown-container-item-font-size;
+      text-align: left;
+      font-family: "VodafoneRegular";
 
-			&:hover {
-				box-shadow: 0 0 0 1px $headerNavDropdownBorderColorHover;
-				position: relative;
-				background-color: $headerNavDropdownBgHover;
-				color: $headerNavDropdownFontColorHover;
-			}
-		}
-	}
+      &:hover {
+        position: relative;
+        background-color: $header-nav-dropdown-bg-hover;
+        color: $header-nav-dropdown-font-color-hover;
+      }
+    }
+  }
 }
 
 // See '_font-icons.scss' for rest of styling
 .ad-component_dropdown .ad-component_dropdown--trigger:after {
-	content: "\e905";
-	position: static;
-	right: 0px;
+  content: "\e905";
+  position: static;
+  right: 0px;
 }
 
 // Open dropdown Styling
 .ad-component_dropdown.js-dropdown-active {
-	
-	> .ad-component_dropdown--trigger {
-		background: $headerNavItemBgSelected;
-		color: $headerNavFontHoverColor;
-	}
-	
-	.ad-component_list {
-		display: block;
-	}
+  > .ad-component_dropdown--trigger {
+    background: $headerNavItemBgSelected;
+    color: $headerNavFontHoverColor;
+  }
+
+  .ad-component_list {
+    display: block;
+  }
+}
+
+.company-manage-list {
+  .ad-component--link.ad-component_dropdown--trigger {
+    font-family: VodafoneLight;
+    color: $color-mine-shaft;
+
+    &:hover,
+    &.ad-component_dropdown--is-active {
+      color: $color-red-berry;
+      background-color: inherit;
+    }
+
+    &::after {
+      padding-left: 4px;
+      margin-top: -4px;
+      content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img2147115385327445231?238988ae81dc5c6b927ef67ee575d63b");
+    }
+
+    span {
+      max-width: 100% !important;
+    }
+  }
+}
+
+.company-manage-list-desktop {
+  .ad-component--link.ad-component_dropdown--trigger {
+    flex-direction: column;
+
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      height: 28px;
+      margin-bottom: 2px;
+    }
+  }
+
+  .ad-component_dropdown.company-dropdown {
+    .ad-component--link.ad-component_dropdown--trigger {
+      &::before {
+        content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a");
+      }
+    }
+  }
+
+  .ad-component_dropdown.manage-dropdown {
+    .ad-component--link.ad-component_dropdown--trigger {
+      &::before {
+        content: url("https://d33na3ni6eqf5j.cloudfront.net/channel_custom_style_resources/img605305839428441563?50c489f6d98b2814084f9c1587f72e2a");
+      }
+    }
+  }
+}
+
+.company-manage-list-mobile {
+  .ad-component--link.ad-component_dropdown--trigger {
+    font-size: 20px;
+    font-family: VodafoneRegular;
+    padding: 12px 23px 12px 10px;
+    justify-content: space-between;
+
+    &::after {
+      margin-top: -8px;
+    }
+
+    &.ad-component_dropdown--is-active {
+      &::after {
+        margin-top: 0;
+        margin-bottom: -8px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .ad-component_list {
+    margin: 0;
+    position: static;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    background-color: $color-mercury-dark;
+
+    .ad-component--link {
+      padding: 0.5rem 1.5rem;
+      font-size: 16px;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
 }

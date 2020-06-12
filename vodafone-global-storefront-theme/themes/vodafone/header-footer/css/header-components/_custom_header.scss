@@ -347,7 +347,7 @@ nav.third-header {
 
 .navigation__item {
   float: left;
-  font-family: VodafoneLight;
+  font-family: VodafoneLight, Arial, sans-serif;
   font-size: 24px;
 }
 
@@ -509,7 +509,7 @@ nav.third-header {
   color: #fff;
   display: inline-block;
   font-size: 13px;
-  font-family: VodafoneRegularBold;
+  font-family: VodafoneRegularBold, Arial, sans-serif;
   height: 20px;
   line-height: 1.5em;
   position: absolute;
@@ -750,7 +750,7 @@ nav.third-header {
   .navigation__item {
     font-size: 20px;
     pointer-events: auto;
-    font-family: VodafoneRegular;
+    font-family: VodafoneRegular, Arial, sans-serif;
   }
   .navigation__item--tertiary {
     padding: 0 10px;
@@ -892,7 +892,7 @@ nav.third-header {
 .help {
   font-size: 16px;
   color: $color-wild-sand;
-  font-family: "VodafoneLight";
+  font-family: "VodafoneLight", Arial, sans-serif;
   height: 100%;
   display: flex;
   align-items: center;
@@ -918,7 +918,7 @@ nav.third-header {
   .language__current {
     padding-top: 0;
     padding-bottom: 0;
-    font-family: "VodafoneLight" !important;
+    font-family: "VodafoneLight", Arial, sans-serif !important;
   }
 
   .language__icon {

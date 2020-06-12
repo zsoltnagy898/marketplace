@@ -184,7 +184,6 @@
 @import "./bootstrap_override";
 @import "../../../header-footer/css/header-components/custom_header";
 @import "./svg_icon";
-@import "./footer";
 @import "./carousel";
 @import "./button";
 @import "./section_backrgound";
@@ -3511,7 +3510,7 @@ p {
   }
 }
 
-.footer__curtain, .hero {
+.hero {
   background-color: #333
 }
 

@@ -425,36 +425,60 @@
       window.location = "/" + language + location + window.location.search;
     }
 
-    function toggleLanguageChooser() {
-      var optionList = $(".js-language-options");
-      var downIcon = $(".language__icon--down");
-      var upIcon = $(".language__icon--up");
+    function hideOnClickOutside(selector, isVisible, onOutsideClick) {
+      function outsideClickListener(event) {
+        var $target = $(event.target);
+        if (!$target.closest(selector).length && isVisible()) {
+          onOutsideClick();
+          removeClickListener();
+        }
+      }
+
+      function removeClickListener() {
+        document.removeEventListener("click", outsideClickListener);
+        $(".ad-component_dropdown--trigger").off("click", outsideClickListener);
+      }
+
+      document.addEventListener("click", outsideClickListener);
+      $(".ad-component_dropdown--trigger").on("click", outsideClickListener);
+    }
+
+    function toggleMenu(selector) {
+      var optionList = $(selector + " .js-options");
+      var downIcon = $(selector + " .js-icon-down");
+      var upIcon = $(selector + " .js-icon-up");
 
       if (optionList.hasClass("open")) {
         optionList.removeClass("open");
         downIcon.addClass("open");
         upIcon.removeClass("open");
       } else {
-        optionList.addClass("open");
-        downIcon.removeClass("open");
-        upIcon.addClass("open");
+        hideOnClickOutside(
+          selector + " .js-options",
+          function() {
+            return optionList.hasClass("open");
+          },
+          function() {
+            optionList.removeClass("open");
+            downIcon.addClass("open");
+            upIcon.removeClass("open");
+          }
+        );
+
+        setTimeout(function() {
+          optionList.addClass("open");
+          downIcon.removeClass("open");
+          upIcon.addClass("open");
+        });
       }
     }
 
-    function toggleProfileMenu() {
-      var optionList = $(".js-profile-options");
-      var downIcon = $(".profile__icon--down");
-      var upIcon = $(".profile__icon--up");
+    function toggleLanguageChooser() {
+      toggleMenu(".js-language");
+    }
 
-      if (optionList.hasClass("open")) {
-        optionList.removeClass("open");
-        downIcon.addClass("open");
-        upIcon.removeClass("open");
-      } else {
-        optionList.addClass("open");
-        downIcon.removeClass("open");
-        upIcon.addClass("open");
-      }
+    function toggleProfileMenu() {
+      toggleMenu(".js-profile");
     }
 
     function navToggle() {
@@ -465,7 +489,19 @@
       if (dropdownContent.hasClass(dropdownContentActiveClass)) {
         dropdownContent.removeClass(dropdownContentActiveClass);
       } else {
-        dropdownContent.addClass(dropdownContentActiveClass);
+        hideOnClickOutside(
+          ".js-navigation.navigation--tertiary",
+          function() {
+            return dropdownContent.hasClass(dropdownContentActiveClass);
+          },
+          function() {
+            dropdownContent.removeClass(dropdownContentActiveClass);
+          }
+        );
+
+        setTimeout(function() {
+          dropdownContent.addClass(dropdownContentActiveClass);
+        });
       }
     }
 

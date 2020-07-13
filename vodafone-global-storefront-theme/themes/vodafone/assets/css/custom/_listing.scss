@@ -10,14 +10,16 @@
   font-size: 14px;
 }
 
-.listing-items {
+.listing .listing-dropdown {
+  z-index: 10;
+}
 
+.listing-items {
   @include media-breakpoint-down(md) {
     padding: 0;
   }
 
   .content {
-
     @include media-breakpoint-down(md) {
       padding: 0;
 
@@ -34,12 +36,12 @@
   }
 }
 
-.listing-items-row, .listing-items-grid {
+.listing-items-row,
+.listing-items-grid {
   display: none;
 }
 
 .listing-grid-list {
-
   .listing-items-row {
     display: none;
   }

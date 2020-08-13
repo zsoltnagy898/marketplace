@@ -1,0 +1,136 @@
+{% extends "/layout/profile.html" %}
+
+{% from "/macros/profile/profile-edition-list.html" import profileEditionList %}
+{% from "/macros/profile/profile-edition-list-item-header.html" import profileEditionListItemHeader %}
+{% from "/macros/profile/profile-addon-list-item-header.html" import profileAddonListItemHeader %}
+{% from "/macros/profile/profile-edition-list-item-content.html" import profileEditionListItemContent %}
+{% from "/macros/profile/profile-addon-list-item-content.html" import profileAddonListItemContent %}
+{% from "/macros/profile/show-more-edition-item.html" import showMoreEditionItem %}
+{% from "/macros/profile/profile-edition-cost.html" import profileEditionCost %}
+
+{% from "/macros/profile/profile-addon-cost.html" import profileAddonCost %}
+
+{% macro addonProducts(addons) %}
+<div class="container profile-editions">
+    {% for addon in addons.items %}
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <h3 class="text-center heading heading--3 heading--center heading--leading">
+                    {{ addon.name }}
+                </h3>
+            </div>
+            <div class="row flex-column-reverse flex-lg-row">
+                {% for edition in addon.edition %}
+                <div class="col-3 profile-edition-item mb-3">
+                    {{profileEditionListItemHeader(edition)}}
+                    <div class="profile-edition__action profile-addons__action w-100">
+                        <div class="pricing-row">
+                            {% set planCount = edition.plans.length %}
+                            {% for plan in edition.plans %}
+                            {% if plan.costs and plan.costs.unitPrice %}
+                            {% for unitPrice in plan.costs.unitPrice %}
+                            {% for usageRange in unitPrice.usageRange %}
+                            {{ profileAddonCost(usageRange) }}
+
+                            {% endfor %}
+                            {% endfor %}
+                            {% else %}
+                            <div class="invisible">.</div>
+                            {% endif %}
+                            {% if loop.index < planCount %}
+
+                            <li
+                                    class="profile-checklist__item profile-edition__prices-separator"
+                            >
+                                <span>{{ editions.i18n.tierSeparator }}</span>
+                            </li>
+                            {% endif %} {% endfor %}
+                        </div>
+                        <a href="{{edition.callToAction.url}}"
+                           role="button"
+                           class="button button--primary button--full-width">
+                            {{edition.callToAction.label}}
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+
+    </div>
+</div>
+
+<script>
+    var globalBulletsContainer, globalBulletsList, globalBulletsToggleList;
+    var bulletsContainerDesktop, bulletsListDesktop, bulletsToggleListDesktop;
+    var bulletsContainerMobile, bulletsListMobile, bulletsToggleListMobile;
+
+    function checkEachItemHeight(container, list, toggleList) {
+        $(container).removeClass("open");
+        $(toggleList).removeClass("show-more-toggle");
+
+        $.each(container, function (index, value) {
+            if (list[index].clientHeight > value.clientHeight) {
+                console.log('checkEachItemHeight', value.clientHeight, list[index].clientHeight);
+                $(toggleList[index]).addClass("show-more-toggle");
+            }
+        });
+    }
+
+    function toggleBulletList(index, id) {
+        var currentContainer;
+
+        if (typeof index !== "undefined") {
+            currentContainer = id === 'desktop' ? $(bulletsContainerDesktop[index]) : $(bulletsContainerMobile[index]);
+        } else {
+            currentContainer = $(globalBulletsContainer);
+        }
+
+        currentContainer.toggleClass("open");
+    }
+
+    var timeout = null;
+
+    function init() {
+        globalBulletsContainer = $(".profile-edition__bullets-global-bullets");
+        globalBulletsList = $(
+            ".profile-edition__bullets-global-bullets .profile-checklist-global-bullets"
+        );
+        globalBulletsToggleList = $(".js-edition-bullets-toggle-global-bullets");
+
+        bulletsContainerDesktop = $(".profile-edition-content-container.desktop .profile-edition__bullets");
+        bulletsListDesktop = $(".profile-edition-content-container.desktop .profile-edition__bullets .profile-checklist");
+        bulletsToggleListDesktop = $(".profile-edition-content-container.desktop .js-edition-bullets-toggle");
+
+        bulletsContainerMobile = $(".profile-edition-content-container.mobile .profile-edition__bullets");
+        bulletsListMobile = $(".profile-edition-content-container.mobile .profile-edition__bullets .profile-checklist");
+        bulletsToggleListMobile = $(".profile-edition-content-container.mobile .js-edition-bullets-toggle");
+
+        // each profile checklist item check desktop
+        checkEachItemHeight(bulletsContainerDesktop, bulletsListDesktop, bulletsToggleListDesktop);
+
+        // each profile checklist item check mobile
+        checkEachItemHeight(bulletsContainerMobile, bulletsListMobile, bulletsToggleListMobile);
+
+        // bullet list item check
+        checkEachItemHeight(globalBulletsContainer, globalBulletsList, globalBulletsToggleList);
+    }
+
+    function resize() {
+
+        if (timeout) {
+            clearTimeout(timeout)
+        }
+        timeout = setTimeout(init, 500);
+    }
+
+    window.addEventListener("resize", resize);
+
+    init();
+
+</script>
+{% endmacro %}

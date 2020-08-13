@@ -4,17 +4,16 @@
 {% from "/macros/analytics.html" import utagDataScript %}
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
 
-
 {% block contentSection %}
 
 {% from "/pages/profile/components/grid-features.html" import productFeatures %}
 {% from "/pages/profile/components/bundles.html" import productBundles %}
 {% from "/pages/profile/components/reviews.html" import reviews %}
 {% from "/pages/profile/components/policies-support.html" import support %}
-{% from "/pages/profile/components/addons.html" import addons %}
 
 
 {% block content %}
+{% from "/pages/profile/components/addon-products.html" import addonProducts with context %}
 {% from "/pages/profile/components/product-summary.html" import productSummary %}
 {% from "/pages/profile/components/editions-pricing.html" import editionsPricing with context %}
 {% from "/macros/sliders/carousel.html" import carousel with context %}
@@ -63,6 +62,11 @@
 {% if application.editions.items.length > 0 %}
 <section id="Editions" class="section section--white">
     {{editionsPricing(application.editions)}}
+</section>
+{% endif %}
+{% if application.editions.items.length > 0 %}
+<section id="Addons" class="section section--white">
+    {{addonProducts(application.addonProducts)}}
 </section>
 {% endif %}
 <div id="appbottom" data-vue-page="profile2">

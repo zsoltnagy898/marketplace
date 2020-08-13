@@ -1,0 +1,202 @@
+{% extends "/layout/profile.html" %}
+
+{% from "/macros/profile/profile-edition-list.html" import profileEditionList %}
+{% from "/macros/profile/profile-edition-list-item-header.html" import profileEditionListItemHeader %}
+{% from "/macros/profile/profile-edition-list-item-content.html" import profileEditionListItemContent %}
+{% from "/macros/profile/show-more-edition-item.html" import showMoreEditionItem %}
+
+{% macro editionsPricing(editions) %}
+<div class="container profile-editions">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center heading heading--3 heading--center heading--leading">
+                {% for navItem in application.navigation.items %}
+                {% if 'editions' === navItem.value %}
+                {{navItem.label}}
+                {% endif %}
+                {% endfor %}
+            </h3>
+        </div>
+    </div>
+    <div class="row flex-column-reverse flex-lg-row">
+        {% if editions.bullets.length %}
+        <div class="col-12 col-lg-3 profile-edition-item align-self-start">
+            <h4 class="heading heading--4 heading--regular mt-0 mb-0">
+                {{editions.i18n.bulletsHeader}}
+            </h4>
+            <div class="profile-edition__bullets-global-bullets">
+                <div class="profile-checklist-global-bullets d-flex flex-wrap">
+                    {% for bullet in editions.bullets %}
+                    <div class="d-flex align-items-start w-100 mt-3">
+                        <div class="bullet-item-img">
+                            <img src="{{r('/assets/images/check-red.png')}}"/>
+                        </div>
+                        <div class="bullet-item pl-2 d-flex">
+                            {{ bullet.content | safe }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="js-edition-bullets-toggle-global-bullets"
+                 onclick="toggleBulletList()">
+                {{showMoreEditionItem(editions)}}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="col-12 pl-0 pr-0 {% if editions.bullets.length %}col-lg-9 {% endif %} d-lg-flex d-none flex-wrap align-self-start">
+            {# Loop through first 3 elements #}
+
+            {% if editions.bullets.length %}
+            {% set sliceCountFirstRow = 3 %}
+            {% else %}
+            {% set sliceCountFirstRow = 4 %}
+            {% endif %}
+
+            {% for edition in editions.items %}
+
+            {% if loop.index0 === 0 %}
+
+            {% set items = [] %}
+
+            {% for index in range(loop.index0, loop.index0 + sliceCountFirstRow) -%}
+            {% if index < editions.items.length %}
+
+            {% set items = (items.push(editions.items[index]), items) %}
+
+            {% endif %}
+            {%- endfor %}
+
+            {% if items.length > 0 %}
+
+            {{profileEditionList(editions, items, sliceCountFirstRow === 3, 0)}}
+
+            {% endif %}
+
+            {% endif %}
+
+            {%- endfor %}
+
+
+            {# d-lg-flex d-none in profileEditionList macro #}
+            {# Loop through next 4 elements #}
+            {% if editions.items.length > 3 %}
+
+            {% if editions.bullets.length %}
+            {% set sliceCountOtherRows = 3 %}
+            {% else %}
+            {% set sliceCountOtherRows = 4 %}
+            {% endif %}
+
+            {% for edition in editions.items %}
+            {% set transformedIndex = loop.index0 - sliceCountFirstRow %}
+
+            {% if transformedIndex >= 0 and ((transformedIndex % sliceCountOtherRows) === 0 or transformedIndex === 0)
+            %}
+
+            {% set items = [] %}
+
+            {% for index in range(transformedIndex, transformedIndex + sliceCountOtherRows) -%}
+            {% set rangeIndex = sliceCountFirstRow + index %}
+
+            {% if rangeIndex < editions.items.length %}
+
+            {% set items = (items.push(editions.items[rangeIndex]), items) %}
+
+            {% endif %}
+            {%- endfor %}
+
+            {% if items.length > 0 %}
+
+            {{profileEditionList(editions, items, sliceCountOtherRows === 3, sliceCountFirstRow + transformedIndex)}}
+
+            {% endif %}
+
+            {% endif %}
+
+            {%- endfor %}
+            {% endif %}
+        </div>
+
+        <div class="col-12 p-0 d-lg-none d-flex flex-wrap">
+            {% for edition in editions.items %}
+            <div class="col-12 profile-edition-item mb-3">
+                {{profileEditionListItemHeader(edition)}}
+                {{profileEditionListItemContent(edition, editions, 'mobile', loop)}}
+            </div>
+            {%- endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    var globalBulletsContainer, globalBulletsList, globalBulletsToggleList;
+    var bulletsContainerDesktop, bulletsListDesktop, bulletsToggleListDesktop;
+    var bulletsContainerMobile, bulletsListMobile, bulletsToggleListMobile;
+
+    function checkEachItemHeight(container, list, toggleList) {
+        $(container).removeClass("open");
+        $(toggleList).removeClass("show-more-toggle");
+
+        $.each(container, function (index, value) {
+            if (list[index].clientHeight > value.clientHeight) {
+                console.log('checkEachItemHeight', value.clientHeight, list[index].clientHeight);
+                $(toggleList[index]).addClass("show-more-toggle");
+            }
+        });
+    }
+
+    function toggleBulletList(index, id) {
+        var currentContainer;
+
+        if (typeof index !== "undefined") {
+            currentContainer = id === 'desktop' ? $(bulletsContainerDesktop[index]) : $(bulletsContainerMobile[index]);
+        } else {
+            currentContainer = $(globalBulletsContainer);
+        }
+
+        currentContainer.toggleClass("open");
+    }
+
+    var timeout = null;
+
+    function init() {
+        globalBulletsContainer = $(".profile-edition__bullets-global-bullets");
+        globalBulletsList = $(
+            ".profile-edition__bullets-global-bullets .profile-checklist-global-bullets"
+        );
+        globalBulletsToggleList = $(".js-edition-bullets-toggle-global-bullets");
+
+        bulletsContainerDesktop = $(".profile-edition-content-container.desktop .profile-edition__bullets");
+        bulletsListDesktop = $(".profile-edition-content-container.desktop .profile-edition__bullets .profile-checklist");
+        bulletsToggleListDesktop = $(".profile-edition-content-container.desktop .js-edition-bullets-toggle");
+
+        bulletsContainerMobile = $(".profile-edition-content-container.mobile .profile-edition__bullets");
+        bulletsListMobile = $(".profile-edition-content-container.mobile .profile-edition__bullets .profile-checklist");
+        bulletsToggleListMobile = $(".profile-edition-content-container.mobile .js-edition-bullets-toggle");
+
+        // each profile checklist item check desktop
+        checkEachItemHeight(bulletsContainerDesktop, bulletsListDesktop, bulletsToggleListDesktop);
+
+        // each profile checklist item check mobile
+        checkEachItemHeight(bulletsContainerMobile, bulletsListMobile, bulletsToggleListMobile);
+
+        // bullet list item check
+        checkEachItemHeight(globalBulletsContainer, globalBulletsList, globalBulletsToggleList);
+    }
+
+    function resize() {
+
+        if (timeout) {
+            clearTimeout(timeout)
+        }
+        timeout = setTimeout(init, 500);
+    }
+
+    window.addEventListener("resize", resize);
+
+    init();
+
+</script>
+{% endmacro %}

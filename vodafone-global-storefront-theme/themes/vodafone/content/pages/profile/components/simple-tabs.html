@@ -43,7 +43,7 @@
                 var section = $(sections[index]);
                 var sectionTop = section.offset().top;
 
-                if (scrollTop + tabsTop >= sectionTop) {
+                if (scrollTop + tabsTop >= sectionTop - 200) {
                     tabsContainer.find('.js-tabs-tab').removeClass('tabs__tab--active');
                     tabsContainer.find('.js-tabs-tab[href="#' + section.attr('id') + '"]').addClass('tabs__tab--active');
                 }

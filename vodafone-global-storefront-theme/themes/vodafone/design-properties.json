@@ -16,5 +16,12 @@
   "headerNavDropdownFontColorHover": "#fff",
   "headerNavDropdownMarginRight": "0",
   "logoImage": "/assets/images/logo_white_2x.png",
-  "logoWidth": "31px"
+  "logoWidth": "31px",
+
+  "colorPrimary": "#e60000",
+  "colorSecondary": "#009abf",
+  "colorEmphasis": "#76bd22",
+  "btnDefaultBackground": "#e60000",
+  "btnDefaultRadius": "3px",
+  "btnDefaultGradient": "0%"
 }

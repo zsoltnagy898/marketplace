@@ -1,7 +1,7 @@
 {% macro profileCarouselItem(product) %}
 <div class="profile-carousel-item row mb-5">
     <div class="col-12 text-center">
-        <h4 class="carousel-item-title heading heading--4 heading--regular text-center mt-0 mb-0"
+        <h4 class="carousel-item-title carousel-item-title-hero heading heading--4 heading--regular text-center mt-0 mb-0"
             title="{{product.slogan}}">
             {{product.slogan}}</h4>
     </div>
@@ -9,7 +9,7 @@
         <img aria-label="{{product.slogan}}" class="id--sliderimg" alt=""
              src="{{ product.imageUrl }}">
     </div>
-    <div class="col-12 carousel-item-description text-center body-text" title="{{product.description}}">
+    <div style="font-size: 20px;" class="col-12 carousel-item-description carousel-item-description-hero text-justify body-text" title="{{product.description}}">
         {{product.description}}
     </div>
 </div>

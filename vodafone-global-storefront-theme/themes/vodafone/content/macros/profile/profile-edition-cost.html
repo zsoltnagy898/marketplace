@@ -3,6 +3,8 @@
     <div class="amount heading--bold heading--3 m-0">{{ cost.formattedPrice }}</div>
     {% if cost.unit and cost.unit.label %}
     <span class="unit body-text">/ {{ cost.unit.label }}</span>
+    {% else %}
+    <span class="unit body-text">/ {{t(i18n.custom.listing.buy_now)}}</span>
     {% endif %}
     {% if cost.frequency and cost.frequency.label %}
     <span class="frequency body-text">/ {{ cost.frequency.label }}</span>

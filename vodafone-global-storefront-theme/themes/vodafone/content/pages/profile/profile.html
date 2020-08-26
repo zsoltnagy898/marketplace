@@ -64,7 +64,7 @@
     {{editionsPricing(application.editions)}}
 </section>
 {% endif %}
-{% if application.editions.items.length > 0 %}
+{% if application.addonProducts.items.length > 0 %}
 <section id="Addons" class="section section--white">
     {{addonProducts(application.addonProducts)}}
 </section>
@@ -75,6 +75,7 @@
     </section>
     <!--    <Toaster :application="{{ application|dump }}"></Toaster>-->
 </div>
+
 {% endblock %}
 
 {% endblock %}

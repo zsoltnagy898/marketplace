@@ -6,7 +6,7 @@
 {% macro carousel(id='carousel', products={}, list=[], itemTheme='hero', showTitle=false, showIndicators=true, showViewMore=false, viewType='desktop', sliceCount=1, greyBg=false, widerControls=false, title='') %}
 <div class="container">
     <div id="{{id}}"
-         class="carousel slide {{'high-height' if showViewMore}} {{'high-height-image' if itemTheme === 'profile'}} {{'low-height' if itemTheme === 'logo'}} {{'grey-bg' if greyBg}} {{'wider-controls' if widerControls}}"
+         class="carousel slide features-slider-image {{'high-height' if showViewMore}} {{'high-height-image' if itemTheme === 'profile'}} {{'low-height' if itemTheme === 'logo'}} {{'grey-bg' if greyBg}} {{'wider-controls' if widerControls}}"
          data-ride="carousel">
         {% if showTitle %}
         {% if title %}

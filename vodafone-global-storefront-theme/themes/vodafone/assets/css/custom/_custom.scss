@@ -8980,7 +8980,121 @@ p {
   text-align: right
 }
 
-.profile-addons__action {
-  padding: 15px;
-  box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.43);
+#help-menu a {
+  color: #e60000;
 }
+
+.ad-universalnav .footer__link {
+  font-size: 18px !important;
+}
+
+.ad-universalnav .navigation__link--icon {
+  margin: 0 10px;
+}
+
+.dropdown-menu.show {
+  top: 45px !important;
+}
+
+.dropdown-menu.show {
+  height: auto;
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: scroll;
+  transform: none !important;
+}
+
+.ad-universalnav .footer__links {
+  font-family: VodafoneRegular !important;
+}
+
+#logocol {
+  width: 60%;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+}
+
+#socialcol {
+  width: 39%;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+.ad-universalnav .footer__curtain {
+  @include media-breakpoint-down(md) {
+    padding: 20px !important;
+  }
+}
+
+.carousel .carousel-control-next {
+  right: -26px;
+}
+
+.carousel .carousel-control-prev {
+  left: -26px;
+}
+
+.heading {
+  font-family: "VodafoneRegular", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+#Features {
+
+}
+
+.adb-styled .adb-link__nav.adb-is-selected {
+  position: relative;
+  color: #fff;
+  box-shadow: 0 0 0 1px #006080;
+  border-top-color: #e60000;
+  background-color: #e60000;
+}
+
+#onetrust-pc-sdk,
+#onetrust-consent-sdk {
+  display: none;
+}
+
+#Policies {
+  padding: 150px 0;
+}
+
+@media (max-width: 991.98px) {
+  .ad-universalnav .footer__link:not(.footer__link--last) {
+    padding-right: 30px !important;
+    margin-right: 30px !important;
+    border-right: none;
+    margin-bottom: 14px;
+  }
+}
+
+.profile-addons__action {
+  box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.43);
+  padding: 15px;
+}
+
+.edition-title-main {
+  font-size: 2vw;
+}
+
+.footer__copyright {
+  font-family: "VodafoneRegular", Arial, sans-serif !important;
+}
+
+.es-quote {
+  font-family: Arial, sans-serif !important;
+}
+
+.heading--4 {
+  font-size: 26px !important;
+}
+
+.js-language-chosen,
+.help {
+  font-family: "VodafoneRegular", Arial, sans-serif !important;
+}
+

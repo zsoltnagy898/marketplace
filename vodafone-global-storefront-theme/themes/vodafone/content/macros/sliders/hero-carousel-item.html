@@ -1,12 +1,12 @@
 {% macro heroCarouselItem(product) %}
 <div class="hero-carousel-item row d-flex flex-wrap flex-column-reverse flex-lg-row mb-5">
     <div class="col-lg-6 col-12 text-lg-left text-center">
-        <h3 class="carousel-item-title heading heading--3 heading--center heading--leading text-lg-left text-center"
+        <h3 class="carousel-item-title carousel-item-title-hero heading heading--3 heading--center heading--leading text-lg-left text-center"
             title="{{product.name}}">
             {{product.name}}</h3>
-        <h3 class="carousel-item-overview heading heading--3 heading--center heading--leading text-lg-left text-center"
+        <h3 class="carousel-item-overview heading carousel-item-title-hero heading--3 heading--center heading--leading text-lg-left text-center"
             title="{{product.overview}}">{{product.overview}}</h3>
-        <h5 class="carousel-item-description" title="{{product.description}}">{{product.description}}
+        <h5 class="carousel-item-description carousel-item-description-hero" title="{{product.description}}">{{product.description}}
         </h5>
 
         <a href="{{product.url}}" role="button" class="button button--primary">{{t(i18n.custom.home.go_to_product)}}</a>

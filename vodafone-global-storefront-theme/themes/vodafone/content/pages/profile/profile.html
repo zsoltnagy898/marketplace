@@ -3,6 +3,7 @@
 
 {% from "/macros/analytics.html" import utagDataScript %}
 {% from "/macros/breadcrumb/breadcrumb.html" import breadcrumb %}
+{% from "/macros/profile/profile-lead-form.html" import LeadModal %}
 
 {% block contentSection %}
 
@@ -10,10 +11,11 @@
 {% from "/pages/profile/components/bundles.html" import productBundles %}
 {% from "/pages/profile/components/reviews.html" import reviews %}
 {% from "/pages/profile/components/policies-support.html" import support %}
+{% from "/pages/profile/components/addons.html" import addons %}
+{% from "/macros/profile/profile-lead-form.html" import leadForm %}
 
 
 {% block content %}
-{% from "/pages/profile/components/addon-products.html" import addonProducts with context %}
 {% from "/pages/profile/components/product-summary.html" import productSummary %}
 {% from "/pages/profile/components/editions-pricing.html" import editionsPricing with context %}
 {% from "/macros/sliders/carousel.html" import carousel with context %}
@@ -32,11 +34,145 @@
 {% endblock %}
 
 {{breadcrumb(breadcrumbData)}}
+<div class="modal  fade" id="leadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ application.leads.form.otherData.profileProduct.name }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="leadGenForm" target="targetFrame">
+            <div class="modal-body">
+                <div class="notification-container hide" id="leadGenNotificationError">
+                    <div class="alert alert-danger">
+                        Please fill the form with valid data.
+                    </div>
+                </div>
+                <div class="notification-container hide" id="leadGenNotification">
+                    <div class="alert alert-success">
+                        Thank you for your order request, a sales advisor will contact you shortly.
+                    </div>
+                </div>
 
+                    <div class="row" id="leadGenFormData">
+                        <div class="col-md-6 col-12">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.firstName.title }}">{{ application.leads.form.schema.firstName.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.firstName.type }}" class="form-control required" id="{{ application.leads.form.schema.firstName.title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.lastName.title }}">{{ application.leads.form.schema.lastName.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.lastName.type }}" class="form-control required" id="{{ application.leads.form.schema.lastName.title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.email.title }}">{{ application.leads.form.schema.email.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.email.type }}" class="form-control required" id="{{ application.leads.form.schema.email.title }}">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.companyName.title }}">{{ application.leads.form.schema.companyName.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.companyName.type }}" class="form-control required" id="{{ application.leads.form.schema.companyName.title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.companySize.title }}">{{ application.leads.form.schema.companySize.title }}</label>
+                                    <select required class="form-control required" id="{{ application.leads.form.schema.companySize.title }}">
+                                        {% for option in application.leads.form.schema.companySize.options %}
+                                        <option value="{{option.value}}" data-custom-value="{{ option[customValue] }}" {{ "selected" if option.isSelected }}>{{ option.label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.street1.title }}">{{ application.leads.form.schema.street1.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.street1.type }}" class="form-control required" id="{{ application.leads.form.schema.street1.title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.street2.title }}">{{ application.leads.form.schema.street2.title }}</label>
+                                    <input type="{{ application.leads.form.schema.street2.type }}" class="form-control required" id="{{ application.leads.form.schema.street2.title }}">
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.city.title }}">{{ application.leads.form.schema.city.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.city.type }}" class="form-control required" id="{{ application.leads.form.schema.city.title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.state.title }}">{{ application.leads.form.schema.state.title }}</label>
+                                    <select class="form-control required" id="{{ application.leads.form.schema.state.title }}">
+                                        {% for option in application.leads.form.schema.state.options %}
+                                        <option value="{{option.value}}" data-custom-value="{{ option[customValue] }}" {{ "selected" if option.isSelected }}>{{ option.label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.province.title }}">{{ application.leads.form.schema.province.title }}</label>
+                                    <select class="form-control required" id="{{ application.leads.form.schema.province.title }}">
+                                        {% for option in application.leads.form.schema.province.options %}
+                                        <option value="{{option.value}}" data-custom-value="{{ option[customValue] }}" {{ "selected" if option.isSelected }}>{{ option.label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.zip.title }}">{{ application.leads.form.schema.zip.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.zip.type }}" class="form-control required" id="{{ application.leads.form.schema.zip.title }}">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.country.title }}">{{ application.leads.form.schema.country.title }}</label>
+                                    <select required class="form-control required" id="{{ application.leads.form.schema.country.title }}">
+                                        {% for option in application.leads.form.schema.country.options %}
+                                        <option value="{{option.value}}" data-custom-value="{{ option[customValue] }}" {{ "selected" if option.isSelected }}>{{ option.label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.phone.title }}">{{ application.leads.form.schema.phone.title }}</label>
+                                    <input required type="{{ application.leads.form.schema.phone.type }}" class="form-control required" id="{{ application.leads.form.schema.phone.title }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ application.leads.form.schema.notes.title }}">{{ application.leads.form.schema.notes.title }}</label>
+                                    <textarea
+                                            class="form-control"
+                                            name="{{ application.leads.form.schema.notes.title }}"
+                                            id="{{ application.leads.form.schema.notes.title }}"
+                                            type="text"
+                                            val=""
+                                            placeholder="{{ application.leads.form.editorAttrs.placeholder }}"
+                                            maxlength="{{ application.leads.form.editorAttrs.maxlength }}"
+                                    ></textarea>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+
+            </div>
+            </form>
+            <iframe name="targetFrame" src="{{ application.leads.form.actionEndpoint }}" id="targetFrame" width="1" height="1" frameborder="0">
+            </iframe>
+            <div class="modal-footer">
+                <button id="submitLeadGen" type="button" class="button button--primary button--full-width">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <section class="position-relative section--white p-0">
     <img src="{{r('/assets/images/banner-2-red.png')}}" style="width: 100%;" class="section-bg"/>
     {{productSummary(application)}}
 </section>
+
+
 
 <div id="apptop" data-vue-page="profile">
     <div id="profile-page" class="profile-page">
@@ -48,6 +184,7 @@
         </section>
     </div>
 </div>
+
 {% if application.features.items.length > 0 %}
 <section id="Features" class="section section--light-grey">
     {% for navItem in application.navigation.items %}
@@ -59,14 +196,10 @@
     {% endfor %}
 </section>
 {% endif %}
+
 {% if application.editions.items.length > 0 %}
 <section id="Editions" class="section section--white">
     {{editionsPricing(application.editions)}}
-</section>
-{% endif %}
-{% if application.addonProducts.items.length > 0 %}
-<section id="Addons" class="section section--white">
-    {{addonProducts(application.addonProducts)}}
 </section>
 {% endif %}
 <div id="appbottom" data-vue-page="profile2">
@@ -75,10 +208,33 @@
     </section>
     <!--    <Toaster :application="{{ application|dump }}"></Toaster>-->
 </div>
-
 {% endblock %}
 
 {% endblock %}
+
+
+<script>
+
+
+
+    $(".js-profile-lead")
+        .profileLeads({
+            endpoint: {{ application.leads.form.actionEndpoint | dump | safe }},
+    otherData: {{ application.leads.form.otherData | dump | safe }},
+    customFields: {{ application.leads.form.schema.custom | dump | safe }},
+    i18n: {{ application.leads.i18n | dump | safe }}
+    }
+    );
+
+    $(".js-profile-upgrade-popup").on("click", function(e) {
+        e.preventDefault();
+        $("body > .profile-upgrade-modal").remove();
+        // upgrade popup is tied to it's button
+        $(this).closest(".profile-actions").find(".profile-upgrade-modal").clone().modal({
+            fadeDuration: 100
+        });
+    })
+</script>
 
 {% block analytics_data %}
 {{ utagDataScript({

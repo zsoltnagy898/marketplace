@@ -1,0 +1,154 @@
+{% macro TextField(formItem, i18n, isInline, hasPrefix) %}
+    <div class="form--field {{ "form--inline_field" if isInline }} js-form-{{ formItem.name }}" data-field-type="input" data-field-required="{{ formItem.isRequired }}" role="menuitem">
+        <label class="" for="{{ formItem.name }}">
+            {{ formItem.title }}
+            <span class="label--error js-error-message" data-message-required="{{ i18n.fieldRequired }}"></span>
+        </label>
+        {% if hasPrefix %}
+        <div class="input_row">
+            <div class="input_row--item input_row--label">
+                <label class="input_row--item_content js-prefix">+1</label>
+            </div>
+            <div class="input_row--item input_row--primary">
+        {% endif %}
+        <input 
+            name="{{ formItem.name }}"
+            id="{{ formItem.name }}"
+            type="text"
+            val=""
+            placeholder="{{ formItem.editorAttrs.placeholder }}"
+            maxlength="{{ formItem.editorAttrs.maxlength }}"
+        />
+        {% if hasPrefix %}
+            </div>
+        </div>
+        {% endif %}
+        {% if formItem.hint %}
+            <div class="caption form--caption">{{ formItem.hint }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro Select(formItem, i18n, isInline, isHidden, customValue, noClear) %}
+    <div class="form--field {{ "form--inline_field" if isInline }} {{ "hidden" if isHidden }} {{ "input--no-clear" if noClear }} js-form-{{ formItem.name }}" data-field-type="select" data-field-required="{{ formItem.isRequired }}" role="menuitem">
+        <label class="" for="{{ formItem.name }}">
+            {{ formItem.title }}
+            <span class="label--error js-error-message" data-message-required="{{ i18n.fieldRequired }}"></span>
+        </label>
+        <div class="dropdown">
+            <span class="js-dropdown-placeholder"></span>
+            <select aria-label="select" class="js-dropdown-select" name="{{formItem.name}}">
+                {% if formItem.includeEmptyOption %}
+                    <option value="">{{ formItem.emptyOptionLabel }}</option>
+                {% endif %}
+                {% for option in formItem.options %}
+                    <option value="{{option.value}}" data-custom-value="{{ option[customValue] }}" {{ "selected" if option.isSelected }}>{{ option.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro Checkbox(formItem, i18n, isInline) %}
+    <div class="form--field {{ "form--inline_field" if isInline }}" data-field-type="checkbox" data-field-required="{{ formItem.isRequired }}" role="menuitem">
+        <label class="" for="{{ formItem.name }}">
+            {{ formItem.title }}
+            <span class="label--error js-error-message" data-message-required="{{ i18n.fieldRequired }}"></span>
+        </label>
+        <div class="adb-selector">
+            {% for option in formItem.options %}
+            <label class="option-selector js-checkbox" for="{{ formItem.name }}_{{ loop.index }}">
+                <span class="selector--input">
+                    <input id="{{ formItem.name }}_{{ loop.index }}" value="{{ option.value }}" type="checkbox" name="{{ formItem.name }}" />
+                </span>
+                <span class="selector--value value-selector">{{ option.label }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        {% if formItem.hint %}
+            <div class="caption form--caption">{{ formItem.hint }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro TextArea(formItem, i18n, isInline) %}
+    <div class="form--field {% if isInline %}form--inline_field{% endif %}" data-field-type="textarea" data-field-required="{{ formItem.isRequired }}" role="menuitem">
+        <label for="{{ formItem.name }}">
+            {{ formItem.title }}
+            <span class="label--error js-error-message" data-message-required="{{ i18n.fieldRequired }}"></span>
+        </label>
+        <textarea 
+            name="{{ formItem.name }}"
+            id="{{ formItem.name }}"
+            type="text"
+            val=""
+            placeholder="{{ formItem.editorAttrs.placeholder }}"
+            maxlength="{{ formItem.editorAttrs.maxlength }}"
+        ></textarea>
+    </div>
+{% endmacro %}
+
+{% macro leadForm(form, i18n) %}
+    <form class="form" id="js-profile-lead-form">
+        <div data-fieldsets="" class="form--fieldset">
+            <fieldset data-fields="">
+                {{ TextField(form.schema.firstName, i18n) }}
+                {{ TextField(form.schema.lastName, i18n) }}
+                {{ TextField(form.schema.email, i18n) }}
+            </fieldset>
+            <fieldset data-fields="">
+                {{ TextField(form.schema.companyName, i18n, true) }}
+                {{ Select(form.schema.companySize, i18n, true) }}
+            </fieldset>
+            <fieldset data-fields="">
+                {{ TextField(form.schema.street1, i18n, true) }}
+                {{ TextField(form.schema.street2, i18n, true) }}
+            </fieldset>
+            <fieldset data-fields="">
+                {{ TextField(form.schema.city, i18n, true) }}
+                {{ Select(form.schema.state, i18n, true, true) }}
+                {{ Select(form.schema.province, i18n, true, true) }}
+                {{ TextField(form.schema.zip, i18n, true) }}
+            </fieldset>
+            <fieldset data-fields="">
+                {{ Select(form.schema.country, i18n, false, false, "phoneCode", true) }}
+                {{ TextField(form.schema.phone, i18n, false, true) }}
+                {{ TextArea(form.schema.notes, i18n) }}
+
+                {% for customItem in form.schema.custom %}
+                    {% if customItem.type == "Text" %}
+                        {{ TextField(customItem, i18n) }}
+                    {% elseif customItem.type == "Checkboxes" %}
+                        {{ Checkbox(customItem, i18n) }}
+                    {% endif %}
+                {% endfor %}
+            </fieldset>
+        </div>
+        <div class="layout-section"></div>
+        <button type="submit" class="button__primary is-hidden">false</button>
+    </form>
+{% endmacro %}
+
+{% macro LeadModal(leads) %}
+    <div id="lead-form-modal" class="modal modal-dialog modal__default modal__profile" role="menu">
+        <h3 class="modal--header">
+            {{ leads.i18n.title }}
+            <a class="close modal-dismiss" rel="modal:close"></a>
+        </h3>
+        <div class="modal--content modal-content" role="form">
+            {{ leadForm(leads.form, leads.i18n) }}
+        </div>
+        <menu class="modal--footer toolbar toolbar__polar modal-footer">
+            <menu class="toolbar--item modal-footer-left">
+                <menu class="toolbar--item">
+                    <button type="button" class="button toolbar--item button__primary" aria-label="submit" rel="modal:submit">
+                    <span>{{ leads.i18n.submit }}</span>
+                    </button>
+                    <button type="button" class="button toolbar--item button__secret" aria-label="cancel" rel="modal:close">
+                    <span>{{ leads.i18n.cancel }}</span>
+                    </button>
+                </menu>
+            </menu>
+        </menu>
+    </div>
+{% endmacro %}

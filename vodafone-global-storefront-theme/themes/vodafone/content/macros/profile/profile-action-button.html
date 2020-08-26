@@ -1,0 +1,30 @@
+{% from "/macros/simple-tooltip.html" import simpleTooltip %}
+{% from "/macros/profile/profile-upgrade.html" import UpgradeModal %}
+
+{% macro productActionButton(actionData, options) %}
+    {% set isAddToCart = actionData.actionType == "ADD_TO_CART" or actionData.actionType == "CONFIGURE" %}
+    <a 
+        {% if actionData.enabled and actionData.url %}href="{{ actionData.url }}"{% endif %}
+        {% if actionData.eppid %}data-eppid="{{ actionData.eppid }}"{% endif %}
+        class="  button
+                {{ 'button__emphasis' if actionData.isPrimary }}
+                {{ 'js-profile-lead-form' if actionData.actionType == "LEAD_GEN" }}
+                {{ 'js-profile-upgrade-popup' if actionData.actionType == "CAN_MOSI_UPGRADE" }}
+                {{ 'js-add-cart' if actionData.actionType == "ADD_TO_CART" }}
+                {{ 'button__addToCart' if options.isAddToCartStyle and isAddToCart }}
+                {{ 'tooltip' if actionData.tooltip}}
+                {{ 'button__small' if options.buttonSize == "small" }}
+                {{ 'button__large' if options.buttonSize == "large" }}
+                {{ 'button__full_width' if options.buttonSize == "fullWidth" }}
+                {{ 'button__primary' if actionData.isSecondary}}
+                {{ 'is-disabled' if not actionData.enabled}}
+                button__profile"
+        aria-label="{{ actionData.label }}"
+    >
+        <span>{{ actionData.label }}</span>
+        {{ simpleTooltip(actionData.tooltip, "bottom") }}
+    </a>
+    {% if actionData.popup and actionData.actionType == "CAN_MOSI_UPGRADE" %}
+        {{ UpgradeModal(actionData.popup) }}
+    {% endif %}
+{% endmacro %}

@@ -21,6 +21,9 @@
                 {% else %}
                 <div class="invisible">.</div>
                 {% endif %}
+                {% if plan.costs and plan.costs.flatPrice %}
+                {{ profileEditionCost(plan.costs.flatPrice) }}
+                {% endif %}
                 {% if loop.index < planCount %}
 
                 <li
@@ -40,13 +43,30 @@
             {{showMoreEditionItem(editions)}}
         </div>
         {% if edition and edition.callToAction %}
+        {% if edition.callToAction.actionType != "LEAD_GEN" %}
         <div class="profile-edition__action w-100">
-            <a href="{{edition.callToAction.url}}"
+            {% if edition.callToAction.actionType == "LEAD_GEN" %}
+            <a
+                    data-toggle="modal"
+                    data-target="#leadModal"
+                    role="button"
+                    class="button button--primary button--full-width
+               }
+            ">
+                Call me Back
+            </a>
+            {% else %}
+
+            {% endif %}
+            <a {% if edition.callToAction.enabled and edition.callToAction.url %}href="{{ edition.callToAction.url }}"{% endif %}
                role="button"
-               class="button button--primary button--full-width">
-                {{edition.callToAction.label}}
+               class="button button--primary button--full-width
+                    {{ 'js-profile-lead-form' if edition.callToAction.actionType == "LEAD_GEN" }}
+            ">
+            {{edition.callToAction.label}}
             </a>
         </div>
+        {% endif %}
         {% endif %}
     </div>
 </div>

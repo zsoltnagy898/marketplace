@@ -42,14 +42,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery.dotdotdot/2.0.1/jquery.dotdotdot.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css">
 
     {# WS2 styles #}
     <link rel="stylesheet" href="{{ r('/assets/css/custom/main.min.css') }}">
@@ -61,7 +60,7 @@
     <link rel="stylesheet" href="{{ r('/assets/css/custom/cyber-configurator.css') }}">
 </head>
 
-<body>
+<body {% if application.callToActions.items[0].actionType == 'LEAD_GEN' %}class="lead-gen-product"{% endif %}>
 
 {% include "/includes/ws2/group/sprite.svg" %}
 {% include "/includes/icons.svg" %}
@@ -154,62 +153,6 @@
         }
     }
 
-    function readCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-
-    function setCookie(c_name, value, exdays) {
-        var exdate = new Date();
-        exdate.setDate(exdate.getDate() + exdays);
-        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-        document.cookie = c_name + "=" + c_value + "; " + "path=/";
-    }
-
-    function getCookie(c_name) {
-        var i, x, y, ARRcookies = document.cookie.split(";");
-        for (i = 0; i < ARRcookies.length; i++) {
-            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
-            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
-            x = x.replace(/^\s+|\s+$/g, "");
-            if (x == c_name) {
-                return unescape(y);
-            }
-        }
-    }
-
-    var waitForButton;
-    var buttonInterval;
-    var cookieWrapper;
-
-    function getAcceptCookiesButton() {
-        waitForButton = $('.accept-cookies-button');
-        cookieWrapper = $('.optanon-alert-box-wrapper');
-        var value = readCookie('acceptedCookies');
-        // cookieWrapper.hide();
-        if (!waitForButton.length) {
-            buttonInterval = setTimeout(getAcceptCookiesButton, 200);
-        } else {
-
-            if (value !== null) {
-                cookieWrapper.hide();
-            }
-            clearTimeout(buttonInterval);
-            waitForButton[0].onclick = function () {
-                // alert('hello');
-                // document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
-                setCookie('acceptedCookies', true, 14)
-            }
-        }
-    }
-
-    getAcceptCookiesButton();
 
 </script>
 

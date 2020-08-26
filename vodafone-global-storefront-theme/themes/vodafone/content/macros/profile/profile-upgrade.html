@@ -1,0 +1,45 @@
+{% macro UpgradeModal(upgrades) %}
+    <div class="modal modal-dialog modal__default modal__profile profile-upgrade-modal" role="menu">
+        <h3 class="modal--header">
+            {{ upgrades.title }}
+            <a class="close modal-dismiss" rel="modal:close"></a>
+        </h3>
+        <div class="modal--content">
+            <p>{{ upgrades.text }}</p>
+            <div class="table--container">
+                <table class="table--content">
+                    <thead>
+                        <th class="application--title">
+                            {{ upgrades.i18n.application }}
+                        </th>
+                        <th class="edition--title">
+                            {{ upgrades.i18n.edition }}
+                        </th>
+                        <th class="action--title centered-content">
+                            {{ upgrades.i18n.actions }}
+                        </th>
+                    </thead>
+                    <tbody>
+                        {% for upgrade in upgrades.items %}
+                            <tr>
+                                <td class="application--name">
+                                    {{  upgrade.fromApplicationName }}
+                                </td>
+                                <td class="edition--name">
+                                    {{  upgrade.fromEditionName }}
+                                </td>
+                                <td class="action--button centered-content">
+                                    <menu class="toolbar--item">
+                                        <a href="{{ upgrade.url }}" class="button toolbar--item button__primary button__small" aria-label="select" rel="modal:select">
+                                            <span>{{ upgrades.i18n.select }}</span>
+                                        </a>
+                                    </menu>
+                                </td>
+                            </tr>
+                        {% endfor %}                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

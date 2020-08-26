@@ -33,6 +33,6 @@ listing:
   grid_view: 'Vista de cuadrícula'
   buy_now: 'Comprar Ahora'
 help_menu: 'Para consultas de carácter comercial, por favor, consulte con su ejecutivo de ventas o con su agente de atención especializado'
-help_menu_title: '<span class="es-quote">¿</span>necesitas ayuda<span class="es-quote">?</span>'
+help_menu_title: '¿necesitas ayuda?'
 searchBar:
   placeholder: 'Buscar aplicaciones'

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "vodafone-ws2": "^9.0.0",
     "vue": "^2.6.6",
     "vue-fragment": "^1.5.0"

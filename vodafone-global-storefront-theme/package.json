@@ -22,7 +22,7 @@
     "app-marketplace-ui-components": "^0.1.0",
     "bootstrap": "^4.4.1",
     "get-video-id": "^3.1.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "vodafone-ws2": "^9.0.0"
   },
   "devDependencies": {

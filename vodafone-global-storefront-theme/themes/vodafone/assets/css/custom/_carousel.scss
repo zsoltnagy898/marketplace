@@ -1,7 +1,7 @@
 @import "./variables";
 
 .carousel {
-  height: 370px;
+  min-height: 370px;
   overflow: hidden;
 
   @include media-breakpoint-down(md) {
@@ -66,16 +66,16 @@
       @extend .hide-text-overflow;
       color: $color-grey;
       font-family: VodafoneRegular;
-      max-height: 65px;
+      // max-height: 65px;
     }
 
-    .carousel-item-title, .carousel-item-overview {
-      @extend .hide-text-overflow;
-      max-height: 70px;
-    }
+    // .carousel-item-title, .carousel-item-overview {
+    //   @extend .hide-text-overflow;
+    //   max-height: 70px;
+    // }
 
     .hero-carousel-item {
-      height: 315px;
+      min-height: 315px;
 
       @include media-breakpoint-down(md) {
         height: unset;
@@ -99,12 +99,12 @@
 
       .carousel-item-overview {
         color: $color-red;
-        max-height: 91px;
+        // max-height: 91px;
       }
 
       .carousel-item-description {
         margin-bottom: 25px;
-        max-height: 70px;
+        // max-height: 70px;
       }
     }
 

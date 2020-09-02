@@ -5,3 +5,4 @@ ui-components/node_modules/
 landing-pages/node_modules/
 vodafone-global-storefront-theme/node_modules/
 *.css
+vodafone-global-storefront-theme/themes/vodafone/content/pages/.DS_Store

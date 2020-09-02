@@ -18,6 +18,7 @@
 {% block content %}
 {% from "/pages/profile/components/product-summary.html" import productSummary %}
 {% from "/pages/profile/components/editions-pricing.html" import editionsPricing with context %}
+{% from "/pages/profile/components/addon-products.html" import addonProducts with context %}
 {% from "/macros/sliders/carousel.html" import carousel with context %}
 {% from "/pages/profile/components/simple-tabs.html" import productTabs %}
 {% from "/pages/profile/components/overview.html" import productOverview %}
@@ -200,6 +201,11 @@
 {% if application.editions.items.length > 0 %}
 <section id="Editions" class="section section--white">
     {{editionsPricing(application.editions)}}
+</section>
+{% endif %}
+{% if application.addonProducts.items.length > 0 %}
+<section id="Addons" class="section section--white">
+    {{addonProducts(application.addonProducts)}}
 </section>
 {% endif %}
 <div id="appbottom" data-vue-page="profile2">

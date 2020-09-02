@@ -683,3 +683,19 @@
 
     jQuery(".edition-title-main").fitText(0.6);
 </script>
+<script>
+  $("#submitLeadGen").on("click", function(e) {
+      e.preventDefault();
+
+      if ($("#leadGenForm").valid()) {
+          //$('#leadGenForm').submit();
+          $('#leadGenNotification').removeClass('hide');
+          $('#leadGenFormData').addClass('hide');
+          $('.modal-footer').addClass('hide');
+          $('#leadGenNotificationError').addClass('hide');
+      } else {
+          $('#leadGenNotificationError').removeClass('hide');
+          $('#leadGenNotification').addClass('hide');
+      }
+  })
+</script>

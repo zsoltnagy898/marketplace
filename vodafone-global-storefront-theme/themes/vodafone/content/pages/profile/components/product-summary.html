@@ -17,9 +17,20 @@
             </div>
         </div>
         <div class="col-12 col-lg-4 d-flex justify-content-center">
-            <a href="#Editions" role="button" class="button button--primary--white button--wide">
-                {{application.domains.i18n.buyNow}}
+            <a href="#Editions" role="button" class="button button--primary--white button--wide"
+               {% if application.callToActions.items[0].actionType == "LEAD_GEN" %}
+            data-toggle="modal"
+            data-target="#leadModal"
+            {% endif %}
+            >
+            {% if application.callToActions.items[0].actionType == "LEAD_GEN" %}
+            Call me Back
+            {% else %}
+            {{application.domains.i18n.buyNow}}
+            {% endif %}
+
             </a>
+
         </div>
     </div>
 </div>

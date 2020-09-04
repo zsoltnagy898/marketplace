@@ -209,9 +209,11 @@
 </section>
 {% endif %}
 <div id="appbottom" data-vue-page="profile2">
+    {% if (application.support.termsUrl != NULL) or (application.support.privacyUrl != NULL) or (application.support.knowledgebaseUrl != NULL) %}
     <section id="Policies" class="section section--gallery gutter__large--y">
         {{ productSupport(application) }}
     </section>
+    {% endif %}
     <!--    <Toaster :application="{{ application|dump }}"></Toaster>-->
 </div>
 {% endblock %}

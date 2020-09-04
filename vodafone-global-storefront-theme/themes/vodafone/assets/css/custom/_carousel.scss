@@ -277,3 +277,13 @@
 #popularAppsDesktop .carousel-item-description {
   max-height: 65px;
 }
+
+#Features {
+  .carousel {
+    min-height: 370px;
+    height: auto !important;
+    .carousel.high-height-image {
+      min-height: 350px !important;
+    }
+  }
+}

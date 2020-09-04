@@ -5,7 +5,7 @@
   overflow: hidden;
 
   @include media-breakpoint-down(md) {
-    height: 528px;
+    min-height: 528px;
 
     &.high-height-image {
       padding: 0 !important;

@@ -84,7 +84,7 @@
       .carousel-item-title {
         font-family: VodafoneRegularBold;
         margin-bottom: 8px;
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(md){
           font-size: 24px;
           line-height: 24px;
         }
@@ -93,8 +93,7 @@
       .carousel-item-overview {
         font-family: VodafoneRegular;
         margin-bottom: 8px;
-
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(md){
           font-size: 18px;
           line-height: 18px;
         }
@@ -102,7 +101,6 @@
 
       .carousel-item-title {
         color: $color-red;
-        // min-height: 45px;
       }
 
       .carousel-item-overview {
@@ -112,11 +110,11 @@
 
       .carousel-item-description {
         margin-bottom: 25px;
-        // max-height: 70px;
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(md){
           font-size: 16px;
           line-height: 16px;
         }
+        // max-height: 70px;
       }
     }
 
@@ -267,16 +265,37 @@
 }
 
 .carousel-indicators {
-  z-index: 1
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+
 }
 
-.margin-bottom-5 {
+.margin-bottom-5{
   margin-bottom: 5rem;
 }
 
-#popularAppsDesktop .carousel-item-description {
-  max-height: 65px;
+
+#popularAppsDesktop {
+  .carousel-item-description {
+    max-height: 65px;
+  }
 }
+
+#popularAppsMobile {
+  .carousel-item-description {
+    max-height: 65px;
+  }
+}
+
 
 #Features {
   .carousel {
@@ -286,8 +305,12 @@
       min-height: 350px !important;
     }
   }
-}
+} 
 
 #featuredPartnersMobile.carousel.low-height {
   min-height: 170px !important;
+}
+
+.carousel.low-height {
+  min-height: 170px;
 }

@@ -84,17 +84,25 @@
       .carousel-item-title {
         font-family: VodafoneRegularBold;
         margin-bottom: 8px;
+        @include media-breakpoint-down(md) {
+          font-size: 24px;
+          line-height: 24px;
+        }
       }
 
       .carousel-item-overview {
         font-family: VodafoneRegular;
         margin-bottom: 8px;
-        font-size: 36px;
+
+        @include media-breakpoint-down(md) {
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
 
       .carousel-item-title {
         color: $color-red;
-        max-height: 45px;
+        // min-height: 45px;
       }
 
       .carousel-item-overview {
@@ -105,6 +113,10 @@
       .carousel-item-description {
         margin-bottom: 25px;
         // max-height: 70px;
+        @include media-breakpoint-down(md) {
+          font-size: 16px;
+          line-height: 16px;
+        }
       }
     }
 
@@ -252,4 +264,12 @@
       background-image: linear-gradient(90deg, $color-light-grey 80%, rgba($color-light-grey, 0) 100%);
     }
   }
+}
+
+.carousel-indicators {
+  z-index: 1
+}
+
+.margin-bottom-5 {
+  margin-bottom: 5rem;
 }

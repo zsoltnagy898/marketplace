@@ -9077,12 +9077,6 @@ p {
   padding: 15px;
 }
 
-.edition-title-main {
-  font-size: 2vw;
-  overflow-wrap: anywhere;
-  word-wrap: anywhere;
-}
-
 .footer__copyright {
   font-family: "VodafoneRegular", Arial, sans-serif !important;
 }
@@ -9101,7 +9095,6 @@ p {
 }
 
 .edition-title-main {
-  font-size: 2vw;
   overflow-wrap: anywhere;
   word-wrap: anywhere;
 }
@@ -9117,5 +9110,5 @@ p {
 .profile-addons__action {
   border-radius: 0 0 6px 6px;
   box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.43);
-  padding: 0 15px 15px;
+  padding: 16px 15px;
 }
